@@ -86,8 +86,8 @@
       <ul>
         <li><a href="#divine-liturgy" data-i18n="lit.nav.dl">Divine Liturgy</a></li>
         <li><a href="#divine-office" data-i18n="lit.nav.do">Divine Office</a></li>
-        <li><a href="#calendar" data-i18n="lit.nav.cal">Liturgical Calendar</a></li>
         <li><a href="#formation" data-i18n="lit.nav.form">Liturgical Formation</a></li>
+        <li><a href="#calendar" data-i18n="lit.nav.cal">Liturgical Calendar</a></li>
         <li><a href="#resources" data-i18n="lit.nav.res">Resources</a></li>
       </ul>
     </div>
@@ -150,8 +150,36 @@
     </div>
   </section>
 
-  <!-- ================= 3. LITURGICAL CALENDAR ================= -->
-  <section class="lit-section" id="calendar">
+  <!-- ================= 3. LITURGICAL FORMATION ================= -->
+  <section class="lit-section" id="formation">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M3 12l13-6 13 6-13 6z"/><path d="M8 14.5V21c0 2 4 4 8 4s8-2 8-4v-6.5M29 12v8"/></svg></span>
+        <div>
+          <p class="eyebrow eyebrow-red" data-i18n="lit.form.eyebrow">Learning to Celebrate</p>
+          <h2 class="section-title" data-i18n="lit.nav.form">Liturgical Formation</h2>
+          <p class="lit-lead" data-i18n="lit.form.lead">Liturgical formation helps the whole People of God to celebrate with understanding, devotion and active participation.</p>
+        </div>
+      </header>
+      <div class="lit-cards">
+        <article class="lit-card">
+          <h3 data-i18n="lit.form.c1.t">Deacons &amp; Altar Servers</h3>
+          <p data-i18n="lit.form.c1.p">Training in the service of the altar, the Ge’ez readings and the order of the Qiddase.</p>
+        </article>
+        <article class="lit-card">
+          <h3 data-i18n="lit.form.c2.t">Choirs &amp; Chant</h3>
+          <p data-i18n="lit.form.c2.p">Schools of Ge’ez and Zema for young people and choir members.</p>
+        </article>
+        <article class="lit-card">
+          <h3 data-i18n="lit.form.c3.t">Catechesis for the Faithful</h3>
+          <p data-i18n="lit.form.c3.p">Courses and talks on the meaning of the liturgy, the sacraments and the liturgical year.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. LITURGICAL CALENDAR ================= -->
+  <section class="lit-section alt" id="calendar">
     <div class="wrap">
       <header class="lit-head">
         <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="4" y="7" width="24" height="21" rx="2"/><path d="M4 13h24M10 4v6M22 4v6"/></svg></span>
@@ -162,15 +190,30 @@
         </div>
       </header>
     </div>
-  <!-- ================= TODAY + DATE CONVERTER ================= -->
-  <section class="wrap cal-top">
+  <!-- ===== Compact view: today + next feasts. "Show full calendar" opens the rest. ===== -->
+  <div class="wrap cal-compact">
     <article class="card today-card">
       <p class="eyebrow eyebrow-red" data-i18n="cal.today">Today</p>
       <p class="today-et" id="today-et"></p>
       <p class="today-sub"><span id="today-wd"></span> · <span id="today-gr"></span></p>
       <ul class="feast-lines" id="today-feast"></ul>
     </article>
+    <article class="card upcoming-card">
+      <p class="eyebrow eyebrow-red" data-i18n="cal.upcoming">Upcoming feasts</p>
+      <ul class="upcoming" id="upcoming"></ul>
+    </article>
+  </div>
+  <div class="wrap cal-toggle-row">
+    <button type="button" class="cal-toggle" id="cal-toggle" aria-expanded="false" aria-controls="cal-full">
+      <span class="when-closed" data-i18n="cal.more">Show full calendar</span>
+      <span class="when-open" data-i18n="cal.less">Show less</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+  </div>
 
+  <!-- ===== Full calendar: converter, month view, whole year (hidden until opened) ===== -->
+  <div class="cal-full" id="cal-full" hidden>
+  <section class="wrap cal-top">
     <article class="card conv-card">
       <p class="eyebrow eyebrow-red" data-i18n="cal.conv">Date Converter</p>
       <div class="conv-row">
@@ -257,34 +300,7 @@
       <p class="cal-note" data-i18n="cal.note">Easter (Fasika) and the feasts that depend on it are calculated with the Alexandrian computus used by the Ethiopian and Eritrean Churches. Local observances may differ — please follow the announcements of your parish.</p>
     </article>
   </section>
-  </section>
-
-  <!-- ================= 4. LITURGICAL FORMATION ================= -->
-  <section class="lit-section alt" id="formation">
-    <div class="wrap">
-      <header class="lit-head">
-        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M3 12l13-6 13 6-13 6z"/><path d="M8 14.5V21c0 2 4 4 8 4s8-2 8-4v-6.5M29 12v8"/></svg></span>
-        <div>
-          <p class="eyebrow eyebrow-red" data-i18n="lit.form.eyebrow">Learning to Celebrate</p>
-          <h2 class="section-title" data-i18n="lit.nav.form">Liturgical Formation</h2>
-          <p class="lit-lead" data-i18n="lit.form.lead">Liturgical formation helps the whole People of God to celebrate with understanding, devotion and active participation.</p>
-        </div>
-      </header>
-      <div class="lit-cards">
-        <article class="lit-card">
-          <h3 data-i18n="lit.form.c1.t">Deacons &amp; Altar Servers</h3>
-          <p data-i18n="lit.form.c1.p">Training in the service of the altar, the Ge’ez readings and the order of the Qiddase.</p>
-        </article>
-        <article class="lit-card">
-          <h3 data-i18n="lit.form.c2.t">Choirs &amp; Chant</h3>
-          <p data-i18n="lit.form.c2.p">Schools of Ge’ez and Zema for young people and choir members.</p>
-        </article>
-        <article class="lit-card">
-          <h3 data-i18n="lit.form.c3.t">Catechesis for the Faithful</h3>
-          <p data-i18n="lit.form.c3.p">Courses and talks on the meaning of the liturgy, the sacraments and the liturgical year.</p>
-        </article>
-      </div>
-    </div>
+  </div><!-- /cal-full -->
   </section>
 
   <!-- ================= 5. RESOURCES ================= -->

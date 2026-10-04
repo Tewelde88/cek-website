@@ -137,6 +137,7 @@ const NAMES = {
     era: 'E.C.', gr: 'Gregorian', et: 'Ethiopian',
     today: 'Today', fastDay: 'Fast day', none: 'No feasts this month.', noFeast: 'No major feast today.',
     invalid: 'Please enter a valid date.', range: '–', dayOf: 'days',
+    soon: { today: 'Today', tomorrow: 'Tomorrow', inDays: n => `in ${n} days` },
     feasts: {
       newyear: 'New Year · St John the Baptist', demera: 'Demera — Eve of the Holy Cross',
       meskel: 'Meskel — Finding of the Holy Cross', qusquam: 'Qusquam — Holy Family in Egypt',
@@ -166,6 +167,7 @@ const NAMES = {
     era: 'ዓ.ም.', gr: 'ግሪጎርያን', et: 'ግእዝ',
     today: 'ሎሚ', fastDay: 'መዓልቲ ጾም', none: 'ኣብዚ ወርሒ በዓል የለን።', noFeast: 'ሎሚ ዓቢ በዓል የለን።',
     invalid: 'በጃኹም ቅኑዕ ዕለት ኣእትዉ።', range: '–', dayOf: 'መዓልቲ',
+    soon: { today: 'ሎሚ', tomorrow: 'ጽባሕ', inDays: n => `ድሕሪ ${n} መዓልቲ` },
     feasts: {
       newyear: 'ርእሰ ዓመት · ቅዱስ ዮሓንስ', demera: 'ደመራ', meskel: 'መስቀል — ርክበ መስቀል',
       qusquam: 'ደብረ ቍስቋም', michael: 'ቅዱስ ሚካኤል', tsion: 'ሕዳር ጽዮን', baata: 'በኣታ ማርያም',
@@ -267,6 +269,50 @@ function renderMonth(){
   if (!count) list.appendChild(el('li', 'muted', N().none));
 }
 
+// Compact view: the next feasts from today (with a countdown)
+const UPCOMING_COUNT = 5;
+function renderUpcoming(){
+  const ul = $('upcoming'); if (!ul) return;
+  ul.replaceChildren();
+  let found = 0;
+  for (let j = todayJ; j < todayJ + 400 && found < UPCOMING_COUNT; j++){
+    infoFor(j).feasts.forEach(f => {
+      if (found >= UPCOMING_COUNT) return;
+      const n = j - todayJ, et = jdnToEt(j), g = jdnToGr(j);
+      const li = el('li', 'rank-' + f.rank);
+      const when = el('span', 'up-when', n === 0 ? N().soon.today : n === 1 ? N().soon.tomorrow : N().soon.inDays(n));
+      const body = el('span', 'up-body');
+      body.appendChild(el('strong', '', N().feasts[f.key]));
+      body.appendChild(el('span', 'up-date', `${fmtEt(et, false)} · ${fmtGr(g)}`));
+      const btn = el('button', 'up-btn'); btn.type = 'button';
+      btn.appendChild(body); btn.appendChild(when);
+      btn.addEventListener('click', () => openFullAt(j));
+      li.appendChild(btn);
+      ul.appendChild(li); found++;
+    });
+  }
+}
+
+// "Show full calendar" / "Show less"
+const toggle = $('cal-toggle'), full = $('cal-full');
+function setFull(open){
+  if (!toggle || !full) return;
+  full.hidden = !open;
+  toggle.setAttribute('aria-expanded', String(open));
+}
+if (toggle) toggle.addEventListener('click', () => {
+  const open = toggle.getAttribute('aria-expanded') !== 'true';
+  setFull(open);
+  if (!open) document.getElementById('calendar').scrollIntoView({ block: 'start' });
+});
+// Clicking an upcoming feast opens the full calendar on that day
+function openFullAt(j){
+  const et = jdnToEt(j);
+  state.y = et.y; state.m = et.m; state.sel = j;
+  renderMonth(); renderDay(); renderYear(); setFull(true);
+  document.querySelector('.month-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
 function renderDay(){
   const j = state.sel, et = jdnToEt(j), g = jdnToGr(j);
   $('day-et').textContent = fmtEt(et);
@@ -332,7 +378,7 @@ function go(dm){
   if (state.y === todayEt.y && state.m === todayEt.m) state.sel = todayJ;
   renderMonth(); renderDay(); if (yearChanged) renderYear();
 }
-function renderAll(){ fillConverter(); renderToday(); renderMonth(); renderDay(); renderYear(); convertGr(); convertEt(); }
+function renderAll(){ fillConverter(); renderToday(); renderUpcoming(); renderMonth(); renderDay(); renderYear(); convertGr(); convertEt(); }
 
 $('cal-prev').addEventListener('click', () => go(-1));
 $('cal-next').addEventListener('click', () => go(1));

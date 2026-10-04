@@ -63,3 +63,38 @@ html[lang="ti"] .lit-card h3{font-family:var(--ethiopic-serif)}
   .subnav{display:none}
   .lit-section{border:0;padding:0}
 }
+
+/* ---------- Calendar: compact view + "Show full calendar" ---------- */
+.cal-compact{display:grid;gap:clamp(16px,2vw,24px);grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));align-items:start}
+.upcoming{list-style:none;margin-top:8px;display:grid;gap:6px}
+.up-btn{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;
+  border:0;border-left:4px solid var(--gold);border-radius:var(--radius-sm);background:#fbf5e6;text-align:left;cursor:pointer;
+  transition:transform .15s,box-shadow .15s;
+}
+.up-btn:hover{transform:translateX(2px);box-shadow:var(--shadow)}
+.upcoming .rank-major .up-btn{border-left-color:var(--red);background:#fbeeee}
+.upcoming .rank-fast .up-btn{border-left-color:var(--navy);background:var(--navy-soft)}
+.up-body{display:flex;flex-direction:column;min-width:0}
+.up-body strong{font-size:.92rem;color:var(--ink)}
+.up-date{font-size:.78rem;color:var(--muted)}
+.up-when{flex:none;font-size:.75rem;font-weight:700;color:var(--navy);background:#fff;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.upcoming .rank-major .up-when{color:var(--red-dark)}
+
+.cal-toggle-row{display:flex;justify-content:center;margin-top:clamp(16px,2vw,24px)}
+.cal-toggle{
+  display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:10px 24px;border-radius:999px;cursor:pointer;
+  border:1px solid var(--navy);background:var(--navy);color:#fff;font-weight:600;font-size:.95rem;transition:background-color .2s;
+}
+.cal-toggle:hover{background:var(--navy-dark)}
+.cal-toggle svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
+.cal-toggle .when-open{display:none}
+.cal-toggle[aria-expanded="true"]{background:#fff;color:var(--navy)}
+.cal-toggle[aria-expanded="true"] .when-open{display:inline}
+.cal-toggle[aria-expanded="true"] .when-closed{display:none}
+.cal-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+.cal-full{margin-top:clamp(16px,2vw,24px);animation:calOpen .3s ease}
+@keyframes calOpen{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.cal-full .cal-top{grid-template-columns:minmax(0,1fr)}
+@media (min-width:760px){ .cal-full .conv-card{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;align-items:start} .cal-full .conv-card > .eyebrow{grid-column:1/-1} }
+@media print{ body.print-cal .cal-compact,body.print-cal .cal-toggle-row{display:none !important} .cal-full[hidden]{display:block !important} }
