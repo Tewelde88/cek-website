@@ -285,3 +285,32 @@ html[lang="ti"] .hero-motto{font-family:var(--ethiopic-serif)}
   *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}
   .slide .img{transform:none}
 }
+
+/* ---------- BIOGRAPHY POP-UP (e.g. Pope Leo XIV) ---------- */
+.bio{
+  width:min(760px, calc(100% - 24px));max-height:min(88vh, 900px);margin:auto;padding:0;
+  border:0;border-radius:var(--radius);background:var(--card);color:var(--ink);
+  box-shadow:0 30px 80px rgba(15,36,71,.45);overflow:hidden;
+}
+.bio[open]{display:flex;flex-direction:column}
+.bio::backdrop{background:rgba(15,36,71,.6);backdrop-filter:blur(3px)}
+body:has(.bio[open]){overflow:hidden}
+.bio-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px 12px 24px;border-bottom:1px solid var(--line);flex:none}
+.bio-bar .eyebrow{margin:0}
+.bio-close{width:40px;height:40px;border:0;border-radius:50%;background:var(--navy-soft);cursor:pointer;display:grid;place-items:center;flex:none}
+.bio-close:hover{background:var(--navy);}
+.bio-close svg{width:18px;height:18px;fill:none;stroke:var(--navy);stroke-width:2.4;stroke-linecap:round}
+.bio-close:hover svg{stroke:#fff}
+.bio-body{overflow-y:auto;overscroll-behavior:contain;padding:24px clamp(18px,4vw,36px) 32px;font-family:var(--sans)}
+.bio-body::after{content:"";display:table;clear:both}
+.bio-photo{float:right;width:min(42%,240px);height:auto;margin:4px 0 16px 24px;border-radius:var(--radius-sm);box-shadow:var(--shadow)}
+.bio-body h2{font-family:var(--serif);font-weight:600;color:var(--navy);font-size:clamp(1.35rem,1.1rem + 1vw,1.85rem);line-height:1.2;margin-bottom:14px}
+.bio-lead{font-size:1.05rem;color:var(--ink);font-weight:500;margin-bottom:8px}
+.bio-body h3{font-family:var(--serif);font-weight:600;color:var(--red);font-size:1.15rem;margin:24px 0 8px}
+.bio-body p{color:#3a4152;margin-bottom:12px}
+.bio-source{clear:both;margin-top:24px;padding-top:14px;border-top:1px solid var(--line);font-size:.82rem;font-style:italic;color:var(--muted) !important}
+@media (max-width:560px){
+  .bio{width:100%;max-width:100%;max-height:100vh;max-height:100dvh;height:100%;border-radius:0}
+  .bio-photo{float:none;width:min(240px,70%);margin:0 auto 18px;display:block}
+}
+html[lang="ti"] .bio-bar .eyebrow{font-family:var(--ethiopic)}

@@ -39,8 +39,8 @@ const TRANSLATIONS = {
     "pope.eyebrow":  "ቅዱስ ኣቦ",
     "pope.name":     "ር.ሊ.ጳ. ሊዮ 14ይ",
     "pope.alt":      "Pope Leo XIV",                          /* (EN) */
-    "pope.text":     "ንቅዱስ ኣቦን ንዓለማዊ ተልእኾኡን ምጽላይ ቀጽሉ።",
-    "pope.link":     "መልእኽቲ ኣንብቡ",
+    "pope.text":     "ካብ ቺካጎ ናብ መንበር ቅዱስ ጴጥሮስ — ህይወትን ኣገልግሎትን ሮበርት ፍራንሲስ ፕረቮስት።",
+    "pope.link":     "ታሪኽ ህይወት ኣንብቡ",
     "bishop.eyebrow":"ጳጳስና",
     "bishop.name":   "ጳጳስ ከረን",
     "bishop.alt":    "Bishop of Keren",                       /* (EN) */

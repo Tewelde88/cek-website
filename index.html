@@ -109,16 +109,49 @@
     <div class="wrap features-grid">
       <article class="feature">
         <!-- Photo: images/pope.jpg (portrait) -->
-        <div class="feature-media" style="background-image:url('images/pope.jpg'),linear-gradient(160deg,#eef1f6,#c9d2e2)"><span data-i18n="photo">Photo</span></div>
+        <div class="feature-media" role="img" aria-label="Pope Leo XIV" style="background-image:url('images/pope.jpg'),linear-gradient(160deg,#eef1f6,#c9d2e2)"></div>
         <div class="feature-body">
           <p class="eyebrow" data-i18n="pope.eyebrow">Holy Father</p>
           <h2 data-i18n="pope.name">Pope Leo XIV</h2>
           <p class="alt-lang" data-i18n="pope.alt" lang="ti">ቅዱስ ኣቦ ሊዮ 14ይ</p>
           <hr>
-          <p data-i18n="pope.text">Continue to pray for the Holy Father and his universal mission.</p>
-          <a class="more" href="#"><span data-i18n="pope.link">Read Message</span> <span class="arrow" aria-hidden="true">→</span></a>
+          <p data-i18n="pope.text">From Chicago to the Chair of Saint Peter — the life and ministry of Robert Francis Prevost.</p>
+          <a class="more" href="#pope-bio" data-open="pope-bio"><span data-i18n="pope.link">Read Biography</span> <span class="arrow" aria-hidden="true">→</span></a>
         </div>
       </article>
+
+      <!-- ===== Pope Leo XIV biography (opens as a pop-up from the card above) ===== -->
+      <dialog class="bio" id="pope-bio" aria-labelledby="pope-bio-title" lang="en">
+        <div class="bio-bar">
+          <p class="eyebrow eyebrow-red" data-i18n="pope.eyebrow">Holy Father</p>
+          <button type="button" class="bio-close" data-close aria-label="Close">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+        <article class="bio-body">
+          <img class="bio-photo" src="images/pope.jpg" alt="Portrait of Pope Leo XIV" width="560" height="700" loading="lazy">
+          <h2 id="pope-bio-title">Pope Leo XIV: From Chicago to the Chair of Saint Peter</h2>
+          <p class="bio-lead">Robert Francis Prevost’s journey to becoming Pope Leo XIV spans the United States, Peru, and Rome—a life shaped by Augustinian formation, missionary service, episcopal leadership, and responsibility at the heart of the Catholic Church.</p>
+
+          <h3>An Augustinian Beginning</h3>
+          <p>Born in Chicago on September 14, 1955, Robert Francis Prevost grew up with his parents, Louis Marius Prevost and Mildred Martínez, and his brothers, Louis Martín and John Joseph. After studying at the Minor Seminary of the Augustinian Fathers, he attended Villanova University, earning a degree in Mathematics in 1977 while also studying Philosophy. That same year, he entered the novitiate of the Order of Saint Augustine. He made his first profession in 1978 and his solemn vows in 1981.</p>
+          <p>Prevost pursued theological studies at the Catholic Theological Union in Chicago before traveling to Rome to study Canon Law at the Pontifical University of Saint Thomas Aquinas. He was ordained a priest on June 19, 1982, and later completed a doctorate focused on the role of the local prior in the Augustinian order.</p>
+
+          <h3>A Missionary Life in Peru</h3>
+          <p>Peru became central to Prevost’s ministry. After serving in the Augustinian mission in Chulucanas, he joined the mission in Trujillo, where his work combined formation, scholarship, Church governance, and parish life. Over eleven years, he served as community prior, formation director, instructor for professed members, judicial vicar, and professor of Canon Law, Patristics, and Moral Theology. He also provided pastoral care in a poor suburb of Trujillo and administered another local parish.</p>
+          <p>His leadership soon extended across the Augustinian order. Elected Provincial Prior in Chicago in 1999, he became Prior General of the Order of Saint Augustine two and a half years later and was confirmed for a second term in 2007. Returning to Chicago in 2013, he served in formation and provincial leadership until Pope Francis appointed him Apostolic Administrator of Chiclayo and Titular Bishop of Sufar in 2014.</p>
+
+          <h3>From Chiclayo to Rome</h3>
+          <p>Ordained a bishop on December 12, 2014, Prevost adopted the episcopal motto <em>In Illo uno unum</em>, expressing Saint Augustine’s teaching that Christians, though many, are one in Christ. Pope Francis appointed him Bishop of Chiclayo in 2015. He later served as second vice-president of the Peruvian Episcopal Conference and held responsibilities connected with its economic, cultural, and educational work.</p>
+          <p>His responsibilities increasingly reached beyond Peru. He became a member of the Congregation for the Clergy in 2019 and the Congregation for Bishops in 2020, while also serving as Apostolic Administrator of Callao. In January 2023, Pope Francis called him to Rome as Prefect of the Dicastery for Bishops and President of the Pontifical Commission for Latin America, promoting him to Archbishop.</p>
+
+          <h3>Cardinal and Pope</h3>
+          <p>Created Cardinal on September 30, 2023, Prevost was assigned the Diaconate of Saint Monica. As head of the Dicastery for Bishops, he joined Pope Francis on Apostolic Journeys, took part in both sessions of the Synod of Bishops on synodality, and was appointed to several Vatican dicasteries and commissions. He was later promoted to the Order of Bishops and given the title of the Suburbicarian Church of Albano.</p>
+          <p>His election as Pope Leo XIV made him the 267th Bishop of Rome, the first Augustinian Pope, and the second Roman Pontiff from the Americas. His biography brings together the intellectual discipline of a mathematician and canon lawyer, the pastoral experience of a missionary and parish leader, and the administrative perspective of a bishop, religious superior, and Vatican prefect.</p>
+
+          <p class="bio-source">Source: Adapted exclusively from Vatican News biography.</p>
+        </article>
+      </dialog>
 
       <article class="feature">
         <!-- Photo: images/bishop.jpg (portrait) -->

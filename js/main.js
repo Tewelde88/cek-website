@@ -179,3 +179,17 @@ document.querySelectorAll('.progress').forEach(p=>{
 
 /* ---------- Footer year ---------- */
 document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ---------- Pop-up windows (e.g. Pope biography) ---------- */
+document.querySelectorAll('[data-open]').forEach(link => {
+  const dlg = document.getElementById(link.dataset.open);
+  if (!dlg || typeof dlg.showModal !== 'function') return;   // very old browsers: link just jumps to the text
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    dlg.showModal();
+    dlg.querySelector('.bio-body').scrollTop = 0;
+  });
+  dlg.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', () => dlg.close()));
+  // Click on the dark area outside the window closes it
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+});
