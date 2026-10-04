@@ -216,3 +216,20 @@ document.querySelectorAll('[data-open]').forEach(link => {
   // Click on the dark area outside the window closes it
   dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
 });
+
+/* ---------- Sub-menu: highlight the section being read (Liturgy page) ---------- */
+(function(){
+  const links = [...document.querySelectorAll('.subnav a[href^="#"]')];
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  const byId = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const visible = new Set();
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => e.isIntersecting ? visible.add(e.target.id) : visible.delete(e.target.id));
+    // the first section (in page order) that is on screen wins
+    const current = [...byId.keys()].find(id => visible.has(id));
+    links.forEach(a => a.classList.toggle('active', a === byId.get(current)));
+    const act = byId.get(current);
+    if (act){ const ul = act.closest('ul'); ul.scrollTo({ left: act.parentElement.offsetLeft - 16, behavior: 'smooth' }); }
+  }, { rootMargin: '-140px 0px -55% 0px' });
+  byId.forEach((a, id) => { const s = document.getElementById(id); if (s) io.observe(s); });
+})();

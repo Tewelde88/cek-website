@@ -40,7 +40,12 @@ Modern, responsive design — works on phones, tablets, laptops and large screen
 - Sermons: add a `ti:"..."` title next to `t:"..."` in `js/sermons.js`.
 - Menu items swap automatically (English label ⇄ Tigrinya label).
 
-## Liturgical calendar (calendar.html)
+## Liturgy page (liturgy.html)
+- Sub-sections with a sticky sub-menu: Divine Liturgy, Divine Office, Liturgical Calendar, Liturgical Formation, Resources. Edit the text in `liturgy.html` (English) and the `lit.*` keys in `js/translations.js` (Tigrinya). Styles: `css/liturgy.css`.
+- To add a resource link: copy one `<a class="res-item">` block in the Resources section.
+- `calendar.html` only forwards old links to `liturgy.html#calendar`.
+
+### Liturgical calendar (section of liturgy.html)
 - Ethiopian (Ge'ez rite) calendar with Gregorian dates: today, date converter, month view, and the full list of feasts and fasts for any year (with Print).
 - Engine and feast list: `js/calendar.js`. Fixed feasts are in `FIXED_FEASTS` (Ethiopian month 1–13, day); feasts that move with Easter are in `MOVABLE_FEASTS` (days from Fasika). Names in English and Tigrinya are in `NAMES` in the same file.
 - Easter (Fasika) uses the Alexandrian computus (same date as the Ethiopian/Eritrean Churches). Christmas is 29 Tahsas (28 Tahsas in the year after a leap year), so it stays on 7 January.

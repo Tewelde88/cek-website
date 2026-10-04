@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Liturgy — Catholic Eparchy of Keren</title>
+<meta name="description" content="Liturgy of the Catholic Eparchy of Keren (Ge’ez rite): Divine Liturgy, Divine Office, liturgical calendar with Ethiopian and Gregorian dates, formation and resources.">
+<meta name="theme-color" content="#16315e">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,500;0,600;0,700;1,400&family=Noto+Serif+Ethiopic:wght@500;700&family=Noto+Sans+Ethiopic:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/calendar.css">
+<link rel="stylesheet" href="css/liturgy.css">
+<!-- Apply the saved language before the page draws, so it doesn't flash English first -->
+<script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
+</head>
+<body>
+
+<a class="skip-link" href="#content" data-i18n="skip">Skip to content</a>
+
+<!-- ================= TOP BAR: logo, name, language, search ================= -->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html">
+      <!-- Eparchy emblem (images/logo.png, 256×256 with transparent corners) -->
+      <img class="crest" src="images/logo.png" alt="" width="256" height="256">
+      <span class="brand-text">
+        <span class="brand-ti" lang="ti">ካቶሊካዊ ኤጳርቅና ከረን</span>
+        <strong class="brand-en">Catholic Eparchy of Keren</strong>
+        <span class="brand-motto" data-i18n="motto">Faith • Service • Communion</span>
+      </span>
+    </a>
+
+    <div class="topbar-tools">
+      <div class="lang-switch" role="group" aria-label="Language / ቋንቋ">
+        <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+        <span aria-hidden="true">|</span>
+        <button type="button" data-lang="ti" aria-pressed="false" lang="ti">ትግርኛ</button>
+      </div>
+      <form class="site-search" role="search" id="site-search">
+        <input type="search" id="site-q" placeholder="Search…" data-i18n-placeholder="search.placeholder" aria-label="Search sermons">
+        <button type="submit" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<!-- ================= MAIN MENU ================= -->
+<nav class="mainnav" aria-label="Main">
+  <div class="wrap mainnav-inner">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span class="bars" aria-hidden="true"></span>
+      <span data-i18n="nav.menu">Menu</span>
+    </button>
+    <ul id="site-nav">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="#" data-i18n="nav.eparchy">Eparchy</a></li>
+      <li><a href="#" data-i18n="nav.parishes">Parishes &amp; Chapels</a></li>
+      <li><a href="liturgy.html" class="active" aria-current="page" data-i18n="nav.liturgy">Liturgy</a></li>
+      <li><a href="index.html#news" data-i18n="nav.news">News</a></li>
+      <li><a href="index.html#sermons" data-i18n="nav.archive">Archive</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="content" class="cal-page lit-page">
+
+  <!-- ================= PAGE TITLE ================= -->
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow eyebrow-light" data-i18n="lit.eyebrow">Ge’ez Rite · Alexandrian Tradition</p>
+      <h1 data-i18n="lit.title">Liturgy</h1>
+      <p class="page-lead" data-i18n="lit.lead">Celebrating the mysteries of faith in the Ge’ez rite — the Divine Liturgy, the prayer of the Hours, the liturgical year and formation for the whole People of God.</p>
+    </div>
+  </section>
+
+  <!-- ================= SUB-MENU (sticky) ================= -->
+  <nav class="subnav" aria-label="Liturgy sections">
+    <div class="wrap">
+      <ul>
+        <li><a href="#divine-liturgy" data-i18n="lit.nav.dl">Divine Liturgy</a></li>
+        <li><a href="#divine-office" data-i18n="lit.nav.do">Divine Office</a></li>
+        <li><a href="#calendar" data-i18n="lit.nav.cal">Liturgical Calendar</a></li>
+        <li><a href="#formation" data-i18n="lit.nav.form">Liturgical Formation</a></li>
+        <li><a href="#resources" data-i18n="lit.nav.res">Resources</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ================= 1. DIVINE LITURGY ================= -->
+  <section class="lit-section" id="divine-liturgy">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M10 6h12l-2 9a4 4 0 0 1-8 0z"/><path d="M16 19v6M11 27h10"/><path d="M16 2v3"/></svg></span>
+        <div>
+          <p class="eyebrow eyebrow-red" data-i18n="lit.dl.eyebrow">Holy Eucharist · Qiddase</p>
+          <h2 class="section-title" data-i18n="lit.nav.dl">Divine Liturgy</h2>
+          <p class="lit-lead" data-i18n="lit.dl.lead">The Divine Liturgy (Qiddase) is the heart of the life of our Eparchy. The Catholic Eparchy of Keren celebrates it in the Ge’ez rite of the Alexandrian tradition, in Ge’ez and in the languages of our people.</p>
+        </div>
+      </header>
+      <div class="lit-cards">
+        <article class="lit-card">
+          <h3 data-i18n="lit.dl.c1.t">Sundays &amp; Feast Days</h3>
+          <p data-i18n="lit.dl.c1.p">The Eucharist is celebrated in every parish on Sundays and on the great feasts of the Lord and of Our Lady.</p>
+        </article>
+        <article class="lit-card">
+          <h3 data-i18n="lit.dl.c2.t">The Anaphoras</h3>
+          <p data-i18n="lit.dl.c2.p">The Ge’ez tradition is rich in Eucharistic prayers (anaphoras), such as the Anaphora of the Apostles and the Anaphora of Our Lady Mary.</p>
+        </article>
+        <article class="lit-card">
+          <h3 data-i18n="lit.dl.c3.t">Mass Times</h3>
+          <p data-i18n="lit.dl.c3.p">Celebration times differ from parish to parish. Please contact your parish or see Parishes &amp; Chapels.</p>
+          <a class="more" href="#"><span data-i18n="lit.dl.c3.l">Parishes &amp; Chapels</span> <span class="arrow" aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 2. DIVINE OFFICE ================= -->
+  <section class="lit-section alt" id="divine-office">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><path d="M16 9v7l5 3"/></svg></span>
+        <div>
+          <p class="eyebrow eyebrow-red" data-i18n="lit.do.eyebrow">Prayer of the Hours</p>
+          <h2 class="section-title" data-i18n="lit.nav.do">Divine Office</h2>
+          <p class="lit-lead" data-i18n="lit.do.lead">The Divine Office is the prayer of the Church that sanctifies the hours of the day. In the Ge’ez tradition, the Hours and the sacred chant of St Yared unite priests, religious and faithful in the praise of God.</p>
+        </div>
+      </header>
+      <div class="lit-cards">
+        <article class="lit-card">
+          <h3 data-i18n="lit.do.c1.t">Hours of Prayer</h3>
+          <p data-i18n="lit.do.c1.p">Morning, midday and evening prayer, following the Ge’ez Book of Hours.</p>
+        </article>
+        <article class="lit-card">
+          <h3 data-i18n="lit.do.c2.t">Sacred Chant (Zema)</h3>
+          <p data-i18n="lit.do.c2.p">The liturgical chant handed down from St Yared, sung by the deacons and choirs of our parishes.</p>
+        </article>
+        <article class="lit-card">
+          <h3 data-i18n="lit.do.c3.t">Pray With Us</h3>
+          <p data-i18n="lit.do.c3.p">Monasteries, religious communities and parishes welcome all who wish to join the prayer of the Church.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3. LITURGICAL CALENDAR ================= -->
+  <section class="lit-section" id="calendar">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="4" y="7" width="24" height="21" rx="2"/><path d="M4 13h24M10 4v6M22 4v6"/></svg></span>
+        <div>
+          <p class="eyebrow eyebrow-red" data-i18n="cal.eyebrow">Ge’ez Rite · Ethiopian Calendar</p>
+          <h2 class="section-title" data-i18n="cal.title">Liturgical Calendar</h2>
+          <p class="lit-lead" data-i18n="cal.lead">Feasts and fasts of the Catholic Eparchy of Keren according to the Ethiopian (Ge’ez) liturgical calendar, with the matching Gregorian dates.</p>
+        </div>
+      </header>
+    </div>
+  <!-- ================= TODAY + DATE CONVERTER ================= -->
+  <section class="wrap cal-top">
+    <article class="card today-card">
+      <p class="eyebrow eyebrow-red" data-i18n="cal.today">Today</p>
+      <p class="today-et" id="today-et"></p>
+      <p class="today-sub"><span id="today-wd"></span> · <span id="today-gr"></span></p>
+      <ul class="feast-lines" id="today-feast"></ul>
+    </article>
+
+    <article class="card conv-card">
+      <p class="eyebrow eyebrow-red" data-i18n="cal.conv">Date Converter</p>
+      <div class="conv-row">
+        <label class="conv-label" for="conv-gr" data-i18n="cal.conv.gr">Gregorian → Ethiopian</label>
+        <input type="date" id="conv-gr">
+        <output class="conv-out" id="conv-gr-out" for="conv-gr"></output>
+      </div>
+      <div class="conv-row">
+        <span class="conv-label" data-i18n="cal.conv.et">Ethiopian → Gregorian</span>
+        <div class="conv-et">
+          <input type="number" id="conv-et-d" min="1" max="30" aria-label="Day">
+          <select id="conv-et-m" aria-label="Month"></select>
+          <input type="number" id="conv-et-y" min="1" aria-label="Year">
+        </div>
+        <output class="conv-out" id="conv-et-out"></output>
+      </div>
+    </article>
+  </section>
+
+  <!-- ================= MONTH VIEW ================= -->
+  <section class="wrap cal-main">
+    <article class="card month-card">
+      <div class="month-bar">
+        <button type="button" class="icon-btn" id="cal-prev" aria-label="Previous month"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <div class="month-title">
+          <h2 id="cal-title"></h2>
+          <p id="cal-sub"></p>
+        </div>
+        <button type="button" class="icon-btn" id="cal-next" aria-label="Next month"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+      <div class="month-tools">
+        <button type="button" class="chip" id="cal-today" data-i18n="cal.gotoday">Go to today</button>
+        <ul class="legend">
+          <li><span class="sw sw-major"></span><span data-i18n="cal.lg.major">Major feast</span></li>
+          <li><span class="sw sw-feast"></span><span data-i18n="cal.lg.feast">Feast</span></li>
+          <li><span class="sw sw-fast"></span><span data-i18n="cal.lg.fast">Fast day</span></li>
+        </ul>
+      </div>
+      <div class="cal-head" id="cal-head"></div>
+      <div class="cal-grid" id="cal-grid"></div>
+    </article>
+
+    <aside class="cal-side">
+      <article class="card day-card" aria-live="polite">
+        <p class="eyebrow eyebrow-red" data-i18n="cal.selected">Selected day</p>
+        <p class="day-et" id="day-et"></p>
+        <p class="day-gr" id="day-gr"></p>
+        <ul class="feast-lines" id="day-feasts"></ul>
+      </article>
+      <article class="card">
+        <p class="eyebrow eyebrow-red" data-i18n="cal.thismonth">Feasts this month</p>
+        <ul class="month-list" id="month-list"></ul>
+      </article>
+    </aside>
+  </section>
+
+  <!-- ================= WHOLE YEAR ================= -->
+  <section class="wrap cal-year">
+    <article class="card year-card">
+      <div class="year-bar">
+        <div>
+          <p class="eyebrow eyebrow-red" data-i18n="cal.yearlist">Feasts &amp; fasts of the year</p>
+          <h2 id="year-title"></h2>
+        </div>
+        <div class="year-tools">
+          <button type="button" class="icon-btn" id="year-prev" aria-label="Previous year"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button type="button" class="icon-btn" id="year-next" aria-label="Next year"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+          <button type="button" class="chip" id="cal-print" data-i18n="cal.print">Print</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="year-table">
+          <thead><tr><th data-i18n="cal.col.feast">Feast</th><th data-i18n="cal.col.et">Ethiopian date</th><th data-i18n="cal.col.gr">Gregorian date</th><th data-i18n="cal.col.wd">Day</th></tr></thead>
+          <tbody id="year-body"></tbody>
+        </table>
+      </div>
+      <h3 class="fast-title" data-i18n="cal.fasts">Fasting seasons</h3>
+      <div class="table-wrap">
+        <table class="year-table">
+          <thead><tr><th data-i18n="cal.col.fast">Fast</th><th data-i18n="cal.col.et">Ethiopian date</th><th data-i18n="cal.col.gr">Gregorian date</th><th data-i18n="cal.col.len">Length</th></tr></thead>
+          <tbody id="fast-body"></tbody>
+        </table>
+      </div>
+      <p class="cal-note" data-i18n="cal.note">Easter (Fasika) and the feasts that depend on it are calculated with the Alexandrian computus used by the Ethiopian and Eritrean Churches. Local observances may differ — please follow the announcements of your parish.</p>
+    </article>
+  </section>
+  </section>
+
+  <!-- ================= 4. LITURGICAL FORMATION ================= -->
+  <section class="lit-section alt" id="formation">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M3 12l13-6 13 6-13 6z"/><path d="M8 14.5V21c0 2 4 4 8 4s8-2 8-4v-6.5M29 12v8"/></svg></span>
+        <div>
+          <p class="eyebrow eyebrow-red" data-i18n="lit.form.eyebrow">Learning to Celebrate</p>
+          <h2 class="section-title" data-i18n="lit.nav.form">Liturgical Formation</h2>
+          <p class="lit-lead" data-i18n="lit.form.lead">Liturgical formation helps the whole People of God to celebrate with understanding, devotion and active participation.</p>
+        </div>
+      </header>
+      <div class="lit-cards">
+        <article class="lit-card">
+          <h3 data-i18n="lit.form.c1.t">Deacons &amp; Altar Servers</h3>
+          <p data-i18n="lit.form.c1.p">Training in the service of the altar, the Ge’ez readings and the order of the Qiddase.</p>
+        </article>
+        <article class="lit-card">
+          <h3 data-i18n="lit.form.c2.t">Choirs &amp; Chant</h3>
+          <p data-i18n="lit.form.c2.p">Schools of Ge’ez and Zema for young people and choir members.</p>
+        </article>
+        <article class="lit-card">
+          <h3 data-i18n="lit.form.c3.t">Catechesis for the Faithful</h3>
+          <p data-i18n="lit.form.c3.p">Courses and talks on the meaning of the liturgy, the sacraments and the liturgical year.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. RESOURCES ================= -->
+  <section class="lit-section" id="resources">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 6h9a3 3 0 0 1 3 3v18a2 2 0 0 0-2-2H5zM27 6h-9a3 3 0 0 0-3 3v18a2 2 0 0 1 2-2h10z"/></svg></span>
+        <div>
+          <p class="eyebrow eyebrow-red" data-i18n="lit.res.eyebrow">Read · Listen · Pray</p>
+          <h2 class="section-title" data-i18n="lit.nav.res">Resources</h2>
+          <p class="lit-lead" data-i18n="lit.res.lead">Texts, recordings and documents to help you prepare for and live the liturgy.</p>
+        </div>
+      </header>
+      <!-- To add a resource: copy one <a class="res-item"> block and change the link and text -->
+      <div class="res-grid">
+        <a class="res-item" href="#calendar">
+          <strong data-i18n="lit.res.r1.t">Liturgical Calendar</strong>
+          <span data-i18n="lit.res.r1.p">Feasts and fasts of the year with Ethiopian and Gregorian dates.</span>
+        </a>
+        <a class="res-item" href="index.html#sermons">
+          <strong data-i18n="lit.res.r2.t">Sunday Sermons</strong>
+          <span data-i18n="lit.res.r2.p">Homilies and reflections from the Eparchy, searchable by title or year.</span>
+        </a>
+        <a class="res-item" href="https://www.vaticannews.va/ti.html" target="_blank" rel="noopener">
+          <strong data-i18n="lit.res.r3.t">Vatican News in Tigrinya</strong>
+          <span data-i18n="lit.res.r3.p">News, the Pope’s words and Radio Vatican programmes in Tigrinya.</span>
+        </a>
+        <a class="res-item" href="https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19631204_sacrosanctum-concilium_en.html" target="_blank" rel="noopener">
+          <strong data-i18n="lit.res.r4.t">Sacrosanctum Concilium</strong>
+          <span data-i18n="lit.res.r4.p">The Second Vatican Council’s Constitution on the Sacred Liturgy.</span>
+        </a>
+        <a class="res-item" href="https://www.vatican.va/archive/ENG0015/_INDEX.HTM" target="_blank" rel="noopener">
+          <strong data-i18n="lit.res.r5.t">Catechism of the Catholic Church</strong>
+          <span data-i18n="lit.res.r5.p">Part Two: the celebration of the Christian mystery.</span>
+        </a>
+        <a class="res-item is-soon" href="#">
+          <strong data-i18n="lit.res.r6.t">Prayer Books &amp; Liturgical Texts</strong>
+          <span data-i18n="lit.res.r6.p">Ge’ez and Tigrinya texts for download — coming soon.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer" id="contact">
+  <div class="wrap foot">
+    <p class="foot-name"><span data-i18n="foot.name">Catholic Eparchy of Keren</span> <span class="sep">|</span> <span data-i18n="foot.country">Eritrea</span></p>
+    <nav class="social" aria-label="Social media">
+      <!-- Put your real page links in href -->
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4a22 22 0 0 0-2.5-.1c-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8z"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg></a>
+      <a href="#" aria-label="Radio / Podcast"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm-1 1h2l1 8h-4zM6.3 16.7a8 8 0 0 1 0-11.4l1.4 1.4a6 6 0 0 0 0 8.6zm11.4 0-1.4-1.4a6 6 0 0 0 0-8.6l1.4-1.4a8 8 0 0 1 0 11.4z"/></svg></a>
+    </nav>
+    <p class="foot-ti" lang="ti">ካቶሊካዊ ኤጳርቅና ከረን <span class="sep">|</span> እምነት ፣ ኣገልግሎት ፣ ሕብረት</p>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="yr"></span> <span data-i18n="footer.rights">Catholic Eparchy of Keren. All rights reserved.</span></span>
+  </div>
+</footer>
+
+<script src="js/translations.js"></script>
+<script src="js/main.js"></script>
+<script src="js/calendar.js"></script>
+</body>
+</html>

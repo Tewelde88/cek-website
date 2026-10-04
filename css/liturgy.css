@@ -1,0 +1,65 @@
+/* ============================================================
+   LITURGY PAGE (liturgy.html) — sub-menu and sub-sections
+   The calendar inside it is styled by calendar.css
+   ============================================================ */
+html:has(.subnav){scroll-padding-top:calc(var(--nav-h) + 72px)}
+
+/* Sticky sub-menu under the main menu */
+.subnav{position:sticky;top:var(--nav-h);z-index:40;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 4px 12px rgba(22,49,94,.06)}
+.subnav ul{list-style:none;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-block:10px;-webkit-overflow-scrolling:touch}
+.subnav ul::-webkit-scrollbar{display:none}
+.subnav a{
+  display:block;white-space:nowrap;padding:8px 16px;border-radius:999px;border:1px solid var(--line);
+  color:var(--navy);font-size:.9rem;font-weight:600;background:#fff;transition:background-color .2s,color .2s,border-color .2s;
+}
+.subnav a:hover{border-color:var(--navy)}
+.subnav a.active{background:var(--navy);border-color:var(--navy);color:#fff}
+
+/* Sub-sections */
+.lit-section{padding-block:clamp(36px,5vw,64px);border-bottom:1px solid var(--line)}
+.lit-section.alt{background:#fff}
+.lit-head{display:flex;gap:clamp(14px,2vw,22px);align-items:flex-start;margin-bottom:clamp(20px,3vw,28px)}
+.lit-icon{flex:none;width:clamp(48px,6vw,60px);height:clamp(48px,6vw,60px);border-radius:50%;display:grid;place-items:center;background:var(--navy-soft)}
+.lit-icon svg{width:55%;height:55%;fill:none;stroke:var(--navy);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.lit-lead{max-width:70ch;color:var(--muted);margin-top:8px}
+html[lang="ti"] .lit-page .section-title{font-family:var(--ethiopic-serif)}
+
+.lit-cards{display:grid;gap:clamp(14px,2vw,20px);grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.lit-card{display:flex;flex-direction:column;gap:8px;padding:clamp(18px,2.5vw,24px);background:var(--card);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:var(--radius);box-shadow:var(--shadow)}
+.lit-section.alt .lit-card{background:var(--bg)}
+.lit-card h3{font-family:var(--serif);font-weight:600;font-size:1.12rem;color:var(--navy)}
+html[lang="ti"] .lit-card h3{font-family:var(--ethiopic-serif)}
+.lit-card p{color:var(--muted);font-size:.93rem}
+.lit-card .more{margin-top:auto;padding-top:6px}
+
+/* Calendar inside the Liturgy page: no overlap with a coloured header */
+.lit-section .cal-top{margin-top:0}
+.lit-section .cal-year{margin-bottom:0}
+
+/* Resources */
+.res-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.res-item{
+  position:relative;display:flex;flex-direction:column;gap:4px;padding:16px 44px 16px 18px;border-radius:var(--radius-sm);
+  background:var(--card);border:1px solid var(--line);color:var(--ink);transition:border-color .2s,box-shadow .2s,transform .2s;
+}
+.res-item::after{content:"→";position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--navy);font-weight:700;transition:transform .2s}
+.res-item:hover{border-color:var(--navy);box-shadow:var(--shadow);transform:translateY(-2px)}
+.res-item:hover::after{transform:translate(3px,-50%)}
+.res-item strong{color:var(--navy);font-size:.98rem}
+.res-item span{color:var(--muted);font-size:.86rem}
+.res-item.is-soon{opacity:.7;border-style:dashed}
+.res-item.is-soon::after{content:""}
+
+@media (max-width:560px){
+  .lit-head{flex-direction:column}
+}
+
+/* Printing from the calendar's Print button: only the calendar */
+@media print{
+  body.print-cal .lit-section:not(#calendar),
+  body.print-cal .subnav,
+  body.print-cal .page-head,
+  body.print-cal #calendar .lit-head .lit-icon{display:none !important}
+  .subnav{display:none}
+  .lit-section{border:0;padding:0}
+}

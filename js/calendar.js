@@ -341,7 +341,11 @@ $('cal-today').addEventListener('click', () => {
 });
 $('year-prev').addEventListener('click', () => { state.y--; state.m = 1; state.sel = etToJdn(state.y, 1, 1); renderMonth(); renderDay(); renderYear(); });
 $('year-next').addEventListener('click', () => { state.y++; state.m = 1; state.sel = etToJdn(state.y, 1, 1); renderMonth(); renderDay(); renderYear(); });
-$('cal-print').addEventListener('click', () => window.print());
+$('cal-print').addEventListener('click', () => {
+  document.body.classList.add('print-cal');           // print only the calendar
+  window.print();
+  setTimeout(() => document.body.classList.remove('print-cal'), 500);
+});
 $('conv-gr').addEventListener('input', convertGr);
 ['conv-et-d','conv-et-m','conv-et-y'].forEach(id => $(id).addEventListener('input', convertEt));
 document.addEventListener('keydown', e => {
