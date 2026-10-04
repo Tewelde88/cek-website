@@ -1,7 +1,8 @@
 Put your photos here with EXACTLY these names (JPG). They appear automatically;
 until a photo exists, a matching colour background is shown.
 
-  logo.png       Eparchy crest (see comment in index.html to switch it on)
+  logo.png       Eparchy emblem in the header (round, transparent corners)
+  favicon.png    Small emblem for the browser tab
   hero-1.jpg     Big top photos that rotate (wide landscape, about 1920 x 900)
   hero-2.jpg
   hero-3.jpg
