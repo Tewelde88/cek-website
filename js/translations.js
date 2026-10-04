@@ -20,12 +20,11 @@ const TRANSLATIONS = {
     /* Menu */
     "nav.menu":      "ምናዩ",
     "nav.home":      "ደምበ",
-    "nav.about":     "ብዛዕባና",
     "nav.eparchy":   "ኤጳርቅና",
-    "nav.parishes":  "ቁምስናታትን ማሕበረሰባትን",
-    "nav.liturgy":   "ሊጡርጊያን እምነትን",
-    "nav.news":      "ዜናን ፍጻመታትን",
-    "nav.resources": "ጸጋታት",
+    "nav.parishes":  "ቍምስናታትን ቤተጸሎታትን",
+    "nav.liturgy":   "ሊጡርጊያ",
+    "nav.news":      "ዜና",
+    "nav.archive":   "ቤተመዛግብት",
     "nav.contact":   "ርኸቡና",
 
     /* Hero */
