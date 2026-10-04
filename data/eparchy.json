@@ -1,16 +1,6 @@
 {
   "priests": [
     {
-      "name": "Abba Tewelde Mebratu",
-      "name_ti": "ኣባ ተወልደ መብራህቱ",
-      "role": "Radio Vatican",
-      "role_ti": "ራድዮ ቫቲካን",
-      "place": "Dicastry for Communication",
-      "place_ti": "መራኸቢ ብዙሕን ቫቲካን",
-      "photo": "/images/priests/past-forward-1980s-1.webp",
-      "sample": true
-    },
-    {
       "name": "Abba — Name of priest",
       "name_ti": "ኣባ — ስም ካህን",
       "role": "Vicar General",
