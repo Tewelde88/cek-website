@@ -1,0 +1,33 @@
+/* ============================================================
+   PARISHES & CHAPELS PAGE (parishes.html)
+   Banner, sub-menu and section headers: calendar.css + liturgy.css
+   Search box and "Example" tag: eparchy.css
+   ============================================================ */
+.pa-tools{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-bottom:20px}
+.pa-tools .ep-search{flex:1;margin-bottom:0}
+.pa-count{font-size:.85rem;font-weight:600;color:var(--muted)}
+
+.pc-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr))}
+.pc{display:flex;flex-direction:column;gap:10px;padding:18px 20px;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:var(--radius);box-shadow:var(--shadow);transition:box-shadow .2s,transform .2s}
+.pc:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.lit-section.alt .pc{background:var(--bg)}
+.pc.chapel{border-top-color:var(--gold)}
+.pc.community{border-top-color:#3d8b5a}
+.pc.sanctuary{border-top-color:var(--navy)}
+.pc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.pc-head .sample-tag{margin-top:2px;flex:none}
+.pc h3{font-family:var(--serif);font-weight:600;font-size:1.15rem;color:var(--navy);line-height:1.25}
+html[lang="ti"] .pc h3{font-family:var(--ethiopic-serif)}
+.pc-sub{font-size:.85rem;color:var(--muted);margin-top:2px}
+.pc-facts{display:grid;gap:6px}
+.pc-facts div{display:grid;grid-template-columns:110px 1fr;gap:8px;font-size:.88rem}
+.pc-facts dt{color:var(--muted);font-weight:600}
+.pc-facts dd{color:var(--ink)}
+html[lang="ti"] .pc-facts div{grid-template-columns:120px 1fr}
+.pc-soon{font-size:.88rem;color:var(--muted);font-style:italic}
+.pc-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:10px;border-top:1px dashed var(--line)}
+.pc-place{font-size:.85rem;color:var(--muted)}
+.map-btn{display:inline-flex;align-items:center;gap:6px;margin-left:auto;padding:6px 14px;border-radius:999px;border:1px solid var(--navy);color:var(--navy);font-size:.82rem;font-weight:600;transition:background-color .2s,color .2s}
+.map-btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2}
+.map-btn:hover{background:var(--navy);color:#fff;text-decoration:none}
+@media (max-width:420px){ .pc-facts div{grid-template-columns:1fr;gap:0} }

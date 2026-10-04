@@ -56,3 +56,9 @@ Modern, responsive design — works on phones, tablets, laptops and large screen
 - **Priests, deaneries and religious orders** are lists in `js/eparchy-data.js` — add one entry per person/deanery/community. Entries with `sample: true` are examples (shown with an "Example" tag); replace or delete them.
 - Priest photos: put them in `images/` (e.g. `images/priests/abba-name.jpg`) and set `photo:` in the entry.
 - Section texts: `eparchy.html` (English) and the `ep.*` keys in `js/translations.js` (Tigrinya). Styles: `css/eparchy.css`.
+
+## Parishes & Chapels page (parishes.html)
+- Sub-sections: Parishes, Chapels, Christian Communities, Sanctuaries (sticky sub-menu, EN/Tigrinya).
+- All lists are in `js/parishes-data.js`. Parish fields: name, patron, deanery, place, priest, mass (Mass times), phone, map (optional Google Maps link). Empty fields are simply not shown; a parish with no details shows "Details coming soon".
+- The six parishes named in Bishop Kidane's biography are listed; entries with `sample: true` are examples to replace or delete.
+- Styles: `css/parishes.css`. Section texts: `parishes.html` and the `pa.*` keys in `js/translations.js`.
