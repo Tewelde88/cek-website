@@ -1,6 +1,16 @@
 {
   "priests": [
     {
+      "name": "Abba Tewelde Mebratu",
+      "name_ti": "ኣባ ተወልደ መብራህቱ",
+      "role": "Radio Vatican",
+      "role_ti": "ራድዮ ቫቲካን",
+      "place": "Dicastry for Communication",
+      "place_ti": "መራኸቢ ብዙሕን ቫቲካን",
+      "photo": "/images/priests/past-forward-1980s-1.webp",
+      "sample": false
+    },
+    {
       "name": "Abba — Name of priest",
       "name_ti": "ኣባ — ስም ካህን",
       "role": "Vicar General",
@@ -47,6 +57,7 @@
         "ቍምስና 2",
         "ቍምስና 3"
       ],
+      "photo": "",
       "sample": true
     },
     {
@@ -62,6 +73,7 @@
         "ቍምስና 1",
         "ቍምስና 2"
       ],
+      "photo": "",
       "sample": true
     }
   ],
@@ -71,7 +83,9 @@
       "name_ti": "ኣሕዋት ክርስቲያን ደ ላ ሳል",
       "type": "men",
       "work": "Education — St Joseph School, Keren",
-      "work_ti": "ትምህርቲ — ቤት ትምህርቲ ቅዱስ ዮሴፍ፡ ከረን"
+      "work_ti": "ትምህርቲ — ቤት ትምህርቲ ቅዱስ ዮሴፍ፡ ከረን",
+      "photo": "",
+      "sample": false
     },
     {
       "name": "Name of congregation (men)",
@@ -79,6 +93,7 @@
       "type": "men",
       "work": "Mission / work · Place",
       "work_ti": "ተልእኾ / ስራሕ · ቦታ",
+      "photo": "",
       "sample": true
     },
     {
@@ -87,6 +102,7 @@
       "type": "women",
       "work": "Mission / work · Place",
       "work_ti": "ተልእኾ / ስራሕ · ቦታ",
+      "photo": "",
       "sample": true
     }
   ]
