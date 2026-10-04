@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>CESK — Caritas — Catholic Eparchy of Keren</title>
+<meta name="description" content="CESK — Caritas and social service office of the Catholic Eparchy of Keren.">
+<meta name="theme-color" content="#16315e">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,500;0,600;0,700;1,400&family=Noto+Serif+Ethiopic:wght@500;700&family=Noto+Sans+Ethiopic:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/calendar.css">
+<link rel="stylesheet" href="css/liturgy.css">
+<link rel="stylesheet" href="css/eparchy.css">
+<link rel="stylesheet" href="css/resources.css">
+<!-- Apply the saved language before the page draws, so it doesn't flash English first -->
+<script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
+</head>
+<body>
+
+<a class="skip-link" href="#content" data-i18n="skip">Skip to content</a>
+
+<!-- ================= TOP BAR: logo, name, language, search ================= -->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html">
+      <!-- Eparchy emblem (images/logo.png, 256×256 with transparent corners) -->
+      <img class="crest" src="images/logo.png" alt="" width="256" height="256">
+      <span class="brand-text">
+        <span class="brand-ti" lang="ti">ካቶሊካዊ ኤጳርቅና ከረን</span>
+        <strong class="brand-en">Catholic Eparchy of Keren</strong>
+        <span class="brand-motto" data-i18n="motto">Faith • Service • Communion</span>
+      </span>
+    </a>
+
+    <div class="topbar-tools">
+      <div class="lang-switch" role="group" aria-label="Language / ቋንቋ">
+        <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+        <span aria-hidden="true">|</span>
+        <button type="button" data-lang="ti" aria-pressed="false" lang="ti">ትግርኛ</button>
+      </div>
+      <form class="site-search" role="search" id="site-search">
+        <input type="search" id="site-q" placeholder="Search…" data-i18n-placeholder="search.placeholder" aria-label="Search sermons">
+        <button type="submit" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<!-- ================= MAIN MENU ================= -->
+<nav class="mainnav" aria-label="Main">
+  <div class="wrap mainnav-inner">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span class="bars" aria-hidden="true"></span>
+      <span data-i18n="nav.menu">Menu</span>
+    </button>
+    <ul id="site-nav">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="eparchy.html" data-i18n="nav.eparchy">Eparchy</a></li>
+      <li><a href="parishes.html" data-i18n="nav.parishes">Parishes &amp; Chapels</a></li>
+      <li><a href="liturgy.html" data-i18n="nav.liturgy">Liturgy</a></li>
+      <li><a href="news.html" data-i18n="nav.news">News</a></li>
+      <li><a href="sermons.html" data-i18n="nav.archive">Archive</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="content" class="lit-page ep-page cesk-page">
+
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow eyebrow-light" data-i18n="ck.eyebrow">Caritas · Social Service Office</p>
+      <h1>CESK</h1>
+      <p class="page-lead" data-i18n="ck.lead">Serving the poor and the vulnerable in the name of the Church — through relief, health, education and development, for every person without distinction.</p>
+    </div>
+  </section>
+
+  <nav class="subnav" aria-label="CESK sections">
+    <div class="wrap">
+      <ul>
+        <li><a href="#about" data-i18n="ck.nav.about">About</a></li>
+        <li><a href="#work" data-i18n="ck.nav.work">Our Work</a></li>
+        <li><a href="#involved" data-i18n="ck.nav.involved">Get Involved</a></li>
+        <li><a href="#ck-resources" data-i18n="lit.nav.res">Resources</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== ABOUT (please check and replace with the office's own description) ===== -->
+  <section class="lit-section" id="about">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 28s-11-6.5-11-14a6 6 0 0 1 11-3.3A6 6 0 0 1 27 14c0 7.5-11 14-11 14z"/><path d="M16 11v9M11.5 15.5h9"/></svg></span>
+        <div>
+          <p class="eyebrow eyebrow-red" data-i18n="ck.about.eyebrow">Charity in Action</p>
+          <h2 class="section-title" data-i18n="ck.nav.about">About</h2>
+          <p class="lit-lead" data-i18n="ck.about.lead">CESK is the Caritas and social service office of the Catholic Eparchy of Keren. Inspired by the Gospel and the social teaching of the Church, it carries out the Eparchy’s works of charity and development together with parishes, religious communities and partners.</p>
+        </div>
+      </header>
+      <div class="lit-cards">
+        <article class="lit-card"><h3 data-i18n="ck.v1.t">Human Dignity</h3><p data-i18n="ck.v1.p">Every person is created in the image of God and deserves respect, care and the chance to live a full life.</p></article>
+        <article class="lit-card"><h3 data-i18n="ck.v2.t">Preference for the Poor</h3><p data-i18n="ck.v2.p">We give first attention to those in greatest need — families in hardship, the sick, the elderly and children.</p></article>
+        <article class="lit-card"><h3 data-i18n="ck.v3.t">Solidarity</h3><p data-i18n="ck.v3.p">We work hand in hand with communities, so that help today becomes self-reliance tomorrow.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUR WORK (gallery; photos optional: images/cesk-relief.jpg, cesk-health.jpg, …) ===== -->
+  <section class="lit-section alt" id="work">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 18l6-1 6 4 8-2 4 3-10 6-8-3H4z"/><path d="M14 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM22 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg></span>
+        <div>
+          <p class="eyebrow eyebrow-red" data-i18n="ck.work.eyebrow">Programmes</p>
+          <h2 class="section-title" data-i18n="ck.nav.work">Our Work</h2>
+          <p class="lit-lead" data-i18n="ck.work.lead">Areas in which the Church serves the community. Please replace these with the office’s actual programmes.</p>
+        </div>
+      </header>
+      <div class="clamp-box" data-clamp="440">
+        <div class="g-grid g-grid-wide">
+          <article class="g-tile"><div class="g-media" style="background-image:url('images/cesk-relief.jpg'),linear-gradient(135deg,#8e1820,#b3202a)"><div class="g-overlay"><h3 data-i18n="ck.w1.t">Emergency Relief</h3></div></div><div class="g-body"><p data-i18n="ck.w1.p">Food, water and basic support for families affected by drought and hardship.</p></div></article>
+          <article class="g-tile"><div class="g-media" style="background-image:url('images/cesk-health.jpg'),linear-gradient(135deg,#1f4d3a,#3d8b5a)"><div class="g-overlay"><h3 data-i18n="ck.w2.t">Health Care</h3></div></div><div class="g-body"><p data-i18n="ck.w2.p">Care for the sick and support for mothers and children.</p></div></article>
+          <article class="g-tile"><div class="g-media" style="background-image:url('images/cesk-education.jpg'),linear-gradient(135deg,#0f2447,#2a4a80)"><div class="g-overlay"><h3 data-i18n="ck.w3.t">Education Support</h3></div></div><div class="g-body"><p data-i18n="ck.w3.p">Helping children and young people to stay in school and learn skills for life.</p></div></article>
+          <article class="g-tile"><div class="g-media" style="background-image:url('images/cesk-water.jpg'),linear-gradient(135deg,#6b4b12,#c9a24a)"><div class="g-overlay"><h3 data-i18n="ck.w4.t">Water &amp; Agriculture</h3></div></div><div class="g-body"><p data-i18n="ck.w4.p">Water points, farming and small projects that help communities grow their own future.</p></div></article>
+          <article class="g-tile"><div class="g-media" style="background-image:url('images/cesk-women.jpg'),linear-gradient(135deg,#3b2d5a,#6a54a0)"><div class="g-overlay"><h3 data-i18n="ck.w5.t">Women &amp; Youth</h3></div></div><div class="g-body"><p data-i18n="ck.w5.p">Training and support that open new opportunities for women and young people.</p></div></article>
+          <article class="g-tile"><div class="g-media" style="background-image:url('images/cesk-elderly.jpg'),linear-gradient(135deg,#5a4634,#8c6d4f)"><div class="g-overlay"><h3 data-i18n="ck.w6.t">Elderly &amp; Disabled</h3></div></div><div class="g-body"><p data-i18n="ck.w6.p">Visits, care and dignity for the elderly and for people living with disabilities.</p></div></article>
+        </div>
+      </div>
+      <button type="button" class="show-more" hidden aria-expanded="false"><span class="when-closed" data-i18n="ep.more">Show more</span><span class="when-open" data-i18n="ep.less">Show less</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+  </section>
+
+  <!-- ===== GET INVOLVED ===== -->
+  <section class="lit-section" id="involved">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M10 14l4-4 4 2 4-4 6 6-8 8-4-2-4 4-6-6z"/></svg></span>
+        <div>
+          <p class="eyebrow eyebrow-red" data-i18n="ck.inv.eyebrow">Join the Mission</p>
+          <h2 class="section-title" data-i18n="ck.nav.involved">Get Involved</h2>
+        </div>
+      </header>
+      <div class="lit-cards">
+        <article class="lit-card"><h3 data-i18n="ck.i1.t">Volunteer</h3><p data-i18n="ck.i1.p">Give your time and skills in your parish or in the programmes of CESK.</p><a class="more" href="#contact"><span data-i18n="ep.sem.c3.l">Contact us</span> <span class="arrow" aria-hidden="true">→</span></a></article>
+        <article class="lit-card"><h3 data-i18n="ck.i2.t">Donate</h3><p data-i18n="ck.i2.p">Your gift helps families in need. Contact the office to learn how to give.</p><a class="more" href="#contact"><span data-i18n="ep.sem.c3.l">Contact us</span> <span class="arrow" aria-hidden="true">→</span></a></article>
+        <article class="lit-card"><h3 data-i18n="ck.i3.t">Partner With Us</h3><p data-i18n="ck.i3.p">Organisations and friends abroad can support projects together with the Eparchy.</p><a class="more" href="#contact"><span data-i18n="ep.sem.c3.l">Contact us</span> <span class="arrow" aria-hidden="true">→</span></a></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESOURCES ===== -->
+  <section class="lit-section alt" id="ck-resources">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 6h9a3 3 0 0 1 3 3v18a2 2 0 0 0-2-2H5zM27 6h-9a3 3 0 0 0-3 3v18a2 2 0 0 1 2-2h10z"/></svg></span>
+        <div>
+          <h2 class="section-title" data-i18n="lit.nav.res">Resources</h2>
+        </div>
+      </header>
+      <div class="res-grid">
+        <a class="res-item" href="https://www.caritas.org/" target="_blank" rel="noopener"><strong>Caritas Internationalis</strong><span data-i18n="ck.r1.p">The worldwide confederation of Catholic charities.</span></a>
+        <a class="res-item" href="https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_en.html" target="_blank" rel="noopener"><strong data-i18n="ck.r2.t">Compendium of the Social Doctrine of the Church</strong><span data-i18n="ck.r2.p">The Church’s teaching on justice, work, the poor and the common good.</span></a>
+        <a class="res-item" href="https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20150524_enciclica-laudato-si.html" target="_blank" rel="noopener"><strong>Laudato Si’</strong><span data-i18n="ck.r3.p">Pope Francis on care for our common home and for the poor.</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer" id="contact">
+  <div class="wrap foot">
+    <p class="foot-name"><span data-i18n="foot.name">Catholic Eparchy of Keren</span> <span class="sep">|</span> <span data-i18n="foot.country">Eritrea</span></p>
+    <nav class="social" aria-label="Social media">
+      <!-- Put your real page links in href -->
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4a22 22 0 0 0-2.5-.1c-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8z"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg></a>
+      <a href="#" aria-label="Radio / Podcast"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm-1 1h2l1 8h-4zM6.3 16.7a8 8 0 0 1 0-11.4l1.4 1.4a6 6 0 0 0 0 8.6zm11.4 0-1.4-1.4a6 6 0 0 0 0-8.6l1.4-1.4a8 8 0 0 1 0 11.4z"/></svg></a>
+    </nav>
+    <p class="foot-ti" lang="ti">ካቶሊካዊ ኤጳርቅና ከረን <span class="sep">|</span> እምነት ፣ ኣገልግሎት ፣ ሕብረት</p>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="yr"></span> <span data-i18n="footer.rights">Catholic Eparchy of Keren. All rights reserved.</span></span>
+  </div>
+</footer>
+
+<script src="js/translations.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

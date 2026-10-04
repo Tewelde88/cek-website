@@ -1,7 +1,15 @@
 /* ---------- Sermons data: edit this array (newest first) ----------
+   Used by the Sermons page (sermons.html) and the sermon card on the home page.
    t  = English title
    ti = Tigrinya title (optional — if left out, the English title is shown)
-   y  = year,  href = link to the file
+   y  = year,  href = link to the file (text / PDF / page)
+   Optional extras (shown on the Sermons page as buttons):
+   date  = "YYYY-MM-DD"        by / by_ti = preacher
+   audio = "files/sermons/name.mp3"  (Listen — plays on the page)
+   video = "https://youtube.com/…"   (Watch)
+   pdf   = "files/sermons/name.pdf"  (Read)
+   Example: {t:"Christmas homily", ti:"ስብከት ልደት", y:2026, date:"2026-01-07",
+             by:"Bishop Kidane Yebio", by_ti:"ብፁዕ ኣቡነ ኪዳነ የብዮ", audio:"files/sermons/christmas.mp3"},
    ------------------------------------------------------------------ */
 const SERMONS = [
   {t:"Sermon title — 1st Sunday",  ti:"ኣርእስቲ ስብከት — 1ይ ሰንበት", y:2026, href:"#"},

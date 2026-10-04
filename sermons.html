@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Parishes &amp; Chapels — Catholic Eparchy of Keren</title>
-<meta name="description" content="Parishes, chapels, small Christian communities and sanctuaries of the Catholic Eparchy of Keren, with Mass times and directions.">
+<title>Sermons — Catholic Eparchy of Keren</title>
+<meta name="description" content="Sermons and homilies of the Catholic Eparchy of Keren — listen, watch or read.">
 <meta name="theme-color" content="#16315e">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/logo.png">
@@ -15,7 +15,8 @@
 <link rel="stylesheet" href="css/calendar.css">
 <link rel="stylesheet" href="css/liturgy.css">
 <link rel="stylesheet" href="css/eparchy.css">
-<link rel="stylesheet" href="css/parishes.css">
+<link rel="stylesheet" href="css/news.css">
+<link rel="stylesheet" href="css/resources.css">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -62,102 +63,50 @@
     <ul id="site-nav">
       <li><a href="index.html" data-i18n="nav.home">Home</a></li>
       <li><a href="eparchy.html" data-i18n="nav.eparchy">Eparchy</a></li>
-      <li><a href="parishes.html" class="active" aria-current="page" data-i18n="nav.parishes">Parishes &amp; Chapels</a></li>
+      <li><a href="parishes.html" data-i18n="nav.parishes">Parishes &amp; Chapels</a></li>
       <li><a href="liturgy.html" data-i18n="nav.liturgy">Liturgy</a></li>
       <li><a href="news.html" data-i18n="nav.news">News</a></li>
-      <li><a href="sermons.html" data-i18n="nav.archive">Archive</a></li>
+      <li><a href="sermons.html" class="active" aria-current="page" data-i18n="nav.archive">Archive</a></li>
       <li><a href="#contact" data-i18n="nav.contact">Contact Us</a></li>
     </ul>
   </div>
 </nav>
 
-<main id="content" class="lit-page pa-page">
+<main id="content" class="lit-page res-page">
 
-  <!-- ================= PAGE TITLE ================= -->
   <section class="page-head">
     <div class="wrap">
-      <p class="eyebrow eyebrow-light" data-i18n="pa.eyebrow">Catholic Eparchy of Keren</p>
-      <h1 data-i18n="nav.parishes">Parishes &amp; Chapels</h1>
-      <p class="page-lead" data-i18n="pa.lead">Find a parish, chapel, Christian community or sanctuary of the Eparchy of Keren — with Mass times, contacts and directions.</p>
+      <p class="eyebrow eyebrow-light" data-i18n="sm.eyebrow">Word of God · Homilies</p>
+      <h1 data-i18n="q.sermons">Sermons</h1>
+      <p class="page-lead" data-i18n="sm.lead">Homilies and reflections from the Bishop and priests of the Eparchy — to listen to, watch or read.</p>
     </div>
   </section>
 
-  <!-- ================= SUB-MENU (sticky) ================= -->
-  <nav class="subnav" aria-label="Parishes and chapels sections">
+  <section class="lit-section">
     <div class="wrap">
-      <ul>
-        <li><a href="#parishes" data-i18n="pa.nav.parishes">Parishes</a></li>
-        <li><a href="#chapels" data-i18n="pa.nav.chapels">Chapels</a></li>
-        <li><a href="#communities" data-i18n="pa.nav.communities">Christian Communities</a></li>
-        <li><a href="#sanctuaries" data-i18n="pa.nav.sanctuaries">Sanctuaries</a></li>
-      </ul>
-    </div>
-  </nav>
+      <!-- Newest sermon (first entry in js/sermons.js) -->
+      <div class="sermon-feature" id="sermon-featured"></div>
 
-  <!-- ================= 1. PARISHES (list in js/parishes-data.js) ================= -->
-  <section class="lit-section" id="parishes">
-    <div class="wrap">
-      <header class="lit-head">
-        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 2v6M13 5h6"/><path d="M6 29V16l10-7 10 7v13z"/><path d="M13 29v-7h6v7"/></svg></span>
-        <div>
-          <p class="eyebrow eyebrow-red" data-i18n="pa.par.eyebrow">Our Parish Family</p>
-          <h2 class="section-title" data-i18n="pa.nav.parishes">Parishes</h2>
-          <p class="lit-lead" data-i18n="pa.par.lead">The parishes of the Eparchy are the home of the faithful: here we celebrate the Divine Liturgy, receive the sacraments and live as one family in Christ.</p>
-        </div>
-      </header>
-      <div class="pa-tools">
+      <div class="news-tools">
+        <div class="chips" id="sermon-years" role="group" aria-label="Year"></div>
         <label class="ep-search">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-          <input type="search" id="parish-q" placeholder="Find a parish by name, place or priest…" data-i18n-placeholder="pa.par.search" aria-label="Search parishes">
+          <input type="search" id="sermon-page-q" placeholder="Search by title, preacher or year…" data-i18n-placeholder="sm.search" aria-label="Search sermons">
         </label>
-        <span class="pa-count" id="parish-count"></span>
       </div>
-      <div class="pc-grid" id="parish-grid"></div>
-    </div>
-  </section>
+      <p class="r-count" id="sermon-count"></p>
 
-  <!-- ================= 2. CHAPELS ================= -->
-  <section class="lit-section alt" id="chapels">
-    <div class="wrap">
-      <header class="lit-head">
-        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3v5M13.5 5.5h5"/><path d="M9 29V15l7-5 7 5v14z"/><path d="M14 29v-5h4v5"/></svg></span>
-        <div>
-          <p class="eyebrow eyebrow-red" data-i18n="pa.cha.eyebrow">Close to Every Village</p>
-          <h2 class="section-title" data-i18n="pa.nav.chapels">Chapels</h2>
-          <p class="lit-lead" data-i18n="pa.cha.lead">Chapels serve villages and neighbourhoods within a parish, bringing the Eucharist and prayer close to the faithful.</p>
-        </div>
-      </header>
-      <div class="pc-grid" id="chapel-grid"></div>
-    </div>
-  </section>
+      <div class="clamp-box" data-clamp="640">
+        <ul class="r-list" id="sermon-page-list"></ul>
+      </div>
+      <button type="button" class="show-more" hidden aria-expanded="false"><span class="when-closed" data-i18n="ep.more">Show more</span><span class="when-open" data-i18n="ep.less">Show less</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <p class="muted r-empty" id="sermon-page-empty" hidden data-i18n="sermons.empty">No sermons match your search.</p>
 
-  <!-- ================= 3. CHRISTIAN COMMUNITIES ================= -->
-  <section class="lit-section" id="communities">
-    <div class="wrap">
-      <header class="lit-head">
-        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="9" r="4"/><circle cx="7" cy="13" r="3"/><circle cx="25" cy="13" r="3"/><path d="M9 27c0-4.5 3-8 7-8s7 3.5 7 8M2 25c0-3 2-5.5 5-5.5M30 25c0-3-2-5.5-5-5.5"/></svg></span>
-        <div>
-          <p class="eyebrow eyebrow-red" data-i18n="pa.com.eyebrow">Living Cells of the Parish</p>
-          <h2 class="section-title" data-i18n="pa.nav.communities">Christian Communities</h2>
-          <p class="lit-lead" data-i18n="pa.com.lead">Small Christian communities bring neighbours together to pray, read the Word of God and support one another as living cells of the parish.</p>
-        </div>
-      </header>
-      <div class="pc-grid" id="community-grid"></div>
-    </div>
-  </section>
-
-  <!-- ================= 4. SANCTUARIES ================= -->
-  <section class="lit-section alt" id="sanctuaries">
-    <div class="wrap">
-      <header class="lit-head">
-        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 2l3 6h-6z"/><path d="M8 29V14h16v15z"/><path d="M5 14h22M12 29v-6a4 4 0 0 1 8 0v6"/></svg></span>
-        <div>
-          <p class="eyebrow eyebrow-red" data-i18n="pa.san.eyebrow">Places of Pilgrimage</p>
-          <h2 class="section-title" data-i18n="pa.nav.sanctuaries">Sanctuaries</h2>
-          <p class="lit-lead" data-i18n="pa.san.lead">Sanctuaries and places of pilgrimage where the faithful come to pray, especially on their feast days.</p>
-        </div>
-      </header>
-      <div class="pc-grid" id="sanctuary-grid"></div>
+      <a class="radio-box" href="https://www.vaticannews.va/ti.html" target="_blank" rel="noopener">
+        <span class="radio-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm-1 1h2l1 8h-4zM6.3 16.7a8 8 0 0 1 0-11.4l1.4 1.4a6 6 0 0 0 0 8.6zm11.4 0-1.4-1.4a6 6 0 0 0 0-8.6l1.4-1.4a8 8 0 0 1 0 11.4z"/></svg></span>
+        <span><strong data-i18n="sm.radio.t">Radio Vatican in Tigrinya</strong><small data-i18n="sm.radio.p">Programmes, news and the Pope’s words in Tigrinya — on Vatican News.</small></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
     </div>
   </section>
 </main>
@@ -181,7 +130,7 @@
 
 <script src="js/translations.js"></script>
 <script src="js/main.js"></script>
-<script src="js/parishes-data.js"></script>
-<script src="js/parishes.js"></script>
+<script src="js/sermons.js"></script>
+<script src="js/resources.js"></script>
 </body>
 </html>

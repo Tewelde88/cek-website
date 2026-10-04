@@ -70,3 +70,9 @@ Modern, responsive design — works on phones, tablets, laptops and large screen
 - The **Gallery** tab shows every photo from every post.
 - The 3 news cards on the home page are the 3 newest posts — no separate editing needed.
 - Posts with `sample: true` are examples to replace or delete. Styles: `css/news.css`.
+
+## Home buttons and the CESK, Sermons and Library pages
+- Three buttons under the cover photo on the home page link to `cesk.html`, `sermons.html` and `library.html`.
+- **Sermons** (`sermons.html`): built from `js/sermons.js`. Each sermon can have `audio` (plays on the page), `video` and `pdf` links, a `date` and a preacher (`by`). Year filters and search. The menu item "Archive" opens this page; the header search box also searches here.
+- **Library** (`library.html`): items in `js/library-data.js` (title, author, year, category, language, url, optional cover picture). Put your own PDFs in `files/library/`.
+- **CESK** (`cesk.html`): Caritas / social service office — About, Our Work (photo tiles: `images/cesk-*.jpg`), Get Involved, Resources. Texts in `cesk.html` and the `ck.*` keys in `js/translations.js`; please replace the general descriptions with the office's real programmes.

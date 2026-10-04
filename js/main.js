@@ -43,7 +43,9 @@ if (q && urlQ){ q.value = urlQ; document.getElementById('site-q').value = urlQ; 
 document.getElementById('site-search').addEventListener('submit', e => {
   e.preventDefault();
   const v = document.getElementById('site-q').value;
-  if (!q){ location.href = 'index.html?q=' + encodeURIComponent(v) + '#sermons'; return; }
+  const sp = document.getElementById('sermon-page-q');          // on the Sermons page
+  if (sp){ sp.value = v; sp.dispatchEvent(new Event('input')); sp.scrollIntoView({behavior:'smooth', block:'center'}); return; }
+  if (!q){ location.href = 'sermons.html?q=' + encodeURIComponent(v); return; }
   q.value = v;
   render(q.value);
   document.getElementById('sermons').scrollIntoView({behavior:'smooth', block:'start'});
