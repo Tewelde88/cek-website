@@ -19,12 +19,12 @@ Modern, responsive design — works on phones, tablets, laptops and large screen
    (Or just double-click `index.html` to open it in a browser.)
 
 ## Common edits
-- **Name / tagline:** `index.html`, inside `<header>` (and again in `<footer>`).
+- **Name / motto:** `index.html`, inside `<header class="topbar">` and the footer.
 - **Colours:** `css/style.css` → `--brand`, `--gold`, etc.
 - **Add a sermon:** `js/sermons.js` → `{t:"Title", y:2026, href:"sermons/file.pdf"},`
-- **Slider photo:** in `index.html` change a slide's `style` to `background-image:url('images/photo.jpg')`.
-- **Slider speed:** `js/main.js` → `DELAY = 5000` (milliseconds).
-- **Leader photo:** replace `<div class="portrait">Photo</div>` with `<div class="portrait"><img src="images/bishop.jpg" alt="Bishop's Name"></div>`.
+- **Photos:** see `images/README.txt` for the file names (hero-1.jpg, pope.jpg, news-1.jpg …).
+- **Slider speed:** `js/main.js` → `DELAY = 6000` (milliseconds).
+- **News cards:** edit the titles, dates and text in `index.html` (search for "News cards").
 - **Building progress:** in `index.html` change `68` in `data-value`, `aria-valuenow` and the `68%` text.
 
 ## Screen sizes

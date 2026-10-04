@@ -5,54 +5,99 @@
    visitor switches to ትግርኛ. To fix a translation, edit the text
    on the right. To translate something new, add data-i18n="new.key"
    to the element in index.html and add "new.key": "..." here.
+
+   Lines marked (EN) are the small second-language lines: they show
+   Tigrinya in English mode, so in Tigrinya mode they show English.
    ============================================================ */
 const TRANSLATIONS = {
   ti: {
-    "skip":            "ናብ ትሕዝቶ ኪድ",
+    "skip":               "ናብ ትሕዝቶ ኪድ",
+    "motto":              "እምነት • ኣገልግሎት • ሕብረት",
+    "search.placeholder": "ድለዩ…",
+    "photo":              "ስእሊ",
+    "read":               "ተወሳኺ ኣንብቡ",
 
-    /* Header & footer */
-    "site.name":       "ስም ኤጳርቅና",
-    "site.tagline":    "ካቶሊካዊት ቤተ ክርስቲያን · ከተማ፡ ሃገር",
-    "footer.rights":   "ስም ኤጳርቅና። ኩሉ መሰላት ዝተሓለወ እዩ።",
-    "footer.mass":     "ጊዜ ቅዳሴ",
-    "footer.parishes": "ቁምስናታት",
-    "footer.contact":  "ተራኸቡና",
+    /* Menu */
+    "nav.menu":      "ምናዩ",
+    "nav.home":      "ቀዳማይ ገጽ",
+    "nav.about":     "ብዛዕባና",
+    "nav.eparchy":   "ኤጳርቅና",
+    "nav.parishes":  "ቁምስናታትን ማሕበረሰባትን",
+    "nav.liturgy":   "ሊጡርጊያን እምነትን",
+    "nav.news":      "ዜናን ፍጻመታትን",
+    "nav.resources": "ጸጋታት",
+    "nav.contact":   "ርኸቡና",
 
-    /* Slider captions */
-    "slide.1":         "ካቴድራል ቤተ ክርስቲያን",
-    "slide.2":         "ዓዲ ኣብ ጎቦ",
-    "slide.3":         "ቁምስና ቅዱስ እንጦንዮስ",
-    "slide.4":         "ሓፈሻዊ ትርኢት",
-    "slide.5":         "ምቕዳስ ቤተ ክርስቲያን",
+    /* Hero */
+    "hero.eyebrow":  "ካቶሊካዊ ኤጳርቅና ከረን",
+    "hero.title":    "ኣብ እምነት ዝሰረተ፡ ንህዝቢ ዘገልግል",
+    "hero.text":     "ካቶሊካዊ ኤጳርቅና ከረን ምስ ምእመናን ኣብ ኤርትራ ይጓዓዝ፡ ወንጌል ይሰብኽ፡ ማሕበረሰባት ይሃንጽ፡ ተስፋ ድማ የዕቢ።",
+    "hero.btn":      "ተወሳኺ ፍለጡ",
+    "hero.motto":    "Faith · Service · Communion",          /* (EN) */
 
-    /* Welcome */
-    "welcome.eyebrow": "Welcome",
-    "welcome.title":   "እንቋዕ ብደሓን መጻእኩም",
-    "welcome.p1":      "ሓጺር መልእኽቲ ኤጳርቅና ኣብዚ ይኣቱ — መን ምዃንኩም፡ እተገልግልዎም ማሕበረሰባት፡ ከምኡ’ውን በጻሕቲ ኣብ ህይወት ቁምስና ብኸመይ ክሳተፉ ከም ዝኽእሉ።",
-    "welcome.p2":      "ነዚ ቦታ እዚ ንምልክታ፡ ንሓበሬታ በዓል ወይ ናብ እቲ ናይ መወዳእታ ጓሳዊ መልእኽቲ ዝወስድ መላግቦ ተጠቐሙሉ።",
+    /* Feature cards */
+    "pope.eyebrow":  "ቅዱስ ኣቦ",
+    "pope.name":     "ር.ሊ.ጳ. ሊዮ 14ይ",
+    "pope.alt":      "Pope Leo XIV",                          /* (EN) */
+    "pope.text":     "ንቅዱስ ኣቦን ንዓለማዊ ተልእኾኡን ምጽላይ ቀጽሉ።",
+    "pope.link":     "መልእኽቲ ኣንብቡ",
+    "bishop.eyebrow":"ጳጳስና",
+    "bishop.name":   "ጳጳስ ከረን",
+    "bishop.alt":    "Bishop of Keren",                       /* (EN) */
+    "bishop.text":   "ጓሳዊ ክንክን፡ ሓድነትን ተስፋን ንኤጳርቅናና።",
+    "bishop.link":   "ተወሳኺ ፍለጡ",
+    "build.eyebrow": "ፕሮጀክት ህንጻ",
+    "build.title":   "ምዕባለ ህንጻ ቅዱስ ሚካኤል",
+    "build.complete":"ተዛዚሙ",
+    "build.text":    "ብሓባር ንጸሎት፡ ንትምህርትን ንማሕበረሰብን ገዛ ንሃንጽ።",
+    "build.link":    "ነቲ ፕሮጀክት ደግፉ",
 
-    /* Building progress */
-    "build.title":     "ህንጻ ካቴድራል",
-    "build.tag":       "ምዕባለ",
-    "build.photo":     "ስእሊ ህንጻ",
-    "build.complete":  "ተዛዚሙ",
-    "build.updated":   "ናይ መወዳእታ ምሕዳስ፡ ወርሒ ዓመት",
-    "build.text":      "ብዛዕባ ፕሮጀክት ህንጻን ደገፍቲ ብኸመይ ክሕግዙ ከም ዝኽእሉን ሓጺር ሓበሬታ።",
-    "build.btn":       "ናይ መወዳእታ ጸብጻብ ኣንብቡ",
-
-    /* Leadership */
-    "lead.title":      "መራሕቲ",
-    "lead.photo":      "ስእሊ",
-    "lead.pope.title": "ብፁዕ ወቅዱስ",
-    "lead.pope.name":  "ርእሰ ሊቃነ ጳጳሳት ሊዮ 14ይ",
-    "lead.bishop.title": "ብፁዕ ኣቡነ",
-    "lead.bishop.name":  "ስም ጳጳስ",
-    "lead.bishop.meta":  "ጳጳስ ኤጳርቅና",
+    /* News */
+    "news.eyebrow":  "ሓደስቲ ዜናታትን ጽሑፋትን",
+    "news.title":    "ካብ ኤጳርቅናና",
+    "news.all":      "ኩሉ ዜናታት ርኣዩ",
+    "tag.news":      "ዜና",
+    "tag.article":   "ጽሑፍ",
+    "tag.events":    "ፍጻመታት",
+    "news1.title":   "ር.ሊ.ጳ. ሊዮ 14ይ፡ ጓሳ ተስፋ ንዘመንና",
+    "news1.text":    "ቅዱስ ኣቦ ብመልእኽቲ ሰላምን ሓድነትን ንቤተ ክርስቲያን ምትብባዕ ቀጺሉ ኣሎ።",
+    "news2.title":   "ጽባቐ ከረንን ህዝባን",
+    "news2.text":    "ብዛዕባ እምነት፡ ጽንዓትን ሃብታም ባህልን ኤጳርቅናና ኣብ ኤርትራ ዝገልጽ ሓሳብ።",
+    "news3.title":   "ጽምብል ትንሣኤ ኣብ ቁምስናታትና",
+    "news3.text":    "ኣብ መላእ ኤጳርቅና ከረን ዝተኻየደ ሕጉስ ሊጡርጊያን ማሕበረሰባዊ በዓላትን።",
 
     /* Sermons */
-    "sermons.title":   "ስብከታት",
-    "sermons.tag":     "Sermons",
+    "sermons.eyebrow": "ፍሉይ ስብከት",
+    "sermons.title":   "ስብከት ሰንበትን ረድዮ ቫቲካንን",
+    "sermons.alt":     "Sunday Sermons & Radio Vatican",      /* (EN) */
+    "sermons.source":  "ረድዮ ቫቲካን – ትግርኛ",
     "sermons.search":  "ብኣርእስቲ ወይ ብዓመት ድለዩ…",
-    "sermons.empty":   "ምስ ድሌትኩም ዝሰማማዕ ስብከት የለን።"
+    "sermons.empty":   "ምስ ድሌትኩም ዝሰማማዕ ስብከት የለን።",
+    "sermons.link":    "ስምዑ / ተወሳኺ ኣንብቡ",
+
+    /* Quick links */
+    "q.sermons":       "ስብከታት",
+    "q.sermons.alt":   "Sermons",                             /* (EN) */
+    "q.articles":      "ጽሑፋት",
+    "q.articles.alt":  "Articles",                            /* (EN) */
+    "q.news":          "ዜናታት",
+    "q.news.alt":      "News",                                /* (EN) */
+    "q.calendar":      "ሊጡርጊያዊ ዓውደ-ኣዋርሕ",
+    "q.calendar.alt":  "Liturgical Calendar",                 /* (EN) */
+    "q.contact":       "ርኸቡና",
+    "q.contact.alt":   "Contact Us",                          /* (EN) */
+    "q.browse":        "ኩሉ ርኣዩ",
+    "q.viewall":       "ኩሉ ርኣዩ",
+    "q.viewcal":       "ዓውደ-ኣዋርሕ ርኣዩ",
+    "q.touch":         "ተራኸቡና",
+
+    /* Scripture banner */
+    "quote.text":      "“ክልተ ወይ ሰለስተ ብስመይ ኣብ ዝተኣከቡሉ፡ ኣነ ኣብ ማእከሎም ኣለኹ።”",
+    "quote.ref":       "— ማቴዎስ 18፡20",
+
+    /* Footer */
+    "foot.name":       "ካቶሊካዊ ኤጳርቅና ከረን",
+    "foot.country":    "ኤርትራ",
+    "footer.rights":   "ካቶሊካዊ ኤጳርቅና ከረን። ኩሉ መሰላት ዝተሓለወ እዩ።"
   }
 };

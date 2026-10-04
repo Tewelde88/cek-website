@@ -1,8 +1,10 @@
-/* ---------- Sermons: search + group by year ---------- */
-const list = document.getElementById('sermons');
+/* ---------- Sermons: featured + search + group by year ---------- */
+const list = document.getElementById('sermon-list');
 const empty = document.getElementById('empty');
 const q = document.getElementById('q');
 const isTi = () => document.documentElement.lang === 'ti';
+const titleOf = s => (isTi() && s.ti) ? s.ti : s.t;
+
 function render(filter=""){
   const f = filter.trim().toLowerCase();
   list.innerHTML = "";
@@ -17,12 +19,28 @@ function render(filter=""){
       const li = document.createElement('li');
       const a = document.createElement('a');
       a.href = s.href; a.target = '_blank'; a.rel = 'noopener';
-      a.textContent = (isTi() && s.ti) ? s.ti : s.t;
+      a.textContent = titleOf(s);
       li.appendChild(a); list.appendChild(li); count++;
     });
   empty.style.display = count ? 'none' : 'block';
+
+  // Featured sermon = the newest one (first in js/sermons.js)
+  const top = SERMONS[0];
+  if (top){
+    document.getElementById('featured').href = top.href;
+    document.getElementById('featured-title').textContent = titleOf(top);
+    document.getElementById('featured-year').textContent = top.y;
+  }
 }
 q.addEventListener('input', e => render(e.target.value));
+
+// Header search box → filters the sermon archive and scrolls to it
+document.getElementById('site-search').addEventListener('submit', e => {
+  e.preventDefault();
+  q.value = document.getElementById('site-q').value;
+  render(q.value);
+  document.getElementById('sermons').scrollIntoView({behavior:'smooth', block:'start'});
+});
 
 /* ---------- Language switch: English ⇄ Tigrinya ---------- */
 function setLang(lang){
@@ -42,16 +60,6 @@ function setLang(lang){
     el.placeholder = (ti && t) ? t : el.dataset.enPlaceholder;
   });
 
-  // Menu: the big label and the small label swap places
-  document.querySelectorAll('.nav a').forEach(a => {
-    const big = a.querySelector('span'), small = a.querySelector('small');
-    if (!big || !small) return;
-    if (a.dataset.en === undefined){ a.dataset.en = big.textContent; a.dataset.ti = small.textContent; }
-    big.textContent   = ti ? a.dataset.ti : a.dataset.en;
-    small.textContent = ti ? a.dataset.en : a.dataset.ti;
-    big.lang = ti ? 'ti' : 'en'; small.lang = ti ? 'en' : 'ti';
-  });
-
   document.querySelectorAll('.lang-switch button').forEach(b =>
     b.setAttribute('aria-pressed', String(b.dataset.lang === (ti ? 'ti' : 'en'))));
 
@@ -62,20 +70,20 @@ document.querySelectorAll('.lang-switch button').forEach(b =>
   b.addEventListener('click', () => setLang(b.dataset.lang)));
 setLang(isTi() ? 'ti' : 'en');
 
-/* ---------- Slider (autoplay, arrows, dots, swipe, keyboard) ---------- */
+/* ---------- Hero slider (autoplay, arrows, dots, swipe, keyboard) ---------- */
 (function(){
   const root = document.getElementById('slider');
   const slides = [...root.querySelectorAll('.slide')];
   const dots = root.querySelector('.dots');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const DELAY = 5000;  // slider speed in milliseconds
+  const DELAY = 6000;  // slider speed in milliseconds
   let i = 0, timer = null, paused = false;
 
   slides.forEach((s,n)=>{
     s.setAttribute('aria-roledescription','slide');
     s.setAttribute('aria-label',(n+1)+' of '+slides.length);
     if (n) s.setAttribute('aria-hidden','true');
-    const b=document.createElement('button'); b.type='button'; b.setAttribute('aria-label','Slide '+(n+1));
+    const b=document.createElement('button'); b.type='button'; b.setAttribute('aria-label','Photo '+(n+1));
     b.onclick=()=>go(n); dots.appendChild(b);
   });
   dots.children[0].classList.add('on');
@@ -90,27 +98,22 @@ setLang(isTi() ? 'ti' : 'en');
   }
   function restart(){
     clearInterval(timer);
-    if (!reduceMotion && !paused && !document.hidden) timer=setInterval(()=>go(i+1), DELAY);
+    if (!reduceMotion && !paused && !document.hidden && slides.length > 1) timer=setInterval(()=>go(i+1), DELAY);
   }
   function pause(p){ paused=p; restart(); }
 
   root.querySelector('.sl-prev').onclick=()=>go(i-1);
   root.querySelector('.sl-next').onclick=()=>go(i+1);
-
-  // Pause while the mouse or keyboard focus is on the slider, or the tab is hidden
   root.addEventListener('mouseenter',()=>pause(true));
   root.addEventListener('mouseleave',()=>pause(false));
   root.addEventListener('focusin',()=>pause(true));
   root.addEventListener('focusout',()=>pause(false));
   document.addEventListener('visibilitychange',restart);
-
-  // Arrow keys when the slider has focus
   root.addEventListener('keydown',e=>{
     if (e.key==='ArrowLeft') go(i-1);
     if (e.key==='ArrowRight') go(i+1);
   });
 
-  // Touch swipe
   let x0=null, y0=null;
   root.addEventListener('touchstart',e=>{ x0=e.touches[0].clientX; y0=e.touches[0].clientY; },{passive:true});
   root.addEventListener('touchend',e=>{
@@ -132,20 +135,19 @@ document.querySelectorAll('.progress').forEach(p=>{
 /* ---------- Mobile menu ---------- */
 (function(){
   const tgl = document.querySelector('.nav-toggle');
-  const nav = document.getElementById('site-nav');
-  const wide = window.matchMedia('(min-width:1180px)');
+  const menu = document.getElementById('site-nav');
+  const wide = window.matchMedia('(min-width:1024px)');
   function setOpen(o){
-    nav.classList.toggle('open', o);
+    menu.classList.toggle('open', o);
     tgl.setAttribute('aria-expanded', o);
-    tgl.setAttribute('aria-label', o ? 'Close menu' : 'Open menu');
   }
-  tgl.onclick = () => setOpen(!nav.classList.contains('open'));
-  nav.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
+  tgl.onclick = () => setOpen(!menu.classList.contains('open'));
+  menu.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false); });
   document.addEventListener('keydown', e => {
-    if (e.key==='Escape' && nav.classList.contains('open')){ setOpen(false); tgl.focus(); }
+    if (e.key==='Escape' && menu.classList.contains('open')){ setOpen(false); tgl.focus(); }
   });
   document.addEventListener('click', e => {
-    if (nav.classList.contains('open') && !e.target.closest('.site-header')) setOpen(false);
+    if (menu.classList.contains('open') && !e.target.closest('.mainnav')) setOpen(false);
   });
   wide.addEventListener('change', () => setOpen(false));
 })();
