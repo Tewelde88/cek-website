@@ -23,6 +23,15 @@
   const byDate = (a, b) => String(b.date || b.y || '').localeCompare(String(a.date || a.y || ''));
   const SORT = { NEWS: byDate, SERMONS: byDate };
 
+  // Uploaded files may be saved as "/images/…" or "/files/…". The site lives in a
+  // sub-folder (…/cek-website/), so make such paths relative: "images/…", "files/…".
+  function fixPaths(v){
+    if (typeof v === 'string') return v.replace(/^\/(?:cek-website\/)?((?:images|files)\/)/, '$1');
+    if (Array.isArray(v)) return v.map(fixPaths);
+    if (v && typeof v === 'object'){ for (const k in v) v[k] = fixPaths(v[k]); }
+    return v;
+  }
+
   function loadScript(src){
     return new Promise((ok, fail) => {
       const s = document.createElement('script');
@@ -36,6 +45,7 @@
     return fetch(file + bust)
       .then(r => { if (!r.ok) throw new Error(file + ' ' + r.status); return r.json(); })
       .then(data => {
+        data = fixPaths(data);
         let v = key ? data[key] : data;
         if (Array.isArray(v) && SORT[name]) v = v.slice().sort(SORT[name]);
         window[name] = v;
