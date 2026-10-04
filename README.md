@@ -76,3 +76,8 @@ Modern, responsive design — works on phones, tablets, laptops and large screen
 - **Sermons** (`sermons.html`): built from `js/sermons.js`. Each sermon can have `audio` (plays on the page), `video` and `pdf` links, a `date` and a preacher (`by`). Year filters and search. The menu item "Archive" opens this page; the header search box also searches here.
 - **Library** (`library.html`): items in `js/library-data.js` (title, author, year, category, language, url, optional cover picture). Put your own PDFs in `files/library/`.
 - **CESK** (`cesk.html`): Caritas / social service office — About, Our Work (photo tiles: `images/cesk-*.jpg`), Get Involved, Resources. Texts in `cesk.html` and the `ck.*` keys in `js/translations.js`; please replace the general descriptions with the office's real programmes.
+
+## Contact page (contact.html)
+- **Fill in the details in `js/contact-data.js`**: address, phone, email, WhatsApp, office hours, map location, and the list of offices. Empty values show "To be added".
+- The contact form needs no server: it opens the visitor's email app with the message ready to send to the `email` you set (and, if `whatsapp` is set, a "Send via WhatsApp" button). Until `email` is set, the form asks visitors to phone instead.
+- All "Contact Us" links on the site point to this page.

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Contact Us — Catholic Eparchy of Keren</title>
+<meta name="description" content="Contact the Catholic Eparchy of Keren: address, phone, email, office hours, map and contact form.">
+<meta name="theme-color" content="#16315e">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,500;0,600;0,700;1,400&family=Noto+Serif+Ethiopic:wght@500;700&family=Noto+Sans+Ethiopic:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/calendar.css">
+<link rel="stylesheet" href="css/liturgy.css">
+<link rel="stylesheet" href="css/resources.css">
+<link rel="stylesheet" href="css/contact.css">
+<!-- Apply the saved language before the page draws, so it doesn't flash English first -->
+<script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
+</head>
+<body>
+<a class="skip-link" href="#content" data-i18n="skip">Skip to content</a>
+<!-- ================= TOP BAR: logo, name, language, search ================= -->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html">
+      <!-- Eparchy emblem (images/logo.png, 256×256 with transparent corners) -->
+      <img class="crest" src="images/logo.png" alt="" width="256" height="256">
+      <span class="brand-text">
+        <span class="brand-ti" lang="ti">ካቶሊካዊ ኤጳርቅና ከረን</span>
+        <strong class="brand-en">Catholic Eparchy of Keren</strong>
+        <span class="brand-motto" data-i18n="motto">Faith • Service • Communion</span>
+      </span>
+    </a>
+    <div class="topbar-tools">
+      <div class="lang-switch" role="group" aria-label="Language / ቋንቋ">
+        <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+        <span aria-hidden="true">|</span>
+        <button type="button" data-lang="ti" aria-pressed="false" lang="ti">ትግርኛ</button>
+      </div>
+      <form class="site-search" role="search" id="site-search">
+        <input type="search" id="site-q" placeholder="Search…" data-i18n-placeholder="search.placeholder" aria-label="Search sermons">
+        <button type="submit" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</header>
+<!-- ================= MAIN MENU ================= -->
+<nav class="mainnav" aria-label="Main">
+  <div class="wrap mainnav-inner">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span class="bars" aria-hidden="true"></span>
+      <span data-i18n="nav.menu">Menu</span>
+    </button>
+    <ul id="site-nav">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="eparchy.html" data-i18n="nav.eparchy">Eparchy</a></li>
+      <li><a href="parishes.html" data-i18n="nav.parishes">Parishes &amp; Chapels</a></li>
+      <li><a href="liturgy.html" data-i18n="nav.liturgy">Liturgy</a></li>
+      <li><a href="news.html" data-i18n="nav.news">News</a></li>
+      <li><a href="sermons.html" data-i18n="nav.archive">Archive</a></li>
+      <li><a href="contact.html" class="active" aria-current="page" data-i18n="nav.contact">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+<main id="content" class="lit-page contact-page">
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow eyebrow-light" data-i18n="ct.eyebrow">We are here for you</p>
+      <h1 data-i18n="nav.contact">Contact Us</h1>
+      <p class="page-lead" data-i18n="ct.lead">Questions about the sacraments, Mass times, our parishes or how to help? Write to us or visit the offices of the Eparchy in Keren.</p>
+    </div>
+  </section>
+  <!-- ===== Details + form (details are filled in from js/contact-data.js) ===== -->
+  <section class="lit-section">
+    <div class="wrap ct-grid">
+      <div class="ct-info">
+        <div class="ct-item">
+          <span class="ct-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <div><h2 data-i18n="ct.address">Address</h2><p id="ct-address"></p></div>
+        </div>
+        <div class="ct-item">
+          <span class="ct-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
+          <div><h2 data-i18n="ct.phone">Phone</h2><p id="ct-phone"></p></div>
+        </div>
+        <div class="ct-item">
+          <span class="ct-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+          <div><h2 data-i18n="ct.email">Email</h2><p id="ct-email"></p></div>
+        </div>
+        <div class="ct-item" id="ct-wa-row" hidden>
+          <span class="ct-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/><path d="M9 9c0 3 3 6 6 6l1-1.5-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2z"/></svg></span>
+          <div><h2>WhatsApp</h2><p id="ct-whatsapp"></p></div>
+        </div>
+        <div class="ct-item">
+          <span class="ct-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <div><h2 data-i18n="ct.hours">Office hours</h2><p id="ct-hours"></p></div>
+        </div>
+        <div class="ct-item">
+          <span class="ct-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v4M10 5h4"/><path d="M5 21V12l7-5 7 5v9z"/><path d="M10 21v-5h4v5"/></svg></span>
+          <div><h2 data-i18n="ct.parish">Your parish</h2><p><span data-i18n="ct.parish.p">For baptisms, weddings and other sacraments, please first contact your parish priest.</span> <a href="parishes.html" data-i18n="ct.parish.l">Find a parish →</a></p></div>
+        </div>
+      </div>
+      <form class="ct-form card-like" id="ct-form" novalidate>
+        <h2 data-i18n="ct.form.title">Send us a message</h2>
+        <p class="ct-note" data-i18n="ct.form.note">The message opens in your email app, ready to send.</p>
+        <div class="ct-row2">
+          <label><span data-i18n="ct.f.name">Your name *</span><input id="f-name" type="text" autocomplete="name" required></label>
+          <label><span data-i18n="ct.f.phone">Phone</span><input id="f-phone" type="tel" autocomplete="tel"></label>
+        </div>
+        <label><span data-i18n="ct.f.email">Email</span><input id="f-email" type="email" autocomplete="email"></label>
+        <label><span data-i18n="ct.f.subject">Subject</span>
+          <select id="f-subject">
+            <option data-i18n="ct.s.general">General question</option>
+            <option data-i18n="ct.s.sacraments">Sacraments (baptism, wedding…)</option>
+            <option data-i18n="ct.s.mass">Mass times</option>
+            <option data-i18n="ct.s.cesk">CESK — Caritas / social services</option>
+            <option data-i18n="ct.s.donate">Donations &amp; support</option>
+            <option data-i18n="ct.s.web">This website</option>
+          </select>
+        </label>
+        <label><span data-i18n="ct.f.message">Message *</span><textarea id="f-message" rows="6" required></textarea></label>
+        <div class="ct-actions">
+          <button type="submit" class="btn btn-red"><span data-i18n="ct.f.send">Send by email</span> <span class="arrow" aria-hidden="true">→</span></button>
+          <button type="button" class="r-btn" id="ct-send-wa" hidden data-i18n="ct.f.wa">Send via WhatsApp</button>
+        </div>
+        <p class="ct-status" id="ct-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+  <!-- ===== Map ===== -->
+  <section class="lit-section alt">
+    <div class="wrap">
+      <div class="ct-map-head">
+        <h2 class="section-title" data-i18n="ct.find">Find us</h2>
+        <a class="r-btn" id="ct-map-link" href="#" target="_blank" rel="noopener" data-i18n="ct.openmap">Open in Google Maps</a>
+      </div>
+      <div class="ct-map"><iframe id="ct-map" title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+  </section>
+  <!-- ===== Offices (from js/contact-data.js) ===== -->
+  <section class="lit-section">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="5" y="9" width="22" height="18" rx="2"/><path d="M12 9V6h8v3M5 16h22"/></svg></span>
+        <div>
+          <p class="eyebrow eyebrow-red" data-i18n="ct.off.eyebrow">Eparchy Offices</p>
+          <h2 class="section-title" data-i18n="ct.off.title">Offices</h2>
+        </div>
+      </header>
+      <div class="clamp-box" data-clamp="420">
+        <div class="ct-offices" id="ct-offices"></div>
+      </div>
+      <button type="button" class="show-more" hidden aria-expanded="false"><span class="when-closed" data-i18n="ep.more">Show more</span><span class="when-open" data-i18n="ep.less">Show less</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+    </div>
+  </section>
+</main>
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer" id="contact">
+  <div class="wrap foot">
+    <p class="foot-name"><span data-i18n="foot.name">Catholic Eparchy of Keren</span> <span class="sep">|</span> <span data-i18n="foot.country">Eritrea</span></p>
+    <nav class="social" aria-label="Social media">
+      <!-- Put your real page links in href -->
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4a22 22 0 0 0-2.5-.1c-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8z"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg></a>
+      <a href="#" aria-label="Radio / Podcast"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm-1 1h2l1 8h-4zM6.3 16.7a8 8 0 0 1 0-11.4l1.4 1.4a6 6 0 0 0 0 8.6zm11.4 0-1.4-1.4a6 6 0 0 0 0-8.6l1.4-1.4a8 8 0 0 1 0 11.4z"/></svg></a>
+    </nav>
+    <p class="foot-ti" lang="ti">ካቶሊካዊ ኤጳርቅና ከረን <span class="sep">|</span> እምነት ፣ ኣገልግሎት ፣ ሕብረት</p>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="yr"></span> <span data-i18n="footer.rights">Catholic Eparchy of Keren. All rights reserved.</span></span>
+  </div>
+</footer>
+<script src="js/translations.js"></script>
+<script src="js/main.js"></script>
+<script src="js/contact-data.js"></script>
+<script src="js/contact.js"></script>
+</body>
+</html>
