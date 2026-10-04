@@ -120,9 +120,10 @@ button,input{font:inherit;color:inherit}
 
 /* ---------- HERO ---------- */
 .hero{position:relative;overflow:hidden;background:#1d2a3f;color:#fff;min-height:clamp(420px,46vw,560px);display:flex;align-items:center;touch-action:pan-y}
-.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity 1.2s ease,visibility 1.2s}
-.slide.on{opacity:1;visibility:visible}
-.slide .img{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.05);transition:transform 7s ease-out}
+/* Cover photos slide sideways: waiting slides sit off-screen to the right */
+.slide{position:absolute;inset:0;transform:translateX(100%);visibility:hidden;transition:transform .9s cubic-bezier(.65,0,.35,1)}
+.slide.on{transform:none;visibility:visible}
+.slide .img{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.06);transition:transform 7s ease-out}
 .slide.on .img{transform:scale(1)}
 .hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,36,71,.92) 0%,rgba(15,36,71,.7) 35%,rgba(15,36,71,.15) 70%,transparent 100%)}
 .hero-inner{position:relative;z-index:1;width:100%;padding-block:clamp(48px,7vw,80px) clamp(72px,8vw,88px)}
