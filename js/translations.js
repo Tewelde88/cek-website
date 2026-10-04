@@ -19,7 +19,7 @@ const TRANSLATIONS = {
 
     /* Menu */
     "nav.menu":      "ምናዩ",
-    "nav.home":      "ቀዳማይ ገጽ",
+    "nav.home":      "ደምበ",
     "nav.about":     "ብዛዕባና",
     "nav.eparchy":   "ኤጳርቅና",
     "nav.parishes":  "ቁምስናታትን ማሕበረሰባትን",
