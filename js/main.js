@@ -233,3 +233,40 @@ document.querySelectorAll('[data-open]').forEach(link => {
   }, { rootMargin: '-140px 0px -55% 0px' });
   byId.forEach((a, id) => { const s = document.getElementById(id); if (s) io.observe(s); });
 })();
+
+/* ---------- "Show more / Show less" boxes ----------
+   Markup:  <div class="clamp-box" data-clamp="400"> … </div>
+            <button type="button" class="show-more" hidden aria-expanded="false">…</button>
+   The box is cut to data-clamp pixels (with a fade) only when its content is taller;
+   otherwise the button stays hidden. Call window.refreshClamps() after changing content. */
+(function(){
+  const boxes = () => [...document.querySelectorAll('.clamp-box')];
+  function refresh(){
+    boxes().forEach(box => {
+      const btn = box.nextElementSibling;
+      if (!btn || !btn.classList.contains('show-more')) return;
+      const h = +box.dataset.clamp || 400;
+      box.style.setProperty('--clamp-h', h + 'px');
+      const tall = box.scrollHeight > h + 40;          // small margin: don't hide just a few pixels
+      box.classList.toggle('is-clamped', tall);
+      btn.hidden = !tall;
+      if (!tall){ box.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); }
+    });
+  }
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.show-more'); if (!btn) return;
+    const box = btn.previousElementSibling; if (!box || !box.classList.contains('clamp-box')) return;
+    const open = !box.classList.contains('is-open');
+    box.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    if (!open){
+      const sec = box.closest('section');
+      if (sec && sec.getBoundingClientRect().top < 0) sec.scrollIntoView({ block: 'start' });
+    }
+  });
+  let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(refresh, 150); });
+  window.addEventListener('load', refresh);
+  document.addEventListener('langchange', () => setTimeout(refresh, 0));
+  window.refreshClamps = refresh;
+  refresh();
+})();

@@ -334,3 +334,15 @@ html:not([lang="ti"]) .only-ti{display:none}
 
 /* Elements hidden by script must stay hidden even if a style gives them a display value */
 [hidden]{display:none !important}
+
+/* ---------- "Show more / Show less" boxes (see main.js) ---------- */
+.clamp-box.is-clamped:not(.is-open){max-height:var(--clamp-h,400px);overflow:hidden;
+  -webkit-mask-image:linear-gradient(#000 62%,transparent);mask-image:linear-gradient(#000 62%,transparent)}
+.show-more{display:flex;align-items:center;gap:8px;margin:18px auto 0;min-height:44px;padding:8px 22px;border-radius:999px;
+  border:1px solid var(--navy);background:#fff;color:var(--navy);font-weight:600;font-size:.92rem;cursor:pointer;transition:background-color .2s,color .2s}
+.show-more:hover{background:var(--navy);color:#fff}
+.show-more svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
+.show-more .when-open{display:none}
+.show-more[aria-expanded="true"] .when-open{display:inline}
+.show-more[aria-expanded="true"] .when-closed{display:none}
+.show-more[aria-expanded="true"] svg{transform:rotate(180deg)}

@@ -104,6 +104,8 @@
           <h2 class="section-title" data-i18n="ep.nav.bishop">Bishop</h2>
         </div>
       </header>
+      <!-- "Show more" box: data-clamp = height in pixels shown before "Show more" -->
+      <div class="clamp-box" data-clamp="420">
       <article class="bishop-feature">
         <div class="bishop-photo" role="img" aria-label="Bishop Kidane Yebio" style="background-image:url('images/bishop.jpg'),linear-gradient(160deg,#f3ecf2,#d9c6d6)"></div>
         <div class="bishop-text">
@@ -119,6 +121,8 @@
           <a class="btn btn-red" href="#bishop-bio" data-open="bishop-bio"><span data-i18n="bishop.link">Read Biography</span> <span class="arrow" aria-hidden="true">→</span></a>
         </div>
       </article>
+      </div>
+      <button type="button" class="show-more" hidden aria-expanded="false"><span class="when-closed" data-i18n="ep.more">Show more</span><span class="when-open" data-i18n="ep.less">Show less</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
     </div>
   </section>
 
@@ -137,7 +141,10 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
         <input type="search" id="priest-q" placeholder="Search by name, role or parish…" data-i18n-placeholder="ep.priests.search" aria-label="Search priests">
       </label>
-      <div class="person-grid" id="priest-grid"></div>
+      <div class="clamp-box" data-clamp="400">
+        <div class="g-grid g-grid-people" id="priest-grid"></div>
+      </div>
+      <button type="button" class="show-more" hidden aria-expanded="false"><span class="when-closed" data-i18n="ep.more">Show more</span><span class="when-open" data-i18n="ep.less">Show less</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
     </div>
   </section>
 
@@ -152,21 +159,33 @@
           <p class="lit-lead" data-i18n="ep.sem.lead">The Eparchy forms its future priests through prayer, study and pastoral experience, in the spiritual and liturgical tradition of the Ge’ez Church.</p>
         </div>
       </header>
-      <div class="lit-cards">
-        <article class="lit-card">
-          <h3 data-i18n="ep.sem.c1.t">Minor Seminary</h3>
-          <p data-i18n="ep.sem.c1.p">Young men discerning a call to the priesthood begin in the minor seminary, combining school studies with prayer and community life.</p>
-        </article>
-        <article class="lit-card">
-          <h3 data-i18n="ep.sem.c2.t">Major Seminary</h3>
-          <p data-i18n="ep.sem.c2.p">Seminarians continue with philosophy and theology, preparing for ordination to the diaconate and the priesthood.</p>
-        </article>
-        <article class="lit-card">
-          <h3 data-i18n="ep.sem.c3.t">Vocations</h3>
-          <p data-i18n="ep.sem.c3.p">Do you feel called to the priesthood? Speak with your parish priest or contact the Eparchy.</p>
-          <a class="more" href="#contact"><span data-i18n="ep.sem.c3.l">Contact us</span> <span class="arrow" aria-hidden="true">→</span></a>
-        </article>
+      <!-- Photos (optional): images/seminary-minor.jpg, images/seminary-major.jpg, images/vocations.jpg -->
+      <div class="clamp-box" data-clamp="420">
+        <div class="g-grid g-grid-wide">
+          <article class="g-tile g-seminary">
+            <div class="g-media" style="background-image:url('images/seminary-minor.jpg'),linear-gradient(135deg,#2a4a80,#16315e)">
+              <div class="g-overlay"><h3 data-i18n="ep.sem.c1.t">Minor Seminary</h3></div>
+            </div>
+            <div class="g-body"><p data-i18n="ep.sem.c1.p">Young men discerning a call to the priesthood begin in the minor seminary, combining school studies with prayer and community life.</p></div>
+          </article>
+          <article class="g-tile g-seminary">
+            <div class="g-media" style="background-image:url('images/seminary-major.jpg'),linear-gradient(135deg,#7a1a1a,#b3202a)">
+              <div class="g-overlay"><h3 data-i18n="ep.sem.c2.t">Major Seminary</h3></div>
+            </div>
+            <div class="g-body"><p data-i18n="ep.sem.c2.p">Seminarians continue with philosophy and theology, preparing for ordination to the diaconate and the priesthood.</p></div>
+          </article>
+          <article class="g-tile g-seminary">
+            <div class="g-media" style="background-image:url('images/vocations.jpg'),linear-gradient(135deg,#8a6a1f,#c9a24a)">
+              <div class="g-overlay"><h3 data-i18n="ep.sem.c3.t">Vocations</h3></div>
+            </div>
+            <div class="g-body">
+              <p data-i18n="ep.sem.c3.p">Do you feel called to the priesthood? Speak with your parish priest or contact the Eparchy.</p>
+              <a class="more" href="#contact"><span data-i18n="ep.sem.c3.l">Contact us</span> <span class="arrow" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
       </div>
+      <button type="button" class="show-more" hidden aria-expanded="false"><span class="when-closed" data-i18n="ep.more">Show more</span><span class="when-open" data-i18n="ep.less">Show less</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
     </div>
   </section>
 
@@ -181,7 +200,10 @@
           <p class="lit-lead" data-i18n="ep.dean.lead">The parishes of the Eparchy are grouped into deaneries, which help priests and communities to work together in pastoral care.</p>
         </div>
       </header>
-      <div class="deanery-grid" id="deanery-grid"></div>
+      <div class="clamp-box" data-clamp="420">
+        <div class="g-grid g-grid-wide" id="deanery-grid"></div>
+      </div>
+      <button type="button" class="show-more" hidden aria-expanded="false"><span class="when-closed" data-i18n="ep.more">Show more</span><span class="when-open" data-i18n="ep.less">Show less</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
     </div>
   </section>
 
@@ -196,7 +218,10 @@
           <p class="lit-lead" data-i18n="ep.rel.lead">Religious men and women serve the Eparchy in prayer, education, health care and service to the poor.</p>
         </div>
       </header>
-      <div class="order-grid" id="order-grid"></div>
+      <div class="clamp-box" data-clamp="400">
+        <div class="g-grid g-grid-wide" id="order-grid"></div>
+      </div>
+      <button type="button" class="show-more" hidden aria-expanded="false"><span class="when-closed" data-i18n="ep.more">Show more</span><span class="when-open" data-i18n="ep.less">Show less</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
     </div>
   </section>
 

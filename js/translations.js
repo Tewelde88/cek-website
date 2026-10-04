@@ -202,6 +202,8 @@ const TRANSLATIONS = {
 
     "ep.rel.eyebrow":  "ሕይወት ምንኩስና",
     "ep.rel.lead":     "ደቂ ተባዕትዮን ደቂ ኣንስትዮን ኣባላት ማሕበራት ሃይማኖት ንኤጳርቅና ብጸሎት፡ ብትምህርቲ፡ ብክንክን ጥዕናን ብኣገልግሎት ድኻታትን የገልግሉ።",
+    "ep.more":         "ተወሳኺ ርኣዩ",
+    "ep.less":         "ኣሕጽሩ",
 
     /* Parishes & Chapels page (parishes.html) */
     "pa.eyebrow":      "ካቶሊካዊ ኤጳርቅና ከረን",

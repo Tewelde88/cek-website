@@ -55,6 +55,7 @@ Modern, responsive design — works on phones, tablets, laptops and large screen
 - Sub-sections: Bishop, Priests, Seminary, Deaneries, Religious Orders (sticky sub-menu, EN/Tigrinya).
 - **Priests, deaneries and religious orders** are lists in `js/eparchy-data.js` — add one entry per person/deanery/community. Entries with `sample: true` are examples (shown with an "Example" tag); replace or delete them.
 - Priest photos: put them in `images/` (e.g. `images/priests/abba-name.jpg`) and set `photo:` in the entry.
+- Each sub-section is shown as a gallery (photo tiles) inside a "Show more" box. The visible height is `data-clamp="…"` (pixels) on the `clamp-box` in `eparchy.html`; the button only appears when there is more to see. Optional photos: `photo:` in each entry of `js/eparchy-data.js`; seminary tiles use `images/seminary-minor.jpg`, `images/seminary-major.jpg`, `images/vocations.jpg`.
 - Section texts: `eparchy.html` (English) and the `ep.*` keys in `js/translations.js` (Tigrinya). Styles: `css/eparchy.css`.
 
 ## Parishes & Chapels page (parishes.html)

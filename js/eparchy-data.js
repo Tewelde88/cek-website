@@ -29,7 +29,7 @@ const EPARCHY = {
   ],
 
   /* ---------- Deaneries ----------
-     Each deanery lists its parishes.                                  */
+     Each deanery lists its parishes.  photo: optional, e.g. "images/deaneries/name.jpg"                                  */
   deaneries: [
     { name: "Name of deanery", name_ti: "ስም ዲነሪ",
       dean: "Abba — Name of dean", dean_ti: "ኣባ — ስም ዲን",
@@ -44,7 +44,7 @@ const EPARCHY = {
   ],
 
   /* ---------- Religious orders and congregations ----------
-     type: "men" or "women"                                           */
+     type: "men" or "women" · photo: optional, e.g. "images/orders/name.jpg"                                           */
   orders: [
     { name: "De La Salle Christian Brothers", name_ti: "ኣሕዋት ክርስቲያን ደ ላ ሳል",
       type: "men",
