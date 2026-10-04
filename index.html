@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Your Diocese — Home</title>
+<meta name="description" content="Official website of Your Diocese Name — parishes, Mass times, sermons and news.">
+<meta name="theme-color" content="#4e0f0f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%237a1a1a'/%3E%3Cpath d='M10.8 4h2.4v4.6h4.6V11h-4.6v9h-2.4v-9H6.2V8.6h4.6z' fill='%23c9a24a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Ethiopic:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<!-- Apply the saved language before the page draws, so it doesn't flash English first -->
+<script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
+</head>
+<body>
+
+<a class="skip-link" href="#content" data-i18n="skip">Skip to content</a>
+
+<!-- ================= HEADER + NAVIGATION ================= -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#">
+      <span class="crest" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M10.5 2h3v6h6v3h-6v11h-3V11h-6V8h6z"/></svg>
+      </span>
+      <span class="brand-text">
+        <strong data-i18n="site.name">Your Diocese Name</strong>
+        <span data-i18n="site.tagline">Catholic Church · City, Country</span>
+      </span>
+    </a>
+
+    <div class="header-actions">
+      <!-- Language switch: English ⇄ Tigrinya -->
+      <div class="lang-switch" role="group" aria-label="Language / ቋንቋ">
+        <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+        <button type="button" data-lang="ti" aria-pressed="false" lang="ti">ትግ</button>
+      </div>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="bars" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <!-- Each link: English label, then <small> Tigrinya label. They swap places in ትግርኛ mode. -->
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="#" class="active" aria-current="page"><span>Home</span> <small>ደንበ</small></a></li>
+        <li><a href="#"><span>Diocese</span> <small>ኤጳርቅና</small></a></li>
+        <li><a href="#"><span>Parishes</span> <small>ቁምስናታት</small></a></li>
+        <li><a href="#"><span>Chapels</span> <small>ቤትጸሎታት</small></a></li>
+        <li><a href="#"><span>Liturgy</span> <small>ሊጡርግያ</small></a></li>
+        <li><a href="#"><span>Links</span> <small>መራኸቢታት</small></a></li>
+        <li><a href="#"><span>Mass Times</span> <small>ጊዜ ቅዳሴ</small></a></li>
+        <li><a href="#"><span>Contact</span> <small>ኣድራሻና</small></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= PHOTO SLIDER ================= -->
+<div class="wrap">
+  <section class="hero" id="slider" aria-roledescription="carousel" aria-label="Parish photos">
+    <!-- To use real photos: put them in /images and replace the gradient with background-image:url('images/your-photo.jpg') -->
+    <div class="slide on"><div class="img" style="background-image:linear-gradient(135deg,#8c6d4f,#3d2c1f)"></div><div class="cap"><p class="cap-title" data-i18n="slide.1">Cathedral Church</p></div></div>
+    <div class="slide"><div class="img" style="background-image:linear-gradient(135deg,#9a8a62,#4a5a3a)"></div><div class="cap"><p class="cap-title" data-i18n="slide.2">Hillside Village</p></div></div>
+    <div class="slide"><div class="img" style="background-image:linear-gradient(135deg,#6f7f96,#2e3a4f)"></div><div class="cap"><p class="cap-title" data-i18n="slide.3">Parish of St. Anthony</p></div></div>
+    <div class="slide"><div class="img" style="background-image:linear-gradient(135deg,#b79a6b,#6b4b2a)"></div><div class="cap"><p class="cap-title" data-i18n="slide.4">Panoramic View</p></div></div>
+    <div class="slide"><div class="img" style="background-image:linear-gradient(135deg,#7d5a5a,#3b2424)"></div><div class="cap"><p class="cap-title" data-i18n="slide.5">Church Consecration</p></div></div>
+
+    <div class="hero-controls">
+      <button class="sl-btn sl-prev" aria-label="Previous slide">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <div class="dots" role="group" aria-label="Choose slide"></div>
+      <button class="sl-btn sl-next" aria-label="Next slide">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </section>
+</div>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="wrap layout" id="content">
+
+  <!-- CENTER: welcome + building progress (shown first on phones) -->
+  <section class="center-col">
+    <article class="card welcome">
+      <div class="card-body">
+        <p class="eyebrow" data-i18n="welcome.eyebrow">እንቋዕ ብደሓን መጻእኩም</p>
+        <h1 data-i18n="welcome.title">Welcome</h1>
+        <p data-i18n="welcome.p1">Short welcome message from the diocese goes here — who you are, the communities you serve, and how visitors can take part in parish life.</p>
+        <p data-i18n="welcome.p2">Use this space for an announcement, a feast-day notice or a link to the latest pastoral letter.</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <h2 data-i18n="build.title">Cathedral Building</h2>
+        <span class="tag" data-i18n="build.tag">Progress</span>
+      </div>
+      <div class="card-body">
+        <div class="progress-img" data-i18n="build.photo">Construction photo</div>
+        <!-- Change the number in BOTH data-value and the text below -->
+        <div class="progress" role="progressbar" aria-label="Building progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="68" data-value="68">
+          <div class="progress-top"><strong>68%</strong><span data-i18n="build.complete">complete</span></div>
+          <div class="bar"><span></span></div>
+        </div>
+        <p class="meta" data-i18n="build.updated">Last updated Month YYYY</p>
+        <p data-i18n="build.text">A brief update on the building project and how supporters can contribute.</p>
+        <a class="btn" href="#"><span data-i18n="build.btn">Read the latest report</span> <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+  </section>
+
+  <!-- LEFT: leadership -->
+  <aside class="col-left">
+    <section class="card">
+      <div class="card-head">
+        <h2 data-i18n="lead.title">Leadership</h2>
+      </div>
+      <div class="card-body leaders-wrap">
+        <div class="leaders">
+          <div class="leader">
+            <!-- To use a photo: <div class="portrait"><img src="images/pope.jpg" alt="Pope Leo XIV"></div> -->
+            <div class="portrait" data-i18n="lead.photo">Photo</div>
+            <div class="title" data-i18n="lead.pope.title">His Holiness</div>
+            <div class="name" data-i18n="lead.pope.name">Pope Leo XIV</div>
+          </div>
+          <div class="leader">
+            <div class="portrait" data-i18n="lead.photo">Photo</div>
+            <div class="title" data-i18n="lead.bishop.title">His Excellency</div>
+            <div class="name" data-i18n="lead.bishop.name">Bishop's Name</div>
+            <div class="meta" data-i18n="lead.bishop.meta">Bishop of Your Diocese</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </aside>
+
+  <!-- RIGHT: sermons archive -->
+  <aside class="col-right">
+    <section class="card">
+      <div class="card-head">
+        <h2 data-i18n="sermons.title">Sermons</h2>
+        <span class="tag tag-ethiopic" data-i18n="sermons.tag">ስብከታት</span>
+      </div>
+      <div class="card-body">
+        <label class="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input id="q" type="search" placeholder="Search by title or year…" data-i18n-placeholder="sermons.search" aria-label="Search sermons">
+        </label>
+        <ul class="sermons" id="sermons"></ul>
+        <div class="empty" id="empty" data-i18n="sermons.empty">No sermons match your search.</div>
+      </div>
+    </section>
+  </aside>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <span class="crest crest-sm" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M10.5 2h3v6h6v3h-6v11h-3V11h-6V8h6z"/></svg>
+      </span>
+      <div>
+        <strong data-i18n="site.name">Your Diocese Name</strong>
+        <span data-i18n="site.tagline">Catholic Church · City, Country</span>
+      </div>
+    </div>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="#" data-i18n="footer.mass">Mass Times</a>
+      <a href="#" data-i18n="footer.parishes">Parishes</a>
+      <a href="#" data-i18n="footer.contact">Contact us</a>
+    </nav>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="yr"></span> <span data-i18n="footer.rights">Your Diocese Name. All rights reserved.</span></span>
+  </div>
+</footer>
+
+<script src="js/translations.js"></script>
+<script src="js/sermons.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# Old design copy (kept on this computer only)
+backup-old-design/
+
+# OS / editor files
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+
+# Claude Code local settings
+.claude/
