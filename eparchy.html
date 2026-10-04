@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Eparchy — Catholic Eparchy of Keren</title>
+<meta name="description" content="The Catholic Eparchy of Keren: our Bishop, priests, seminary, deaneries and religious orders.">
+<meta name="theme-color" content="#16315e">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,500;0,600;0,700;1,400&family=Noto+Serif+Ethiopic:wght@500;700&family=Noto+Sans+Ethiopic:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/calendar.css">
+<link rel="stylesheet" href="css/liturgy.css">
+<link rel="stylesheet" href="css/eparchy.css">
+<!-- Apply the saved language before the page draws, so it doesn't flash English first -->
+<script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
+</head>
+<body>
+
+<a class="skip-link" href="#content" data-i18n="skip">Skip to content</a>
+
+<!-- ================= TOP BAR: logo, name, language, search ================= -->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html">
+      <!-- Eparchy emblem (images/logo.png, 256×256 with transparent corners) -->
+      <img class="crest" src="images/logo.png" alt="" width="256" height="256">
+      <span class="brand-text">
+        <span class="brand-ti" lang="ti">ካቶሊካዊ ኤጳርቅና ከረን</span>
+        <strong class="brand-en">Catholic Eparchy of Keren</strong>
+        <span class="brand-motto" data-i18n="motto">Faith • Service • Communion</span>
+      </span>
+    </a>
+
+    <div class="topbar-tools">
+      <div class="lang-switch" role="group" aria-label="Language / ቋንቋ">
+        <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+        <span aria-hidden="true">|</span>
+        <button type="button" data-lang="ti" aria-pressed="false" lang="ti">ትግርኛ</button>
+      </div>
+      <form class="site-search" role="search" id="site-search">
+        <input type="search" id="site-q" placeholder="Search…" data-i18n-placeholder="search.placeholder" aria-label="Search sermons">
+        <button type="submit" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<!-- ================= MAIN MENU ================= -->
+<nav class="mainnav" aria-label="Main">
+  <div class="wrap mainnav-inner">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span class="bars" aria-hidden="true"></span>
+      <span data-i18n="nav.menu">Menu</span>
+    </button>
+    <ul id="site-nav">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="eparchy.html" class="active" aria-current="page" data-i18n="nav.eparchy">Eparchy</a></li>
+      <li><a href="#" data-i18n="nav.parishes">Parishes &amp; Chapels</a></li>
+      <li><a href="liturgy.html" data-i18n="nav.liturgy">Liturgy</a></li>
+      <li><a href="index.html#news" data-i18n="nav.news">News</a></li>
+      <li><a href="index.html#sermons" data-i18n="nav.archive">Archive</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="content" class="lit-page ep-page">
+
+  <!-- ================= PAGE TITLE ================= -->
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow eyebrow-light" data-i18n="ep.eyebrow">Catholic Eparchy of Keren</p>
+      <h1 data-i18n="ep.title">The Eparchy</h1>
+      <p class="page-lead" data-i18n="ep.lead">Meet the shepherds, priests, seminarians, deaneries and religious communities who serve the People of God in the Eparchy of Keren.</p>
+    </div>
+  </section>
+
+  <!-- ================= SUB-MENU (sticky) ================= -->
+  <nav class="subnav" aria-label="Eparchy sections">
+    <div class="wrap">
+      <ul>
+        <li><a href="#bishop" data-i18n="ep.nav.bishop">Bishop</a></li>
+        <li><a href="#priests" data-i18n="ep.nav.priests">Priests</a></li>
+        <li><a href="#seminary" data-i18n="ep.nav.seminary">Seminary</a></li>
+        <li><a href="#deaneries" data-i18n="ep.nav.deaneries">Deaneries</a></li>
+        <li><a href="#religious" data-i18n="ep.nav.religious">Religious Orders</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ================= 1. BISHOP ================= -->
+  <section class="lit-section" id="bishop">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3v6M13 6h6"/><path d="M9 28V15c0-4 3-6 7-6s7 2 7 6v13z"/><path d="M16 14v9M12.5 18h7"/></svg></span>
+        <div>
+          <p class="eyebrow eyebrow-red" data-i18n="ep.bishop.eyebrow">Our Shepherd</p>
+          <h2 class="section-title" data-i18n="ep.nav.bishop">Bishop</h2>
+        </div>
+      </header>
+      <article class="bishop-feature">
+        <div class="bishop-photo" role="img" aria-label="Bishop Kidane Yebio" style="background-image:url('images/bishop.jpg'),linear-gradient(160deg,#f3ecf2,#d9c6d6)"></div>
+        <div class="bishop-text">
+          <h3 data-i18n="bishop.name">Most Rev. Kidane Yebio</h3>
+          <p class="bishop-title" data-i18n="ep.bishop.title">Bishop of Keren</p>
+          <p data-i18n="ep.bishop.lead">Most Rev. Kidane Yebio, Bishop of Keren, has devoted his life to study, priestly ministry, pastoral service, and leadership. Born in Shnara, Eritrea, his journey from local schools and seminaries to advanced studies in Rome prepared him for decades of service to the Church and the communities of the Eparchy of Keren.</p>
+          <dl class="facts">
+            <div><dt data-i18n="ep.f.born">Born</dt><dd data-i18n="ep.f.born.v">25 January 1958, Shnara, Eritrea</dd></div>
+            <div><dt data-i18n="ep.f.priest">Ordained priest</dt><dd data-i18n="ep.f.priest.v">30 June 1985</dd></div>
+            <div><dt data-i18n="ep.f.bishop">Consecrated bishop</dt><dd data-i18n="ep.f.bishop.v">2 March 2003 — second Bishop of Keren</dd></div>
+            <div><dt data-i18n="ep.f.lang">Languages</dt><dd data-i18n="ep.f.lang.v">Blin, Tigre, Tigrigna, Amharic, English, Italian</dd></div>
+          </dl>
+          <a class="btn btn-red" href="#bishop-bio" data-open="bishop-bio"><span data-i18n="bishop.link">Read Biography</span> <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= 2. PRIESTS (list in js/eparchy-data.js) ================= -->
+  <section class="lit-section alt" id="priests">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="10" r="5"/><path d="M6 28c0-6 4.5-10 10-10s10 4 10 10"/><path d="M14 18h4v4h-4z"/></svg></span>
+        <div>
+          <p class="eyebrow eyebrow-red" data-i18n="ep.priests.eyebrow">Clergy of the Eparchy</p>
+          <h2 class="section-title" data-i18n="ep.nav.priests">Priests</h2>
+          <p class="lit-lead" data-i18n="ep.priests.lead">Our priests serve the parishes, schools and communities of the Eparchy, celebrating the sacraments and accompanying the faithful.</p>
+        </div>
+      </header>
+      <label class="ep-search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="search" id="priest-q" placeholder="Search by name, role or parish…" data-i18n-placeholder="ep.priests.search" aria-label="Search priests">
+      </label>
+      <div class="person-grid" id="priest-grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= 3. SEMINARY ================= -->
+  <section class="lit-section" id="seminary">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M3 12l13-6 13 6-13 6z"/><path d="M8 14.5V21c0 2 4 4 8 4s8-2 8-4v-6.5M29 12v8"/></svg></span>
+        <div>
+          <p class="eyebrow eyebrow-red" data-i18n="ep.sem.eyebrow">Forming Future Priests</p>
+          <h2 class="section-title" data-i18n="ep.nav.seminary">Seminary</h2>
+          <p class="lit-lead" data-i18n="ep.sem.lead">The Eparchy forms its future priests through prayer, study and pastoral experience, in the spiritual and liturgical tradition of the Ge’ez Church.</p>
+        </div>
+      </header>
+      <div class="lit-cards">
+        <article class="lit-card">
+          <h3 data-i18n="ep.sem.c1.t">Minor Seminary</h3>
+          <p data-i18n="ep.sem.c1.p">Young men discerning a call to the priesthood begin in the minor seminary, combining school studies with prayer and community life.</p>
+        </article>
+        <article class="lit-card">
+          <h3 data-i18n="ep.sem.c2.t">Major Seminary</h3>
+          <p data-i18n="ep.sem.c2.p">Seminarians continue with philosophy and theology, preparing for ordination to the diaconate and the priesthood.</p>
+        </article>
+        <article class="lit-card">
+          <h3 data-i18n="ep.sem.c3.t">Vocations</h3>
+          <p data-i18n="ep.sem.c3.p">Do you feel called to the priesthood? Speak with your parish priest or contact the Eparchy.</p>
+          <a class="more" href="#contact"><span data-i18n="ep.sem.c3.l">Contact us</span> <span class="arrow" aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. DEANERIES (list in js/eparchy-data.js) ================= -->
+  <section class="lit-section alt" id="deaneries">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3l11 7v15H5V10z"/><path d="M13 25v-7h6v7M16 8v5M13.5 10.5h5"/></svg></span>
+        <div>
+          <p class="eyebrow eyebrow-red" data-i18n="ep.dean.eyebrow">Parishes Working Together</p>
+          <h2 class="section-title" data-i18n="ep.nav.deaneries">Deaneries</h2>
+          <p class="lit-lead" data-i18n="ep.dean.lead">The parishes of the Eparchy are grouped into deaneries, which help priests and communities to work together in pastoral care.</p>
+        </div>
+      </header>
+      <div class="deanery-grid" id="deanery-grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= 5. RELIGIOUS ORDERS (list in js/eparchy-data.js) ================= -->
+  <section class="lit-section" id="religious">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="11" cy="10" r="4"/><circle cx="21" cy="10" r="4"/><path d="M3 26c0-5 3.5-8 8-8s8 3 8 8M13 26c0-5 3.5-8 8-8s8 3 8 8"/></svg></span>
+        <div>
+          <p class="eyebrow eyebrow-red" data-i18n="ep.rel.eyebrow">Consecrated Life</p>
+          <h2 class="section-title" data-i18n="ep.nav.religious">Religious Orders</h2>
+          <p class="lit-lead" data-i18n="ep.rel.lead">Religious men and women serve the Eparchy in prayer, education, health care and service to the poor.</p>
+        </div>
+      </header>
+      <div class="order-grid" id="order-grid"></div>
+    </div>
+  </section>
+
+  <!-- Bishop biography pop-up (same text as on the home page) -->
+  <!-- ===== Bishop Kidane Yebio biography (pop-up). English and Tigrinya versions; the page shows the one for the chosen language. ===== -->
+  <dialog class="bio" id="bishop-bio" aria-labelledby="bishop-bio-title">
+    <div class="bio-bar">
+      <p class="eyebrow eyebrow-red" data-i18n="bishop.eyebrow">Our Bishop</p>
+      <button type="button" class="bio-close" data-close aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <article class="bio-body">
+      <!-- Photo appears automatically once images/bishop.jpg exists -->
+      <img class="bio-photo" src="images/bishop.jpg" alt="Portrait of Bishop Kidane Yebio" loading="lazy" onerror="this.remove()">
+
+      <div class="only-en" lang="en">
+        <h2 id="bishop-bio-title">The Life and Ministry of Most Rev. Kidane Yebio, Bishop of Keren</h2>
+        <p class="bio-lead">Most Rev. Kidane Yebio, Bishop of Keren, has devoted his life to study, priestly ministry, pastoral service, and leadership. Born in Shnara, Eritrea, on January 25, 1958, his journey from local schools and seminaries to advanced studies in Rome prepared him for decades of service to the Church and the communities of the Eparchy of Keren.</p>
+
+        <h3>Education and Formation</h3>
+        <p>Bishop Kidane completed his elementary studies at St. Joseph School in Keren, run by the De La Salle Christian Brothers, from 1969 to 1973. In 1974, he entered the minor seminary in Keren. Two years later, he moved to the major seminary in Asmara, where he completed high school between 1976 and 1980. He then studied biology and other basic sciences at Asmara University from 1980 to 1982.</p>
+        <p>From 1983 to 1985, he studied at the Theological Institute in Asmara and was ordained a priest on June 30, 1985. He was later sent to Rome, where he earned a Licentiate degree in Biblical Theology at St. Thomas University (Angelicum) from 1986 to 1988. He continued his studies at the Pontifical Oriental Institute, earning a Licentiate in Oriental Canon Law between 1988 and 1990.</p>
+
+        <h3>Pastoral Experience and Linguistic Work</h3>
+        <p>During four summers while studying in Rome, Abba Kidane worked in Long Island, New York, assisting in a parish and gaining valuable pastoral experience. He also contributed to the translation of the Mass, parts of the New Testament, and other liturgical prayers into the Blin language. His scholarly work includes a study paper titled <em>Religion of the Bilin People</em>. He is fluent in Blin, Tigre, Tigrigna, Amharic, English, and Italian.</p>
+
+        <h3>Service in the Eparchy of Keren</h3>
+        <p>After returning from his studies, Abba Kidane served in a succession of pastoral, academic, and administrative roles. He was pastor of Haddish Addi from 1991 to 1992; director of the major seminary of Asmara from 1992 to 1993; and a teacher of Bible and Canon Law at the Asmara Theological Institute during the same period. From 1993 to 1995, he served as vicar general for the Western Eparchial Vicariate of Keren. He was also pastor of Shinnara, Jengeren, Halhal, and Afabet from 1993 to 1997, and later served as vicar general of the Eparchy of Keren and pastor of Bambi from 1996 to 2002.</p>
+
+        <h3>Bishop of Keren</h3>
+        <p>After serving as vicar general of the Eparchy of Keren from 1996 to 2002, Abba Kidane Yebio was consecrated Bishop of Keren on March 2, 2003. He became the second Bishop of Keren, bringing to the role a foundation in theology and canon law, broad pastoral experience, and a longstanding commitment to language, liturgy, education, and service.</p>
+      </div>
+
+      <div class="only-ti" lang="ti">
+        <h2>ታሪኽ ህይወት ብፁዕ ኣቡነ ኪዳነ የብዮ፣ ጳጳስ ከረን</h2>
+        <p class="bio-lead">ብፁዕ ኣቡነ ኪዳነ የብዮ፣ ጳጳስ ከረን፣ ህይወቶም ንትምህርቲ፣ ክህነት፣ ጓስነታዊ ኣገልግሎትን መሪሕነትን ዝወፈዩ እዮም። ብ25 ጥሪ 1958 ኣብ ሽናራ፣ ኤርትራ ተወሊዶም። ካብ ከባብያዊ ኣብያተ ትምህርትን ሰሚናራትን ጀሚሩ ክሳብ ላዕለዋይ ትምህርቲ ኣብ ሮማ ዝበጽሐ ጉዕዞኦም፣ ንነዊሕ ዓመታት ንቤተ ክርስቲያንን ንማሕበረሰብ ኤጳርቅና ከረንን ንኸገልግሉ ኣዳልዩዎም።</p>
+
+        <h3>ትምህርትን ምስንዳውን</h3>
+        <p>ኣቡነ ኪዳነ ካብ 1969 ክሳብ 1973 ኣብታ ብኣሕዋት ክርስቲያን ደ ላ ሳል እትመሓደር ናይ ከረን ቤት ትምህርቲ ቅዱስ ዮሴፍ መባእታዊ ትምህርቶም ወዲኦም። ብ1974 ኣብ ከረን ዝርከብ ንኡስ ሰሚናርዮ ኣተዉ። ድሕሪ ክልተ ዓመት፣ ካብ 1976 ክሳብ 1980 ካልኣይ ደረጃ ትምህርቶም ናብ ዝወድኡሉ ናይ ኣስመራ ዓቢይ ሰሚናርዮ ተዛወሩ። ካብ 1980 ክሳብ 1982 ድማ ኣብ ዩኒቨርሲቲ ኣስመራ ባዮሎጂን ካልኦት መሰረታዊ ሳይንሳትን ተማሂሮም።</p>
+        <p>ካብ 1983 ክሳብ 1985 ኣብ ኣስመራ ኣብ ዝርከብ ትካል ስነ-መለኮት ተማሂሮም፣ ብ30 ሰነ 1985 ድማ ካህን ኮይኖም ተሸሙ። ድሕሪኡ ናብ ሮማ ተላኢኾም፣ ካብ 1986 ክሳብ 1988 ኣብ ዩኒቨርሲቲ ቅዱስ ቶማስ (ኣንጀሊኩም) መጽሓፍ ቅዱሳዊ ስነ-መለኮት ተማሂሮም ሊቸንሳ ኣማልኡ። ካብ 1988 ክሳብ 1990 ድማ ኣብ ጳጳሳዊ ትካል ምብራቓዊ መጽናዕቲ ትምህርቶም ብምቕጻል፣ ኣብ ምብራቓዊ ሕጊ ቤተ ክርስቲያን ሊቸንሳ ረኺቦም።</p>
+
+        <h3>ጓስነታዊ ተመክሮን ኣበርክቶ ቋንቋን</h3>
+        <p>ኣብ ሮማ እናተማህሩ፣ ንኣርባዕተ ክረምቲ ኣብ ሎንግ ኣይላንድ፣ ኒው ዮርክ፣ ኣብ ሓንቲ ሰበኻ ብምሕጋዝ ክቡር ጓስነታዊ ተመክሮ ኣጥርዮም። ንቅዳሴ፣ ንገለ ክፋላት ሓድሽ ኪዳንን ንኻልኦት ስርዓተ ኣምልኾ ጸሎታትን ናብ ቋንቋ ብሊን ኣብ ምትርጓም እውን ኣበርክቶ ገይሮም። ሃይማኖት ህዝቢ ብሊን ዘርእስቱ ናይ መጽናዕቲ ወረቐት ጽሒፎም። ብቋንቋታት ብሊን፣ ትግረ፣ ትግርኛ፣ ኣምሓርኛ፣ እንግሊዝኛን ጥልያንኛን ብቕልጡፍ ይዛረቡ።</p>
+
+        <h3>ኣገልግሎት ኣብ ኤጳርቅና ከረን</h3>
+        <p>ድሕሪ ትምህርቶም ምምላሶም፣ ኣባ ኪዳነ ብተኸታታሊ ጓስነታዊ፣ ኣካዳሚያውን ምምሕዳራውን ሓላፍነታት ኣገልጊሎም። ካብ 1991 ክሳብ 1992 ኣባ ሰበኻ ሓዲሽ ዓዲ፤ ካብ 1992 ክሳብ 1993 ዳይረክተር ዓቢይ ሰሚናርዮ ኣስመራን ኣብ ትካል ስነ-መለኮት ኣስመራ መምህር መጽሓፍ ቅዱስን ሕጊ ቤተ ክርስቲያንን፤ ካብ 1993 ክሳብ 1995 ጠቕላሊ ቪካር ምዕራባዊ ኤጳርቅናዊ ቪካርያት ከረን ኮይኖም። ካብ 1993 ክሳብ 1997 ኣባ ሰበኻ ሽናራ፣ ጀንገረን፣ ሃልሃልን ዓፋበትን ኮይኖም፣ ካብ 1996 ክሳብ 2002 ድማ ጠቕላሊ ቪካር ኤጳርቅና ከረንን ኣባ ሰበኻ ባምቢን ኮይኖም ኣገልጊሎም።</p>
+
+        <h3>ጳጳስ ከረን</h3>
+        <p>ካብ 1996 ክሳብ 2002 ጠቕላሊ ቪካር ኤጳርቅና ከረን ኮይኖም ድሕሪ ምግልጋሎም፣ ኣባ ኪዳነ የብዮ ብ2 መጋቢት 2003 ጳጳስ ከረን ኮይኖም ተቐብኡ። ከም ካልኣይ ጳጳስ ከረን፣ ኣብ ስነ-መለኮትን ሕጊ ቤተ ክርስቲያንን ዘጥረይዎ ፍልጠት፣ ሰፊሕ ጓስነታዊ ተመክሮን ንቋንቋ፣ ስርዓተ ኣምልኾ፣ ትምህርትን ኣገልግሎትን ዘለዎም ነዊሕ ዘመናዊ ተወፋይነት ሒዞም ናብዚ ሓላፍነት መጺኦም።</p>
+      </div>
+    </article>
+  </dialog>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer" id="contact">
+  <div class="wrap foot">
+    <p class="foot-name"><span data-i18n="foot.name">Catholic Eparchy of Keren</span> <span class="sep">|</span> <span data-i18n="foot.country">Eritrea</span></p>
+    <nav class="social" aria-label="Social media">
+      <!-- Put your real page links in href -->
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4a22 22 0 0 0-2.5-.1c-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8z"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg></a>
+      <a href="#" aria-label="Radio / Podcast"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm-1 1h2l1 8h-4zM6.3 16.7a8 8 0 0 1 0-11.4l1.4 1.4a6 6 0 0 0 0 8.6zm11.4 0-1.4-1.4a6 6 0 0 0 0-8.6l1.4-1.4a8 8 0 0 1 0 11.4z"/></svg></a>
+    </nav>
+    <p class="foot-ti" lang="ti">ካቶሊካዊ ኤጳርቅና ከረን <span class="sep">|</span> እምነት ፣ ኣገልግሎት ፣ ሕብረት</p>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="yr"></span> <span data-i18n="footer.rights">Catholic Eparchy of Keren. All rights reserved.</span></span>
+  </div>
+</footer>
+
+<script src="js/translations.js"></script>
+<script src="js/main.js"></script>
+<script src="js/eparchy-data.js"></script>
+<script src="js/eparchy.js"></script>
+</body>
+</html>

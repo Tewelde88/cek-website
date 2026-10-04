@@ -50,3 +50,9 @@ Modern, responsive design — works on phones, tablets, laptops and large screen
 - Engine and feast list: `js/calendar.js`. Fixed feasts are in `FIXED_FEASTS` (Ethiopian month 1–13, day); feasts that move with Easter are in `MOVABLE_FEASTS` (days from Fasika). Names in English and Tigrinya are in `NAMES` in the same file.
 - Easter (Fasika) uses the Alexandrian computus (same date as the Ethiopian/Eritrean Churches). Christmas is 29 Tahsas (28 Tahsas in the year after a leap year), so it stays on 7 January.
 - Styles: `css/calendar.css`. Page labels in Tigrinya: `cal.*` keys in `js/translations.js`.
+
+## Eparchy page (eparchy.html)
+- Sub-sections: Bishop, Priests, Seminary, Deaneries, Religious Orders (sticky sub-menu, EN/Tigrinya).
+- **Priests, deaneries and religious orders** are lists in `js/eparchy-data.js` — add one entry per person/deanery/community. Entries with `sample: true` are examples (shown with an "Example" tag); replace or delete them.
+- Priest photos: put them in `images/` (e.g. `images/priests/abba-name.jpg`) and set `photo:` in the entry.
+- Section texts: `eparchy.html` (English) and the `ep.*` keys in `js/translations.js` (Tigrinya). Styles: `css/eparchy.css`.
