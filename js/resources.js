@@ -130,8 +130,9 @@ function renderLibrary(){
   grid.replaceChildren();
   items.forEach(b => {
     const card = el('article', 'book');
+    const link = b.url || b.file || '';              // web link, or a file uploaded on the Admin page
     const cov = el('a', 'book-cover');
-    if (b.url){ cov.href = b.url; if (/^https?:|\.pdf$/i.test(b.url)){ cov.target = '_blank'; cov.rel = 'noopener'; } }
+    if (link){ cov.href = link; cov.target = '_blank'; cov.rel = 'noopener'; }
     const [c1, c2] = COVER[b.category] || COVER.church;
     if (b.cover) cov.style.backgroundImage = `url('${b.cover}')`;
     else {
@@ -147,7 +148,7 @@ function renderLibrary(){
     body.appendChild(el('p', 'book-meta', [tr(b, 'author'), b.year].filter(Boolean).join(' · ')));
     const foot = el('div', 'book-foot');
     foot.appendChild(el('span', 'book-lang', b.lang || ''));
-    if (b.url) foot.appendChild(linkBtn(b.url, LB().open)); else foot.appendChild(el('span', 'r-soon', LB().soon));
+    if (link) foot.appendChild(linkBtn(link, LB().open)); else foot.appendChild(el('span', 'r-soon', LB().soon));
     body.appendChild(foot);
     card.appendChild(body);
     grid.appendChild(card);

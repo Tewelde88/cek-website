@@ -365,3 +365,7 @@ html:not([lang="ti"]) .only-ti{display:none}
 html[lang="ti"] .hl-text strong{font-family:var(--ethiopic-serif)}
 @media (max-width:760px){ .home-links{margin-top:16px} }
 @media (min-width:761px){ .hero-controls{bottom:62px} .hero-motto{bottom:66px} .hero-inner{padding-bottom:110px} }
+
+/* Play badge on news cards that contain a video */
+.post-media{position:relative}
+.post-play{position:absolute;right:12px;bottom:12px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(179,32,42,.92);color:#fff;font-size:.9rem;box-shadow:0 4px 12px rgba(0,0,0,.3)}

@@ -32,11 +32,42 @@ function el(tag, cls, text){
   if (text !== undefined) e.textContent = text;
   return e;
 }
+// Cover picture: the cover photo, else the first gallery photo
+const coverOf = p => p.cover || ((p.gallery || [])[0] || {}).src || '';
 function media(p, cls){
   const m = el('div', cls);
   const bg = FALLBACK[p.category] || FALLBACK.news;
-  m.style.backgroundImage = p.cover ? `url('${p.cover}'), ${bg}` : bg;
+  m.style.backgroundImage = coverOf(p) ? `url('${coverOf(p)}'), ${bg}` : bg;
+  if ((p.videos || []).length) m.appendChild(el('span', 'post-play', '▶'));
   return m;
+}
+// Post text: paragraphs separated by an empty line
+const paragraphs = v => Array.isArray(v) ? v : String(v || '').split(/\n\s*\n/).map(s => s.trim()).filter(Boolean);
+
+/* ---------- Videos: YouTube / Facebook / Vimeo links, or an uploaded video file ---------- */
+function videoEmbed(v){
+  const url = (v.url || '').trim(), file = (v.file || '').trim();
+  const wrap = el('figure', 'post-video');
+  let frame = null;
+  const yt = url.match(/(?:youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/)|youtu\.be\/)([\w-]{11})/);
+  const vm = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+  if (yt) frame = 'https://www.youtube-nocookie.com/embed/' + yt[1];
+  else if (vm) frame = 'https://player.vimeo.com/video/' + vm[1];
+  else if (/facebook\.com|fb\.watch/.test(url)) frame = 'https://www.facebook.com/plugins/video.php?show_text=false&href=' + encodeURIComponent(url);
+  if (frame){
+    const f = el('iframe'); f.src = frame; f.loading = 'lazy'; f.allowFullscreen = true;
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.title = tr(v, 'caption') || 'Video';
+    const box = el('div', 'video-frame'); box.appendChild(f); wrap.appendChild(box);
+  } else if (file || /\.(mp4|webm|mov|m4v)(\?|$)/i.test(url)){
+    const vid = el('video'); vid.controls = true; vid.preload = 'metadata'; vid.playsInline = true; vid.src = file || url;
+    wrap.appendChild(vid);
+  } else if (url){
+    const a = el('a', 'share-btn', '▶ ' + (tr(v, 'caption') || url)); a.href = url; a.target = '_blank'; a.rel = 'noopener';
+    wrap.appendChild(a); return wrap;
+  } else return null;
+  if (tr(v, 'caption')) wrap.appendChild(el('figcaption', '', tr(v, 'caption')));
+  return wrap;
 }
 function arrowLink(href, text, cls = 'more'){
   const a = el('a', cls); a.href = href;
@@ -191,8 +222,9 @@ function renderPost(id){
     box.appendChild(fig);
   }
   const body = el('div', 'post-text');
-  [].concat(tr(p, 'body') || tr(p, 'excerpt')).forEach(par => body.appendChild(el('p', '', par)));
+  paragraphs(tr(p, 'body') || tr(p, 'excerpt')).forEach(par => body.appendChild(el('p', '', par)));
   box.appendChild(body);
+  (p.videos || []).map(videoEmbed).filter(Boolean).forEach(v => box.appendChild(v));
   if (p.gallery && p.gallery.length){
     box.appendChild(el('h2', 'post-gal-title', `${T().gallery} · ${T().photos(p.gallery.length)}`));
     box.appendChild(thumbs(p.gallery, 'post-gallery'));

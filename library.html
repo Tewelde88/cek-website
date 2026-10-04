@@ -92,7 +92,7 @@
         </label>
       </div>
       <p class="r-count" id="library-count"></p>
-      <!-- Items come from js/library-data.js -->
+      <!-- Items come from data/library.json — edit on the Admin page -->
       <div class="clamp-box" data-clamp="760">
         <div class="book-grid" id="library-grid"></div>
       </div>
@@ -120,8 +120,6 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/main.js"></script>
-<script src="js/library-data.js"></script>
-<script src="js/resources.js"></script>
+<script src="js/boot.js" data-json="LIBRARY=data/library.json#items" data-scripts="js/main.js js/resources.js"></script>
 </body>
 </html>

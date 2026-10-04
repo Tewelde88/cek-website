@@ -74,7 +74,7 @@
       <p class="page-lead" data-i18n="ct.lead">Questions about the sacraments, Mass times, our parishes or how to help? Write to us or visit the offices of the Eparchy in Keren.</p>
     </div>
   </section>
-  <!-- ===== Details + form (details are filled in from js/contact-data.js) ===== -->
+  <!-- ===== Details + form (details are filled in from data/contact.json — edit on the Admin page) ===== -->
   <section class="lit-section">
     <div class="wrap ct-grid">
       <div class="ct-info">
@@ -140,7 +140,7 @@
       <div class="ct-map"><iframe id="ct-map" title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
     </div>
   </section>
-  <!-- ===== Offices (from js/contact-data.js) ===== -->
+  <!-- ===== Offices (from data/contact.json — edit on the Admin page) ===== -->
   <section class="lit-section">
     <div class="wrap">
       <header class="lit-head">
@@ -174,8 +174,6 @@
   </div>
 </footer>
 <script src="js/translations.js"></script>
-<script src="js/main.js"></script>
-<script src="js/contact-data.js"></script>
-<script src="js/contact.js"></script>
+<script src="js/boot.js" data-json="CONTACT=data/contact.json" data-scripts="js/main.js js/contact.js"></script>
 </body>
 </html>

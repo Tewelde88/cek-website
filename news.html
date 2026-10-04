@@ -92,7 +92,7 @@
     </div>
   </nav>
 
-  <!-- ===== Blog list (posts come from js/news-data.js) ===== -->
+  <!-- ===== Blog list (posts come from data/news.json — edit on the Admin page) ===== -->
   <section class="lit-section" id="view-list">
     <div class="wrap">
       <div class="news-tools">
@@ -161,8 +161,6 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/main.js"></script>
-<script src="js/news-data.js"></script>
-<script src="js/news.js"></script>
+<script src="js/boot.js" data-json="NEWS=data/news.json#posts" data-scripts="js/main.js js/news.js"></script>
 </body>
 </html>

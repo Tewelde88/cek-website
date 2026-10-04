@@ -1,0 +1,53 @@
+{
+  "name": "Catholic Eparchy of Keren",
+  "name_ti": "ካቶሊካዊ ኤጳርቅና ከረን",
+  "address": "Keren, Eritrea",
+  "address_ti": "ከረን፣ ኤርትራ",
+  "phone": "",
+  "email": "",
+  "whatsapp": "",
+  "hours": "",
+  "hours_ti": "",
+  "mapQuery": "Keren, Eritrea",
+  "offices": [
+    {
+      "name": "Bishop’s Office · Eparchial Curia",
+      "name_ti": "ቤት ጽሕፈት ጳጳስ · ቤት ምምሕዳር ኤጳርቅና",
+      "person": "",
+      "person_ti": "",
+      "phone": "",
+      "email": "",
+      "sample": true
+    },
+    {
+      "name": "CESK — Caritas / Social Services",
+      "name_ti": "CESK — ካሪታስ / ማሕበራዊ ኣገልግሎት",
+      "person": "",
+      "person_ti": "",
+      "phone": "",
+      "email": "",
+      "link": "cesk.html",
+      "sample": true
+    },
+    {
+      "name": "Pastoral & Liturgy Office",
+      "name_ti": "ቤት ጽሕፈት ጓስነትን ሊጡርጊያን",
+      "person": "",
+      "person_ti": "",
+      "phone": "",
+      "email": "",
+      "link": "liturgy.html",
+      "sample": true
+    },
+    {
+      "name": "Vocations & Seminary",
+      "name_ti": "ጻውዒትን ሰሚናርዮን",
+      "person": "",
+      "person_ti": "",
+      "phone": "",
+      "email": "",
+      "link": "eparchy.html#seminary",
+      "sample": true
+    }
+  ]
+}

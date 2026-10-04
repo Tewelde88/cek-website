@@ -261,11 +261,11 @@
           <a class="more" href="news.html"><span data-i18n="news.all">View All News</span> <span class="arrow" aria-hidden="true">→</span></a>
         </div>
 
-        <!-- The 3 newest posts from js/news-data.js appear here automatically (add news there). -->
+        <!-- The 3 newest posts from data/news.json appear here automatically (post news on the Admin page). -->
         <div class="cards" id="home-news"></div>
       </div>
 
-      <!-- Featured sermon + searchable sermon archive (data in js/sermons.js) -->
+      <!-- Featured sermon + searchable sermon archive (data in data/sermons.json — edit on the Admin page) -->
       <aside class="sermon-card" id="sermons">
         <div class="sermon-head">
           <p class="eyebrow eyebrow-light" data-i18n="sermons.eyebrow">Featured Sermon</p>
@@ -372,10 +372,7 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/sermons.js"></script>
-<script src="js/main.js"></script>
-<script src="js/news-data.js"></script>
-<script src="js/news.js"></script>
+<script src="js/boot.js" data-json="SERMONS=data/sermons.json#sermons NEWS=data/news.json#posts" data-scripts="js/main.js js/news.js"></script>
 <script src="https://www.vaticannews.va/widget.js" async></script>
 </body>
 </html>

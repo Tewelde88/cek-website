@@ -1,0 +1,61 @@
+{
+  "posts": [
+    {
+      "id": "pope-leo-shepherd-of-hope",
+      "date": "2026-05-12",
+      "category": "news",
+      "title": "Pope Leo XIV: A Shepherd of Hope for Our Time",
+      "title_ti": "ር.ሊ.ጳ. ሊዮ 14ይ፡ ጓሳ ተስፋ ንዘመንና",
+      "excerpt": "The Holy Father continues to inspire the Church with his message of peace and unity.",
+      "excerpt_ti": "ቅዱስ ኣቦ ብመልእኽቲ ሰላምን ሓድነትን ንቤተ ክርስቲያን ምትብባዕ ቀጺሉ ኣሎ።",
+      "body": "The Holy Father continues to inspire the Church with his message of peace and unity.\n\nThis is an example post that shows how a news article looks. Edit or delete it on the Admin page (admin/).",
+      "body_ti": "ቅዱስ ኣቦ ብመልእኽቲ ሰላምን ሓድነትን ንቤተ ክርስቲያን ምትብባዕ ቀጺሉ ኣሎ።\n\nእዚ ዜና ከመይ ከም ዝመስል ዘርኢ ኣብነታዊ ጽሑፍ እዩ። ኣብ ገጽ ምምሕዳር (Admin) ቀይርዎ ወይ ደምስስዎ።",
+      "cover": "images/pope.jpg",
+      "gallery": [
+        {
+          "src": "images/pope.jpg",
+          "caption": "Pope Leo XIV",
+          "caption_ti": "ር.ሊ.ጳ. ሊዮ 14ይ"
+        }
+      ],
+      "sample": true,
+      "videos": []
+    },
+    {
+      "id": "beauty-of-keren",
+      "date": "2026-04-28",
+      "category": "article",
+      "title": "The Beauty of Keren and Its People",
+      "title_ti": "ጽባቐ ከረንን ህዝባን",
+      "excerpt": "A reflection on the faith, resilience and rich culture of our Eparchy in Eritrea.",
+      "excerpt_ti": "ብዛዕባ እምነት፡ ጽንዓትን ሃብታም ባህልን ኤጳርቅናና ኣብ ኤርትራ ዝገልጽ ሓሳብ።",
+      "body": "A reflection on the faith, resilience and rich culture of our Eparchy in Eritrea.\n\nThis is an example post. Replace it with a real article.",
+      "body_ti": "ብዛዕባ እምነት፡ ጽንዓትን ሃብታም ባህልን ኤጳርቅናና ኣብ ኤርትራ ዝገልጽ ሓሳብ።\n\nእዚ ኣብነታዊ ጽሑፍ እዩ። ብሓቀኛ ጽሑፍ ቀይርዎ።",
+      "cover": "",
+      "gallery": [],
+      "sample": true,
+      "videos": []
+    },
+    {
+      "id": "easter-celebrations",
+      "date": "2026-04-15",
+      "category": "event",
+      "title": "Easter Celebrations in Our Parishes",
+      "title_ti": "ጽምብል ትንሣኤ ኣብ ቍምስናታትና",
+      "excerpt": "Joyful liturgies and community celebrations across the Eparchy of Keren.",
+      "excerpt_ti": "ኣብ መላእ ኤጳርቅና ከረን ዝተኻየደ ሕጉስ ሊጡርጊያን ማሕበረሰባዊ በዓላትን።",
+      "body": "Joyful liturgies and community celebrations across the Eparchy of Keren.\n\nThis is an example post. Add the photos of your celebration to its gallery.",
+      "body_ti": "ኣብ መላእ ኤጳርቅና ከረን ዝተኻየደ ሕጉስ ሊጡርጊያን ማሕበረሰባዊ በዓላትን።\n\nእዚ ኣብነታዊ ጽሑፍ እዩ። ስእልታት ጽምብልኩም ኣብ ጋለሪኡ ወስኹ።",
+      "cover": "",
+      "gallery": [
+        {
+          "src": "images/bishop.jpg",
+          "caption": "Bishop Kidane Yebio",
+          "caption_ti": "ብፁዕ ኣቡነ ኪዳነ የብዮ"
+        }
+      ],
+      "sample": true,
+      "videos": []
+    }
+  ]
+}

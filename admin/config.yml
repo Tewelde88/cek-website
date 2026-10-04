@@ -1,0 +1,338 @@
+# ==============================================================
+#  ADMIN PAGE SETTINGS — Catholic Eparchy of Keren website
+#  Editor: Sveltia CMS  (open the site address + /admin/)
+#  Everything you save on the Admin page is stored in this GitHub
+#  repository; the live website updates about 1–2 minutes later.
+# ==============================================================
+
+backend:
+  name: github
+  repo: Tewelde88/cek-website
+  branch: main
+  commit_messages:
+    create: "Add {{collection}} “{{slug}}” (Admin page)"
+    update: "Update {{collection}} “{{slug}}” (Admin page)"
+    delete: "Delete {{collection}} “{{slug}}” (Admin page)"
+    uploadMedia: "Upload “{{path}}” (Admin page)"
+    deleteMedia: "Delete “{{path}}” (Admin page)"
+
+site_url: https://tewelde88.github.io/cek-website/
+display_url: https://tewelde88.github.io/cek-website/
+logo_url: ../images/logo.png
+
+# Where uploaded files go (each field below can choose its own folder)
+media_folder: images/uploads
+public_folder: images/uploads
+
+# Uploads: photos are resized and converted to WebP automatically (faster pages).
+# Maximum size of any uploaded file: 50 MB. For long videos use YouTube/Facebook links.
+media_libraries:
+  default:
+    config:
+      max_file_size: 52428800
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 1920
+          height: 1920
+
+collections:
+
+  # ------------------------------------------------------------
+  #  NEWS & ARTICLES  (News page, Gallery, home page cards)
+  # ------------------------------------------------------------
+  - name: news
+    label: "News & Articles"
+    icon: newspaper
+    description: "Post news, articles and events with photos and videos. The newest posts appear on the home page automatically."
+    files:
+      - name: posts
+        label: "News posts"
+        file: data/news.json
+        fields:
+          - name: posts
+            label: "Posts"
+            label_singular: "post"
+            widget: list
+            add_to_top: true
+            collapsed: true
+            summary: "{{fields.date}} · {{fields.title}}"
+            fields:
+              - { name: title, label: "Title (English)", widget: string }
+              - { name: title_ti, label: "Title (Tigrinya) — ኣርእስቲ ብትግርኛ", widget: string, required: false }
+              - { name: id, label: "Link name", widget: string, pattern: ['^[a-z0-9-]+$', "Use small letters, numbers and dashes only, e.g. easter-2026"],
+                  hint: "Short unique name used in the post’s web address, e.g. easter-2026" }
+              - { name: date, label: "Date", widget: datetime, format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+              - { name: category, label: "Category", widget: select, default: news,
+                  options: [ { label: "News", value: news }, { label: "Article", value: article }, { label: "Event", value: event } ] }
+              - { name: excerpt, label: "Short summary (English)", widget: text, hint: "1–2 sentences shown on the news cards" }
+              - { name: excerpt_ti, label: "Short summary (Tigrinya)", widget: text, required: false }
+              - { name: body, label: "Full text (English)", widget: text, required: false, hint: "Leave an empty line between paragraphs" }
+              - { name: body_ti, label: "Full text (Tigrinya)", widget: text, required: false, hint: "Leave an empty line between paragraphs" }
+              - { name: cover, label: "Cover photo", widget: image, required: false, media_folder: /images/news, public_folder: images/news,
+                  hint: "Optional. If empty, the first gallery photo is used." }
+              - name: gallery
+                label: "Photo gallery"
+                label_singular: "photo"
+                widget: list
+                required: false
+                summary: "{{fields.caption}}"
+                fields:
+                  - { name: src, label: "Photo", widget: image, media_folder: /images/news, public_folder: images/news }
+                  - { name: caption, label: "Caption (English)", widget: string, required: false }
+                  - { name: caption_ti, label: "Caption (Tigrinya)", widget: string, required: false }
+              - name: videos
+                label: "Videos (optional)"
+                label_singular: "video"
+                widget: list
+                required: false
+                summary: "{{fields.caption}} {{fields.url}}"
+                hint: "Paste a YouTube / Facebook / Vimeo link (best), OR upload a short video file (max 50 MB)."
+                fields:
+                  - { name: url, label: "Video link (YouTube, Facebook, Vimeo)", widget: string, required: false }
+                  - { name: file, label: "…or upload a video file (MP4)", widget: file, required: false,
+                      media_folder: /files/videos, public_folder: files/videos }
+                  - { name: caption, label: "Caption (English)", widget: string, required: false }
+                  - { name: caption_ti, label: "Caption (Tigrinya)", widget: string, required: false }
+              - { name: sample, label: "Example post (shows an EXAMPLE tag)", widget: boolean, default: false, required: false }
+
+  # ------------------------------------------------------------
+  #  SERMONS  (Sermons page + home page sermon card)
+  # ------------------------------------------------------------
+  - name: sermons
+    label: "Sermons"
+    icon: record_voice_over
+    description: "Add homilies with audio, video, PDF or a link."
+    files:
+      - name: sermons
+        label: "Sermons"
+        file: data/sermons.json
+        fields:
+          - name: sermons
+            label: "Sermons"
+            label_singular: "sermon"
+            widget: list
+            add_to_top: true
+            collapsed: true
+            summary: "{{fields.y}} · {{fields.t}}"
+            fields:
+              - { name: t, label: "Title (English)", widget: string }
+              - { name: ti, label: "Title (Tigrinya)", widget: string, required: false }
+              - { name: y, label: "Year", widget: number, value_type: int }
+              - { name: date, label: "Date", widget: datetime, format: "YYYY-MM-DD", time_format: false, picker_utc: true, required: false }
+              - { name: by, label: "Preacher (English)", widget: string, required: false }
+              - { name: by_ti, label: "Preacher (Tigrinya)", widget: string, required: false }
+              - { name: audio, label: "Audio recording (MP3)", widget: file, required: false, media_folder: /files/sermons, public_folder: files/sermons }
+              - { name: video, label: "Video link (YouTube / Facebook)", widget: string, required: false }
+              - { name: pdf, label: "Text (PDF)", widget: file, required: false, media_folder: /files/sermons, public_folder: files/sermons }
+              - { name: href, label: "Other link (optional)", widget: string, required: false }
+
+  # ------------------------------------------------------------
+  #  LIBRARY  (Library page)
+  # ------------------------------------------------------------
+  - name: library
+    label: "Library"
+    icon: menu_book
+    description: "Books and documents: upload a PDF or add a web link."
+    files:
+      - name: items
+        label: "Library items"
+        file: data/library.json
+        fields:
+          - name: items
+            label: "Items"
+            label_singular: "item"
+            widget: list
+            add_to_top: true
+            collapsed: true
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: "Title (English)", widget: string }
+              - { name: title_ti, label: "Title (Tigrinya)", widget: string, required: false }
+              - { name: author, label: "Author (English)", widget: string, required: false }
+              - { name: author_ti, label: "Author (Tigrinya)", widget: string, required: false }
+              - { name: year, label: "Year", widget: string, required: false }
+              - { name: category, label: "Category", widget: select, default: eparchy,
+                  options: [ { label: "Bible", value: bible }, { label: "Church Documents", value: church }, { label: "Liturgy", value: liturgy },
+                             { label: "Catechesis", value: catechesis }, { label: "Social Teaching", value: social }, { label: "Eparchy Publications", value: eparchy } ] }
+              - { name: lang, label: "Language", widget: string, required: false, hint: "e.g. Tigrinya, Ge'ez, English" }
+              - { name: file, label: "Upload document (PDF)", widget: file, required: false, media_folder: /files/library, public_folder: files/library }
+              - { name: url, label: "…or web link", widget: string, required: false }
+              - { name: cover, label: "Cover picture (optional)", widget: image, required: false, media_folder: /images/library, public_folder: images/library }
+              - { name: sample, label: "Example item", widget: boolean, default: false, required: false }
+
+  # ------------------------------------------------------------
+  #  EPARCHY PAGE  (priests, deaneries, religious orders)
+  # ------------------------------------------------------------
+  - name: eparchy
+    label: "Eparchy: Priests, Deaneries, Religious"
+    icon: groups
+    files:
+      - name: eparchy
+        label: "Eparchy lists"
+        file: data/eparchy.json
+        fields:
+          - name: priests
+            label: "Priests"
+            label_singular: "priest"
+            widget: list
+            collapsed: true
+            summary: "{{fields.name}} — {{fields.role}}"
+            fields:
+              - { name: name, label: "Name (English)", widget: string }
+              - { name: name_ti, label: "Name (Tigrinya)", widget: string, required: false }
+              - { name: role, label: "Role (English)", widget: string, required: false }
+              - { name: role_ti, label: "Role (Tigrinya)", widget: string, required: false }
+              - { name: place, label: "Parish / place (English)", widget: string, required: false }
+              - { name: place_ti, label: "Parish / place (Tigrinya)", widget: string, required: false }
+              - { name: photo, label: "Photo", widget: image, required: false, media_folder: /images/priests, public_folder: images/priests }
+              - { name: sample, label: "Example entry", widget: boolean, default: false, required: false }
+          - name: deaneries
+            label: "Deaneries"
+            label_singular: "deanery"
+            widget: list
+            collapsed: true
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Name (English)", widget: string }
+              - { name: name_ti, label: "Name (Tigrinya)", widget: string, required: false }
+              - { name: dean, label: "Dean (English)", widget: string, required: false }
+              - { name: dean_ti, label: "Dean (Tigrinya)", widget: string, required: false }
+              - { name: parishes, label: "Parishes (English)", widget: list, field: { name: p, label: "Parish", widget: string }, required: false }
+              - { name: parishes_ti, label: "Parishes (Tigrinya)", widget: list, field: { name: p, label: "ቍምስና", widget: string }, required: false }
+              - { name: photo, label: "Photo", widget: image, required: false, media_folder: /images/deaneries, public_folder: images/deaneries }
+              - { name: sample, label: "Example entry", widget: boolean, default: false, required: false }
+          - name: orders
+            label: "Religious orders & congregations"
+            label_singular: "community"
+            widget: list
+            collapsed: true
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Name (English)", widget: string }
+              - { name: name_ti, label: "Name (Tigrinya)", widget: string, required: false }
+              - { name: type, label: "Men or women", widget: select, options: [ { label: "Men", value: men }, { label: "Women", value: women } ], default: men }
+              - { name: work, label: "Work / place (English)", widget: string, required: false }
+              - { name: work_ti, label: "Work / place (Tigrinya)", widget: string, required: false }
+              - { name: photo, label: "Photo", widget: image, required: false, media_folder: /images/orders, public_folder: images/orders }
+              - { name: sample, label: "Example entry", widget: boolean, default: false, required: false }
+
+  # ------------------------------------------------------------
+  #  PARISHES & CHAPELS PAGE
+  # ------------------------------------------------------------
+  - name: parishes
+    label: "Parishes, Chapels, Communities, Sanctuaries"
+    icon: church
+    files:
+      - name: parishes
+        label: "Parishes & chapels lists"
+        file: data/parishes.json
+        fields:
+          - name: parishes
+            label: "Parishes"
+            label_singular: "parish"
+            widget: list
+            collapsed: true
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Name (English)", widget: string }
+              - { name: name_ti, label: "Name (Tigrinya)", widget: string, required: false }
+              - { name: patron, label: "Patron saint (English)", widget: string, required: false }
+              - { name: patron_ti, label: "Patron saint (Tigrinya)", widget: string, required: false }
+              - { name: deanery, label: "Deanery (English)", widget: string, required: false }
+              - { name: deanery_ti, label: "Deanery (Tigrinya)", widget: string, required: false }
+              - { name: place, label: "Town / village (English)", widget: string, required: false }
+              - { name: place_ti, label: "Town / village (Tigrinya)", widget: string, required: false }
+              - { name: priest, label: "Parish priest (English)", widget: string, required: false }
+              - { name: priest_ti, label: "Parish priest (Tigrinya)", widget: string, required: false }
+              - { name: mass, label: "Mass times (English)", widget: string, required: false }
+              - { name: mass_ti, label: "Mass times (Tigrinya)", widget: string, required: false }
+              - { name: phone, label: "Phone", widget: string, required: false }
+              - { name: map, label: "Google Maps link", widget: string, required: false }
+              - { name: sample, label: "Example entry", widget: boolean, default: false, required: false }
+          - name: chapels
+            label: "Chapels"
+            label_singular: "chapel"
+            widget: list
+            collapsed: true
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Name (English)", widget: string }
+              - { name: name_ti, label: "Name (Tigrinya)", widget: string, required: false }
+              - { name: parish, label: "Parish (English)", widget: string, required: false }
+              - { name: parish_ti, label: "Parish (Tigrinya)", widget: string, required: false }
+              - { name: place, label: "Village / area (English)", widget: string, required: false }
+              - { name: place_ti, label: "Village / area (Tigrinya)", widget: string, required: false }
+              - { name: mass, label: "Mass times (English)", widget: string, required: false }
+              - { name: mass_ti, label: "Mass times (Tigrinya)", widget: string, required: false }
+              - { name: sample, label: "Example entry", widget: boolean, default: false, required: false }
+          - name: communities
+            label: "Small Christian communities"
+            label_singular: "community"
+            widget: list
+            collapsed: true
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Name (English)", widget: string }
+              - { name: name_ti, label: "Name (Tigrinya)", widget: string, required: false }
+              - { name: parish, label: "Parish (English)", widget: string, required: false }
+              - { name: parish_ti, label: "Parish (Tigrinya)", widget: string, required: false }
+              - { name: meets, label: "When it meets (English)", widget: string, required: false }
+              - { name: meets_ti, label: "When it meets (Tigrinya)", widget: string, required: false }
+              - { name: sample, label: "Example entry", widget: boolean, default: false, required: false }
+          - name: sanctuaries
+            label: "Sanctuaries"
+            label_singular: "sanctuary"
+            widget: list
+            collapsed: true
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Name (English)", widget: string }
+              - { name: name_ti, label: "Name (Tigrinya)", widget: string, required: false }
+              - { name: dedication, label: "Dedication (English)", widget: string, required: false }
+              - { name: dedication_ti, label: "Dedication (Tigrinya)", widget: string, required: false }
+              - { name: place, label: "Town / village (English)", widget: string, required: false }
+              - { name: place_ti, label: "Town / village (Tigrinya)", widget: string, required: false }
+              - { name: feast, label: "Feast / pilgrimage (English)", widget: string, required: false }
+              - { name: feast_ti, label: "Feast / pilgrimage (Tigrinya)", widget: string, required: false }
+              - { name: map, label: "Google Maps link", widget: string, required: false }
+              - { name: sample, label: "Example entry", widget: boolean, default: false, required: false }
+
+  # ------------------------------------------------------------
+  #  CONTACT DETAILS  (Contact page)
+  # ------------------------------------------------------------
+  - name: contact
+    label: "Contact details"
+    icon: contact_mail
+    files:
+      - name: contact
+        label: "Contact details"
+        file: data/contact.json
+        fields:
+          - { name: name, label: "Name (English)", widget: string }
+          - { name: name_ti, label: "Name (Tigrinya)", widget: string, required: false }
+          - { name: address, label: "Address (English)", widget: string, required: false }
+          - { name: address_ti, label: "Address (Tigrinya)", widget: string, required: false }
+          - { name: phone, label: "Phone", widget: string, required: false }
+          - { name: email, label: "Email (the contact form sends here)", widget: string, required: false }
+          - { name: whatsapp, label: "WhatsApp number (digits only, with country code, e.g. 2917123456)", widget: string, required: false }
+          - { name: hours, label: "Office hours (English)", widget: string, required: false }
+          - { name: hours_ti, label: "Office hours (Tigrinya)", widget: string, required: false }
+          - { name: mapQuery, label: "Map location (address or place name)", widget: string, required: false }
+          - name: offices
+            label: "Offices"
+            label_singular: "office"
+            widget: list
+            collapsed: true
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: "Office name (English)", widget: string }
+              - { name: name_ti, label: "Office name (Tigrinya)", widget: string, required: false }
+              - { name: person, label: "Person in charge (English)", widget: string, required: false }
+              - { name: person_ti, label: "Person in charge (Tigrinya)", widget: string, required: false }
+              - { name: phone, label: "Phone", widget: string, required: false }
+              - { name: email, label: "Email", widget: string, required: false }
+              - { name: link, label: "Link to a page (optional)", widget: string, required: false }
+              - { name: sample, label: "Example entry", widget: boolean, default: false, required: false }

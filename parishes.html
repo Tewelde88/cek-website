@@ -94,7 +94,7 @@
     </div>
   </nav>
 
-  <!-- ================= 1. PARISHES (list in js/parishes-data.js) ================= -->
+  <!-- ================= 1. PARISHES (list in data/parishes.json — edit on the Admin page) ================= -->
   <section class="lit-section" id="parishes">
     <div class="wrap">
       <header class="lit-head">
@@ -180,8 +180,6 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/main.js"></script>
-<script src="js/parishes-data.js"></script>
-<script src="js/parishes.js"></script>
+<script src="js/boot.js" data-json="PARISHES_DATA=data/parishes.json" data-scripts="js/main.js js/parishes.js"></script>
 </body>
 </html>

@@ -126,7 +126,7 @@
     </div>
   </section>
 
-  <!-- ================= 2. PRIESTS (list in js/eparchy-data.js) ================= -->
+  <!-- ================= 2. PRIESTS (list in data/eparchy.json — edit on the Admin page) ================= -->
   <section class="lit-section alt" id="priests">
     <div class="wrap">
       <header class="lit-head">
@@ -189,7 +189,7 @@
     </div>
   </section>
 
-  <!-- ================= 4. DEANERIES (list in js/eparchy-data.js) ================= -->
+  <!-- ================= 4. DEANERIES (list in data/eparchy.json — edit on the Admin page) ================= -->
   <section class="lit-section alt" id="deaneries">
     <div class="wrap">
       <header class="lit-head">
@@ -207,7 +207,7 @@
     </div>
   </section>
 
-  <!-- ================= 5. RELIGIOUS ORDERS (list in js/eparchy-data.js) ================= -->
+  <!-- ================= 5. RELIGIOUS ORDERS (list in data/eparchy.json — edit on the Admin page) ================= -->
   <section class="lit-section" id="religious">
     <div class="wrap">
       <header class="lit-head">
@@ -295,8 +295,6 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/main.js"></script>
-<script src="js/eparchy-data.js"></script>
-<script src="js/eparchy.js"></script>
+<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json" data-scripts="js/main.js js/eparchy.js"></script>
 </body>
 </html>
