@@ -314,3 +314,8 @@ body:has(.bio[open]){overflow:hidden}
   .bio-photo{float:none;width:min(240px,70%);margin:0 auto 18px;display:block}
 }
 html[lang="ti"] .bio-bar .eyebrow{font-family:var(--ethiopic)}
+/* Bilingual pop-ups: show only the version for the chosen language */
+html[lang="ti"] .only-en,
+html:not([lang="ti"]) .only-ti{display:none}
+.only-ti h2,.only-ti h3{font-family:var(--ethiopic-serif)}
+.only-ti p{font-family:var(--ethiopic);line-height:1.8}

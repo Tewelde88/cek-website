@@ -42,10 +42,10 @@ const TRANSLATIONS = {
     "pope.text":     "ካብ ቺካጎ ናብ መንበር ቅዱስ ጴጥሮስ — ህይወትን ኣገልግሎትን ሮበርት ፍራንሲስ ፕረቮስት።",
     "pope.link":     "ታሪኽ ህይወት ኣንብቡ",
     "bishop.eyebrow":"ጳጳስና",
-    "bishop.name":   "ጳጳስ ከረን",
-    "bishop.alt":    "Bishop of Keren",                       /* (EN) */
-    "bishop.text":   "ጓሳዊ ክንክን፡ ሓድነትን ተስፋን ንኤጳርቅናና።",
-    "bishop.link":   "ተወሳኺ ፍለጡ",
+    "bishop.name":   "ብፁዕ ኣቡነ ኪዳነ የብዮ",
+    "bishop.alt":    "Most Rev. Kidane Yebio",                /* (EN) */
+    "bishop.text":   "ካብ 2003 ጀሚሮም ጳጳስ ከረን — ንትምህርቲ፣ ክህነት፣ ጓስነታዊ ኣገልግሎትን መሪሕነትን ዝወፈየ ህይወት።",
+    "bishop.link":   "ታሪኽ ህይወት ኣንብቡ",
     "build.eyebrow": "ፕሮጀክት ህንጻ",
     "build.title":   "ምዕባለ ህንጻ ቅዱስ ሚካኤል",
     "build.complete":"ተዛዚሙ",
