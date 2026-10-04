@@ -1,0 +1,362 @@
+/* ============================================================
+   LITURGICAL CALENDAR — Ge'ez rite (Ethiopian calendar) with Gregorian dates
+   ------------------------------------------------------------
+   • Dates are converted through Julian Day Numbers (JDN), so the
+     calendar works for any year.
+   • Easter (Fasika) is computed with the Alexandrian computus
+     (Julian-calendar Easter), as used by the Ethiopian and Eritrean
+     Churches; the movable feasts and fasts are counted from it.
+   • To ADD or CHANGE a fixed feast, edit FIXED_FEASTS below
+     (Ethiopian month 1–13, day, key, rank) and add its name in
+     NAMES.en and NAMES.ti.
+   ============================================================ */
+(function(){
+'use strict';
+
+/* ---------- 1. Calendar arithmetic ---------- */
+const ET_EPOCH = 1723856;   // JDN offset of the Ethiopian (Amete Mihret) era
+
+// Ethiopian date → JDN   (month 1 = Meskerem … 13 = Pagume)
+function etToJdn(y, m, d){ return ET_EPOCH + 365 + 365*(y-1) + Math.floor(y/4) + 30*m + d - 31; }
+// JDN → Ethiopian date
+function jdnToEt(j){
+  const r = (j - ET_EPOCH) % 1461;
+  const n = (r % 365) + 365 * Math.floor(r / 1460);
+  const y = 4 * Math.floor((j - ET_EPOCH) / 1461) + Math.floor(r / 365) - Math.floor(r / 1460);
+  return { y, m: Math.floor(n / 30) + 1, d: (n % 30) + 1 };
+}
+// Gregorian ↔ JDN
+function grToJdn(y, m, d){
+  const t = new Date(0); t.setUTCFullYear(y, m - 1, d);
+  return Math.floor(t.getTime() / 864e5) + 2440588;
+}
+function jdnToGr(j){
+  const t = new Date((j - 2440588) * 864e5);
+  return { y: t.getUTCFullYear(), m: t.getUTCMonth() + 1, d: t.getUTCDate() };
+}
+// Julian calendar → JDN (needed for the Easter computation)
+function juToJdn(y, m, d){
+  const a = Math.floor((14 - m) / 12), yy = y + 4800 - a, mm = m + 12*a - 3;
+  return d + Math.floor((153*mm + 2) / 5) + 365*yy + Math.floor(yy/4) - 32083;
+}
+const weekday = j => (j + 1) % 7;                     // 0 = Sunday … 6 = Saturday
+const pagumeDays = y => (y % 4 === 3) ? 6 : 5;        // Ethiopian leap year
+const monthDays = (y, m) => m === 13 ? pagumeDays(y) : 30;
+
+// Easter (Fasika) of a given Gregorian year — Alexandrian computus, Julian calendar
+function easterJdn(gYear){
+  const a = gYear % 4, b = gYear % 7, c = gYear % 19;
+  const d = (19*c + 15) % 30, e = (2*a + 4*b - d + 34) % 7;
+  const month = Math.floor((d + e + 114) / 31), day = ((d + e + 114) % 31) + 1;
+  return juToJdn(gYear, month, day);
+}
+
+/* ---------- 2. Feasts and fasts ---------- */
+// [Ethiopian month, day, key, rank]   rank: 'major' (red) or 'feast' (gold)
+const FIXED_FEASTS = [
+  [1, 1,  'newyear',      'major'],
+  [1, 16, 'demera',       'feast'],
+  [1, 17, 'meskel',       'major'],
+  [3, 6,  'qusquam',      'feast'],
+  [3, 12, 'michael',      'feast'],
+  [3, 21, 'tsion',        'feast'],
+  [4, 3,  'baata',        'feast'],
+  [4, 19, 'gabriel',      'feast'],
+  /* Christmas (Lidet) is added in yearData(): 29 Tahsas, or 28 Tahsas after a leap year */
+  [5, 6,  'gizret',       'feast'],
+  [5, 10, 'ketera',       'feast'],
+  [5, 11, 'timket',       'major'],
+  [5, 12, 'cana',         'feast'],
+  [5, 21, 'astero',       'feast'],
+  [7, 29, 'annunciation', 'major'],
+  [9, 1,  'lideta',       'feast'],
+  [10, 12,'michael',      'feast'],
+  [11, 5, 'peterpaul',    'feast'],
+  [11, 7, 'trinity',      'feast'],
+  [11, 19,'gabriel',      'feast'],
+  [12, 13,'tabor',        'major'],
+  [12, 16,'filseta',      'major'],
+];
+// [days from Easter, key, rank]   rank 'fast' = first day of a fast
+const MOVABLE_FEASTS = [
+  [-69, 'nineveh',   'fast'],
+  [-55, 'lent',      'fast'],
+  [-28, 'debrezeit', 'feast'],
+  [-7,  'hosanna',   'major'],
+  [-3,  'holythu',   'feast'],
+  [-2,  'siklet',    'major'],
+  [0,   'fasika',    'major'],
+  [39,  'erget',     'major'],
+  [49,  'pentecost', 'major'],
+  [50,  'apostles',  'fast'],
+];
+
+const cache = {};
+function yearData(y){
+  if (cache[y]) return cache[y];
+  const days = {};                 // jdn → { feasts:[{key,rank}], fast:key, season:key }
+  const at = j => (days[j] = days[j] || { feasts: [] });
+  const addFeast = (j, key, rank) => at(j).feasts.push({ key, rank });
+  const fasts = [];                // { key, from, to }
+  const addFast = (key, from, to) => {
+    if (to < from) return;
+    fasts.push({ key, from, to });
+    for (let j = from; j <= to; j++) at(j).fast = key;
+  };
+
+  FIXED_FEASTS.forEach(([m, d, key, rank]) => addFeast(etToJdn(y, m, d), key, rank));
+  const lidet = etToJdn(y, 4, (y % 4 === 0) ? 28 : 29);
+  addFeast(lidet, 'lidet', 'major');
+
+  const E = easterJdn(y + 8);      // Easter of Ethiopian year y falls in Gregorian year y+8
+  MOVABLE_FEASTS.forEach(([off, key, rank]) => addFeast(E + off, key, rank));
+
+  addFast('advent',   etToJdn(y, 3, 15), lidet - 1);
+  addFast('nineveh',  E - 69, E - 67);
+  addFast('lent',     E - 55, E - 1);
+  addFast('apostles', E + 50, etToJdn(y, 11, 4));
+  addFast('filseta',  etToJdn(y, 12, 1), etToJdn(y, 12, 15));
+  for (let j = E; j <= E + 49; j++) at(j).season = 'easter';
+
+  fasts.sort((a, b) => a.from - b.from);
+  return (cache[y] = { days, fasts, easter: E });
+}
+function infoFor(j){
+  const et = jdnToEt(j);
+  return yearData(et.y).days[j] || { feasts: [] };
+}
+
+/* ---------- 3. Names (English / Tigrinya) ---------- */
+const NAMES = {
+  en: {
+    months: ['Meskerem','Tiqimti','Hidar','Tahsas','Tiri','Lekatit','Megabit','Miyazya','Ginbot','Sene','Hamle','Nehase','Pagume'],
+    wd: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+    wdShort: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
+    grMonths: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+    grShort: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+    era: 'E.C.', gr: 'Gregorian', et: 'Ethiopian',
+    today: 'Today', fastDay: 'Fast day', none: 'No feasts this month.', noFeast: 'No major feast today.',
+    invalid: 'Please enter a valid date.', range: '–', dayOf: 'days',
+    feasts: {
+      newyear: 'New Year · St John the Baptist', demera: 'Demera — Eve of the Holy Cross',
+      meskel: 'Meskel — Finding of the Holy Cross', qusquam: 'Qusquam — Holy Family in Egypt',
+      michael: 'St Michael the Archangel', tsion: 'Hidar Tsion — St Mary of Zion',
+      baata: 'Presentation of Mary in the Temple', gabriel: 'St Gabriel the Archangel',
+      lidet: 'Lidet — Christmas', gizret: 'Circumcision of the Lord', ketera: 'Ketera — Eve of Epiphany',
+      timket: 'Timket — Epiphany', cana: 'Wedding at Cana', astero: 'Dormition of Mary',
+      annunciation: 'Annunciation', lideta: 'Nativity of Mary', peterpaul: 'Sts Peter and Paul',
+      trinity: 'Holy Trinity', tabor: 'Debre Tabor — Transfiguration', filseta: 'Filseta — Assumption of Mary',
+      nineveh: 'Fast of Nineveh begins', lent: 'Great Lent begins', debrezeit: 'Debre Zeit — Mid-Lent',
+      hosanna: 'Hosanna — Palm Sunday', holythu: 'Holy Thursday', siklet: 'Siklet — Good Friday',
+      fasika: 'Fasika — Easter', erget: 'Erget — Ascension', pentecost: 'Pentecost',
+      apostles: 'Fast of the Apostles begins'
+    },
+    fasts: {
+      advent: 'Fast of the Prophets (Advent)', nineveh: 'Fast of Nineveh', lent: 'Great Lent',
+      apostles: 'Fast of the Apostles', filseta: 'Fast of the Assumption'
+    },
+    seasons: { easter: 'Fifty Days of Easter' }
+  },
+  ti: {
+    months: ['መስከረም','ጥቅምቲ','ሕዳር','ታሕሳስ','ጥሪ','ለካቲት','መጋቢት','ሚያዝያ','ግንቦት','ሰነ','ሓምለ','ነሓሰ','ጳጉሜን'],
+    wd: ['ሰንበት','ሰኑይ','ሰሉስ','ረቡዕ','ሓሙስ','ዓርቢ','ቀዳም'],
+    wdShort: ['ሰን','ሰኑ','ሰሉ','ረቡ','ሓሙ','ዓር','ቀዳ'],
+    grMonths: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+    grShort: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+    era: 'ዓ.ም.', gr: 'ግሪጎርያን', et: 'ግእዝ',
+    today: 'ሎሚ', fastDay: 'መዓልቲ ጾም', none: 'ኣብዚ ወርሒ በዓል የለን።', noFeast: 'ሎሚ ዓቢ በዓል የለን።',
+    invalid: 'በጃኹም ቅኑዕ ዕለት ኣእትዉ።', range: '–', dayOf: 'መዓልቲ',
+    feasts: {
+      newyear: 'ርእሰ ዓመት · ቅዱስ ዮሓንስ', demera: 'ደመራ', meskel: 'መስቀል — ርክበ መስቀል',
+      qusquam: 'ደብረ ቍስቋም', michael: 'ቅዱስ ሚካኤል', tsion: 'ሕዳር ጽዮን', baata: 'በኣታ ማርያም',
+      gabriel: 'ቅዱስ ገብርኤል', lidet: 'ልደት', gizret: 'ግዝረት', ketera: 'ከተራ', timket: 'ጥምቀት',
+      cana: 'ቃና ዘገሊላ', astero: 'ኣስተርእዮ ማርያም', annunciation: 'ብስራት', lideta: 'ልደታ ማርያም',
+      peterpaul: 'ጴጥሮስን ጳውሎስን', trinity: 'ቅድስት ሥላሴ', tabor: 'ደብረ ታቦር', filseta: 'ፍልሰታ ማርያም',
+      nineveh: 'ጾመ ነነዌ ይጅምር', lent: 'ዓቢይ ጾም ይጅምር', debrezeit: 'ደብረ ዘይት', hosanna: 'ሆሳዕና',
+      holythu: 'ሓሙስ ጸሎት', siklet: 'ዓርቢ ስቅለት', fasika: 'ፋሲካ — ትንሣኤ', erget: 'ዕርገት',
+      pentecost: 'ጰራቅሊጦስ', apostles: 'ጾመ ሓዋርያት ይጅምር'
+    },
+    fasts: { advent: 'ጾመ ነቢያት', nineveh: 'ጾመ ነነዌ', lent: 'ዓቢይ ጾም', apostles: 'ጾመ ሓዋርያት', filseta: 'ጾመ ፍልሰታ' },
+    seasons: { easter: 'ሓምሳ መዓልቲ ትንሣኤ' }
+  }
+};
+const N = () => NAMES[document.documentElement.lang === 'ti' ? 'ti' : 'en'];
+const shortName = key => N().feasts[key].split(' — ')[0];
+const fmtEt = (et, withYear = true) => `${et.d} ${N().months[et.m - 1]}` + (withYear ? ` ${et.y} ${N().era}` : '');
+const fmtGr = (g, long = true) => long ? `${g.d} ${N().grMonths[g.m - 1]} ${g.y}` : `${g.d} ${N().grShort[g.m - 1]}`;
+
+/* ---------- 4. Page ---------- */
+const $ = id => document.getElementById(id);
+const now = new Date();
+const todayJ = grToJdn(now.getFullYear(), now.getMonth() + 1, now.getDate());
+const todayEt = jdnToEt(todayJ);
+const state = { y: todayEt.y, m: todayEt.m, sel: todayJ };
+
+function el(tag, cls, text){
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (text !== undefined) e.textContent = text;
+  return e;
+}
+function feastLines(info){
+  const out = info.feasts.map(f => ({ text: N().feasts[f.key], cls: 'rank-' + f.rank }));
+  if (info.fast) out.push({ text: N().fasts[info.fast], cls: 'is-fastline' });
+  if (info.season) out.push({ text: N().seasons[info.season], cls: 'is-season' });
+  return out;
+}
+
+function renderToday(){
+  const g = jdnToGr(todayJ);
+  $('today-et').textContent = fmtEt(todayEt);
+  $('today-wd').textContent = N().wd[weekday(todayJ)];
+  $('today-gr').textContent = `${N().gr}: ${fmtGr(g)}`;
+  const box = $('today-feast'); box.replaceChildren();
+  const lines = feastLines(infoFor(todayJ));
+  if (!lines.length) box.appendChild(el('li', 'muted', N().noFeast));
+  lines.forEach(l => box.appendChild(el('li', l.cls, l.text)));
+}
+
+function renderMonth(){
+  const { y, m } = state;
+  const first = etToJdn(y, m, 1), n = monthDays(y, m), last = first + n - 1;
+  const g1 = jdnToGr(first), g2 = jdnToGr(last);
+  $('cal-title').textContent = `${N().months[m - 1]} ${y} ${N().era}`;
+  $('cal-sub').textContent = `${fmtGr(g1, false)} ${g1.y !== g2.y ? g1.y + ' ' : ''}${N().range} ${fmtGr(g2, false)} ${g2.y}`;
+
+  const head = $('cal-head'); head.replaceChildren();
+  [1,2,3,4,5,6,0].forEach(w => {               // week starts on Monday (ሰኑይ)
+    const c = el('div', 'wd' + (w === 0 ? ' is-sun' : ''), N().wdShort[w]);
+    c.title = N().wd[w]; head.appendChild(c);
+  });
+
+  const grid = $('cal-grid'); grid.replaceChildren();
+  const lead = (weekday(first) + 6) % 7;
+  for (let i = 0; i < lead; i++) grid.appendChild(el('div', 'day is-blank'));
+  for (let d = 1; d <= n; d++){
+    const j = first + d - 1, info = infoFor(j), g = jdnToGr(j);
+    const b = el('button', 'day');
+    b.type = 'button';
+    if (j === todayJ) b.classList.add('is-today');
+    if (j === state.sel) b.classList.add('is-sel');
+    if (info.fast) b.classList.add('is-fast');
+    if (weekday(j) === 0) b.classList.add('is-sun');
+    const top = info.feasts.find(f => f.rank === 'major') || info.feasts[0];
+    if (top) b.classList.add('has-' + top.rank);
+    b.appendChild(el('span', 'et-d', d));
+    b.appendChild(el('span', 'gr-d', fmtGr(g, false)));
+    if (top) b.appendChild(el('span', 'feast-name', shortName(top.key)));
+    b.setAttribute('aria-label', `${N().wd[weekday(j)]}, ${fmtEt({ y, m, d })} — ${fmtGr(g)}` +
+      (info.feasts.length ? ' — ' + info.feasts.map(f => N().feasts[f.key]).join(', ') : ''));
+    b.addEventListener('click', () => { state.sel = j; renderMonth(); renderDay(); });
+    grid.appendChild(b);
+  }
+
+  // Feasts in this month (list under / beside the grid)
+  const list = $('month-list'); list.replaceChildren();
+  let count = 0;
+  for (let j = first; j <= last; j++){
+    infoFor(j).feasts.forEach(f => {
+      const li = el('li', 'rank-' + f.rank);
+      const et = jdnToEt(j), g = jdnToGr(j);
+      li.appendChild(el('span', 'ml-date', `${et.d} ${N().months[et.m - 1]}`));
+      li.appendChild(el('span', 'ml-name', N().feasts[f.key]));
+      li.appendChild(el('span', 'ml-gr', `${N().wd[weekday(j)]} · ${fmtGr(g)}`));
+      list.appendChild(li); count++;
+    });
+  }
+  if (!count) list.appendChild(el('li', 'muted', N().none));
+}
+
+function renderDay(){
+  const j = state.sel, et = jdnToEt(j), g = jdnToGr(j);
+  $('day-et').textContent = fmtEt(et);
+  $('day-gr').textContent = `${N().wd[weekday(j)]} · ${fmtGr(g)}`;
+  const ul = $('day-feasts'); ul.replaceChildren();
+  const lines = feastLines(infoFor(j));
+  if (!lines.length) ul.appendChild(el('li', 'muted', '—'));
+  lines.forEach(l => ul.appendChild(el('li', l.cls, l.text)));
+}
+
+function renderYear(){
+  const y = state.y, data = yearData(y);
+  $('year-title').textContent = `${y} ${N().era}`;
+  const tb = $('year-body'); tb.replaceChildren();
+  const rows = [];
+  Object.keys(data.days).forEach(k => data.days[k].feasts.forEach(f => rows.push({ j: +k, f })));
+  rows.sort((a, b) => a.j - b.j);
+  rows.forEach(({ j, f }) => {
+    const tr = el('tr', 'rank-' + f.rank);
+    tr.appendChild(el('td', 'yt-name', N().feasts[f.key]));
+    tr.appendChild(el('td', 'yt-et', fmtEt(jdnToEt(j), false)));
+    tr.appendChild(el('td', 'yt-gr', fmtGr(jdnToGr(j))));
+    tr.appendChild(el('td', 'yt-wd', N().wd[weekday(j)]));
+    tb.appendChild(tr);
+  });
+  const fb = $('fast-body'); fb.replaceChildren();
+  data.fasts.forEach(f => {
+    const tr = el('tr');
+    tr.appendChild(el('td', 'yt-name', N().fasts[f.key]));
+    tr.appendChild(el('td', 'yt-et', `${fmtEt(jdnToEt(f.from), false)} ${N().range} ${fmtEt(jdnToEt(f.to), false)}`));
+    tr.appendChild(el('td', 'yt-gr', `${fmtGr(jdnToGr(f.from), false)} ${N().range} ${fmtGr(jdnToGr(f.to))}`));
+    tr.appendChild(el('td', 'yt-wd', `${f.to - f.from + 1} ${N().dayOf}`));
+    fb.appendChild(tr);
+  });
+}
+
+/* ---------- 5. Date converter ---------- */
+function fillConverter(){
+  const ms = $('conv-et-m'), keep = ms.value || todayEt.m;
+  ms.replaceChildren();
+  N().months.forEach((name, i) => { const o = el('option', '', name); o.value = i + 1; ms.appendChild(o); });
+  ms.value = keep;
+}
+function convertGr(){
+  const v = $('conv-gr').value, out = $('conv-gr-out');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(v)){ out.textContent = N().invalid; return; }
+  const [y, m, d] = v.split('-').map(Number), j = grToJdn(y, m, d);
+  out.textContent = `${N().wd[weekday(j)]}, ${fmtEt(jdnToEt(j))}`;
+}
+function convertEt(){
+  const d = +$('conv-et-d').value, m = +$('conv-et-m').value, y = +$('conv-et-y').value, out = $('conv-et-out');
+  if (!y || y < 1 || d < 1 || d > monthDays(y, m)){ out.textContent = N().invalid; return; }
+  const j = etToJdn(y, m, d);
+  out.textContent = `${N().wd[weekday(j)]}, ${fmtGr(jdnToGr(j))}`;
+}
+
+/* ---------- 6. Wiring ---------- */
+function go(dm){
+  let { y, m } = state; m += dm;
+  if (m < 1){ m = 13; y--; } if (m > 13){ m = 1; y++; }
+  const yearChanged = y !== state.y;
+  state.y = y; state.m = m; state.sel = etToJdn(y, m, 1);
+  if (state.y === todayEt.y && state.m === todayEt.m) state.sel = todayJ;
+  renderMonth(); renderDay(); if (yearChanged) renderYear();
+}
+function renderAll(){ fillConverter(); renderToday(); renderMonth(); renderDay(); renderYear(); convertGr(); convertEt(); }
+
+$('cal-prev').addEventListener('click', () => go(-1));
+$('cal-next').addEventListener('click', () => go(1));
+$('cal-today').addEventListener('click', () => {
+  state.y = todayEt.y; state.m = todayEt.m; state.sel = todayJ; renderMonth(); renderDay(); renderYear();
+});
+$('year-prev').addEventListener('click', () => { state.y--; state.m = 1; state.sel = etToJdn(state.y, 1, 1); renderMonth(); renderDay(); renderYear(); });
+$('year-next').addEventListener('click', () => { state.y++; state.m = 1; state.sel = etToJdn(state.y, 1, 1); renderMonth(); renderDay(); renderYear(); });
+$('cal-print').addEventListener('click', () => window.print());
+$('conv-gr').addEventListener('input', convertGr);
+['conv-et-d','conv-et-m','conv-et-y'].forEach(id => $(id).addEventListener('input', convertEt));
+document.addEventListener('keydown', e => {
+  if (e.target.closest('input,select,textarea')) return;
+  if (e.key === 'PageUp') go(-1);
+  if (e.key === 'PageDown') go(1);
+});
+
+// Converter defaults: today
+$('conv-gr').value = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+$('conv-et-d').value = todayEt.d; $('conv-et-y').value = todayEt.y;
+
+document.addEventListener('langchange', renderAll);
+renderAll();
+
+// Exposed for testing in the browser console: LiturgicalCalendar.etToJdn(...) etc.
+window.LiturgicalCalendar = { etToJdn, jdnToEt, grToJdn, jdnToGr, easterJdn, yearData };
+})();

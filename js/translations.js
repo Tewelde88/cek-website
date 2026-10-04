@@ -80,6 +80,31 @@ const TRANSLATIONS = {
     "vn.title":        "ዜና ቫቲካን",
     "vn.link":         "ናብ ዜና ቫቲካን ኪዱ",
 
+    /* Liturgical calendar page (calendar.html) */
+    "cal.eyebrow":     "ሥርዓተ ግእዝ · ናይ ግእዝ ዓውደ-ኣዋርሕ",
+    "cal.title":       "ሊጡርጊያዊ ዓውደ-ኣዋርሕ",
+    "cal.lead":        "በዓላትን ኣጽዋማትን ካቶሊካዊ ኤጳርቅና ከረን ብመሰረት ሊጡርጊያዊ ዓውደ-ኣዋርሕ ግእዝ፡ ምስ ተመሳሳሊ ዕለታት ግሪጎርያን።",
+    "cal.today":       "ሎሚ",
+    "cal.conv":        "መቐየሪ ዕለት",
+    "cal.conv.gr":     "ግሪጎርያን → ግእዝ",
+    "cal.conv.et":     "ግእዝ → ግሪጎርያን",
+    "cal.gotoday":     "ናብ ሎሚ ተመለስ",
+    "cal.lg.major":    "ዓቢ በዓል",
+    "cal.lg.feast":    "በዓል",
+    "cal.lg.fast":     "መዓልቲ ጾም",
+    "cal.selected":    "ዝተመርጸ መዓልቲ",
+    "cal.thismonth":   "በዓላት ናይዚ ወርሒ",
+    "cal.yearlist":    "በዓላትን ኣጽዋማትን ናይ ዓመት",
+    "cal.print":       "ሕተም",
+    "cal.col.feast":   "በዓል",
+    "cal.col.et":      "ዕለት ግእዝ",
+    "cal.col.gr":      "ዕለት ግሪጎርያን",
+    "cal.col.wd":      "መዓልቲ",
+    "cal.col.fast":    "ጾም",
+    "cal.col.len":     "ንውሓት",
+    "cal.fasts":       "ወቕቲ ጾም",
+    "cal.note":        "ፋሲካን ኣብኡ ዝምርኮሱ በዓላትን ብባሕረ ሓሳብ (ኣሌክሳንድርያዊ ቍጽሪ) ብኸምቲ ኣብያተ ክርስቲያናት ኢትዮጵያን ኤርትራን ዝጥቀማሉ ይሕሰቡ። ከባብያዊ ኣከባብራ ክፈላለ ይኽእል እዩ — በጃኹም ምልክታታት ቍምስናኹም ተኸተሉ።",
+
     /* Quick links */
     "q.sermons":       "ስብከታት",
     "q.sermons.alt":   "Sermons",                             /* (EN) */

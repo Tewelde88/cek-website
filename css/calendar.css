@@ -1,0 +1,134 @@
+/* ============================================================
+   LITURGICAL CALENDAR PAGE (calendar.html)
+   Uses the colours and fonts defined at the top of style.css
+   ============================================================ */
+.page-head{background:linear-gradient(120deg,var(--navy-dark),var(--navy) 60%,#2a4a80);color:#fff;padding-block:clamp(32px,5vw,56px) clamp(52px,7vw,80px)}
+.page-head h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,1.3rem + 2vw,2.8rem);line-height:1.15;margin:4px 0 10px}
+.page-lead{max-width:62ch;color:rgba(255,255,255,.88)}
+html[lang="ti"] .page-head h1{font-family:var(--ethiopic-serif)}
+
+.cal-page .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(16px,2.5vw,24px)}
+.cal-top{display:grid;gap:clamp(16px,2vw,24px);grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));margin-top:clamp(-40px,-4vw,-24px);position:relative}
+.cal-main{display:grid;gap:clamp(16px,2vw,24px);grid-template-columns:minmax(0,1fr);margin-top:clamp(16px,2vw,24px)}
+@media (min-width:980px){ .cal-main{grid-template-columns:minmax(0,1fr) 320px;align-items:start} }
+.cal-side{display:grid;gap:clamp(16px,2vw,24px)}
+.cal-year{margin-block:clamp(16px,2vw,24px) clamp(40px,6vw,64px)}
+
+/* Today + selected day */
+.today-et,.day-et{font-family:var(--serif);font-weight:600;color:var(--navy);font-size:clamp(1.5rem,1.2rem + 1.2vw,2.1rem);line-height:1.2}
+.day-et{font-size:1.4rem}
+html[lang="ti"] :is(.today-et,.day-et,.month-title h2,.year-bar h2,.fast-title){font-family:var(--ethiopic-serif)}
+.today-sub,.day-gr{color:var(--muted);font-size:.92rem;margin-top:4px}
+.feast-lines{list-style:none;margin-top:14px;display:grid;gap:6px}
+.feast-lines li{padding:8px 12px;border-radius:var(--radius-sm);font-weight:600;font-size:.92rem;border-left:4px solid var(--line);background:#faf8f4}
+.feast-lines .rank-major{border-color:var(--red);color:var(--red-dark);background:#fbeeee}
+.feast-lines .rank-feast{border-color:var(--gold);color:#7a5a12;background:#fbf5e6}
+.feast-lines .rank-fast,.feast-lines .is-fastline{border-color:var(--navy);color:var(--navy);background:var(--navy-soft)}
+.feast-lines .is-season{border-color:#3d8b5a;color:#2a6b42;background:#eaf5ee}
+.feast-lines .muted,.month-list .muted{border:0;background:none;color:var(--muted);font-weight:400;padding:0}
+
+/* Converter */
+.conv-row{display:grid;gap:6px;margin-top:14px}
+.conv-label{font-size:.82rem;font-weight:600;color:var(--muted)}
+.conv-card input,.conv-card select{height:42px;padding:0 12px;border:1px solid #cfd5df;border-radius:var(--radius-sm);background:#fff;font-size:.95rem;min-width:0;width:100%}
+.conv-card input:focus,.conv-card select:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(22,49,94,.15)}
+.conv-et{display:grid;grid-template-columns:70px 1fr 90px;gap:8px}
+.conv-out{display:block;min-height:1.5em;font-weight:700;color:var(--navy)}
+
+/* Month view */
+.month-bar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.month-title{text-align:center;min-width:0}
+.month-title h2{font-family:var(--serif);font-weight:600;color:var(--navy);font-size:clamp(1.3rem,1.1rem + 1vw,1.75rem);line-height:1.2}
+.month-title p{color:var(--muted);font-size:.88rem}
+.icon-btn{flex:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;display:grid;place-items:center;transition:background-color .2s,border-color .2s}
+.icon-btn:hover{background:var(--navy);border-color:var(--navy)}
+.icon-btn svg{width:18px;height:18px;fill:none;stroke:var(--navy);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.icon-btn:hover svg{stroke:#fff}
+.month-tools{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin:14px 0 12px}
+.chip{height:36px;padding:0 16px;border-radius:999px;border:1px solid var(--navy);background:#fff;color:var(--navy);font-weight:600;font-size:.85rem;cursor:pointer}
+.chip:hover{background:var(--navy);color:#fff}
+.legend{list-style:none;display:flex;flex-wrap:wrap;gap:12px;font-size:.8rem;color:var(--muted)}
+.legend li{display:flex;align-items:center;gap:6px}
+.sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+.sw-major{background:var(--red)}
+.sw-feast{background:var(--gold)}
+.sw-fast{background:var(--navy-soft);border:1px solid #c3cde0}
+
+.cal-head,.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.cal-head .wd{text-align:center;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:6px 0}
+.cal-head .wd.is-sun{color:var(--red)}
+.day{
+  position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-height:92px;padding:8px;
+  border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;text-align:left;cursor:pointer;
+  transition:border-color .15s,box-shadow .15s;min-width:0;
+}
+.day:hover{border-color:var(--navy);box-shadow:var(--shadow)}
+.day.is-blank{border:0;background:none;cursor:default;box-shadow:none}
+.day .et-d{font-family:var(--serif);font-weight:700;font-size:1.15rem;color:var(--navy);line-height:1}
+.day.is-sun .et-d{color:var(--red)}
+.day .gr-d{font-size:.72rem;color:var(--muted)}
+.day .feast-name{margin-top:auto;font-size:.72rem;font-weight:600;line-height:1.25;color:#7a5a12;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.day.has-major .feast-name{color:var(--red-dark)}
+.day.has-major{border-top:3px solid var(--red)}
+.day.has-feast,.day.has-fast{border-top:3px solid var(--gold)}
+.day.has-fast{border-top-color:var(--navy)}
+.day.is-fast{background:var(--navy-soft)}
+.day.is-today{box-shadow:0 0 0 2px var(--red) inset}
+.day.is-today .et-d::after{content:"";display:inline-block;width:6px;height:6px;margin-left:5px;vertical-align:middle;border-radius:50%;background:var(--red)}
+.day.is-sel{outline:3px solid var(--gold);outline-offset:1px}
+html[lang="ti"] .day .feast-name{font-family:var(--ethiopic)}
+
+/* Month list (side) */
+.month-list{list-style:none;margin-top:10px;display:grid}
+.month-list li{display:grid;grid-template-columns:auto 1fr;column-gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.month-list li:last-child{border-bottom:0}
+.ml-date{grid-row:span 2;align-self:start;min-width:84px;padding:4px 8px;border-radius:6px;font-size:.78rem;font-weight:700;text-align:center;background:var(--navy-soft);color:var(--navy)}
+.month-list .rank-major .ml-date{background:#fbeeee;color:var(--red-dark)}
+.month-list .rank-feast .ml-date{background:#fbf5e6;color:#7a5a12}
+.ml-name{font-weight:600;font-size:.92rem;color:var(--ink)}
+.ml-gr{font-size:.8rem;color:var(--muted)}
+
+/* Year table */
+.year-bar{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:14px}
+.year-bar h2{font-family:var(--serif);font-weight:600;color:var(--navy);font-size:clamp(1.3rem,1.1rem + 1vw,1.75rem)}
+.year-tools{display:flex;align-items:center;gap:8px}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:var(--radius-sm)}
+.year-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:560px}
+.year-table th{background:var(--navy);color:#fff;text-align:left;font-weight:600;font-size:.8rem;letter-spacing:.04em;padding:10px 12px}
+.year-table td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:top}
+.year-table tbody tr:nth-child(even){background:#faf8f4}
+.year-table .yt-name{font-weight:600}
+.year-table tr.rank-major .yt-name{color:var(--red-dark)}
+.year-table tr.rank-fast .yt-name{color:var(--navy)}
+.year-table .yt-wd{color:var(--muted);white-space:nowrap}
+.year-table .yt-gr,.year-table .yt-et{white-space:nowrap}
+.fast-title{font-family:var(--serif);font-weight:600;color:var(--navy);font-size:1.15rem;margin:24px 0 10px}
+.cal-note{margin-top:16px;font-size:.85rem;color:var(--muted)}
+
+/* Phones: compact month grid (feast names are in the list below) */
+@media (max-width:640px){
+  .cal-head,.cal-grid{gap:3px}
+  .cal-head .wd{font-size:.65rem;letter-spacing:0}
+  .day{min-height:58px;padding:5px 2px;align-items:center;text-align:center}
+  .day .et-d{font-size:1rem}
+  .day .gr-d{font-size:.6rem}
+  .day .feast-name{display:none}
+  .day.has-major::after,.day.has-feast::after,.day.has-fast::after{content:"";position:absolute;bottom:5px;left:50%;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:var(--red)}
+  .day.has-feast::after{background:var(--gold)}
+  .day.has-fast::after{background:var(--navy)}
+  .day.has-major,.day.has-feast,.day.has-fast{border-top-width:1px;border-top-color:var(--line)}
+  .day.is-today .et-d::after{display:none}
+  .conv-et{grid-template-columns:60px 1fr 80px}
+}
+
+/* Printing: just the calendar */
+@media print{
+  .topbar,.mainnav,.site-footer,.skip-link,.conv-card,.chip,.icon-btn,.cal-side,.month-tools{display:none !important}
+  .page-head{background:none;color:#000;padding:0 0 12px}
+  .page-head .eyebrow,.page-lead{color:#333}
+  .cal-top{margin-top:0}
+  .cal-page .card{box-shadow:none;border:0;padding:0}
+  .cal-main{display:block}
+  .year-table th{background:#eee;color:#000}
+  .table-wrap{overflow:visible;border:0}
+}

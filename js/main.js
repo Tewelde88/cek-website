@@ -6,6 +6,7 @@ const isTi = () => document.documentElement.lang === 'ti';
 const titleOf = s => (isTi() && s.ti) ? s.ti : s.t;
 
 function render(filter=""){
+  if (!list) return;                       // page without a sermon list
   const f = filter.trim().toLowerCase();
   list.innerHTML = "";
   let lastYear = null, count = 0;
@@ -32,12 +33,18 @@ function render(filter=""){
     document.getElementById('featured-year').textContent = top.y;
   }
 }
-q.addEventListener('input', e => render(e.target.value));
+if (q) q.addEventListener('input', e => render(e.target.value));
+
+// Search sent from another page (index.html?q=…#sermons)
+const urlQ = new URLSearchParams(location.search).get('q');
+if (q && urlQ){ q.value = urlQ; document.getElementById('site-q').value = urlQ; }
 
 // Header search box → filters the sermon archive and scrolls to it
 document.getElementById('site-search').addEventListener('submit', e => {
   e.preventDefault();
-  q.value = document.getElementById('site-q').value;
+  const v = document.getElementById('site-q').value;
+  if (!q){ location.href = 'index.html?q=' + encodeURIComponent(v) + '#sermons'; return; }
+  q.value = v;
   render(q.value);
   document.getElementById('sermons').scrollIntoView({behavior:'smooth', block:'start'});
 });
@@ -63,8 +70,9 @@ function setLang(lang){
   document.querySelectorAll('.lang-switch button').forEach(b =>
     b.setAttribute('aria-pressed', String(b.dataset.lang === (ti ? 'ti' : 'en'))));
 
-  render(q.value);
+  render(q ? q.value : '');
   mountVaticanNews(ti ? 'ti' : 'en');
+  document.dispatchEvent(new CustomEvent('langchange', {detail:{lang: ti ? 'ti' : 'en'}}));
   try { localStorage.setItem('lang', ti ? 'ti' : 'en'); } catch(e){}
 }
 
@@ -87,6 +95,7 @@ setLang(isTi() ? 'ti' : 'en');
 /* ---------- Hero slider (autoplay, arrows, dots, swipe, keyboard) ---------- */
 (function(){
   const root = document.getElementById('slider');
+  if (!root) return;                       // page without the cover slider
   const slides = [...root.querySelectorAll('.slide')];
   const dots = root.querySelector('.dots');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
