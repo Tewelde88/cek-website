@@ -62,7 +62,7 @@ button,input{font:inherit;color:inherit}
 .topbar{background:var(--bg);border-bottom:1px solid var(--line)}
 .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:16px}
 .brand{display:flex;align-items:center;gap:clamp(12px,2vw,20px);min-width:0;color:inherit}
-.crest{width:clamp(56px,7vw,86px);height:auto;aspect-ratio:1;flex:none;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.crest{width:clamp(56px,7vw,86px);height:clamp(56px,7vw,86px);flex:none;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,.12)}
 .crest svg{width:100%;height:100%}
 .brand-text{display:flex;flex-direction:column;min-width:0;line-height:1.15}
 .brand-ti{font-family:var(--ethiopic-serif);font-weight:700;color:var(--red);font-size:clamp(1.15rem,.9rem + 1.2vw,1.85rem)}
@@ -111,7 +111,7 @@ button,input{font:inherit;color:inherit}
     padding:8px var(--gutter) 16px;background:var(--navy-dark);box-shadow:0 16px 30px rgba(0,0,0,.25);
     max-height:0;overflow:hidden;visibility:hidden;padding-block:0;transition:max-height .35s ease,visibility .35s,padding .35s;
   }
-  .mainnav ul.open{max-height:calc(100dvh - var(--nav-h));overflow-y:auto;visibility:visible;padding-block:8px 16px}
+  .mainnav ul.open{max-height:calc(100vh - var(--nav-h));max-height:calc(100dvh - var(--nav-h));overflow-y:auto;visibility:visible;padding-block:8px 16px}
   .mainnav a{padding:14px 12px;font-size:1rem;border-radius:var(--radius-sm)}
   .mainnav a::after{left:0;right:auto;top:10px;bottom:10px;width:3px;height:auto;border-radius:0 3px 3px 0;transform:scaleY(0)}
   .mainnav a:hover::after,.mainnav a.active::after{transform:scaleY(1)}
