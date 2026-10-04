@@ -319,3 +319,8 @@ html[lang="ti"] .only-en,
 html:not([lang="ti"]) .only-ti{display:none}
 .only-ti h2,.only-ti h3{font-family:var(--ethiopic-serif)}
 .only-ti p{font-family:var(--ethiopic);line-height:1.8}
+
+/* ---------- VATICAN NEWS WIDGET ---------- */
+.vn{background:var(--bg);padding-block:clamp(36px,5vw,56px)}
+.vn-box{min-height:320px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.vn-box vaticannews-widget{display:block;width:100%}

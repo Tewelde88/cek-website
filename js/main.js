@@ -64,7 +64,21 @@ function setLang(lang){
     b.setAttribute('aria-pressed', String(b.dataset.lang === (ti ? 'ti' : 'en'))));
 
   render(q.value);
+  mountVaticanNews(ti ? 'ti' : 'en');
   try { localStorage.setItem('lang', ti ? 'ti' : 'en'); } catch(e){}
+}
+
+/* ---------- Vatican News widget in the page's language ----------
+   The widget reads its settings only once, so on a language change we replace it. */
+function mountVaticanNews(lang){
+  const box = document.getElementById('vn-widget');
+  if (!box || box.dataset.lang === lang) return;
+  box.dataset.lang = lang;
+  const w = document.createElement('vaticannews-widget');
+  w.setAttribute('lang', lang);          // en = English, ti = Tigrinya
+  w.setAttribute('fontSize', '16');      // 14, 16 or 18
+  if (window.matchMedia('(max-width:640px)').matches) w.setAttribute('mobile', 'true');
+  box.replaceChildren(w);
 }
 document.querySelectorAll('.lang-switch button').forEach(b =>
   b.addEventListener('click', () => setLang(b.dataset.lang)));

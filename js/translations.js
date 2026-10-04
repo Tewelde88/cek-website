@@ -75,6 +75,11 @@ const TRANSLATIONS = {
     "sermons.empty":   "ምስ ድሌትኩም ዝሰማማዕ ስብከት የለን።",
     "sermons.link":    "ስምዑ / ተወሳኺ ኣንብቡ",
 
+    /* Vatican News widget */
+    "vn.eyebrow":      "ካብ ቅድስቲ መንበር",
+    "vn.title":        "ዜና ቫቲካን",
+    "vn.link":         "ናብ ዜና ቫቲካን ኪዱ",
+
     /* Quick links */
     "q.sermons":       "ስብከታት",
     "q.sermons.alt":   "Sermons",                             /* (EN) */

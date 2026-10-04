@@ -297,6 +297,22 @@
     </div>
   </section>
 
+  <!-- ================= VATICAN NEWS WIDGET =================
+       Official widget from https://www.vaticannews.va/widget/embed.html
+       js/main.js puts a <vaticannews-widget> inside #vn-widget in the page's language (en / ti). -->
+  <section class="vn" id="vatican-news">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow eyebrow-red" data-i18n="vn.eyebrow">From the Holy See</p>
+          <h2 class="section-title" data-i18n="vn.title">Vatican News</h2>
+        </div>
+        <a class="more" href="https://www.vaticannews.va/" target="_blank" rel="noopener"><span data-i18n="vn.link">Visit Vatican News</span> <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+      <div class="vn-box" id="vn-widget"></div>
+    </div>
+  </section>
+
   <!-- ================= QUICK LINKS ================= -->
   <section class="quick">
     <div class="wrap quick-grid">
@@ -365,5 +381,6 @@
 <script src="js/translations.js"></script>
 <script src="js/sermons.js"></script>
 <script src="js/main.js"></script>
+<script src="https://www.vaticannews.va/widget.js" async></script>
 </body>
 </html>
