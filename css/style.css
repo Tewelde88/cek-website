@@ -324,3 +324,13 @@ html:not([lang="ti"]) .only-ti{display:none}
 .vn{background:var(--bg);padding-block:clamp(36px,5vw,56px)}
 .vn-box{min-height:320px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
 .vn-box vaticannews-widget{display:block;width:100%}
+
+/* "Example" tag on sample entries (news, eparchy, parishes data files) */
+.sample-tag{display:inline-block;margin-top:6px;padding:1px 8px;border-radius:4px;border:1px dashed #c9a24a;color:#8a6a1f;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.post-link{display:block}
+.post h3 a{color:inherit}
+.post h3 a:hover{color:var(--red);text-decoration:none}
+.post-meta .sample-tag{margin-top:0}
+
+/* Elements hidden by script must stay hidden even if a style gives them a display value */
+[hidden]{display:none !important}

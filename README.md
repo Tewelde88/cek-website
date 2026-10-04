@@ -62,3 +62,10 @@ Modern, responsive design — works on phones, tablets, laptops and large screen
 - All lists are in `js/parishes-data.js`. Parish fields: name, patron, deanery, place, priest, mass (Mass times), phone, map (optional Google Maps link). Empty fields are simply not shown; a parish with no details shows "Details coming soon".
 - The six parishes named in Bishop Kidane's biography are listed; entries with `sample: true` are examples to replace or delete.
 - Styles: `css/parishes.css`. Section texts: `parishes.html` and the `pa.*` keys in `js/translations.js`.
+
+## News page (news.html) — blog with photo gallery
+- **To post news:** open `js/news-data.js`, copy one `{ … }` block to the TOP of the list, change id, date, category, title, text and photos. Put the photos in a folder such as `images/news/2026-10-easter/`.
+- The News page shows the newest post large, the rest in a grid (filter by category, search, "Load more"). Each post has its own page (`news.html#post=<id>`) with a photo gallery, a full-screen photo viewer and share buttons (WhatsApp, Facebook, copy link).
+- The **Gallery** tab shows every photo from every post.
+- The 3 news cards on the home page are the 3 newest posts — no separate editing needed.
+- Posts with `sample: true` are examples to replace or delete. Styles: `css/news.css`.

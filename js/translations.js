@@ -220,6 +220,17 @@ const TRANSLATIONS = {
     "pa.san.eyebrow":  "ቦታታት ንግደት",
     "pa.san.lead":     "ምእመናን ንጸሎት፡ ብፍላይ ኣብ መዓልታት በዓላተን፡ ዝመጽኡለን ቅዱሳት ቦታታትን ቦታታት ንግደትን።",
 
+    /* News page (news.html) */
+    "nw.eyebrow":      "ካቶሊካዊ ኤጳርቅና ከረን",
+    "nw.lead":         "ሓደስቲ ዜናታት፡ ጽሑፋትን ፍጻመታትን ካብ ቍምስናታትን ማሕበረሰባትን ኤጳርቅና ከረን — ምስ ስእልታት።",
+    "nw.tab.list":     "ሓደስቲ ዜናታት",
+    "nw.tab.gallery":  "ጋለሪ",
+    "nw.search":       "ዜና ድለዩ…",
+    "nw.none":         "ዝተረኽበ ጽሑፍ የለን።",
+    "nw.more":         "ተወሳኺ ኣርእዩ",
+    "nw.gal.eyebrow":  "ግዜታት እምነት",
+    "nw.gal.lead":     "ስእልታት ካብ ህይወት ኤጳርቅናና። ንምግፋሕ ስእሊ ጠውቑ።",
+
     /* Quick links */
     "q.sermons":       "ስብከታት",
     "q.sermons.alt":   "Sermons",                             /* (EN) */

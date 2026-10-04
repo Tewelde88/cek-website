@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Parishes &amp; Chapels — Catholic Eparchy of Keren</title>
-<meta name="description" content="Parishes, chapels, small Christian communities and sanctuaries of the Catholic Eparchy of Keren, with Mass times and directions.">
+<title>News — Catholic Eparchy of Keren</title>
+<meta name="description" content="Latest news, articles, events and photo gallery of the Catholic Eparchy of Keren.">
 <meta name="theme-color" content="#16315e">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/logo.png">
@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="css/calendar.css">
 <link rel="stylesheet" href="css/liturgy.css">
 <link rel="stylesheet" href="css/eparchy.css">
-<link rel="stylesheet" href="css/parishes.css">
+<link rel="stylesheet" href="css/news.css">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -62,104 +62,85 @@
     <ul id="site-nav">
       <li><a href="index.html" data-i18n="nav.home">Home</a></li>
       <li><a href="eparchy.html" data-i18n="nav.eparchy">Eparchy</a></li>
-      <li><a href="parishes.html" class="active" aria-current="page" data-i18n="nav.parishes">Parishes &amp; Chapels</a></li>
+      <li><a href="parishes.html" data-i18n="nav.parishes">Parishes &amp; Chapels</a></li>
       <li><a href="liturgy.html" data-i18n="nav.liturgy">Liturgy</a></li>
-      <li><a href="news.html" data-i18n="nav.news">News</a></li>
+      <li><a href="news.html" class="active" aria-current="page" data-i18n="nav.news">News</a></li>
       <li><a href="index.html#sermons" data-i18n="nav.archive">Archive</a></li>
       <li><a href="#contact" data-i18n="nav.contact">Contact Us</a></li>
     </ul>
   </div>
 </nav>
 
-<main id="content" class="lit-page pa-page">
+<main id="content" class="lit-page news-page">
 
   <!-- ================= PAGE TITLE ================= -->
   <section class="page-head">
     <div class="wrap">
-      <p class="eyebrow eyebrow-light" data-i18n="pa.eyebrow">Catholic Eparchy of Keren</p>
-      <h1 data-i18n="nav.parishes">Parishes &amp; Chapels</h1>
-      <p class="page-lead" data-i18n="pa.lead">Find a parish, chapel, Christian community or sanctuary of the Eparchy of Keren — with Mass times, contacts and directions.</p>
+      <p class="eyebrow eyebrow-light" data-i18n="nw.eyebrow">Catholic Eparchy of Keren</p>
+      <h1 data-i18n="nav.news">News</h1>
+      <p class="page-lead" data-i18n="nw.lead">The latest news, articles and events from the parishes and communities of the Eparchy of Keren — with photos.</p>
     </div>
   </section>
 
-  <!-- ================= SUB-MENU (sticky) ================= -->
-  <nav class="subnav" aria-label="Parishes and chapels sections">
+  <!-- ================= TABS: Latest news / Gallery ================= -->
+  <nav class="subnav news-tabs" aria-label="News views">
     <div class="wrap">
       <ul>
-        <li><a href="#parishes" data-i18n="pa.nav.parishes">Parishes</a></li>
-        <li><a href="#chapels" data-i18n="pa.nav.chapels">Chapels</a></li>
-        <li><a href="#communities" data-i18n="pa.nav.communities">Christian Communities</a></li>
-        <li><a href="#sanctuaries" data-i18n="pa.nav.sanctuaries">Sanctuaries</a></li>
+        <li><button type="button" data-view="list" aria-pressed="true" data-i18n="nw.tab.list">Latest News</button></li>
+        <li><button type="button" data-view="gallery" aria-pressed="false" data-i18n="nw.tab.gallery">Gallery</button></li>
       </ul>
     </div>
   </nav>
 
-  <!-- ================= 1. PARISHES (list in js/parishes-data.js) ================= -->
-  <section class="lit-section" id="parishes">
+  <!-- ===== Blog list (posts come from js/news-data.js) ===== -->
+  <section class="lit-section" id="view-list">
     <div class="wrap">
-      <header class="lit-head">
-        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 2v6M13 5h6"/><path d="M6 29V16l10-7 10 7v13z"/><path d="M13 29v-7h6v7"/></svg></span>
-        <div>
-          <p class="eyebrow eyebrow-red" data-i18n="pa.par.eyebrow">Our Parish Family</p>
-          <h2 class="section-title" data-i18n="pa.nav.parishes">Parishes</h2>
-          <p class="lit-lead" data-i18n="pa.par.lead">The parishes of the Eparchy are the home of the faithful: here we celebrate the Divine Liturgy, receive the sacraments and live as one family in Christ.</p>
-        </div>
-      </header>
-      <div class="pa-tools">
+      <div class="news-tools">
+        <div class="chips" id="news-cats" role="group" aria-label="Category"></div>
         <label class="ep-search">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-          <input type="search" id="parish-q" placeholder="Find a parish by name, place or priest…" data-i18n-placeholder="pa.par.search" aria-label="Search parishes">
+          <input type="search" id="news-q" placeholder="Search news…" data-i18n-placeholder="nw.search" aria-label="Search news">
         </label>
-        <span class="pa-count" id="parish-count"></span>
       </div>
-      <div class="pc-grid" id="parish-grid"></div>
+      <div id="news-featured"></div>
+      <div class="cards news-grid" id="news-grid"></div>
+      <p class="muted news-empty" id="news-empty" hidden data-i18n="nw.none">No posts found.</p>
+      <div class="news-more-row"><button type="button" class="cal-toggle" id="news-more" hidden data-i18n="nw.more">Load more</button></div>
     </div>
   </section>
 
-  <!-- ================= 2. CHAPELS ================= -->
-  <section class="lit-section alt" id="chapels">
+  <!-- ===== Gallery: all photos from all posts ===== -->
+  <section class="lit-section" id="view-gallery" hidden>
     <div class="wrap">
       <header class="lit-head">
-        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3v5M13.5 5.5h5"/><path d="M9 29V15l7-5 7 5v14z"/><path d="M14 29v-5h4v5"/></svg></span>
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="4" y="6" width="24" height="20" rx="2"/><circle cx="11" cy="12" r="2.5"/><path d="M4 23l7-7 5 5 4-4 8 8"/></svg></span>
         <div>
-          <p class="eyebrow eyebrow-red" data-i18n="pa.cha.eyebrow">Close to Every Village</p>
-          <h2 class="section-title" data-i18n="pa.nav.chapels">Chapels</h2>
-          <p class="lit-lead" data-i18n="pa.cha.lead">Chapels serve villages and neighbourhoods within a parish, bringing the Eucharist and prayer close to the faithful.</p>
+          <p class="eyebrow eyebrow-red" data-i18n="nw.gal.eyebrow">Moments of Faith</p>
+          <h2 class="section-title" data-i18n="nw.tab.gallery">Gallery</h2>
+          <p class="lit-lead" data-i18n="nw.gal.lead">Photos from the life of our Eparchy. Tap a photo to see it larger.</p>
         </div>
       </header>
-      <div class="pc-grid" id="chapel-grid"></div>
+      <div id="gallery-grid"></div>
     </div>
   </section>
 
-  <!-- ================= 3. CHRISTIAN COMMUNITIES ================= -->
-  <section class="lit-section" id="communities">
+  <!-- ===== Single post (news.html#post=<id>) ===== -->
+  <section class="lit-section" id="view-post" hidden>
     <div class="wrap">
-      <header class="lit-head">
-        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="9" r="4"/><circle cx="7" cy="13" r="3"/><circle cx="25" cy="13" r="3"/><path d="M9 27c0-4.5 3-8 7-8s7 3.5 7 8M2 25c0-3 2-5.5 5-5.5M30 25c0-3-2-5.5-5-5.5"/></svg></span>
-        <div>
-          <p class="eyebrow eyebrow-red" data-i18n="pa.com.eyebrow">Living Cells of the Parish</p>
-          <h2 class="section-title" data-i18n="pa.nav.communities">Christian Communities</h2>
-          <p class="lit-lead" data-i18n="pa.com.lead">Small Christian communities bring neighbours together to pray, read the Word of God and support one another as living cells of the parish.</p>
-        </div>
-      </header>
-      <div class="pc-grid" id="community-grid"></div>
+      <article class="post-page" id="post"></article>
     </div>
   </section>
 
-  <!-- ================= 4. SANCTUARIES ================= -->
-  <section class="lit-section alt" id="sanctuaries">
-    <div class="wrap">
-      <header class="lit-head">
-        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 2l3 6h-6z"/><path d="M8 29V14h16v15z"/><path d="M5 14h22M12 29v-6a4 4 0 0 1 8 0v6"/></svg></span>
-        <div>
-          <p class="eyebrow eyebrow-red" data-i18n="pa.san.eyebrow">Places of Pilgrimage</p>
-          <h2 class="section-title" data-i18n="pa.nav.sanctuaries">Sanctuaries</h2>
-          <p class="lit-lead" data-i18n="pa.san.lead">Sanctuaries and places of pilgrimage where the faithful come to pray, especially on their feast days.</p>
-        </div>
-      </header>
-      <div class="pc-grid" id="sanctuary-grid"></div>
-    </div>
-  </section>
+  <!-- ===== Photo viewer (lightbox) ===== -->
+  <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+    <button type="button" class="lb-close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <button type="button" class="lb-nav lb-prev" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <figure class="lb-figure">
+      <img class="lb-img" src="" alt="">
+      <figcaption><span class="lb-count"></span> <span class="lb-caption"></span> <a class="lb-post" href="#" hidden></a></figcaption>
+    </figure>
+    <button type="button" class="lb-nav lb-next" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  </dialog>
 </main>
 
 <!-- ================= FOOTER ================= -->
@@ -181,7 +162,7 @@
 
 <script src="js/translations.js"></script>
 <script src="js/main.js"></script>
-<script src="js/parishes-data.js"></script>
-<script src="js/parishes.js"></script>
+<script src="js/news-data.js"></script>
+<script src="js/news.js"></script>
 </body>
 </html>

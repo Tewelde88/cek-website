@@ -60,7 +60,7 @@
       <li><a href="eparchy.html" data-i18n="nav.eparchy">Eparchy</a></li>
       <li><a href="parishes.html" data-i18n="nav.parishes">Parishes &amp; Chapels</a></li>
       <li><a href="liturgy.html" data-i18n="nav.liturgy">Liturgy</a></li>
-      <li><a href="#news" data-i18n="nav.news">News</a></li>
+      <li><a href="news.html" data-i18n="nav.news">News</a></li>
       <li><a href="#sermons" data-i18n="nav.archive">Archive</a></li>
       <li><a href="#contact" data-i18n="nav.contact">Contact Us</a></li>
     </ul>
@@ -237,39 +237,11 @@
             <p class="eyebrow eyebrow-red" data-i18n="news.eyebrow">Latest News &amp; Articles</p>
             <h2 class="section-title" data-i18n="news.title">From Our Eparchy</h2>
           </div>
-          <a class="more" href="#"><span data-i18n="news.all">View All News</span> <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="more" href="news.html"><span data-i18n="news.all">View All News</span> <span class="arrow" aria-hidden="true">→</span></a>
         </div>
 
-        <!-- News cards: replace the sample titles, dates and text with real news. Photos: images/news-1.jpg, news-2.jpg, news-3.jpg -->
-        <div class="cards">
-          <article class="post">
-            <div class="post-media" style="background-image:url('images/news-1.jpg'),linear-gradient(135deg,#9db4d3,#e8dcc4)"></div>
-            <div class="post-body">
-              <p class="post-meta"><span class="tag" data-i18n="tag.news">News</span><time datetime="2026-05-12">May 12, 2026</time></p>
-              <h3 data-i18n="news1.title">Pope Leo XIV: A Shepherd of Hope for Our Time</h3>
-              <p data-i18n="news1.text">The Holy Father continues to inspire the Church with his message of peace and unity.</p>
-              <a class="more" href="#"><span data-i18n="read">Read More</span> <span class="arrow" aria-hidden="true">→</span></a>
-            </div>
-          </article>
-          <article class="post">
-            <div class="post-media" style="background-image:url('images/news-2.jpg'),linear-gradient(135deg,#7f8e6a,#c8b088)"></div>
-            <div class="post-body">
-              <p class="post-meta"><span class="tag" data-i18n="tag.article">Article</span><time datetime="2026-04-28">Apr 28, 2026</time></p>
-              <h3 data-i18n="news2.title">The Beauty of Keren and Its People</h3>
-              <p data-i18n="news2.text">A reflection on the faith, resilience and rich culture of our Eparchy in Eritrea.</p>
-              <a class="more" href="#"><span data-i18n="read">Read More</span> <span class="arrow" aria-hidden="true">→</span></a>
-            </div>
-          </article>
-          <article class="post">
-            <div class="post-media" style="background-image:url('images/news-3.jpg'),linear-gradient(135deg,#6e8a5c,#d5b98a)"></div>
-            <div class="post-body">
-              <p class="post-meta"><span class="tag" data-i18n="tag.events">Events</span><time datetime="2026-04-15">Apr 15, 2026</time></p>
-              <h3 data-i18n="news3.title">Easter Celebrations in Our Parishes</h3>
-              <p data-i18n="news3.text">Joyful liturgies and community celebrations across the Eparchy of Keren.</p>
-              <a class="more" href="#"><span data-i18n="read">Read More</span> <span class="arrow" aria-hidden="true">→</span></a>
-            </div>
-          </article>
-        </div>
+        <!-- The 3 newest posts from js/news-data.js appear here automatically (add news there). -->
+        <div class="cards" id="home-news"></div>
       </div>
 
       <!-- Featured sermon + searchable sermon archive (data in js/sermons.js) -->
@@ -381,6 +353,8 @@
 <script src="js/translations.js"></script>
 <script src="js/sermons.js"></script>
 <script src="js/main.js"></script>
+<script src="js/news-data.js"></script>
+<script src="js/news.js"></script>
 <script src="https://www.vaticannews.va/widget.js" async></script>
 </body>
 </html>
