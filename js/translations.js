@@ -33,7 +33,7 @@ const TRANSLATIONS = {
     "hero.ref":      "ዮሓ 21፡17",
     "hero.text":     "ክርስቶስ ንቤተክርስቲያኑ ክትጓሲ ሓደራ ሃባ፤ ስለዚ ድማ ካቶሊካዊ ኤጳርቅና ከረን ነዚ ሓደራ ረቐቢሉ፣ ንሕዝበ እግዚአብሔር ብእምነትን፣ ሓዋርያዊ ጕስነትን፡ ስብከተ ወንጌልን ሕብረትን ክጓሲ ይርከብ ኣሎ።",
     "hero.btn":      "ተወሳኺ ፍለጡ",
-    "hero.motto":    "Faith · Service · Communion",          /* (EN) */
+    "hero.motto":    "እምነት ፣ ኣገልግሎት ፣ ሕብረት",
 
     /* Feature cards */
     "pope.eyebrow":  "ቅዱስ ኣቦ",

@@ -138,7 +138,7 @@ html[lang="ti"] .hero h1{letter-spacing:0}
 .hero-text{font-size:clamp(1rem,.95rem + .25vw,1.12rem);color:rgba(255,255,255,.9);max-width:58ch;margin-bottom:28px}
 .hero-motto{
   position:absolute;right:var(--gutter);bottom:clamp(24px,4vw,40px);
-  font-family:var(--ethiopic-serif);font-size:clamp(1rem,.9rem + .5vw,1.35rem);
+  font-family:var(--serif);font-size:clamp(1rem,.9rem + .5vw,1.35rem);
   padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.7);text-shadow:0 2px 8px rgba(0,0,0,.4);
 }
 .hero-controls{position:absolute;z-index:2;left:50%;bottom:20px;transform:translateX(-50%);display:flex;align-items:center;gap:10px}
@@ -258,7 +258,8 @@ html[lang="ti"] body{font-family:var(--ethiopic),var(--sans)}
 html[lang="ti"] :is(.hero h1,.feature h2,.section-title,.post h3,.sermon-head h2,.quick-item strong,.banner p){font-family:var(--ethiopic-serif);font-style:normal}
 html[lang="ti"] .eyebrow,html[lang="ti"] .tag{letter-spacing:.04em}
 /* The small "other language" lines show English in Tigrinya mode */
-html[lang="ti"] .alt-lang,html[lang="ti"] .hero-motto{font-family:var(--serif)}
+html[lang="ti"] .alt-lang{font-family:var(--serif)}
+html[lang="ti"] .hero-motto{font-family:var(--ethiopic-serif)}
 
 /* ---------- TABLET / PHONE ---------- */
 @media (max-width:760px){
