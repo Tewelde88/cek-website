@@ -11,12 +11,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=202610061200">
-<link rel="stylesheet" href="css/calendar.css?v=202610061200">
-<link rel="stylesheet" href="css/liturgy.css?v=202610061200">
-<link rel="stylesheet" href="css/news.css?v=202610061200">
-<link rel="stylesheet" href="css/resources.css?v=202610061200">
-<link rel="stylesheet" href="css/eparchy.css?v=202610061200">
+<link rel="stylesheet" href="css/style.css?v=202610061500">
+<link rel="stylesheet" href="css/calendar.css?v=202610061500">
+<link rel="stylesheet" href="css/liturgy.css?v=202610061500">
+<link rel="stylesheet" href="css/news.css?v=202610061500">
+<link rel="stylesheet" href="css/resources.css?v=202610061500">
+<link rel="stylesheet" href="css/eparchy.css?v=202610061500">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -97,13 +97,18 @@
   </div>
 </nav>
 
-<main id="content" class="lit-page ep-page ep-sub">
+<main id="content" class="lit-page ep-page ep-sub pr-page">
 
   <section class="page-head ep-head">
     <div class="wrap">
       <p class="crumbs"><a href="eparchy.html" data-i18n="ep.title">The Eparchy</a> <span aria-hidden="true">›</span> <span data-i18n="ep.nav.priests">Priests</span></p>
       <h1 data-i18n="ep.nav.priests">Priests</h1>
       <p class="page-lead" data-i18n="ep.priests.lead">Our priests serve the parishes, schools and communities of the Eparchy, celebrating the sacraments and accompanying the faithful.</p>
+      <dl class="pr-stats" aria-label="At a glance">
+        <div><dt data-i18n="pr.st.priests">Priests</dt><dd data-stat="priests">0</dd></div>
+        <div><dt data-i18n="pr.st.parishes">Parishes served</dt><dd data-stat="parishes">0</dd></div>
+        <div><dt data-i18n="pr.st.recent">Ordained in the last ten years</dt><dd data-stat="recent">0</dd></div>
+      </dl>
     </div>
   </section>
   <!-- ===== Eparchy tabs (same on all Eparchy pages) ===== -->
@@ -118,43 +123,65 @@
       </ul>
     </div>
   </nav>
-  <section class="lit-section">
-    <div class="wrap">
-      <!-- Priests come from data/eparchy.json — add them on the Admin page -->
-      <div class="ep-toolbar">
-        <label class="ep-search">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-          <input type="search" id="priest-q" placeholder="Search by name, role or parish…" data-i18n-placeholder="ep.priests.search" aria-label="Search priests">
-        </label>
-        <div class="ep-tools-right">
-          <label class="ep-select"><span data-i18n="ep.sort">Sort</span>
-            <select id="priest-sort">
-              <option value="az" data-i18n="ep.sort.az">Name A–Z</option>
-              <option value="role" data-i18n="ep.sort.role">Role</option>
-              <option value="place" data-i18n="ep.sort.place">Parish / place</option>
-            </select>
-          </label>
-          <div class="view-toggle" role="group" aria-label="View">
-            <button type="button" id="view-grid" aria-pressed="true" title="Grid"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></button>
-            <button type="button" id="view-list" aria-pressed="false" title="List"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg></button>
-          </div>
-        </div>
-      </div>
-      <div class="chips" id="priest-roles" role="group" aria-label="Role"></div>
-      <p class="ep-count" id="priest-count" aria-live="polite"></p>
-      <h2 class="sr-only" data-i18n="ep.nav.priests">Priests</h2>
-      <div class="g-grid g-grid-people" id="priest-grid"></div>
+
+  <!-- ===== This month we give thanks: ordination anniversaries ===== -->
+  <section class="pr-thanks" id="pr-thanks" hidden aria-labelledby="pr-thanks-title">
+    <div class="wrap pr-thanks-in">
+      <h2 id="pr-thanks-title"></h2>
+      <ul class="pr-thanks-list" id="pr-thanks-list"></ul>
     </div>
   </section>
 
-  <dialog class="ep-modal" id="ep-modal" aria-label="Profile">
-    <button type="button" class="ep-modal-close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    <div class="ep-modal-body" id="ep-modal-body"></div>
-    <div class="ep-modal-nav">
-      <button type="button" class="r-btn" id="ep-prev">←</button>
-      <span id="ep-pos"></span>
-      <button type="button" class="r-btn" id="ep-next">→</button>
+  <section class="lit-section">
+    <div class="wrap">
+      <!-- Toolbar: search · role · deanery · order -->
+      <div class="pr-tools">
+        <label class="ep-search pr-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input type="search" id="pr-q" placeholder="Search by name, role or parish…" data-i18n-placeholder="ep.priests.search" aria-label="Search priests">
+        </label>
+        <label class="pr-select"><span data-i18n="pr.deanery">Deanery</span><select id="pr-dean"></select></label>
+        <label class="pr-select"><span data-i18n="ep.sort">Sort</span>
+          <select id="pr-sort">
+            <option value="old" data-i18n="pr.sort.old">Ordination: oldest first</option>
+            <option value="new" data-i18n="pr.sort.new">Ordination: newest first</option>
+            <option value="az" data-i18n="ep.sort.az">Name A–Z</option>
+          </select>
+        </label>
+      </div>
+      <div class="chips" id="pr-roles" role="group" aria-label="Role"></div>
+
+      <div class="pr-body">
+        <!-- Letter index: A–Z in English, the Ge'ez fidel in Tigrinya -->
+        <nav class="pr-index" id="pr-index" aria-label="Filter by first letter"></nav>
+        <div>
+          <p class="ep-count" id="pr-count" aria-live="polite"></p>
+          <h2 class="sr-only" data-i18n="ep.nav.priests">Priests</h2>
+          <div class="pr-grid" id="pr-grid"></div>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- ===== Prayer for our priests ===== -->
+  <section class="lit-section alt" aria-labelledby="pr-prayer-title">
+    <div class="wrap">
+      <figure class="vc-prayer">
+        <h2 id="pr-prayer-title" data-i18n="pr.prayer.t">Prayer for our priests</h2>
+        <blockquote><p data-i18n="pr.prayer">Lord Jesus Christ, eternal High Priest, keep our priests close to your heart. Strengthen them at the altar, guide them as they forgive and care for your people, and make them holy shepherds after your own heart. Amen.</p></blockquote>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== Profile: slides in from the right, ← → to the next priest ===== -->
+  <dialog class="bi-sheet" id="pr-sheet" aria-labelledby="pr-sheet-name">
+    <div class="bi-sheet-bar">
+      <button type="button" class="hs-btn pr-prev" aria-label="Previous priest"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <span class="pr-pos" id="pr-pos"></span>
+      <button type="button" class="hs-btn pr-next" aria-label="Next priest"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      <button type="button" class="bi-x" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <article class="bi-sheet-body" id="pr-sheet-body"></article>
   </dialog>
 </main>
 
@@ -176,6 +203,6 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json" data-scripts="js/main.js js/eparchy.js"></script>
+<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json PARISHES_DATA=data/parishes.json" data-scripts="js/main.js js/priests.js"></script>
 </body>
 </html>

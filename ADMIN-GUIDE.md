@@ -97,8 +97,8 @@ On **Parishes**, fill in **Deanery** for each parish (the same spelling for ever
 
 Open **Eparchy → Eparchy lists**. Each row of the Eparchy page has its own list:
 
-- **Bishops of Keren** — add each late bishop (name, years, photo). Put the current bishop first and tick **Current bishop**. They scroll sideways on the page.
-- **Priests** — name, role, parish and photo. The page shows 12 at a time with **Show more**.
+- **Bishops of Keren** — add each bishop (name, years, photo). Tick **Current bishop** for the bishop today. Each bishop also has: order (e.g. *First Bishop of Keren*), motto, short introduction, **Facts** (any label and value: Born, Ordained, Died…), **Year by year** entries (tick *Key moment* for a red dot) and the **Biography** — a line starting with `## ` becomes a heading, an empty line starts a new paragraph. On the Bishop page the late bishops appear under *Of blessed memory*; clicking one opens his short page.
+- **Priests** — name, role, parish, photo, and (optional) **date of ordination**, **feast day** and **short biography**. The ordination date gives the decade headings, the “years a priest” line and the monthly “we give thanks” ribbon on the Priests page. The Eparchy page shows 12 at a time with **Show more**.
 - **Religious orders & congregations** — name and photo (shown as a photo card with the name).
 - **History** — one entry per event: year, optional exact date (the Ge’ez date is added by itself), title and text. They are sorted by year, so add new years at any time. Tick **Still to be checked** to show “Dates to check”.
 

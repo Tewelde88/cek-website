@@ -186,7 +186,41 @@ collections:
               - { name: years, label: "Years as bishop (e.g. 1995 – 2002)", widget: string, required: false }
               - { name: current, label: "Current bishop", widget: boolean, default: false, required: false }
               - { name: photo, label: "Photo", widget: image, required: false, media_folder: /images/bishops, public_folder: images/bishops }
-              - { name: link, label: "Page with his life (optional, e.g. bishop.html)", widget: string, required: false }
+              - { name: order, label: "Order (e.g. First Bishop of Keren)", widget: string, required: false }
+              - { name: order_ti, label: "Order (Tigrinya)", widget: string, required: false }
+              - { name: title, label: "Title (English)", widget: string, required: false, default: "Bishop of Keren" }
+              - { name: title_ti, label: "Title (Tigrinya)", widget: string, required: false }
+              - { name: motto, label: "Episcopal motto (English)", widget: string, required: false }
+              - { name: motto_ti, label: "Episcopal motto (Ge’ez / Tigrinya)", widget: string, required: false }
+              - { name: motto_sample, label: "Motto is still an example", widget: boolean, default: false, required: false }
+              - { name: summary, label: "Short introduction (English)", widget: text, required: false }
+              - { name: summary_ti, label: "Short introduction (Tigrinya)", widget: text, required: false }
+              - name: facts
+                label: "Facts (e.g. Born, Ordained priest, Died)"
+                label_singular: "fact"
+                widget: list
+                required: false
+                summary: "{{fields.label}}: {{fields.value}}"
+                fields:
+                  - { name: label, label: "Label (English)", widget: string }
+                  - { name: label_ti, label: "Label (Tigrinya)", widget: string, required: false }
+                  - { name: value, label: "Value (English)", widget: string, required: false }
+                  - { name: value_ti, label: "Value (Tigrinya)", widget: string, required: false }
+              - name: timeline
+                label: "Year by year"
+                label_singular: "year"
+                widget: list
+                required: false
+                summary: "{{fields.years}} — {{fields.text}}"
+                fields:
+                  - { name: years, label: "Year(s), e.g. 1985 or 1986–1988", widget: string }
+                  - { name: text, label: "What happened (English)", widget: string }
+                  - { name: text_ti, label: "What happened (Tigrinya)", widget: string, required: false }
+                  - { name: kind, label: "Kind", widget: select, default: ministry, options: [ { label: "Studies & formation", value: study }, { label: "Ministry", value: ministry } ] }
+                  - { name: key, label: "Key moment (red dot)", widget: boolean, default: false, required: false }
+              - { name: bio, label: "Biography (English) — a line starting with ## is a heading; leave an empty line between paragraphs", widget: text, required: false }
+              - { name: bio_ti, label: "Biography (Tigrinya)", widget: text, required: false }
+              - { name: link, label: "Page with his life (optional)", widget: string, required: false }
               - { name: sample, label: "Example entry", widget: boolean, default: false, required: false }
           - name: priests
             label: "Priests"
@@ -202,6 +236,11 @@ collections:
               - { name: place, label: "Parish / place (English)", widget: string, required: false }
               - { name: place_ti, label: "Parish / place (Tigrinya)", widget: string, required: false }
               - { name: photo, label: "Photo", widget: image, required: false, media_folder: /images/priests, public_folder: images/priests }
+              - { name: ordained, label: "Date of ordination", widget: datetime, format: "YYYY-MM-DD", time_format: false, picker_utc: true, required: false }
+              - { name: feast, label: "Feast day / name day (English)", widget: string, required: false }
+              - { name: feast_ti, label: "Feast day / name day (Tigrinya)", widget: string, required: false }
+              - { name: bio, label: "Short biography (English)", widget: text, required: false }
+              - { name: bio_ti, label: "Short biography (Tigrinya)", widget: text, required: false }
               - { name: sample, label: "Example entry", widget: boolean, default: false, required: false }
           - name: deaneries
             label: "Deaneries"
