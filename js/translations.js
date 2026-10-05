@@ -35,6 +35,21 @@ const TRANSLATIONS = {
     "nav.vocation":  "ጸዋዕታ",
     "nav.quick":     "ቀልጢፍኩም ክፈቱ",
 
+    /* Eparchy page as a book (contents + chapters) */
+    "epb.lead":      "ነቲ ጓሳ፡ ካህናት፡ ሰሚናርያውያንን ማሕበራት ሃይማኖትን ኣብ ኤጳርቅና ከረን ንሕዝበ እግዚኣብሔር ዘገልግሉ ፍለጥዎም — ታሪኽ ቤተ ክርስቲያንናን።",
+    "epb.contents":  "ትሕዝቶ",
+    "epb.history":   "ታሪኽ",
+    "epb.sem.n":     "ንኡስን ዓብይን ሰሚናር",
+    "epb.hist.n":    "ቤተ ክርስቲያንና ካብ 1995",
+    "epb.bishop.lead":"ጓሳ ኤጳርቅና ካብ 2003።",
+    "epb.enlarge":   "ስእሊ ኣዕቢ",
+    "epb.all.priests":"ኩሎም ካህናት",
+    "epb.all.sem":   "እቲ ሰሚናር",
+    "epb.all.rel":   "ኩለን ማሕበራት",
+    "epb.more":      "ተወሳኺ ርኣዩ",
+    "epb.hist.lead": "ታሪኽ ቤተ ክርስቲያን ካቶሊክ ሥርዓተ ግእዝ ኣብ ከረን።",
+    "epb.check":     "ዕለታት ክረጋገጹ ኣለዎም",
+
     /* Pastoral page */
     "pas.lead":      "ሓዋርያዊ ጉስነት ኤጳርቅና፡ ከመይ ከም እንጽሊ፡ ከም እንመሃር፡ ንጸዋዕታ እግዚኣብሔር ከም እንምልስን ብሓባር ከም እንሃንጽን።",
     "pas.c.lit":     "ቅዳሴ፡ ሰዓታትን ሊጡርጊያዊ ዓመትን ብሥርዓት ግእዝ።",
