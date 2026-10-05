@@ -244,7 +244,9 @@ function renderMonth(){
     if (weekday(j) === 0) b.classList.add('is-sun');
     const top = info.feasts.find(f => f.rank === 'major') || info.feasts[0];
     if (top) b.classList.add('has-' + top.rank);
-    b.appendChild(el('span', 'et-d', d));
+    // Day number in Ge'ez numerals (as in church calendars), ordinary digits in the tooltip
+    const dn = el('span', 'et-d', window.GeezCal ? window.GeezCal.geez(d) : d); dn.title = String(d);
+    b.appendChild(dn);
     b.appendChild(el('span', 'gr-d', fmtGr(g, false)));
     if (top) b.appendChild(el('span', 'feast-name', shortName(top.key)));
     b.setAttribute('aria-label', `${N().wd[weekday(j)]}, ${fmtEt({ y, m, d })} — ${fmtGr(g)}` +

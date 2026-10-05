@@ -132,3 +132,17 @@ html[lang="ti"] .day .feast-name{font-family:var(--ethiopic)}
   .year-table th{background:#eee;color:#000}
   .table-wrap{overflow:visible;border:0}
 }
+
+/* ---------- Keren Manuscript: the month as a manuscript page ---------- */
+.month-card{background:var(--parch,#f3ebda) !important;border-color:#e6dcc5 !important}
+.month-title h2{font-family:var(--ethiopic-serif)}
+.day{background:#fffdf8;border-color:#e6dcc5}
+.day .et-d{font-family:var(--ethiopic);font-weight:400;font-size:1.35rem;color:var(--ink)}
+.day.has-major .et-d,.day.has-feast .et-d{color:var(--red)}
+.day.is-sun .et-d{color:var(--ink)}
+.day.has-major.is-sun .et-d,.day.has-feast.is-sun .et-d{color:var(--red)}
+.day.has-major{border-top:3px solid var(--red)}
+.day.has-feast{border-top:3px solid var(--gold)}
+.day.is-fast{background:#ece5d6}
+.cal-head .wd.is-sun{color:var(--ink);font-weight:700}
+@media (max-width:640px){ .day .et-d{font-size:1.1rem} }
