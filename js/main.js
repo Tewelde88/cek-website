@@ -272,3 +272,15 @@ document.querySelectorAll('[data-open]').forEach(link => {
   window.refreshClamps = refresh;
   refresh();
 })();
+
+/* ---------- Gentle "appear on scroll" for elements with class="reveal" ---------- */
+(function(){
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)){ window.revealNow = n => n.classList.add('is-in'); return; }
+  document.documentElement.classList.add('reveal-on');      // content stays visible if this script never runs
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); }
+  }), { rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.reveal').forEach(n => io.observe(n));
+  window.revealNow = n => io.observe(n);
+})();

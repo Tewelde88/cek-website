@@ -53,6 +53,9 @@ function head(card, o, sub){
 
 /* ---------- Parishes (with search) ---------- */
 const q = document.getElementById('parish-q');
+// Opened from a deanery: parishes.html?q=<parish name>
+const urlQ = new URLSearchParams(location.search).get('q');
+if (q && urlQ) q.value = urlQ;
 function renderParishes(){
   const grid = document.getElementById('parish-grid'); if (!grid) return;
   const f = (q && q.value || '').trim().toLowerCase();

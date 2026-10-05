@@ -10,7 +10,12 @@ Bilingual (English ⇄ Tigrinya), works on phones, tablets and computers. Plain 
 | Page | File | Content edited on the Admin page |
 |---|---|---|
 | Home | `index.html` | latest 3 news posts, sermon card |
-| Eparchy (Bishop, Priests, Seminary, Deaneries, Religious) | `eparchy.html` | priests, deaneries, religious orders |
+| Eparchy — overview with counters and tiles | `eparchy.html` | (counts come from the lists below) |
+| Eparchy › Bishop (profile, interactive timeline, biography) | `bishop.html` | — |
+| Eparchy › Priests (search, role filter, sort, grid/list, profile window) | `priests.html` | priests |
+| Eparchy › Seminary (step-by-step path, vocations) | `seminary.html` | — |
+| Eparchy › Deaneries (cards open to show parishes) | `deaneries.html` | deaneries |
+| Eparchy › Religious Orders (men/women filter, details window) | `religious.html` | religious orders |
 | Parishes & Chapels | `parishes.html` | parishes, chapels, communities, sanctuaries |
 | Liturgy (+ Ge'ez liturgical calendar) | `liturgy.html` | — (calendar is calculated) |
 | News (blog + photo gallery) | `news.html` | news posts, photos, videos |

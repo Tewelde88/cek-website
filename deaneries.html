@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>The Eparchy — Catholic Eparchy of Keren</title>
-<meta name="description" content="The Catholic Eparchy of Keren: our Bishop, priests, seminary, deaneries and religious orders.">
+<title>Deaneries — Catholic Eparchy of Keren</title>
+<meta name="description" content="Deaneries and their parishes in the Catholic Eparchy of Keren.">
 <meta name="theme-color" content="#16315e">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/logo.png">
@@ -72,108 +72,36 @@
   </div>
 </nav>
 
-<main id="content" class="lit-page ep-page ep-hub">
+<main id="content" class="lit-page ep-page ep-sub">
 
   <section class="page-head ep-head">
     <div class="wrap">
-      <p class="eyebrow eyebrow-light" data-i18n="ep.eyebrow">Catholic Eparchy of Keren</p>
-      <h1 data-i18n="ep.title">The Eparchy</h1>
-      <p class="page-lead" data-i18n="ep.lead">Meet the shepherds, priests, seminarians, deaneries and religious communities who serve the People of God in the Eparchy of Keren.</p>
+      <p class="crumbs"><a href="eparchy.html" data-i18n="ep.title">The Eparchy</a> <span aria-hidden="true">›</span> <span data-i18n="ep.nav.deaneries">Deaneries</span></p>
+      <h1 data-i18n="ep.nav.deaneries">Deaneries</h1>
+      <p class="page-lead" data-i18n="ep.dean.lead">The parishes of the Eparchy are grouped into deaneries, which help priests and communities to work together in pastoral care.</p>
     </div>
   </section>
   <!-- ===== Eparchy tabs (same on all Eparchy pages) ===== -->
   <nav class="subnav ep-tabs" aria-label="Eparchy sections">
     <div class="wrap">
       <ul>
-        <li><a href="eparchy.html" data-tab="eparchy" class="active" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span data-i18n="ep.nav.overview">Overview</span></a></li>
+        <li><a href="eparchy.html" data-tab="eparchy"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span data-i18n="ep.nav.overview">Overview</span></a></li>
         <li><a href="bishop.html" data-tab="bishop"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v4M10 4h4M6 21V11c0-3 2.7-5 6-5s6 2 6 5v10z"/></svg><span data-i18n="ep.nav.bishop">Bishop</span></a></li>
         <li><a href="priests.html" data-tab="priests"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8M10.5 13h3v3h-3z"/></svg><span data-i18n="ep.nav.priests">Priests</span></a></li>
         <li><a href="seminary.html" data-tab="seminary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg><span data-i18n="ep.nav.seminary">Seminary</span></a></li>
-        <li><a href="deaneries.html" data-tab="deaneries"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l9 6v13H3V8z"/><path d="M10 21v-5h4v5"/></svg><span data-i18n="ep.nav.deaneries">Deaneries</span></a></li>
+        <li><a href="deaneries.html" data-tab="deaneries" class="active" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l9 6v13H3V8z"/><path d="M10 21v-5h4v5"/></svg><span data-i18n="ep.nav.deaneries">Deaneries</span></a></li>
         <li><a href="religious.html" data-tab="religious"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="7" r="3"/><circle cx="16" cy="7" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M10 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg><span data-i18n="ep.nav.religious">Religious Orders</span></a></li>
       </ul>
     </div>
   </nav>
-  <!-- ===== At a glance: numbers count up when they come into view (from the Admin page data) ===== -->
-  <section class="lit-section ep-glance">
+  <section class="lit-section">
     <div class="wrap">
-      <div class="ep-stats">
-        <a class="stat reveal" href="priests.html"><strong data-count-key="priests">0</strong><span data-i18n="ep.stat.priests">Priests</span></a>
-        <a class="stat reveal" href="parishes.html"><strong data-count-key="parishes">0</strong><span data-i18n="ep.stat.parishes">Parishes</span></a>
-        <a class="stat reveal" href="deaneries.html"><strong data-count-key="deaneries">0</strong><span data-i18n="ep.stat.deaneries">Deaneries</span></a>
-        <a class="stat reveal" href="religious.html"><strong data-count-key="orders">0</strong><span data-i18n="ep.stat.orders">Religious communities</span></a>
+      <!-- Deaneries come from data/eparchy.json — add them on the Admin page -->
+      <div class="ep-toolbar">
+        <p class="ep-count" id="deanery-count" aria-live="polite"></p>
+        <button type="button" class="r-btn" id="deanery-all" aria-pressed="false"><span class="when-closed" data-i18n="ep.dean.open">Open all</span><span class="when-open" data-i18n="ep.dean.close">Close all</span></button>
       </div>
-
-      <!-- ===== Explore: one tile per section page ===== -->
-      <div class="ep-explore">
-        <a class="ex-tile ex-big reveal" href="bishop.html">
-          <span class="ex-bg" style="background-image:url('images/bishop.jpg'),linear-gradient(150deg,#6b4b8a,#16315e)"></span>
-          <span class="ex-text">
-            <small data-i18n="ep.bishop.eyebrow">Our Shepherd</small>
-            <strong data-i18n="ep.nav.bishop">Bishop</strong>
-            <span data-i18n="ep.ex.bishop">Most Rev. Kidane Yebio — his life, ministry and biography.</span>
-          </span>
-          <span class="ex-go" aria-hidden="true">→</span>
-        </a>
-        <a class="ex-tile reveal" href="priests.html">
-          <span class="ex-bg" id="ex-priests-bg" style="background-image:linear-gradient(150deg,#2a4a80,#16315e)"></span>
-          <span class="ex-badge" data-count-badge="priests"></span>
-          <span class="ex-text">
-            <small data-i18n="ep.priests.eyebrow">Clergy of the Eparchy</small>
-            <strong data-i18n="ep.nav.priests">Priests</strong>
-            <span data-i18n="ep.ex.priests">Meet the priests who serve our parishes and communities.</span>
-          </span>
-          <span class="ex-go" aria-hidden="true">→</span>
-        </a>
-        <a class="ex-tile reveal" href="seminary.html">
-          <span class="ex-bg" style="background-image:url('images/seminary-major.jpg'),linear-gradient(150deg,#8e1820,#b3202a)"></span>
-          <span class="ex-text">
-            <small data-i18n="ep.sem.eyebrow">Forming Future Priests</small>
-            <strong data-i18n="ep.nav.seminary">Seminary</strong>
-            <span data-i18n="ep.ex.seminary">The path to the priesthood, step by step.</span>
-          </span>
-          <span class="ex-go" aria-hidden="true">→</span>
-        </a>
-        <a class="ex-tile reveal" href="deaneries.html">
-          <span class="ex-bg" style="background-image:url('images/deaneries.jpg'),linear-gradient(150deg,#6b4b12,#c9a24a)"></span>
-          <span class="ex-badge" data-count-badge="deaneries"></span>
-          <span class="ex-text">
-            <small data-i18n="ep.dean.eyebrow">Parishes Working Together</small>
-            <strong data-i18n="ep.nav.deaneries">Deaneries</strong>
-            <span data-i18n="ep.ex.deaneries">How our parishes are grouped and served.</span>
-          </span>
-          <span class="ex-go" aria-hidden="true">→</span>
-        </a>
-        <a class="ex-tile reveal" href="religious.html">
-          <span class="ex-bg" style="background-image:url('images/religious.jpg'),linear-gradient(150deg,#1f4d3a,#3d8b5a)"></span>
-          <span class="ex-badge" data-count-badge="orders"></span>
-          <span class="ex-text">
-            <small data-i18n="ep.rel.eyebrow">Consecrated Life</small>
-            <strong data-i18n="ep.nav.religious">Religious Orders</strong>
-            <span data-i18n="ep.ex.religious">Communities of men and women serving the Eparchy.</span>
-          </span>
-          <span class="ex-go" aria-hidden="true">→</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Bishop highlight ===== -->
-  <section class="lit-section alt">
-    <div class="wrap">
-      <article class="ep-spot reveal">
-        <div class="ep-spot-photo" role="img" aria-label="Bishop Kidane Yebio" style="background-image:url('images/bishop.jpg'),linear-gradient(160deg,#f3ecf2,#d9c6d6)"></div>
-        <div class="ep-spot-text">
-          <p class="eyebrow eyebrow-red" data-i18n="ep.bishop.eyebrow">Our Shepherd</p>
-          <h2 data-i18n="bishop.name">Most Rev. Kidane Yebio</h2>
-          <p class="bishop-title" data-i18n="ep.bishop.title">Bishop of Keren</p>
-          <p data-i18n="ep.bishop.lead">Most Rev. Kidane Yebio, Bishop of Keren, has devoted his life to study, priestly ministry, pastoral service, and leadership. Born in Shnara, Eritrea, his journey from local schools and seminaries to advanced studies in Rome prepared him for decades of service to the Church and the communities of the Eparchy of Keren.</p>
-          <div class="ep-spot-btns">
-            <a class="btn btn-red" href="bishop.html#timeline"><span data-i18n="ep.hl.timeline">His life, year by year</span> <span class="arrow" aria-hidden="true">→</span></a>
-            <a class="r-btn" href="bishop.html#biography" data-i18n="bishop.link">Read Biography</a>
-          </div>
-        </div>
-      </article>
+      <div class="dn-list" id="deanery-grid"></div>
     </div>
   </section>
 </main>
@@ -196,6 +124,6 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json PARISHES_DATA=data/parishes.json" data-scripts="js/main.js js/eparchy.js"></script>
+<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json" data-scripts="js/main.js js/eparchy.js"></script>
 </body>
 </html>
