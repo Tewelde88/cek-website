@@ -99,9 +99,42 @@ function card(p, big){
 }
 
 /* ---------- Home page: latest 3 posts ---------- */
+// Date as "፲፪ ግንቦት ፳፻፲፰" (Ge'ez, red) + "12 May 2026"
+function dateLine(s){
+  const span = el('span', 'hm-date');
+  const G = window.GeezCal;
+  if (G){
+    const [y, m, d] = s.split('-').map(Number), e = G.jdnToEt(G.grToJdn(y, m, d));
+    span.appendChild(el('span', 'ge', `${G.geez(e.d)} ${G.MONTHS_TI[e.m - 1]} ${G.geez(e.y)}`));
+  }
+  span.appendChild(document.createTextNode(fmtDate(s)));
+  return span;
+}
 function renderHome(){
   const box = document.getElementById('home-news'); if (!box) return;
-  box.replaceChildren(...posts().slice(0, 3).map(p => card(p)));
+  const list = posts();
+  box.replaceChildren();
+  if (!list.length) return;
+  // Lead story: picture, title, date, summary
+  const L0 = list[0], lead = el('a', 'hm-lead'); lead.href = postUrl(L0);
+  const img = el('div', 'hm-lead-img');
+  const bg = FALLBACK[L0.category] || FALLBACK.news;
+  img.style.backgroundImage = coverOf(L0) ? `url('${coverOf(L0)}'), ${bg}` : bg;
+  if ((L0.videos || []).length) img.appendChild(el('span', 'post-play', '▶'));
+  lead.appendChild(img);
+  lead.appendChild(el('h3', '', tr(L0, 'title')));
+  lead.appendChild(dateLine(L0.date));
+  lead.appendChild(el('p', '', tr(L0, 'excerpt')));
+  box.appendChild(lead);
+  // The next stories as a simple dated list
+  const ul = el('ul', 'hm-list');
+  list.slice(1, 5).forEach(p => {
+    const li = el('li'), a = el('a'); a.href = postUrl(p);
+    a.appendChild(dateLine(p.date));
+    a.appendChild(el('strong', '', tr(p, 'title')));
+    li.appendChild(a); ul.appendChild(li);
+  });
+  box.appendChild(ul);
 }
 
 /* ---------- Lightbox ---------- */

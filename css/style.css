@@ -1,31 +1,36 @@
 /* ============================================================
    DESIGN TOKENS — swap these to rebrand the whole page
    ============================================================ */
+/* "Keren Manuscript" design: black ink, red only for what is holy (as in Ge'ez
+   manuscripts), Keren ochre, limewash white, and the navy of the emblem. */
 :root{
-  --navy:        #16315e;   /* menu bar, headings, sermon card */
-  --navy-dark:   #0f2447;
-  --navy-soft:   #e8edf6;
-  --red:         #b3202a;   /* buttons, Tigrinya title, accents */
-  --red-dark:    #8e1820;
-  --gold:        #c9a24a;
-  --ink:         #1d2433;
-  --muted:       #5b6272;
-  --bg:          #f7f4ee;   /* warm paper background */
+  --navy:        #16315e;   /* menu bar, footer (from the emblem) */
+  --navy-dark:   #0e2244;
+  --navy-soft:   #eaedf3;
+  --red:         #a3221b;   /* rubric red: holy names, feasts, main buttons */
+  --red-dark:    #7e1912;
+  --gold:        #c1883a;   /* Keren ochre */
+  --gold-soft:   #ead3ae;
+  --ink:         #1f1b18;   /* manuscript ink */
+  --muted:       #6e655c;
+  --bg:          #fbfbf8;   /* limewash */
+  --parch:       #f3ebda;   /* parchment — calendar / manuscript blocks only */
   --card:        #ffffff;
-  --line:        #e4ded2;
+  --line:        #e4ded3;
 
-  --radius:      12px;
-  --radius-sm:   8px;
-  --shadow:      0 1px 2px rgba(22,49,94,.06), 0 8px 24px rgba(22,49,94,.08);
-  --shadow-lg:   0 2px 6px rgba(22,49,94,.08), 0 18px 44px rgba(22,49,94,.14);
+  --radius:      8px;
+  --radius-sm:   5px;
+  --shadow:      0 1px 2px rgba(31,27,24,.05), 0 6px 18px rgba(31,27,24,.06);
+  --shadow-lg:   0 2px 6px rgba(31,27,24,.07), 0 16px 38px rgba(31,27,24,.12);
   --maxw:        1200px;
   --gutter:      clamp(16px, 4vw, 32px);
-  --nav-h:       56px;
+  --nav-h:       52px;
 
-  --sans:          "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --serif:         "Noto Serif", Georgia, "Times New Roman", serif;
-  --ethiopic:      "Noto Sans Ethiopic", "Nyala", sans-serif;
-  --ethiopic-serif:"Noto Serif Ethiopic", "Noto Sans Ethiopic", serif;
+  /* One family per script: Gentium Book Plus (English), Abyssinica SIL (Ge'ez) */
+  --sans:          "Gentium Book Plus", Georgia, serif;
+  --serif:         "Gentium Book Plus", Georgia, serif;
+  --ethiopic:      "Abyssinica SIL", "Noto Serif Ethiopic", "Nyala", serif;
+  --ethiopic-serif:"Abyssinica SIL", "Noto Serif Ethiopic", "Nyala", serif;
 }
 
 /* ---------- BASE ---------- */
@@ -369,3 +374,37 @@ html[lang="ti"] .hl-text strong{font-family:var(--ethiopic-serif)}
 /* Play badge on news cards that contain a video */
 .post-media{position:relative}
 .post-play{position:absolute;right:12px;bottom:12px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(179,32,42,.92);color:#fff;font-size:.9rem;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+
+/* ============================================================
+   KEREN MANUSCRIPT — site-wide details
+   ============================================================ */
+body{font-size:1.06rem;line-height:1.65}
+
+/* Harag: the woven band that opens sections in Ge'ez manuscripts */
+.harag{height:14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14'%3E%3Cg fill='none' stroke-width='2.2'%3E%3Cpath d='M0 3.5C7 3.5 7 10.5 14 10.5S21 3.5 28 3.5' stroke='%23A3221B'/%3E%3Cpath d='M0 10.5C7 10.5 7 3.5 14 3.5S21 10.5 28 10.5' stroke='%23C1883A'/%3E%3C/g%3E%3Ccircle cx='7' cy='7' r='1.4' fill='%231F1B18'/%3E%3Ccircle cx='21' cy='7' r='1.4' fill='%231F1B18'/%3E%3C/svg%3E") repeat-x center/28px 14px}
+/* Every page banner ends with a harag band */
+.page-head{position:relative}
+.page-head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:inherit;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14'%3E%3Cg fill='none' stroke-width='2.2'%3E%3Cpath d='M0 3.5C7 3.5 7 10.5 14 10.5S21 3.5 28 3.5' stroke='%23A3221B'/%3E%3Cpath d='M0 10.5C7 10.5 7 3.5 14 3.5S21 10.5 28 10.5' stroke='%23C1883A'/%3E%3C/g%3E%3Ccircle cx='7' cy='7' r='1.4' fill='%23FBF6EC'/%3E%3Ccircle cx='21' cy='7' r='1.4' fill='%23FBF6EC'/%3E%3C/svg%3E") repeat-x center/28px 14px}
+.page-head{background:linear-gradient(160deg,#2b241e,#1a1613) !important}
+
+/* Quieter labels: no tracked-out capitals, no arrows on every link */
+.eyebrow,.tag,.g-label,.ex-text small,.facts dt,.leader .title,.book-cat,.order-type,.year-table th,.cal-head .wd{
+  text-transform:none !important;letter-spacing:0 !important}
+.eyebrow{font-weight:400;font-style:italic;font-size:1rem}
+.more .arrow,.btn .arrow,.sermon-foot .arrow,.radio-box .arrow{display:none}
+h1,h2,h3{font-weight:700}
+
+/* Ge'ez numerals in the "Today in the Church" line */
+.today-line{background:#fff;border-bottom:1px solid var(--line);font-size:.96rem}
+.today-line .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:4px 16px;padding-block:8px}
+.today-ge{font-family:var(--ethiopic);font-size:1.12rem;color:var(--ink)}
+.today-ge .rub{color:var(--red)}
+.today-en{color:var(--muted)}
+.today-line a{margin-left:auto;color:var(--navy);font-weight:700;text-underline-offset:3px}
+.today-line a:hover{color:var(--red)}
+@media (max-width:640px){ .today-line a{margin-left:0} }
+
+/* Site name and motto in sentence case (no all-caps) */
+.brand-en{text-transform:none !important;letter-spacing:0 !important;font-size:clamp(1.05rem,.85rem + .9vw,1.45rem) !important}
+.brand-motto{text-transform:none !important;letter-spacing:.02em !important;font-style:italic;font-size:.9rem !important}

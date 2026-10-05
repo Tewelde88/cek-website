@@ -10,8 +10,9 @@
 <link rel="apple-touch-icon" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,500;0,600;0,700;1,400&family=Noto+Serif+Ethiopic:wght@500;700&family=Noto+Sans+Ethiopic:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/home.css">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -67,26 +68,21 @@
   </div>
 </nav>
 
-<!-- ================= HERO (background photos rotate) ================= -->
-<section class="hero" id="slider" aria-roledescription="carousel" aria-label="Eparchy photos">
-  <!-- Cover photos scroll sideways every 6 seconds. Save them as images/hero-1.jpg, hero-2.jpg, hero-3.jpg (wide landscape, ~1920×900).
-       To add MORE photos: copy one <div class="slide">…</div> line below and change the file name (e.g. hero-4.jpg). The dots update automatically. -->
-  <div class="slide on"><div class="img" style="background-image:url('images/hero-1.jpg'),linear-gradient(120deg,#4b5d3c,#8a7a52 55%,#b49a6a)"></div></div>
-  <div class="slide"><div class="img" style="background-image:url('images/hero-2.jpg'),linear-gradient(120deg,#3f4f6b,#7d7f72 55%,#a8916a)"></div></div>
-  <div class="slide"><div class="img" style="background-image:url('images/hero-3.jpg'),linear-gradient(120deg,#5a4634,#8c6d4f 55%,#c2a274)"></div></div>
+<!-- ================= HERO: the Ge'ez verse, with the cover photos rotating behind it ================= -->
+<section class="hero hero-ms" id="slider" aria-roledescription="carousel" aria-label="Feed my sheep">
+  <!-- Cover photos (optional) rotate behind the verse every 6 seconds: images/hero-1.jpg, hero-2.jpg, hero-3.jpg (wide landscape, ~1920×900).
+       To add more: copy one <div class="slide"> line and change the file name. -->
+  <div class="slide on"><div class="img" style="background-image:url('images/hero-1.jpg'),radial-gradient(120% 90% at 85% 10%,#3a2f25 0%,transparent 60%),linear-gradient(160deg,#2b241e,#141110)"></div></div>
+  <div class="slide"><div class="img" style="background-image:url('images/hero-2.jpg'),radial-gradient(120% 90% at 80% 20%,#2f3442 0%,transparent 60%),linear-gradient(160deg,#22252d,#121316)"></div></div>
+  <div class="slide"><div class="img" style="background-image:url('images/hero-3.jpg'),radial-gradient(120% 90% at 85% 10%,#3b2a22 0%,transparent 60%),linear-gradient(160deg,#2a1f1a,#130f0d)"></div></div>
   <div class="hero-shade"></div>
 
   <div class="wrap hero-inner">
-    <div class="hero-content">
-      <h1 data-i18n="hero.title">“Feed My Sheep”</h1>
-      <blockquote class="hero-verse">
-        <p data-i18n="hero.verse">“Lord, you know everything. You know that I love you.”</p>
-        <cite data-i18n="hero.ref">John 21:17</cite>
-      </blockquote>
-      <p class="hero-text" data-i18n="hero.text">Christ entrusted the Church with the care of His flock. In the same spirit, the Catholic Eparchy of Keren seeks to serve the People of God through faith, pastoral care, proclamation of the Gospel, and communion.</p>
-      <a class="btn btn-red" href="#"><span data-i18n="hero.btn">Learn More</span> <span class="arrow" aria-hidden="true">→</span></a>
-    </div>
-    <p class="hero-motto" data-i18n="hero.motto">Faith · Service · Communion</p>
+    <h1 class="verse" id="verse" lang="ti">ረዓይኬ ኣባግዕየ</h1>
+    <p class="verse-sub" data-i18n="hero.sub">“Feed my sheep.” — “Lord, you know everything. You know that I love you.”</p>
+    <p class="verse-ref"><span data-i18n="hero.ref">John 21:17</span> <span class="ge only-en" lang="ti">ዮሓ ፳፩፡፲፯</span></p>
+    <p class="hero-text" data-i18n="hero.text">Christ entrusted the Church with the care of His flock. In the same spirit, the Catholic Eparchy of Keren seeks to serve the People of God through faith, pastoral care, proclamation of the Gospel, and communion.</p>
+    <a class="btn btn-red" href="eparchy.html" data-i18n="hm.cta">Meet the Eparchy</a>
   </div>
 
   <div class="hero-controls">
@@ -94,199 +90,110 @@
     <div class="dots" role="group" aria-label="Choose photo"></div>
     <button class="sl-btn sl-next" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
   </div>
+  <div class="harag hero-harag" aria-hidden="true"></div>
 </section>
 
-<main id="content">
+<main id="content" class="home-ms">
 
-  <!-- ================= MAIN BUTTONS: CESK · Sermons · Library ================= -->
-  <nav class="home-links" aria-label="Main sections">
-    <div class="wrap hl-grid">
-      <a class="hl-btn hl-cesk" href="cesk.html">
-        <span class="hl-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 28s-11-6.5-11-14a6 6 0 0 1 11-3.3A6 6 0 0 1 27 14c0 7.5-11 14-11 14z"/><path d="M16 11v9M11.5 15.5h9"/></svg></span>
-        <span class="hl-text"><strong>CESK</strong><small data-i18n="hl.cesk">Caritas · Social Services</small></span>
-        <span class="arrow" aria-hidden="true">→</span>
-      </a>
-      <a class="hl-btn hl-sermons" href="sermons.html">
-        <span class="hl-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="6" y="4" width="20" height="24" rx="2"/><path d="M16 9v12M12 13h8"/></svg></span>
-        <span class="hl-text"><strong data-i18n="q.sermons">Sermons</strong><small data-i18n="hl.sermons">Listen, watch and read</small></span>
-        <span class="arrow" aria-hidden="true">→</span>
-      </a>
-      <a class="hl-btn hl-library" href="library.html">
-        <span class="hl-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 6h9a3 3 0 0 1 3 3v18a2 2 0 0 0-2-2H5zM27 6h-9a3 3 0 0 0-3 3v18a2 2 0 0 1 2-2h10z"/></svg></span>
-        <span class="hl-text"><strong data-i18n="lb.title">Library</strong><small data-i18n="hl.library">Documents, books &amp; texts</small></span>
-        <span class="arrow" aria-hidden="true">→</span>
-      </a>
-    </div>
-  </nav>
-
-  <!-- ================= LEADERSHIP + BUILDING CARDS ================= -->
-  <section class="features">
-    <div class="wrap features-grid">
-      <article class="feature">
-        <!-- Photo: images/pope.jpg (portrait) -->
-        <div class="feature-media" role="img" aria-label="Pope Leo XIV" style="background-image:url('images/pope.jpg'),linear-gradient(160deg,#eef1f6,#c9d2e2)"></div>
-        <div class="feature-body">
-          <p class="eyebrow" data-i18n="pope.eyebrow">Holy Father</p>
-          <h2 data-i18n="pope.name">Pope Leo XIV</h2>
-          <p class="alt-lang" data-i18n="pope.alt" lang="ti">ቅዱስ ኣቦ ሊዮ 14ይ</p>
-          <hr>
-          <p data-i18n="pope.text">From Chicago to the Chair of Saint Peter — the life and ministry of Robert Francis Prevost.</p>
-          <a class="more" href="#pope-bio" data-open="pope-bio"><span data-i18n="pope.link">Read Biography</span> <span class="arrow" aria-hidden="true">→</span></a>
-        </div>
-      </article>
-
-      <!-- ===== Pope Leo XIV biography (opens as a pop-up from the card above) ===== -->
-      <dialog class="bio" id="pope-bio" aria-labelledby="pope-bio-title" lang="en">
-        <div class="bio-bar">
-          <p class="eyebrow eyebrow-red" data-i18n="pope.eyebrow">Holy Father</p>
-          <button type="button" class="bio-close" data-close aria-label="Close">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-          </button>
-        </div>
-        <article class="bio-body">
-          <img class="bio-photo" src="images/pope.jpg" alt="Portrait of Pope Leo XIV" width="560" height="700" loading="lazy">
-          <h2 id="pope-bio-title">Pope Leo XIV: From Chicago to the Chair of Saint Peter</h2>
-          <p class="bio-lead">Robert Francis Prevost’s journey to becoming Pope Leo XIV spans the United States, Peru, and Rome—a life shaped by Augustinian formation, missionary service, episcopal leadership, and responsibility at the heart of the Catholic Church.</p>
-
-          <h3>An Augustinian Beginning</h3>
-          <p>Born in Chicago on September 14, 1955, Robert Francis Prevost grew up with his parents, Louis Marius Prevost and Mildred Martínez, and his brothers, Louis Martín and John Joseph. After studying at the Minor Seminary of the Augustinian Fathers, he attended Villanova University, earning a degree in Mathematics in 1977 while also studying Philosophy. That same year, he entered the novitiate of the Order of Saint Augustine. He made his first profession in 1978 and his solemn vows in 1981.</p>
-          <p>Prevost pursued theological studies at the Catholic Theological Union in Chicago before traveling to Rome to study Canon Law at the Pontifical University of Saint Thomas Aquinas. He was ordained a priest on June 19, 1982, and later completed a doctorate focused on the role of the local prior in the Augustinian order.</p>
-
-          <h3>A Missionary Life in Peru</h3>
-          <p>Peru became central to Prevost’s ministry. After serving in the Augustinian mission in Chulucanas, he joined the mission in Trujillo, where his work combined formation, scholarship, Church governance, and parish life. Over eleven years, he served as community prior, formation director, instructor for professed members, judicial vicar, and professor of Canon Law, Patristics, and Moral Theology. He also provided pastoral care in a poor suburb of Trujillo and administered another local parish.</p>
-          <p>His leadership soon extended across the Augustinian order. Elected Provincial Prior in Chicago in 1999, he became Prior General of the Order of Saint Augustine two and a half years later and was confirmed for a second term in 2007. Returning to Chicago in 2013, he served in formation and provincial leadership until Pope Francis appointed him Apostolic Administrator of Chiclayo and Titular Bishop of Sufar in 2014.</p>
-
-          <h3>From Chiclayo to Rome</h3>
-          <p>Ordained a bishop on December 12, 2014, Prevost adopted the episcopal motto <em>In Illo uno unum</em>, expressing Saint Augustine’s teaching that Christians, though many, are one in Christ. Pope Francis appointed him Bishop of Chiclayo in 2015. He later served as second vice-president of the Peruvian Episcopal Conference and held responsibilities connected with its economic, cultural, and educational work.</p>
-          <p>His responsibilities increasingly reached beyond Peru. He became a member of the Congregation for the Clergy in 2019 and the Congregation for Bishops in 2020, while also serving as Apostolic Administrator of Callao. In January 2023, Pope Francis called him to Rome as Prefect of the Dicastery for Bishops and President of the Pontifical Commission for Latin America, promoting him to Archbishop.</p>
-
-          <h3>Cardinal and Pope</h3>
-          <p>Created Cardinal on September 30, 2023, Prevost was assigned the Diaconate of Saint Monica. As head of the Dicastery for Bishops, he joined Pope Francis on Apostolic Journeys, took part in both sessions of the Synod of Bishops on synodality, and was appointed to several Vatican dicasteries and commissions. He was later promoted to the Order of Bishops and given the title of the Suburbicarian Church of Albano.</p>
-          <p>His election as Pope Leo XIV made him the 267th Bishop of Rome, the first Augustinian Pope, and the second Roman Pontiff from the Americas. His biography brings together the intellectual discipline of a mathematician and canon lawyer, the pastoral experience of a missionary and parish leader, and the administrative perspective of a bishop, religious superior, and Vatican prefect.</p>
-
-          <p class="bio-source">Source: Adapted exclusively from Vatican News biography.</p>
-        </article>
-      </dialog>
-
-      <article class="feature">
-        <!-- Photo: images/bishop.jpg (portrait) -->
-        <div class="feature-media" role="img" aria-label="Bishop Kidane Yebio" style="background-image:url('images/bishop.jpg'),linear-gradient(160deg,#f3ecf2,#d9c6d6)"></div>
-        <div class="feature-body">
-          <p class="eyebrow" data-i18n="bishop.eyebrow">Our Bishop</p>
-          <h2 data-i18n="bishop.name">Most Rev. Kidane Yebio</h2>
-          <p class="alt-lang" data-i18n="bishop.alt" lang="ti">ብፁዕ ኣቡነ ኪዳነ የብዮ</p>
-          <hr>
-          <p data-i18n="bishop.text">Bishop of Keren since 2003 — a life devoted to study, priestly ministry, pastoral service and leadership.</p>
-          <a class="more" href="#bishop-bio" data-open="bishop-bio"><span data-i18n="bishop.link">Read Biography</span> <span class="arrow" aria-hidden="true">→</span></a>
-        </div>
-      </article>
-
-      <!-- ===== Bishop Kidane Yebio biography (pop-up). English and Tigrinya versions; the page shows the one for the chosen language. ===== -->
-      <dialog class="bio" id="bishop-bio" aria-labelledby="bishop-bio-title">
-        <div class="bio-bar">
-          <p class="eyebrow eyebrow-red" data-i18n="bishop.eyebrow">Our Bishop</p>
-          <button type="button" class="bio-close" data-close aria-label="Close">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-          </button>
-        </div>
-        <article class="bio-body">
-          <!-- Photo appears automatically once images/bishop.jpg exists -->
-          <img class="bio-photo" src="images/bishop.jpg" alt="Portrait of Bishop Kidane Yebio" loading="lazy" onerror="this.remove()">
-
-          <div class="only-en" lang="en">
-            <h2 id="bishop-bio-title">The Life and Ministry of Most Rev. Kidane Yebio, Bishop of Keren</h2>
-            <p class="bio-lead">Most Rev. Kidane Yebio, Bishop of Keren, has devoted his life to study, priestly ministry, pastoral service, and leadership. Born in Shnara, Eritrea, on January 25, 1958, his journey from local schools and seminaries to advanced studies in Rome prepared him for decades of service to the Church and the communities of the Eparchy of Keren.</p>
-
-            <h3>Education and Formation</h3>
-            <p>Bishop Kidane completed his elementary studies at St. Joseph School in Keren, run by the De La Salle Christian Brothers, from 1969 to 1973. In 1974, he entered the minor seminary in Keren. Two years later, he moved to the major seminary in Asmara, where he completed high school between 1976 and 1980. He then studied biology and other basic sciences at Asmara University from 1980 to 1982.</p>
-            <p>From 1983 to 1985, he studied at the Theological Institute in Asmara and was ordained a priest on June 30, 1985. He was later sent to Rome, where he earned a Licentiate degree in Biblical Theology at St. Thomas University (Angelicum) from 1986 to 1988. He continued his studies at the Pontifical Oriental Institute, earning a Licentiate in Oriental Canon Law between 1988 and 1990.</p>
-
-            <h3>Pastoral Experience and Linguistic Work</h3>
-            <p>During four summers while studying in Rome, Abba Kidane worked in Long Island, New York, assisting in a parish and gaining valuable pastoral experience. He also contributed to the translation of the Mass, parts of the New Testament, and other liturgical prayers into the Blin language. His scholarly work includes a study paper titled <em>Religion of the Bilin People</em>. He is fluent in Blin, Tigre, Tigrigna, Amharic, English, and Italian.</p>
-
-            <h3>Service in the Eparchy of Keren</h3>
-            <p>After returning from his studies, Abba Kidane served in a succession of pastoral, academic, and administrative roles. He was pastor of Haddish Addi from 1991 to 1992; director of the major seminary of Asmara from 1992 to 1993; and a teacher of Bible and Canon Law at the Asmara Theological Institute during the same period. From 1993 to 1995, he served as vicar general for the Western Eparchial Vicariate of Keren. He was also pastor of Shinnara, Jengeren, Halhal, and Afabet from 1993 to 1997, and later served as vicar general of the Eparchy of Keren and pastor of Bambi from 1996 to 2002.</p>
-
-            <h3>Bishop of Keren</h3>
-            <p>After serving as vicar general of the Eparchy of Keren from 1996 to 2002, Abba Kidane Yebio was consecrated Bishop of Keren on March 2, 2003. He became the second Bishop of Keren, bringing to the role a foundation in theology and canon law, broad pastoral experience, and a longstanding commitment to language, liturgy, education, and service.</p>
-          </div>
-
-          <div class="only-ti" lang="ti">
-            <h2>ታሪኽ ህይወት ብፁዕ ኣቡነ ኪዳነ የብዮ፣ ጳጳስ ከረን</h2>
-            <p class="bio-lead">ብፁዕ ኣቡነ ኪዳነ የብዮ፣ ጳጳስ ከረን፣ ህይወቶም ንትምህርቲ፣ ክህነት፣ ጓስነታዊ ኣገልግሎትን መሪሕነትን ዝወፈዩ እዮም። ብ25 ጥሪ 1958 ኣብ ሽናራ፣ ኤርትራ ተወሊዶም። ካብ ከባብያዊ ኣብያተ ትምህርትን ሰሚናራትን ጀሚሩ ክሳብ ላዕለዋይ ትምህርቲ ኣብ ሮማ ዝበጽሐ ጉዕዞኦም፣ ንነዊሕ ዓመታት ንቤተ ክርስቲያንን ንማሕበረሰብ ኤጳርቅና ከረንን ንኸገልግሉ ኣዳልዩዎም።</p>
-
-            <h3>ትምህርትን ምስንዳውን</h3>
-            <p>ኣቡነ ኪዳነ ካብ 1969 ክሳብ 1973 ኣብታ ብኣሕዋት ክርስቲያን ደ ላ ሳል እትመሓደር ናይ ከረን ቤት ትምህርቲ ቅዱስ ዮሴፍ መባእታዊ ትምህርቶም ወዲኦም። ብ1974 ኣብ ከረን ዝርከብ ንኡስ ሰሚናርዮ ኣተዉ። ድሕሪ ክልተ ዓመት፣ ካብ 1976 ክሳብ 1980 ካልኣይ ደረጃ ትምህርቶም ናብ ዝወድኡሉ ናይ ኣስመራ ዓቢይ ሰሚናርዮ ተዛወሩ። ካብ 1980 ክሳብ 1982 ድማ ኣብ ዩኒቨርሲቲ ኣስመራ ባዮሎጂን ካልኦት መሰረታዊ ሳይንሳትን ተማሂሮም።</p>
-            <p>ካብ 1983 ክሳብ 1985 ኣብ ኣስመራ ኣብ ዝርከብ ትካል ስነ-መለኮት ተማሂሮም፣ ብ30 ሰነ 1985 ድማ ካህን ኮይኖም ተሸሙ። ድሕሪኡ ናብ ሮማ ተላኢኾም፣ ካብ 1986 ክሳብ 1988 ኣብ ዩኒቨርሲቲ ቅዱስ ቶማስ (ኣንጀሊኩም) መጽሓፍ ቅዱሳዊ ስነ-መለኮት ተማሂሮም ሊቸንሳ ኣማልኡ። ካብ 1988 ክሳብ 1990 ድማ ኣብ ጳጳሳዊ ትካል ምብራቓዊ መጽናዕቲ ትምህርቶም ብምቕጻል፣ ኣብ ምብራቓዊ ሕጊ ቤተ ክርስቲያን ሊቸንሳ ረኺቦም።</p>
-
-            <h3>ጓስነታዊ ተመክሮን ኣበርክቶ ቋንቋን</h3>
-            <p>ኣብ ሮማ እናተማህሩ፣ ንኣርባዕተ ክረምቲ ኣብ ሎንግ ኣይላንድ፣ ኒው ዮርክ፣ ኣብ ሓንቲ ሰበኻ ብምሕጋዝ ክቡር ጓስነታዊ ተመክሮ ኣጥርዮም። ንቅዳሴ፣ ንገለ ክፋላት ሓድሽ ኪዳንን ንኻልኦት ስርዓተ ኣምልኾ ጸሎታትን ናብ ቋንቋ ብሊን ኣብ ምትርጓም እውን ኣበርክቶ ገይሮም። ሃይማኖት ህዝቢ ብሊን ዘርእስቱ ናይ መጽናዕቲ ወረቐት ጽሒፎም። ብቋንቋታት ብሊን፣ ትግረ፣ ትግርኛ፣ ኣምሓርኛ፣ እንግሊዝኛን ጥልያንኛን ብቕልጡፍ ይዛረቡ።</p>
-
-            <h3>ኣገልግሎት ኣብ ኤጳርቅና ከረን</h3>
-            <p>ድሕሪ ትምህርቶም ምምላሶም፣ ኣባ ኪዳነ ብተኸታታሊ ጓስነታዊ፣ ኣካዳሚያውን ምምሕዳራውን ሓላፍነታት ኣገልጊሎም። ካብ 1991 ክሳብ 1992 ኣባ ሰበኻ ሓዲሽ ዓዲ፤ ካብ 1992 ክሳብ 1993 ዳይረክተር ዓቢይ ሰሚናርዮ ኣስመራን ኣብ ትካል ስነ-መለኮት ኣስመራ መምህር መጽሓፍ ቅዱስን ሕጊ ቤተ ክርስቲያንን፤ ካብ 1993 ክሳብ 1995 ጠቕላሊ ቪካር ምዕራባዊ ኤጳርቅናዊ ቪካርያት ከረን ኮይኖም። ካብ 1993 ክሳብ 1997 ኣባ ሰበኻ ሽናራ፣ ጀንገረን፣ ሃልሃልን ዓፋበትን ኮይኖም፣ ካብ 1996 ክሳብ 2002 ድማ ጠቕላሊ ቪካር ኤጳርቅና ከረንን ኣባ ሰበኻ ባምቢን ኮይኖም ኣገልጊሎም።</p>
-
-            <h3>ጳጳስ ከረን</h3>
-            <p>ካብ 1996 ክሳብ 2002 ጠቕላሊ ቪካር ኤጳርቅና ከረን ኮይኖም ድሕሪ ምግልጋሎም፣ ኣባ ኪዳነ የብዮ ብ2 መጋቢት 2003 ጳጳስ ከረን ኮይኖም ተቐብኡ። ከም ካልኣይ ጳጳስ ከረን፣ ኣብ ስነ-መለኮትን ሕጊ ቤተ ክርስቲያንን ዘጥረይዎ ፍልጠት፣ ሰፊሕ ጓስነታዊ ተመክሮን ንቋንቋ፣ ስርዓተ ኣምልኾ፣ ትምህርትን ኣገልግሎትን ዘለዎም ነዊሕ ዘመናዊ ተወፋይነት ሒዞም ናብዚ ሓላፍነት መጺኦም።</p>
-          </div>
-        </article>
-      </dialog>
-
-      <article class="feature">
-        <!-- Photo: images/building.jpg -->
-        <div class="feature-media" style="background-image:url('images/building.jpg'),linear-gradient(160deg,#f5ead6,#d9bf91)"><span data-i18n="photo">Photo</span></div>
-        <div class="feature-body">
-          <p class="eyebrow" data-i18n="build.eyebrow">Building Project</p>
-          <h2 data-i18n="build.title">St. Michael’s Building Progress</h2>
-          <!-- Change the number in BOTH data-value and the text below -->
-          <div class="progress" role="progressbar" aria-label="Building progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="68" data-value="68">
-            <div class="bar"><span></span></div>
-            <span class="progress-num">68% <span data-i18n="build.complete">complete</span></span>
-          </div>
-          <p data-i18n="build.text">Together we build a home for prayer, education and community.</p>
-          <a class="more" href="#"><span data-i18n="build.link">Support the Project</span> <span class="arrow" aria-hidden="true">→</span></a>
-        </div>
-      </article>
+  <!-- ================= TRIPTYCH: CESK · Sermons · Library ================= -->
+  <section class="hm-sec">
+    <div class="wrap">
+      <nav class="triptych" aria-label="CESK, Sermons and Library">
+        <a class="panel" href="cesk.html"><span class="initial" aria-hidden="true">ፍ</span><span class="panel-text"><strong>CESK</strong><span data-i18n="hl.cesk">Caritas and social services of the Eparchy</span></span></a>
+        <a class="panel" href="sermons.html"><span class="initial" aria-hidden="true">ስ</span><span class="panel-text"><strong data-i18n="q.sermons">Sermons</strong><span data-i18n="hl.sermons">Listen to, watch or read the homilies</span></span></a>
+        <a class="panel" href="library.html"><span class="initial" aria-hidden="true">መ</span><span class="panel-text"><strong data-i18n="lb.title">Library</strong><span data-i18n="hl.library">The Bible, Church documents and our own books</span></span></a>
+      </nav>
     </div>
   </section>
 
-  <!-- ================= NEWS + FEATURED SERMON ================= -->
-  <section class="news" id="news">
-    <div class="wrap news-grid">
-      <div class="news-main">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow eyebrow-red" data-i18n="news.eyebrow">Latest News &amp; Articles</p>
-            <h2 class="section-title" data-i18n="news.title">From Our Eparchy</h2>
-          </div>
-          <a class="more" href="news.html"><span data-i18n="news.all">View All News</span> <span class="arrow" aria-hidden="true">→</span></a>
-        </div>
-
-        <!-- The 3 newest posts from data/news.json appear here automatically (post news on the Admin page). -->
-        <div class="cards" id="home-news"></div>
-      </div>
-
-      <!-- Featured sermon + searchable sermon archive (data in data/sermons.json — edit on the Admin page) -->
-      <aside class="sermon-card" id="sermons">
-        <div class="sermon-head">
-          <p class="eyebrow eyebrow-light" data-i18n="sermons.eyebrow">Featured Sermon</p>
-          <h2 data-i18n="sermons.title">Sunday Sermons &amp; Radio Vatican</h2>
-          <p class="alt-lang" data-i18n="sermons.alt" lang="ti">ስብከት ሰንበትን ረድዮ ቫቲካንን</p>
-        </div>
-        <a class="player" id="featured" href="#">
-          <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
-          <span class="player-text"><strong id="featured-title">Sunday Sermons</strong><small data-i18n="sermons.source">Radio Vatican – Tigrinya</small></span>
-          <span class="player-year" id="featured-year"></span>
+  <!-- ================= OUR SHEPHERDS ================= -->
+  <section class="hm-sec hm-tight">
+    <div class="wrap">
+      <div class="hm-head"><h2 data-i18n="hm.shepherds">Our shepherds</h2><span class="ge only-en" lang="ti">ጓሶትና</span></div>
+      <div class="shepherds">
+        <a class="shep" href="#pope-bio" data-open="pope-bio">
+          <span class="arch" style="background-image:url('images/pope.jpg')"></span>
+          <span class="shep-text"><span class="role" data-i18n="pope.eyebrow">The Holy Father</span><span class="shep-name" data-i18n="pope.name">Pope Leo XIV</span><span class="ge only-en" lang="ti">ር.ሊ.ጳ. ሊዮ ፲፬ይ</span><span class="shep-more" data-i18n="pope.link">Read his biography</span></span>
         </a>
-        <div class="sermon-archive">
-          <label class="search">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-            <input id="q" type="search" placeholder="Search by title or year…" data-i18n-placeholder="sermons.search" aria-label="Search sermons">
-          </label>
-          <ul class="sermons" id="sermon-list"></ul>
-          <div class="empty" id="empty" data-i18n="sermons.empty">No sermons match your search.</div>
+        <a class="shep" href="bishop.html">
+          <span class="arch" style="background-image:url('images/bishop.jpg')"></span>
+          <span class="shep-text"><span class="role" data-i18n="hm.bishop.role">Our bishop, since 2003</span><span class="shep-name" data-i18n="bishop.name">Most Rev. Kidane Yebio</span><span class="ge only-en" lang="ti">ብፁዕ ኣቡነ ኪዳነ የብዮ</span><span class="shep-more" data-i18n="ep.hl.timeline">His life, year by year</span></span>
+        </a>
+      </div>
+    </div>
+  <!-- ===== Pope Leo XIV biography (opens as a pop-up from the card above) ===== -->
+  <dialog class="bio" id="pope-bio" aria-labelledby="pope-bio-title" lang="en">
+    <div class="bio-bar">
+      <p class="eyebrow eyebrow-red" data-i18n="pope.eyebrow">Holy Father</p>
+      <button type="button" class="bio-close" data-close aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <article class="bio-body">
+      <img class="bio-photo" src="images/pope.jpg" alt="Portrait of Pope Leo XIV" width="560" height="700" loading="lazy">
+      <h2 id="pope-bio-title">Pope Leo XIV: From Chicago to the Chair of Saint Peter</h2>
+      <p class="bio-lead">Robert Francis Prevost’s journey to becoming Pope Leo XIV spans the United States, Peru, and Rome—a life shaped by Augustinian formation, missionary service, episcopal leadership, and responsibility at the heart of the Catholic Church.</p>
+
+      <h3>An Augustinian Beginning</h3>
+      <p>Born in Chicago on September 14, 1955, Robert Francis Prevost grew up with his parents, Louis Marius Prevost and Mildred Martínez, and his brothers, Louis Martín and John Joseph. After studying at the Minor Seminary of the Augustinian Fathers, he attended Villanova University, earning a degree in Mathematics in 1977 while also studying Philosophy. That same year, he entered the novitiate of the Order of Saint Augustine. He made his first profession in 1978 and his solemn vows in 1981.</p>
+      <p>Prevost pursued theological studies at the Catholic Theological Union in Chicago before traveling to Rome to study Canon Law at the Pontifical University of Saint Thomas Aquinas. He was ordained a priest on June 19, 1982, and later completed a doctorate focused on the role of the local prior in the Augustinian order.</p>
+
+      <h3>A Missionary Life in Peru</h3>
+      <p>Peru became central to Prevost’s ministry. After serving in the Augustinian mission in Chulucanas, he joined the mission in Trujillo, where his work combined formation, scholarship, Church governance, and parish life. Over eleven years, he served as community prior, formation director, instructor for professed members, judicial vicar, and professor of Canon Law, Patristics, and Moral Theology. He also provided pastoral care in a poor suburb of Trujillo and administered another local parish.</p>
+      <p>His leadership soon extended across the Augustinian order. Elected Provincial Prior in Chicago in 1999, he became Prior General of the Order of Saint Augustine two and a half years later and was confirmed for a second term in 2007. Returning to Chicago in 2013, he served in formation and provincial leadership until Pope Francis appointed him Apostolic Administrator of Chiclayo and Titular Bishop of Sufar in 2014.</p>
+
+      <h3>From Chiclayo to Rome</h3>
+      <p>Ordained a bishop on December 12, 2014, Prevost adopted the episcopal motto <em>In Illo uno unum</em>, expressing Saint Augustine’s teaching that Christians, though many, are one in Christ. Pope Francis appointed him Bishop of Chiclayo in 2015. He later served as second vice-president of the Peruvian Episcopal Conference and held responsibilities connected with its economic, cultural, and educational work.</p>
+      <p>His responsibilities increasingly reached beyond Peru. He became a member of the Congregation for the Clergy in 2019 and the Congregation for Bishops in 2020, while also serving as Apostolic Administrator of Callao. In January 2023, Pope Francis called him to Rome as Prefect of the Dicastery for Bishops and President of the Pontifical Commission for Latin America, promoting him to Archbishop.</p>
+
+      <h3>Cardinal and Pope</h3>
+      <p>Created Cardinal on September 30, 2023, Prevost was assigned the Diaconate of Saint Monica. As head of the Dicastery for Bishops, he joined Pope Francis on Apostolic Journeys, took part in both sessions of the Synod of Bishops on synodality, and was appointed to several Vatican dicasteries and commissions. He was later promoted to the Order of Bishops and given the title of the Suburbicarian Church of Albano.</p>
+      <p>His election as Pope Leo XIV made him the 267th Bishop of Rome, the first Augustinian Pope, and the second Roman Pontiff from the Americas. His biography brings together the intellectual discipline of a mathematician and canon lawyer, the pastoral experience of a missionary and parish leader, and the administrative perspective of a bishop, religious superior, and Vatican prefect.</p>
+
+      <p class="bio-source">Source: Adapted exclusively from Vatican News biography.</p>
+    </article>
+  </dialog>
+  </section>
+
+  <!-- ================= NEWS: lead story + list (from data/news.json — post on the Admin page) ================= -->
+  <section class="hm-sec hm-white" id="news">
+    <div class="wrap">
+      <div class="hm-head"><h2 data-i18n="news.title">From our Eparchy</h2><span class="ge only-en" lang="ti">ካብ ኤጳርቅናና</span><a href="news.html" data-i18n="news.all">All news</a></div>
+      <div class="hm-news" id="home-news"></div>
+    </div>
+  </section>
+
+  <!-- ================= CALENDAR as a manuscript page (feasts from the Ge'ez calendar) ================= -->
+  <section class="hm-sec">
+    <div class="wrap">
+      <div class="ms">
+        <div class="harag" aria-hidden="true"></div>
+        <div class="ms-grid">
+          <div class="ms-month" id="ms-month"></div>
+          <div>
+            <ul class="ms-feasts" id="ms-feasts"></ul>
+            <a class="ms-link" href="liturgy.html#calendar" data-i18n="hm.cal.link">Open the liturgical calendar</a>
+          </div>
         </div>
-        <a class="sermon-foot" href="sermons.html"><span data-i18n="sermons.link">Listen / Read More</span> <span class="arrow" aria-hidden="true">→</span></a>
-      </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BUILDING PROJECT ================= -->
+  <section class="hm-sec hm-tight">
+    <div class="wrap">
+      <div class="build-row">
+        <div>
+          <h2 data-i18n="build.title">St. Michael’s Building Progress</h2>
+          <p data-i18n="build.text">Together we build a home for prayer, education and community.</p>
+        </div>
+        <!-- Change the number in BOTH data-value and the text below -->
+        <div class="progress" role="progressbar" aria-label="Building progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="68" data-value="68">
+          <span class="progress-num">68% <span data-i18n="build.complete">complete</span></span>
+          <div class="bar"><span></span></div>
+        </div>
+        <a class="r-btn" href="contact.html" data-i18n="build.link">Support the Project</a>
+      </div>
     </div>
   </section>
 
@@ -303,53 +210,6 @@
         <a class="more" href="https://www.vaticannews.va/" target="_blank" rel="noopener"><span data-i18n="vn.link">Visit Vatican News</span> <span class="arrow" aria-hidden="true">→</span></a>
       </div>
       <div class="vn-box" id="vn-widget"></div>
-    </div>
-  </section>
-
-  <!-- ================= QUICK LINKS ================= -->
-  <section class="quick">
-    <div class="wrap quick-grid">
-      <a class="quick-item" href="sermons.html">
-        <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="4" width="20" height="24" rx="2"/><path d="M16 9v12M12 13h8"/></svg>
-        <strong data-i18n="q.sermons">Sermons</strong>
-        <span class="alt-lang" data-i18n="q.sermons.alt" lang="ti">ስብከታት</span>
-        <span class="more"><span data-i18n="q.browse">Browse All</span> <span class="arrow" aria-hidden="true">→</span></span>
-      </a>
-      <a class="quick-item" href="#">
-        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 4h12l6 6v18H8z"/><path d="M20 4v6h6M12 16h10M12 20h10M12 24h7"/></svg>
-        <strong data-i18n="q.articles">Articles</strong>
-        <span class="alt-lang" data-i18n="q.articles.alt" lang="ti">ጽሑፋት</span>
-        <span class="more"><span data-i18n="read">Read More</span> <span class="arrow" aria-hidden="true">→</span></span>
-      </a>
-      <a class="quick-item" href="#news">
-        <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="6" width="24" height="20" rx="2"/><path d="M8 11h8v6H8zM19 11h5M19 15h5M8 21h16"/></svg>
-        <strong data-i18n="q.news">News</strong>
-        <span class="alt-lang" data-i18n="q.news.alt" lang="ti">ዜናታት</span>
-        <span class="more"><span data-i18n="q.viewall">View All</span> <span class="arrow" aria-hidden="true">→</span></span>
-      </a>
-      <a class="quick-item" href="liturgy.html#calendar">
-        <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="7" width="24" height="21" rx="2"/><path d="M4 13h24M10 4v6M22 4v6"/><circle cx="10" cy="18" r=".8"/><circle cx="16" cy="18" r=".8"/><circle cx="22" cy="18" r=".8"/><circle cx="10" cy="23" r=".8"/><circle cx="16" cy="23" r=".8"/></svg>
-        <strong data-i18n="q.calendar">Liturgical Calendar</strong>
-        <span class="alt-lang" data-i18n="q.calendar.alt" lang="ti">ሊጡርጊያዊ ዓውደ-ኣዋርሕ</span>
-        <span class="more"><span data-i18n="q.viewcal">View Calendar</span> <span class="arrow" aria-hidden="true">→</span></span>
-      </a>
-      <a class="quick-item" href="contact.html">
-        <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="12" cy="11" r="5"/><path d="M3 27c0-5 4-8 9-8s9 3 9 8"/><circle cx="23" cy="10" r="4"/><path d="M22 18c4 0 7 3 7 7"/></svg>
-        <strong data-i18n="q.contact">Contact Us</strong>
-        <span class="alt-lang" data-i18n="q.contact.alt" lang="ti">ርኸቡና</span>
-        <span class="more"><span data-i18n="q.touch">Get in Touch</span> <span class="arrow" aria-hidden="true">→</span></span>
-      </a>
-    </div>
-  </section>
-
-  <!-- ================= SCRIPTURE BANNER ================= -->
-  <!-- Photo: images/banner.jpg (wide, e.g. mountains at sunset) -->
-  <section class="banner" style="background-image:url('images/banner.jpg'),linear-gradient(180deg,#9fb2cf 0%,#c9b8a6 55%,#4d5b73 100%)">
-    <div class="wrap">
-      <blockquote>
-        <p data-i18n="quote.text">“For where two or three are gathered in my name, there am I among them.”</p>
-        <footer data-i18n="quote.ref">— Matthew 18:20</footer>
-      </blockquote>
     </div>
   </section>
 </main>

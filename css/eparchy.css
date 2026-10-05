@@ -6,13 +6,11 @@
    ============================================================ */
 
 /* ---------- Appear on scroll (activated by main.js) ---------- */
-.reveal-on .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
-.reveal-on .reveal.is-in{opacity:1;transform:none}
+.reveal-on .timeline .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal-on .timeline .reveal.is-in{opacity:1;transform:none}
 
 /* ---------- Page header + breadcrumb ---------- */
 .ep-head{position:relative;overflow:hidden}
-.ep-head::after{content:"";position:absolute;right:-60px;top:-60px;width:320px;height:320px;border-radius:50%;
-  background:radial-gradient(circle,rgba(201,162,74,.28),transparent 65%);pointer-events:none}
 .crumbs{font-size:.85rem;color:rgba(255,255,255,.75);margin-bottom:6px}
 .crumbs a{color:#fff;font-weight:600}
 .crumbs span[aria-hidden]{margin:0 6px;opacity:.6}

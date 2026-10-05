@@ -284,3 +284,112 @@ document.querySelectorAll('[data-open]').forEach(link => {
   document.querySelectorAll('.reveal').forEach(n => io.observe(n));
   window.revealNow = n => io.observe(n);
 })();
+
+/* ============================================================
+   GE'EZ CALENDAR HELPERS (shared) + "Today in the Church" line
+   window.GeezCal: geez(n) numerals, Ethiopian ⇄ Gregorian dates,
+   upcoming(n) main feasts. (The full calendar is in js/calendar.js.)
+   ============================================================ */
+(function(){
+  const ONES = ['', '፩','፪','፫','፬','፭','፮','፯','፰','፱'], TENS = ['', '፲','፳','፴','፵','፶','፷','፸','፹','፺'];
+  function geez(n){
+    let s = String(n); const pairs = [];
+    while (s.length){ pairs.unshift(s.slice(-2)); s = s.slice(0, -2); }
+    return pairs.map((p, i) => {
+      const v = +p, pos = pairs.length - 1 - i;
+      let t = (TENS[Math.floor(v / 10)] || '') + (ONES[v % 10] || '');
+      if (pos > 0){ if (!v) return ''; if (v === 1) t = ''; t += (pos % 2 === 1) ? '፻' : '፼'; }
+      return t;
+    }).join('');
+  }
+  const E0 = 1723856;
+  const etToJdn = (y, m, d) => E0 + 365 + 365 * (y - 1) + Math.floor(y / 4) + 30 * m + d - 31;
+  function jdnToEt(j){ const r = (j - E0) % 1461, n = (r % 365) + 365 * Math.floor(r / 1460);
+    return { y: 4 * Math.floor((j - E0) / 1461) + Math.floor(r / 365) - Math.floor(r / 1460), m: Math.floor(n / 30) + 1, d: (n % 30) + 1 }; }
+  const grToJdn = (y, m, d) => { const t = new Date(0); t.setUTCFullYear(y, m - 1, d); return Math.floor(t.getTime() / 864e5) + 2440588; };
+  const jdnToDate = j => new Date((j - 2440588) * 864e5);
+  const juToJdn = (y, m, d) => { const a = Math.floor((14 - m) / 12), yy = y + 4800 - a, mm = m + 12 * a - 3; return d + Math.floor((153 * mm + 2) / 5) + 365 * yy + Math.floor(yy / 4) - 32083; };
+  function easter(g){ const a = g % 4, b = g % 7, c = g % 19, d = (19 * c + 15) % 30, e = (2 * a + 4 * b - d + 34) % 7;
+    return juToJdn(g, Math.floor((d + e + 114) / 31), ((d + e + 114) % 31) + 1); }
+  const MONTHS_TI = ['መስከረም','ጥቅምቲ','ሕዳር','ታሕሳስ','ጥሪ','ለካቲት','መጋቢት','ሚያዝያ','ግንቦት','ሰነ','ሓምለ','ነሓሰ','ጳጉሜን'];
+  const MONTHS_EN = ['Meskerem','Tiqimti','Hidar','Tahsas','Tiri','Lekatit','Megabit','Miyazya','Ginbot','Sene','Hamle','Nehase','Pagume'];
+  const WD_TI = ['ሰንበት','ሰኑይ','ሰሉስ','ረቡዕ','ሓሙስ','ዓርቢ','ቀዳም'];
+  // [month, day, English, Tigrinya, major]
+  const FIXED = [[1,1,'New Year · St John the Baptist','ርእሰ ዓመት',1],[1,17,'Meskel — Finding of the Holy Cross','መስቀል',1],[3,6,'Qusquam','ደብረ ቍስቋም',0],
+    [3,12,'St Michael the Archangel','ቅዱስ ሚካኤል',0],[3,21,'Hidar Tsion — St Mary of Zion','ሕዳር ጽዮን',0],[4,3,'Presentation of Mary in the Temple','በኣታ ማርያም',0],
+    [4,19,'St Gabriel the Archangel','ቅዱስ ገብርኤል',0],[5,11,'Timket — Epiphany','ጥምቀት',1],[5,21,'Dormition of Mary','ኣስተርእዮ ማርያም',0],[7,29,'Annunciation','ብስራት',1],
+    [9,1,'Nativity of Mary','ልደታ ማርያም',0],[11,5,'Sts Peter and Paul','ጴጥሮስን ጳውሎስን',0],[12,13,'Debre Tabor — Transfiguration','ደብረ ታቦር',1],[12,16,'Filseta — Assumption of Mary','ፍልሰታ',1]];
+  const MOVABLE = [[-7,'Hosanna — Palm Sunday','ሆሳዕና',1],[-2,'Siklet — Good Friday','ዓርቢ ስቅለት',1],[0,'Fasika — Easter','ፋሲካ — ትንሣኤ',1],[39,'Erget — Ascension','ዕርገት',1],[49,'Pentecost','ጰራቅሊጦስ',1]];
+  function feastsOf(y){
+    const list = FIXED.map(([m, d, en, ti, major]) => ({ j: etToJdn(y, m, d), en, ti, major }));
+    list.push({ j: etToJdn(y, 4, y % 4 === 0 ? 28 : 29), en: 'Lidet — Christmas', ti: 'ልደት', major: 1 });
+    const E = easter(y + 8);
+    MOVABLE.forEach(([o, en, ti, major]) => list.push({ j: E + o, en, ti, major }));
+    return list;
+  }
+  const now = new Date(), todayJ = grToJdn(now.getFullYear(), now.getMonth() + 1, now.getDate());
+  function upcoming(n){
+    const et = jdnToEt(todayJ);
+    return [...feastsOf(et.y), ...feastsOf(et.y + 1)].filter(f => f.j >= todayJ).sort((a, b) => a.j - b.j).slice(0, n);
+  }
+  window.GeezCal = { geez, etToJdn, jdnToEt, grToJdn, jdnToDate, upcoming, todayJ, MONTHS_TI, MONTHS_EN, WD_TI };
+
+  // ---- "Today in the Church" line, under the main menu on every page ----
+  const nav = document.querySelector('.mainnav');
+  if (!nav || document.querySelector('.today-line')) return;
+  const bar = document.createElement('div'); bar.className = 'today-line';
+  bar.innerHTML = '<div class="wrap"><span class="today-ge"></span><span class="today-en"></span><a href="liturgy.html#calendar"></a></div>';
+  nav.after(bar);
+  function render(){
+    const ti = document.documentElement.lang === 'ti', et = jdnToEt(todayJ), wd = (todayJ + 1) % 7;
+    const ge = bar.querySelector('.today-ge'); ge.replaceChildren();
+    ge.append(WD_TI[wd] + ' ');
+    const d = document.createElement('span'); d.className = 'rub'; d.textContent = geez(et.d); ge.append(d);
+    ge.append(` ${MONTHS_TI[et.m - 1]} ${geez(et.y)} ዓ.ም.`);
+    bar.querySelector('.today-en').textContent = now.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    const f = upcoming(1)[0], days = f.j - todayJ, name = (ti ? f.ti : f.en).split(' — ')[0];
+    bar.querySelector('a').textContent = days === 0 ? (ti ? `ሎሚ፡ ${name}` : `Today: ${name}`)
+      : (ti ? `ዝቕጽል በዓል፡ ${name}፡ ድሕሪ ${days} መዓልቲ` : `Next feast: ${name}, in ${days} days`);
+  }
+  document.addEventListener('langchange', render);
+  render();
+})();
+
+/* ---------- Home page: the verse writes itself in (the one motion), and the manuscript calendar ---------- */
+(function(){
+  const v = document.getElementById('verse');
+  if (v && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const letters = [...v.textContent]; v.textContent = '';
+    letters.forEach((ch, i) => {
+      const s = document.createElement('span');
+      s.textContent = ch === ' ' ? ' ' : ch;
+      s.style.animationDelay = (0.25 + i * 0.09) + 's';
+      v.appendChild(s);
+    });
+  }
+  const list = document.getElementById('ms-feasts'), G = window.GeezCal;
+  if (!list || !G) return;
+  function render(){
+    const ti = document.documentElement.lang === 'ti', up = G.upcoming(5), first = G.jdnToEt(up[0].j);
+    const month = document.getElementById('ms-month'); month.replaceChildren();
+    month.append(G.MONTHS_TI[first.m - 1]);
+    const small = document.createElement('small');
+    small.textContent = ti ? `ዝመጽኡ በዓላት — ካብ ${G.MONTHS_TI[first.m - 1]} ${G.geez(first.y)}` : `The coming feasts, from ${G.MONTHS_EN[first.m - 1]} ${first.y}`;
+    month.appendChild(small);
+    list.replaceChildren();
+    up.forEach(f => {
+      const e = G.jdnToEt(f.j), g = G.jdnToDate(f.j), li = document.createElement('li');
+      const d = document.createElement('span'); d.className = 'd' + (f.major ? '' : ' plain'); d.textContent = G.geez(e.d);
+      const n = document.createElement('span'); n.className = 'n';
+      n.append(ti ? f.ti : f.en);
+      const sub = document.createElement('span'); sub.className = 'ge';
+      sub.textContent = ti ? G.MONTHS_TI[e.m - 1] : `${f.ti} · ${G.MONTHS_TI[e.m - 1]}`;
+      n.appendChild(sub);
+      const gr = document.createElement('span'); gr.className = 'g';
+      gr.textContent = g.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
+      li.append(d, n, gr); list.appendChild(li);
+    });
+  }
+  document.addEventListener('langchange', render);
+  render();
+})();
