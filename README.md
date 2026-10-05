@@ -62,7 +62,7 @@ Ethiopian (Ge'ez rite) calendar with Gregorian dates. Easter (Fasika) uses the A
 ## Main menu
 
 Home · News · Eparchy ▾ · Deaneries ▾ · CESK · Pastoral ▾ · Resources ▾ · Contact us.
-The menu is the same on every page; the drop-down lists are built from the list at the top of the
-menu script used to write them (keep all pages identical when you change it). Christian communities
+The menu (`<ul id="site-nav">`) is written into every page; when you change it, change every page
+the same way (only the `class="active"` / `aria-current` marks differ). Christian communities
 are shown on the Pastoral page; parishes can be filtered by deanery (fill in “Deanery” for each parish
 on the Admin page).
