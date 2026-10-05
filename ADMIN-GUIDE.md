@@ -89,9 +89,12 @@ Open **Building project → St. Michael’s building project**. Change **Progres
 
 Open **Projects → Projects list** and press **Add project**. Fill in the name, status (planned / under way / completed), progress, a short description and a photo. They appear on the Projects page after St. Michael’s, which is still edited under **Building project**.
 
-## 10. Deanery of each parish
+## 10. Deaneries (Keren, Habinmentel, Hagaz)
 
-On **Parishes**, fill in **Deanery** for each parish (the same spelling for every parish of one deanery). The Parishes page then shows a button for each deanery to filter the list.
+- **Eparchy → Eparchy lists → Deaneries**: for each of the three deaneries fill in the **Archpriest** (ሊቀካህናት) — name, photo, the parish where he lives, phone — and a short description. Do not change the **Code** (keren, habinmentel, hagaz). Untick **Example entry** when it is real.
+- **Parishes → Parishes / Chapels / Sanctuaries**: choose the **Deanery** of each one from the list. A chapel left empty takes the deanery of its parish.
+
+The Deaneries page (three doors, cards and the vine view), the deanery buttons on the Parishes page and the deanery menu on the Priests page all use these choices.
 
 ## 11. Eparchy page: bishops, priests, religious communities, history
 

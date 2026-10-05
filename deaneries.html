@@ -4,19 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Deaneries — Catholic Eparchy of Keren</title>
-<meta name="description" content="Deaneries and their parishes in the Catholic Eparchy of Keren.">
+<meta name="description" content="The three deaneries of the Catholic Eparchy of Keren — Keren, Habinmentel and Hagaz — with their Archpriests, parishes, chapels and sanctuaries.">
 <meta name="theme-color" content="#16315e">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=202610061500">
-<link rel="stylesheet" href="css/calendar.css?v=202610061500">
-<link rel="stylesheet" href="css/liturgy.css?v=202610061500">
-<link rel="stylesheet" href="css/news.css?v=202610061500">
-<link rel="stylesheet" href="css/resources.css?v=202610061500">
-<link rel="stylesheet" href="css/eparchy.css?v=202610061500">
+<link rel="stylesheet" href="css/style.css?v=202610061710">
+<link rel="stylesheet" href="css/calendar.css?v=202610061710">
+<link rel="stylesheet" href="css/liturgy.css?v=202610061710">
+<link rel="stylesheet" href="css/news.css?v=202610061710">
+<link rel="stylesheet" href="css/resources.css?v=202610061710">
+<link rel="stylesheet" href="css/parishes.css?v=202610061710">
+<link rel="stylesheet" href="css/eparchy.css?v=202610061710">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -72,6 +73,10 @@
         </ul></li>
       <li class="has-sub"><a href="deaneries.html" class="active" aria-current="page" data-i18n="ep.nav.deaneries">Deaneries</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-deaneries" aria-label="Deaneries: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         <ul class="sub" id="sub-deaneries">
+          <li><a href="deaneries.html#keren" data-i18n="dn.keren">Keren</a></li>
+          <li><a href="deaneries.html#habinmentel" data-i18n="dn.habinmentel">Habinmentel</a></li>
+          <li><a href="deaneries.html#hagaz" data-i18n="dn.hagaz">Hagaz</a></li>
+          <li class="sub-sep" role="separator"></li>
           <li><a href="parishes.html#parishes" data-i18n="pa.nav.parishes">Parishes</a></li>
           <li><a href="parishes.html#chapels" data-i18n="pa.nav.chapels">Chapels</a></li>
           <li><a href="parishes.html#sanctuaries" data-i18n="pa.nav.sanctuaries">Sanctuaries</a></li>
@@ -97,13 +102,14 @@
   </div>
 </nav>
 
-<main id="content" class="lit-page ep-page ep-sub">
+<main id="content" class="lit-page ep-page ep-sub dn-page">
 
   <section class="page-head ep-head">
     <div class="wrap">
       <p class="crumbs"><a href="eparchy.html" data-i18n="ep.title">The Eparchy</a> <span aria-hidden="true">›</span> <span data-i18n="ep.nav.deaneries">Deaneries</span></p>
       <h1 data-i18n="ep.nav.deaneries">Deaneries</h1>
-      <p class="page-lead" data-i18n="ep.dean.lead">The parishes of the Eparchy are grouped into deaneries, which help priests and communities to work together in pastoral care.</p>
+      <p class="page-lead" data-i18n="dn.lead">Three deaneries, one Eparchy. Each is led by an Archpriest and gathers its parishes, chapels and sanctuaries.</p>
+      <p class="dn-verse"><em data-i18n="dn.verse">“I am the vine, you are the branches.”</em> <span data-i18n="dn.verse.ref">John 15:5</span></p>
     </div>
   </section>
   <!-- ===== Eparchy tabs (same on all Eparchy pages) ===== -->
@@ -119,14 +125,47 @@
       </ul>
     </div>
   </nav>
-  <section class="lit-section">
+
+  <!-- ===== ROW 1 · Three doors, one per deanery ===== -->
+  <section class="lit-section dn-doors-sec" aria-labelledby="dn-doors-title">
     <div class="wrap">
-      <!-- Deaneries come from data/eparchy.json — add them on the Admin page -->
-      <div class="ep-toolbar">
-        <p class="ep-count" id="deanery-count" aria-live="polite"></p>
-        <button type="button" class="r-btn" id="deanery-all" aria-pressed="false"><span class="when-closed" data-i18n="ep.dean.open">Open all</span><span class="when-open" data-i18n="ep.dean.close">Close all</span></button>
+      <h2 class="sr-only" id="dn-doors-title" data-i18n="ep.nav.deaneries">Deaneries</h2>
+      <div class="dn-doors" id="dn-doors" role="tablist" aria-label="Deaneries"></div>
+    </div>
+  </section>
+
+  <!-- ===== ROW 2 · The open deanery ===== -->
+  <section class="lit-section alt dn-open" id="dn-open" aria-live="polite">
+    <div class="wrap">
+      <div class="dn-top">
+        <article class="dn-arch" id="dn-arch"></article>
+        <div class="dn-about">
+          <h2 id="dn-name"></h2>
+          <p id="dn-desc"></p>
+          <div class="dn-view" role="group" aria-label="View">
+            <button type="button" class="chip-filter" data-view="cards" aria-pressed="true" data-i18n="dn.cards">Cards</button>
+            <button type="button" class="chip-filter" data-view="vine" aria-pressed="false" data-i18n="dn.vine">Vine</button>
+          </div>
+        </div>
       </div>
-      <div class="dn-list" id="deanery-grid"></div>
+
+      <div class="dn-cards" id="dn-cards">
+        <div class="dn-tabs" role="tablist" aria-label="Parishes, chapels and sanctuaries">
+          <button type="button" role="tab" data-tab="parishes" aria-selected="true"><span data-i18n="pa.nav.parishes">Parishes</span> <b data-n="parishes"></b></button>
+          <button type="button" role="tab" data-tab="chapels" aria-selected="false"><span data-i18n="pa.nav.chapels">Chapels</span> <b data-n="chapels"></b></button>
+          <button type="button" role="tab" data-tab="sanctuaries" aria-selected="false"><span data-i18n="pa.nav.sanctuaries">Sanctuaries</span> <b data-n="sanctuaries"></b></button>
+        </div>
+        <div class="pc-grid" id="dn-grid" role="tabpanel"></div>
+      </div>
+      <div class="dn-vine" id="dn-vine" hidden></div>
+    </div>
+  </section>
+
+  <!-- ===== ROW 3 · The three deaneries side by side ===== -->
+  <section class="lit-section" aria-labelledby="dn-cmp-title">
+    <div class="wrap">
+      <h2 class="section-title" id="dn-cmp-title" data-i18n="dn.compare">The three deaneries side by side</h2>
+      <div class="dn-cmp" id="dn-cmp"></div>
     </div>
   </section>
 </main>
@@ -149,6 +188,6 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json" data-scripts="js/main.js js/eparchy.js"></script>
+<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json PARISHES_DATA=data/parishes.json" data-scripts="js/main.js js/deaneries.js"></script>
 </body>
 </html>

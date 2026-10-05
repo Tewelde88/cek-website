@@ -509,3 +509,5 @@ html[lang="ti"] .st-text strong{font-family:var(--ethiopic)}
   .mainnav .sub a:hover{background:rgba(255,255,255,.06);color:#fff}
   .mainnav .has-sub.is-open > .sub{display:block}
 }
+.mainnav .sub .sub-sep{height:1px;margin:6px 20px;background:var(--gold-soft)}
+@media (max-width:1023px){.mainnav .sub .sub-sep{margin:4px 12px;background:rgba(255,255,255,.15)}}

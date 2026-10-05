@@ -6,7 +6,6 @@
       "patron": "",
       "patron_ti": "",
       "deanery": "",
-      "deanery_ti": "",
       "place": "",
       "place_ti": "",
       "priest": "",
@@ -22,7 +21,6 @@
       "patron": "",
       "patron_ti": "",
       "deanery": "",
-      "deanery_ti": "",
       "place": "",
       "place_ti": "",
       "priest": "",
@@ -38,7 +36,6 @@
       "patron": "",
       "patron_ti": "",
       "deanery": "",
-      "deanery_ti": "",
       "place": "",
       "place_ti": "",
       "priest": "",
@@ -54,7 +51,6 @@
       "patron": "",
       "patron_ti": "",
       "deanery": "",
-      "deanery_ti": "",
       "place": "",
       "place_ti": "",
       "priest": "",
@@ -70,7 +66,6 @@
       "patron": "",
       "patron_ti": "",
       "deanery": "",
-      "deanery_ti": "",
       "place": "",
       "place_ti": "",
       "priest": "",
@@ -86,7 +81,6 @@
       "patron": "",
       "patron_ti": "",
       "deanery": "",
-      "deanery_ti": "",
       "place": "",
       "place_ti": "",
       "priest": "",
@@ -101,8 +95,7 @@
       "name_ti": "ስም ቍምስና",
       "patron": "St Mary",
       "patron_ti": "ቅድስት ማርያም",
-      "deanery": "Name of deanery",
-      "deanery_ti": "ስም መካን",
+      "deanery": "",
       "place": "Town / village",
       "place_ti": "ከተማ / ዓዲ",
       "priest": "Abba — Name of priest",
@@ -124,7 +117,8 @@
       "place_ti": "ዓዲ / ከባቢ",
       "mass": "Sunday 8:00",
       "mass_ti": "ሰንበት 8:00",
-      "sample": true
+      "sample": true,
+      "deanery": ""
     },
     {
       "name": "Name of chapel",
@@ -135,7 +129,8 @@
       "place_ti": "ዓዲ / ከባቢ",
       "mass": "",
       "mass_ti": "",
-      "sample": true
+      "sample": true,
+      "deanery": ""
     }
   ],
   "communities": [
@@ -160,7 +155,8 @@
       "feast": "Annual pilgrimage: feast day",
       "feast_ti": "ዓመታዊ ንግደት፡ መዓልቲ በዓል",
       "map": "",
-      "sample": true
+      "sample": true,
+      "deanery": ""
     }
   ]
 }

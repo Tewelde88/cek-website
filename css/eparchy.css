@@ -601,3 +601,106 @@ html[lang="ti"] .bi-sheet-body > p{line-height:1.75;margin:14px 0;color:#3a4152}
   .pc-name{font-size:.85rem}
   .pc-role{font-size:.75rem}
     }
+
+
+/* ============================================================
+   DEANERIES PAGE (deaneries.html)
+   ============================================================ */
+.dn-page{--d1:#c23a30;--d2:#7e1912}
+.dn-verse{margin-top:10px;color:rgba(255,255,255,.8);font-size:.95rem}
+.dn-verse em{font-family:var(--serif)}
+html[lang="ti"] .dn-verse em{font-family:var(--ethiopic);font-style:normal}
+
+/* ---- row 1: three doors ---- */
+.dn-doors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,3vw,34px)}
+.door{--c1:#c23a30;--c2:#7e1912;display:flex;flex-direction:column;align-items:center;gap:14px;border:0;padding:0;background:none;cursor:pointer;font:inherit;color:var(--ink);text-align:center}
+.door-navy{--c1:#2d5191;--c2:#16315e}
+.door-ochre{--c1:#c1883a;--c2:#7a5320}
+.door-arch{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px;width:100%;aspect-ratio:4/5;padding:0 12px 26px;border-radius:999px 999px 10px 10px;background:linear-gradient(165deg,var(--c1),var(--c2));color:#fff;box-shadow:0 0 0 6px var(--bg),0 0 0 7px var(--gold);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s;overflow:hidden}
+.door-arch::before{content:"";position:absolute;inset:auto 0 0;height:22px;background:url("../images/harag.svg") repeat-x left center/auto 100%;opacity:.0;transition:opacity .35s}
+.door-arch svg{position:absolute;top:16%;left:50%;width:30%;transform:translateX(-50%);fill:none;stroke:rgba(255,255,255,.75);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .5s}
+.door-name{position:relative;font-family:var(--serif);font-weight:700;font-size:clamp(1.3rem,1rem + 1.2vw,2rem)}
+html[lang="ti"] .door-name{font-family:var(--ethiopic);font-weight:400}
+.door-alt{position:relative;font-family:var(--ethiopic);font-size:1rem;opacity:.85;margin-bottom:6px}
+html[lang="ti"] .door-alt{font-family:var(--serif)}
+.door-info{display:flex;flex-direction:column;gap:6px;align-items:center}
+.door-ap{font-size:.88rem;color:var(--muted)}
+.door-nums{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 12px;font-size:.88rem;color:var(--muted)}
+.door-nums b{color:var(--ink);font-family:var(--serif);font-size:1.05rem}
+.door:hover .door-arch,.door:focus-visible .door-arch{transform:translateY(-4px)}
+.door:hover .door-arch svg{transform:translateX(-50%) scale(1.08)}
+.door[aria-selected="true"] .door-arch{box-shadow:0 0 0 6px var(--bg),0 0 0 9px var(--c1)}
+.door[aria-selected="true"] .door-arch::before{opacity:1}
+.door[aria-selected="true"] .door-ap{color:var(--ink);font-weight:700}
+
+/* ---- row 2: the open deanery ---- */
+.dn-page .dn-open{scroll-margin-top:calc(var(--nav-h) + 10px);border-top:4px solid var(--c1, var(--red))}
+.dn-page .dn-open.dn-red{--c1:#a3221b}.dn-page .dn-open.dn-navy{--c1:var(--navy)}.dn-page .dn-open.dn-ochre{--c1:#a16d27}
+.dn-top{display:grid;grid-template-columns:minmax(260px,360px) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:center;margin-bottom:26px}
+.dn-arch{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;padding:18px;background:#fff;border:1px solid var(--line);border-radius:14px}
+.dn-page .bi-arch{display:grid;place-items:center;width:100%;aspect-ratio:3/4;border-radius:999px 999px 8px 8px;background:center top/cover no-repeat var(--parch);box-shadow:0 0 0 4px #fff,0 0 0 5px var(--gold)}
+.dn-page .pc-ini{font-family:var(--serif);font-size:2rem;color:rgba(255,255,255,.92)}
+.dn-arch > div{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.dn-ap-name{font-family:var(--serif);font-size:1.15rem;color:var(--navy)}
+html[lang="ti"] .dn-ap-name{font-family:var(--ethiopic)}
+.dn-ap-res{font-size:.9rem;color:var(--muted)}
+.dn-page .dn-about h2{font-family:var(--serif);font-size:clamp(1.6rem,1.2rem + 1.4vw,2.2rem);color:var(--c1);line-height:1.15}
+html[lang="ti"] .dn-about h2{font-family:var(--ethiopic)}
+.dn-about p{color:var(--muted);margin:8px 0 14px;max-width:60ch}
+.dn-view,.chips{display:flex;flex-wrap:wrap;gap:8px}
+.dn-tabs{display:flex;gap:4px;border-bottom:2px solid var(--line);margin-bottom:20px;overflow-x:auto}
+.dn-tabs button{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 16px;border:0;border-bottom:3px solid transparent;margin-bottom:-2px;background:none;color:var(--muted);font:inherit;font-weight:700;cursor:pointer}
+.dn-tabs button b{min-width:24px;padding:1px 7px;border-radius:999px;background:var(--line);color:var(--ink);font-size:.8rem}
+.dn-tabs button[aria-selected="true"]{color:var(--c1);border-bottom-color:var(--c1)}
+.dn-tabs button[aria-selected="true"] b{background:var(--c1);color:#fff}
+.dn-link{border:0;background:none;padding:0;color:var(--navy);font:inherit;font-weight:700;font-size:.88rem;cursor:pointer;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:4px}
+.pc.is-flash{outline:3px solid var(--gold);outline-offset:3px}
+.dn-page .sample-tag{display:inline-block;padding:2px 8px;border:1px dashed var(--gold);border-radius:4px;font-size:.68rem;font-weight:700;letter-spacing:.04em;color:#7a5320;text-transform:uppercase}
+
+/* ---- the vine ---- */
+.dn-vine{padding:8px 0}
+.vine-root{display:inline-flex;flex-direction:column;padding:12px 18px;border-radius:12px;background:var(--c1);color:#fff}
+.vine-root strong{font-family:var(--serif);font-size:1.2rem}
+.vine-root span{font-size:.85rem;opacity:.85}
+.vine{list-style:none;margin:0 0 0 26px;padding:10px 0 0;border-left:3px solid #6b8f4e;border-radius:0 0 0 18px}
+.vine-branch{position:relative;padding:10px 0 4px 34px}
+.vine-branch::before{content:"";position:absolute;left:-3px;top:0;width:30px;height:28px;border-bottom:3px solid #6b8f4e;border-left:3px solid #6b8f4e;border-radius:0 0 0 16px}
+.vine-parish{display:inline-flex;align-items:center;gap:10px;min-height:40px;padding:4px 14px 4px 8px;border:1px solid var(--line);border-radius:999px;background:#fff;font:inherit;cursor:pointer;color:var(--ink)}
+.vine-parish small{color:var(--muted)}
+.vine-parish[aria-expanded="false"]{opacity:.8}
+.leaf{width:18px;height:18px;border-radius:0 70% 0 70%;background:#6b8f4e;transform:rotate(-10deg)}
+.vine-grapes{list-style:none;margin:6px 0 4px 22px;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px}
+.vine-grapes li{display:inline-flex;align-items:center;gap:6px;font-size:.9rem;color:var(--ink)}
+.grape{width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#9b6bb8,#5b2f73)}
+.vine-star{display:flex;align-items:center;gap:10px}
+.vine-star small{color:var(--muted)}
+.star{width:18px;height:18px;background:var(--gold);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+
+/* ---- row 3: side by side ---- */
+.dn-cmp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+.cmp{--c1:#a3221b;display:flex;flex-direction:column;gap:8px;padding:18px 20px;border:1px solid var(--line);border-top:4px solid var(--c1);border-radius:12px;background:#fff;font:inherit;color:var(--ink);text-align:left;cursor:pointer}
+.cmp-navy{--c1:var(--navy)}.cmp-ochre{--c1:#a16d27}
+.cmp:hover{box-shadow:0 10px 24px rgba(15,36,71,.1)}
+.cmp-name{font-family:var(--serif);font-size:1.25rem;color:var(--c1)}
+html[lang="ti"] .cmp-name{font-family:var(--ethiopic)}
+.cmp-ap{font-size:.88rem;color:var(--muted);margin-bottom:4px}
+.cmp-row{display:grid;grid-template-columns:96px 1fr 26px;gap:10px;align-items:center;font-size:.85rem}
+.cmp-k{color:var(--muted)}
+.cmp-bar{height:8px;border-radius:999px;background:var(--line);overflow:hidden}
+.cmp-bar span{display:block;height:100%;background:var(--c1);border-radius:inherit}
+.cmp-row b{text-align:right}
+
+@media (max-width:760px){
+  .dn-doors{grid-template-columns:repeat(3,minmax(110px,1fr));overflow-x:auto;padding:8px 4px 4px}
+  .door-arch{aspect-ratio:3/4;padding:0 6px 16px}
+  .door-name{font-size:clamp(.85rem,3.6vw,1.1rem)}
+  .door-alt{font-size:.85rem}
+  .door-ap{font-size:.8rem}
+  .door-nums{flex-direction:column;gap:0}
+  .dn-top{grid-template-columns:1fr}
+  .dn-cmp{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){.door-arch,.door-arch svg{transition:none}}
+.dn-page .bi-arch.ph-red{background:linear-gradient(160deg,#c23a30,#7e1912)}
+.dn-page .bi-arch.ph-navy{background:linear-gradient(160deg,#2d5191,#16315e)}
+.dn-page .bi-arch.ph-ochre{background:linear-gradient(160deg,#c1883a,#7a5320)}

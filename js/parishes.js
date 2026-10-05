@@ -7,6 +7,8 @@
 if (typeof PARISHES_DATA === 'undefined') return;
 
 const isTi = () => document.documentElement.lang === 'ti';
+const DEANERY_NAMES = { keren: ['Keren', 'ከረን'], habinmentel: ['Habinmentel', 'ሓቢንመንተል'], hagaz: ['Hagaz', 'ሓጋዝ'] };
+const deanName = k => DEANERY_NAMES[k] ? DEANERY_NAMES[k][isTi() ? 1 : 0] : (k || '');
 const tr = (o, f) => (isTi() && o[f + '_ti']) ? o[f + '_ti'] : (o[f] || '');
 const L = () => isTi() ? {
   sample: 'ኣብነት', patron: 'ጠባቒ ቅዱስ', deanery: 'መካን', priest: 'ኣባ ሰበኻ', mass: 'ሰዓታት ቅዳሴ',
@@ -64,8 +66,7 @@ function renderDeaneries(){
   box.hidden = names.length === 0;
   box.replaceChildren();
   ['', ...names].forEach(n => {
-    const p = PARISHES_DATA.parishes.find(x => x.deanery === n);
-    const b = el('button', 'chip-filter', n ? tr(p, 'deanery') : L().all);
+    const b = el('button', 'chip-filter', n ? deanName(n) : L().all);
     b.type = 'button'; b.setAttribute('aria-pressed', String(dean === n));
     b.addEventListener('click', () => { dean = n; renderDeaneries(); renderParishes(); });
     box.appendChild(b);
@@ -83,7 +84,7 @@ function renderParishes(){
     head(card, p, tr(p, 'place'));
     const dl = el('dl', 'pc-facts');
     row(dl, L().patron, tr(p, 'patron'));
-    row(dl, L().deanery, tr(p, 'deanery'));
+    row(dl, L().deanery, deanName(p.deanery));
     row(dl, L().priest, tr(p, 'priest'));
     row(dl, L().mass, tr(p, 'mass'));
     row(dl, L().phone, p.phone);

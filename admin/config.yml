@@ -243,19 +243,24 @@ collections:
               - { name: bio_ti, label: "Short biography (Tigrinya)", widget: text, required: false }
               - { name: sample, label: "Example entry", widget: boolean, default: false, required: false }
           - name: deaneries
-            label: "Deaneries"
+            label: "Deaneries (Keren, Habinmentel, Hagaz)"
             label_singular: "deanery"
             widget: list
             collapsed: true
-            summary: "{{fields.name}}"
+            summary: "{{fields.name}} — {{fields.archpriest}}"
             fields:
+              - { name: key, label: "Code (do not change: keren, habinmentel or hagaz)", widget: string }
               - { name: name, label: "Name (English)", widget: string }
               - { name: name_ti, label: "Name (Tigrinya)", widget: string, required: false }
-              - { name: dean, label: "Dean (English)", widget: string, required: false }
-              - { name: dean_ti, label: "Dean (Tigrinya)", widget: string, required: false }
-              - { name: parishes, label: "Parishes (English)", widget: list, field: { name: p, label: "Parish", widget: string }, required: false }
-              - { name: parishes_ti, label: "Parishes (Tigrinya)", widget: list, field: { name: p, label: "ቍምስና", widget: string }, required: false }
-              - { name: photo, label: "Photo", widget: image, required: false, media_folder: /images/deaneries, public_folder: images/deaneries }
+              - { name: color, label: "Colour", widget: select, default: red, options: [ { label: "Red", value: red }, { label: "Navy", value: navy }, { label: "Ochre", value: ochre } ] }
+              - { name: archpriest, label: "Archpriest (English)", widget: string, required: false }
+              - { name: archpriest_ti, label: "Archpriest — ሊቀካህናት (Tigrinya)", widget: string, required: false }
+              - { name: photo, label: "Archpriest photo", widget: image, required: false, media_folder: /images/deaneries, public_folder: images/deaneries }
+              - { name: residence, label: "Parish where he lives (English)", widget: string, required: false }
+              - { name: residence_ti, label: "Parish where he lives (Tigrinya)", widget: string, required: false }
+              - { name: phone, label: "Phone (optional)", widget: string, required: false }
+              - { name: about, label: "Short description (English)", widget: text, required: false }
+              - { name: about_ti, label: "Short description (Tigrinya)", widget: text, required: false }
               - { name: sample, label: "Example entry", widget: boolean, default: false, required: false }
           - name: orders
             label: "Religious orders & congregations"
@@ -308,8 +313,7 @@ collections:
               - { name: name_ti, label: "Name (Tigrinya)", widget: string, required: false }
               - { name: patron, label: "Patron saint (English)", widget: string, required: false }
               - { name: patron_ti, label: "Patron saint (Tigrinya)", widget: string, required: false }
-              - { name: deanery, label: "Deanery (English)", widget: string, required: false }
-              - { name: deanery_ti, label: "Deanery (Tigrinya)", widget: string, required: false }
+              - { name: deanery, label: "Deanery", widget: select, required: false, options: [ { label: "Keren — ከረን", value: keren }, { label: "Habinmentel — ሓቢንመንተል", value: habinmentel }, { label: "Hagaz — ሓጋዝ", value: hagaz } ] }
               - { name: place, label: "Town / village (English)", widget: string, required: false }
               - { name: place_ti, label: "Town / village (Tigrinya)", widget: string, required: false }
               - { name: priest, label: "Parish priest (English)", widget: string, required: false }
@@ -326,6 +330,7 @@ collections:
             collapsed: true
             summary: "{{fields.name}}"
             fields:
+              - { name: deanery, label: "Deanery (leave empty to use the parish’s)", widget: select, required: false, options: [ { label: "Keren — ከረን", value: keren }, { label: "Habinmentel — ሓቢንመንተል", value: habinmentel }, { label: "Hagaz — ሓጋዝ", value: hagaz } ] }
               - { name: name, label: "Name (English)", widget: string }
               - { name: name_ti, label: "Name (Tigrinya)", widget: string, required: false }
               - { name: parish, label: "Parish (English)", widget: string, required: false }
@@ -356,6 +361,7 @@ collections:
             collapsed: true
             summary: "{{fields.name}}"
             fields:
+              - { name: deanery, label: "Deanery", widget: select, required: false, options: [ { label: "Keren — ከረን", value: keren }, { label: "Habinmentel — ሓቢንመንተል", value: habinmentel }, { label: "Hagaz — ሓጋዝ", value: hagaz } ] }
               - { name: name, label: "Name (English)", widget: string }
               - { name: name_ti, label: "Name (Tigrinya)", widget: string, required: false }
               - { name: dedication, label: "Dedication (English)", widget: string, required: false }

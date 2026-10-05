@@ -10,6 +10,8 @@
 const isTi = () => document.documentElement.lang === 'ti';
 const tr = (o, f) => (isTi() && o[f + '_ti']) ? o[f + '_ti'] : (o[f] || '');
 const G = () => window.GeezCal;
+const DEANERY_NAMES = { keren: ['Keren', 'ከረን'], habinmentel: ['Habinmentel', 'ሓቢንመንተል'], hagaz: ['Hagaz', 'ሓጋዝ'] };
+
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; };
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const L = () => isTi() ? {
@@ -33,7 +35,9 @@ const PARISHES = ((typeof PARISHES_DATA !== 'undefined' && PARISHES_DATA && PARI
 function deanery(p){
   if (p._dean) return { name: p._dean, name_ti: p._dean_ti };
   const par = PARISHES.find(x => x.name && p.place && p.place.toLowerCase().includes(x.name.toLowerCase()));
-  return par && par.deanery ? { name: par.deanery, name_ti: par.deanery_ti } : null;
+  if (!par || !par.deanery) return null;
+  const n = DEANERY_NAMES[par.deanery] || [par.deanery, par.deanery_ti];
+  return { name: par.deanery, label: n[0], label_ti: n[1] };
 }
 const nameKey = p => tr(p, 'name').replace(/^(Abba|Fr\.?|Father|ኣባ|አባ)\s*[—-]?\s*/i, '').trim();
 // first letter: A–Z, or the base consonant of a Ge'ez syllable (ኣ → አ)
@@ -108,7 +112,7 @@ function renderDeans(){
   const seen = new Map(); P.forEach(p => { const d = deanery(p); if (d && !seen.has(d.name)) seen.set(d.name, d); });
   const sel = $('pr-dean'); sel.replaceChildren();
   const o0 = el('option', '', L().allDean); o0.value = ''; sel.appendChild(o0);
-  seen.forEach(d => { const o = el('option', '', tr(d, 'name')); o.value = d.name; sel.appendChild(o); });
+  seen.forEach(d => { const o = el('option', '', tr(d, 'label')); o.value = d.name; sel.appendChild(o); });
   sel.value = S.dean; sel.closest('label').hidden = !seen.size;
 }
 function renderIndex(){
@@ -184,7 +188,7 @@ function openProfile(idx){
   row(L().parish, tr(p, 'place'));
   row(L().ordained, dateText(p.ordained));
   row(L().feast, tr(p, 'feast'));
-  const dn = deanery(p); row(isTi() ? 'መካን' : 'Deanery', dn ? tr(dn, 'name') : '');
+  const dn = deanery(p); row(isTi() ? 'መካን' : 'Deanery', dn ? tr(dn, 'label') : '');
   body.appendChild(dl);
   const bio = String(tr(p, 'bio') || '').split(/\n\s*\n/).filter(Boolean);
   if (bio.length) bio.forEach(x => body.appendChild(el('p', '', x.trim()))); else body.appendChild(el('p', 'muted', L().soon));

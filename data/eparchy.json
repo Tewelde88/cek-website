@@ -245,37 +245,48 @@
   ],
   "deaneries": [
     {
-      "name": "Name of deanery",
-      "name_ti": "ስም መካን",
-      "dean": "Abba — Name of dean",
-      "dean_ti": "ኣባ — ስም ዲን",
-      "parishes": [
-        "Parish 1",
-        "Parish 2",
-        "Parish 3"
-      ],
-      "parishes_ti": [
-        "ቍምስና 1",
-        "ቍምስና 2",
-        "ቍምስና 3"
-      ],
+      "key": "keren",
+      "name": "Keren",
+      "name_ti": "ከረን",
+      "color": "red",
+      "archpriest": "Abba — Name of Archpriest",
+      "archpriest_ti": "ኣባ — ስም ሊቀካህናት",
       "photo": "",
+      "residence": "",
+      "residence_ti": "",
+      "phone": "",
+      "about": "The Keren deanery gathers its parishes, chapels and sanctuaries around its Archpriest.",
+      "about_ti": "መካን ከረን ቍምስናታቱ፡ ቤተጸሎታቱን ቅዱሳት ቦታታቱን ኣብ ዙርያ ሊቀካህናቱ የኪቦ።",
       "sample": true
     },
     {
-      "name": "Name of deanery",
-      "name_ti": "ስም መካን",
-      "dean": "Abba — Name of dean",
-      "dean_ti": "ኣባ — ስም ዲን",
-      "parishes": [
-        "Parish 1",
-        "Parish 2"
-      ],
-      "parishes_ti": [
-        "ቍምስና 1",
-        "ቍምስና 2"
-      ],
+      "key": "habinmentel",
+      "name": "Habinmentel",
+      "name_ti": "ሓቢንመንተል",
+      "color": "navy",
+      "archpriest": "Abba — Name of Archpriest",
+      "archpriest_ti": "ኣባ — ስም ሊቀካህናት",
       "photo": "",
+      "residence": "",
+      "residence_ti": "",
+      "phone": "",
+      "about": "The Habinmentel deanery gathers its parishes, chapels and sanctuaries around its Archpriest.",
+      "about_ti": "መካን ሓቢንመንተል ቍምስናታቱ፡ ቤተጸሎታቱን ቅዱሳት ቦታታቱን ኣብ ዙርያ ሊቀካህናቱ የኪቦ።",
+      "sample": true
+    },
+    {
+      "key": "hagaz",
+      "name": "Hagaz",
+      "name_ti": "ሓጋዝ",
+      "color": "ochre",
+      "archpriest": "Abba — Name of Archpriest",
+      "archpriest_ti": "ኣባ — ስም ሊቀካህናት",
+      "photo": "",
+      "residence": "",
+      "residence_ti": "",
+      "phone": "",
+      "about": "The Hagaz deanery gathers its parishes, chapels and sanctuaries around its Archpriest.",
+      "about_ti": "መካን ሓጋዝ ቍምስናታቱ፡ ቤተጸሎታቱን ቅዱሳት ቦታታቱን ኣብ ዙርያ ሊቀካህናቱ የኪቦ።",
       "sample": true
     }
   ],
