@@ -37,6 +37,9 @@ const TRANSLATIONS = {
 
     /* Eparchy page as a book (contents + chapters) */
     "epb.lead":      "ነቲ ጓሳ፡ ካህናት፡ ሰሚናርያውያንን ማሕበራት ሃይማኖትን ኣብ ኤጳርቅና ከረን ንሕዝበ እግዚኣብሔር ዘገልግሉ ፍለጥዎም — ታሪኽ ቤተ ክርስቲያንናን።",
+    "epb.bishops":   "ጳጳሳት ከረን",
+    "epb.bishops.n": "ጳጳሳት ከረን",
+    "epb.bishops.lead":"ጳጳስና ሎሚን ቅድሚኡ ዝነበሩ ጳጳሳትን።",
     "epb.contents":  "ትሕዝቶ",
     "epb.history":   "ታሪኽ",
     "epb.sem.n":     "ንኡስን ዓብይን ሰሚናር",
