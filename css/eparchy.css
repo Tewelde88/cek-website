@@ -271,3 +271,142 @@ html[lang="ti"] .dn-title strong{font-family:var(--ethiopic-serif)}
   .g-person .g-body{padding:8px 10px 12px}
   .ep-tools-right{width:100%;justify-content:space-between}
 }
+
+
+/* ============================================================
+   EPARCHY PAGE (eparchy.html): contents + five chapters
+   ============================================================ */
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.chap{padding-block:clamp(44px,6vw,76px);scroll-margin-top:calc(var(--nav-h) + 56px);background:var(--bg);position:relative}
+.chap-alt{background:var(--parch)}
+.chap + .chap::before{content:"";position:absolute;left:0;right:0;top:-7px;height:14px;background:url("../images/harag.svg") repeat-x left center/auto 100%}
+.chap-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 24px;margin-bottom:clamp(20px,3vw,30px)}
+.chap-head h2{font-family:var(--serif);font-size:clamp(1.7rem,1.3rem + 1.6vw,2.4rem);color:var(--ink);line-height:1.15}
+html[lang="ti"] .chap-head h2{font-family:var(--ethiopic)}
+.chap-head p{color:var(--muted);margin-top:4px;max-width:60ch}
+.chap-all{font-weight:700;color:var(--red);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:5px}
+.sample-tag{display:inline-block;align-self:center;padding:2px 8px;border:1px dashed var(--gold);border-radius:4px;font-size:.72rem;font-weight:700;letter-spacing:.04em;color:#7a5320;text-transform:uppercase}
+
+/* ---- chapter bar (scroll-spy) ---- */
+.ch-bar{position:sticky;top:var(--nav-h);z-index:40;background:#fff;border-bottom:1px solid var(--line)}
+.ch-bar ul{list-style:none;margin:0;padding:0;display:flex;gap:clamp(4px,2vw,22px);overflow-x:auto;scrollbar-width:none}
+.ch-bar ul::-webkit-scrollbar{display:none}
+.ch-bar a{display:block;padding:13px 6px;white-space:nowrap;color:var(--ink);font-weight:600;font-size:.95rem;border-bottom:3px solid transparent}
+.ch-bar a:hover{color:var(--red);text-decoration:none}
+.ch-bar a.is-here{color:var(--red);border-bottom-color:var(--red)}
+
+/* ---- placeholders and symbols ---- */
+.ph{display:grid;place-items:center}
+.ph svg{width:46%;fill:none;stroke:rgba(255,255,255,.9);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.ph.ph-navy{background:linear-gradient(160deg,#2d5191,#16315e)}
+.ph.ph-red{background:linear-gradient(160deg,#c23a30,#7e1912)}
+.ph.ph-green{background:linear-gradient(160deg,#3d8b5a,#1f4d3a)}
+.ph.ph-ochre{background:linear-gradient(160deg,#c1883a,#7a5320)}
+.ph.ph-purple{background:linear-gradient(160deg,#7b5a98,#45305c)}
+
+/* ---- row 1: arched windows with a symbol ---- */
+.chap-toc{padding-top:clamp(36px,5vw,56px)}
+.wins{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,2vw,24px)}
+.win{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;color:var(--ink)}
+.win:hover{text-decoration:none}
+.win-img{width:100%;aspect-ratio:3/4;border-radius:999px 999px 8px 8px;box-shadow:0 0 0 5px var(--bg),0 0 0 6px var(--gold);margin-bottom:12px;transition:box-shadow .3s,transform .3s}
+.win-img svg{transition:transform .4s}
+.win:hover .win-img,.win:focus-visible .win-img{box-shadow:0 0 0 5px var(--bg),0 0 0 7px var(--red);transform:translateY(-4px)}
+.win:hover .win-img svg,.win:focus-visible .win-img svg{transform:scale(1.08)}
+.win-t{font-family:var(--serif);font-weight:700;font-size:1.15rem;color:var(--navy)}
+html[lang="ti"] .win-t{font-family:var(--ethiopic)}
+.win-n{font-size:.88rem;color:var(--muted)}
+
+/* ---- shared photo tile ---- */
+.tile{position:relative;display:block;width:100%;border:0;padding:0;border-radius:10px;overflow:hidden;background:center/cover no-repeat var(--parch);cursor:zoom-in;color:#fff;text-align:left}
+div.tile{cursor:default}
+.tile.ph{display:grid;place-items:center}
+.tile.arch{aspect-ratio:3/4;border-radius:999px 999px 8px 8px}
+.tile-cap{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 10px;background:linear-gradient(transparent,rgba(20,16,12,.8));font-weight:600;font-size:.9rem;line-height:1.3}
+button.tile:hover{outline:3px solid var(--gold);outline-offset:-3px}
+.ph-note{position:absolute;top:10px;left:10px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.18);font-size:.75rem}
+
+/* ---- row 2: bishops of Keren ---- */
+.bishops{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(150px,18vw,210px);gap:clamp(18px,3vw,36px);padding:10px 8px 14px}
+.bishops > *{scroll-snap-align:start}
+.bish{display:flex;flex-direction:column;align-items:center;text-align:center;gap:3px}
+.bish .tile{box-shadow:0 0 0 5px var(--bg),0 0 0 6px var(--gold-soft);margin-bottom:12px}
+.bish.is-current .tile{box-shadow:0 0 0 5px var(--bg),0 0 0 7px var(--gold)}
+.bish-tag{font-size:.78rem;font-weight:700;color:var(--muted)}
+.bish.is-current .bish-tag{color:var(--red)}
+.bish strong{font-family:var(--serif);font-size:1.1rem;color:var(--navy)}
+html[lang="ti"] .bish strong{font-family:var(--ethiopic)}
+.bish-yrs{color:var(--muted);font-size:.92rem}
+.bish-link{font-weight:700;font-size:.9rem;margin-top:4px}
+
+/* ---- row 3: priests, small cards ---- */
+.gal-people{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:18px 14px}
+.person{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1px}
+.person .tile{margin-bottom:8px;box-shadow:0 0 0 3px #fff,0 0 0 4px var(--gold-soft)}
+.person .initials{font-family:var(--serif);font-size:1.7rem;color:rgba(255,255,255,.9)}
+.person strong{font-size:.9rem;line-height:1.25;color:var(--navy)}
+.person span{font-size:.8rem;color:var(--muted)}
+.person .sample-tag{margin-top:3px;font-size:.66rem}
+.gal-more{text-align:center;margin-top:22px}
+
+/* ---- row 4: seminary, two cards ---- */
+.sem-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,3vw,30px)}
+.sem-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.sem-card .tile{aspect-ratio:16/9;border-radius:0}
+.sem-body{display:flex;flex-direction:column;gap:8px;padding:20px 22px 22px}
+.sem-body h3{font-family:var(--serif);font-size:1.35rem;color:var(--navy)}
+html[lang="ti"] .sem-body h3{font-family:var(--ethiopic)}
+.sem-body p{color:var(--muted)}
+.sem-body .chap-all{align-self:flex-start;margin-top:4px}
+
+/* ---- row 5: religious communities, photo + name ---- */
+.gal-orders{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.tile.comm{aspect-ratio:1}
+
+/* ---- row 6: history, one sideways row ---- */
+.hs-wrap{position:relative;display:flex;align-items:center;gap:10px}
+.hscroll{flex:1;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:thin}
+.hist{list-style:none;margin:0;padding:34px 2px 12px;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(220px,250px);gap:16px;position:relative}
+.hist li{position:relative;scroll-snap-align:start;padding:18px 18px 20px;background:#fff;border:1px solid var(--line);border-radius:10px}
+.hist li::after{content:"";position:absolute;top:-23px;left:-16px;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--red))}
+.hist li::before{content:"";position:absolute;z-index:1;top:-29px;left:18px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--red)}
+.hist li:first-child::after{left:18px}
+.hist li.h-open{background:transparent;border-style:dashed;border-color:var(--gold)}
+.hist li.h-open::before{border-color:var(--gold);border-style:dashed}
+.hist .yr{display:block;font-family:var(--serif);font-weight:700;font-size:1.9rem;line-height:1;color:var(--red)}
+.hist li.h-open .yr{font-size:1.2rem;color:#7a5320;padding-top:6px}
+.hist .ge{display:block;min-height:1.3em;font-family:var(--ethiopic);color:var(--muted);font-size:.9rem;margin:2px 0 8px}
+.hist strong{display:block;color:var(--navy);margin-bottom:4px}
+.hist p{color:var(--muted);font-size:.93rem}
+.hs-btn{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--navy);background:#fff;color:var(--navy);cursor:pointer}
+.hs-btn:hover:not(:disabled){background:var(--navy);color:#fff}
+.hs-btn:disabled{opacity:.35;cursor:default}
+.hs-btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---- photo viewer ---- */
+.lb{width:min(96vw,1100px);max-height:94vh;padding:0;border:0;border-radius:12px;background:#14100c;color:#fff;overflow:visible}
+.lb::backdrop{background:rgba(10,8,6,.85)}
+.lb figure{margin:0;padding:16px 64px 18px}
+.lb-img{width:100%;height:min(74vh,720px);background:center/contain no-repeat}
+.lb figcaption{text-align:center;margin-top:12px;color:#eadfca}
+.lb-x,.lb-nav{position:absolute;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;cursor:pointer}
+.lb-x{top:10px;right:10px}.lb-prev{left:10px;top:50%;transform:translateY(-50%)}.lb-next{right:10px;top:50%;transform:translateY(-50%)}
+.lb-x:hover,.lb-nav:hover{background:rgba(255,255,255,.25)}
+.lb svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---- tablets & phones ---- */
+@media (max-width:900px){
+  .wins{grid-template-columns:repeat(5,minmax(118px,1fr));overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 6px 12px;margin-inline:-6px}
+  .wins li{scroll-snap-align:start}
+}
+@media (max-width:640px){
+  .sem-cards{grid-template-columns:1fr}
+  .bishops{grid-auto-columns:44%}
+  .gal-people{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 10px}
+  .gal-orders{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hs-btn{display:none}
+  .hist{grid-auto-columns:78%}
+  .lb figure{padding:56px 10px 16px}
+  .lb-prev,.lb-next{top:auto;bottom:-56px;transform:none}
+}

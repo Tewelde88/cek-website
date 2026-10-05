@@ -56,3 +56,4 @@ html[lang="ti"] .pj-body h3{font-family:var(--ethiopic)}
 .pj-body .more{margin-top:auto;padding-top:8px;font-weight:700}
 .r-btn{display:inline-flex;align-items:center;gap:6px;height:42px;padding:0 18px;border-radius:999px;border:1px solid var(--navy);background:#fff;color:var(--navy);font-weight:700;font-size:.95rem;white-space:nowrap}
 .r-btn:hover{background:var(--navy);color:#fff;text-decoration:none}
+.pg-soon{display:flex;flex-wrap:wrap;align-items:center;gap:10px;color:var(--muted);font-style:italic}

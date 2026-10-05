@@ -167,13 +167,27 @@ collections:
   #  EPARCHY PAGE  (priests, deaneries, religious orders)
   # ------------------------------------------------------------
   - name: eparchy
-    label: "Eparchy: Priests, Deaneries, Religious"
+    label: "Eparchy: Bishops, Priests, Religious, History, Deaneries"
     icon: groups
     files:
       - name: eparchy
         label: "Eparchy lists"
         file: data/eparchy.json
         fields:
+          - name: bishops
+            label: "Bishops of Keren (shown in this order: put the current bishop first)"
+            label_singular: "bishop"
+            widget: list
+            collapsed: true
+            summary: "{{fields.name}} ({{fields.years}})"
+            fields:
+              - { name: name, label: "Name (English)", widget: string }
+              - { name: name_ti, label: "Name (Tigrinya)", widget: string, required: false }
+              - { name: years, label: "Years as bishop (e.g. 1995 – 2002)", widget: string, required: false }
+              - { name: current, label: "Current bishop", widget: boolean, default: false, required: false }
+              - { name: photo, label: "Photo", widget: image, required: false, media_folder: /images/bishops, public_folder: images/bishops }
+              - { name: link, label: "Page with his life (optional, e.g. bishop.html)", widget: string, required: false }
+              - { name: sample, label: "Example entry", widget: boolean, default: false, required: false }
           - name: priests
             label: "Priests"
             label_singular: "priest"
@@ -218,6 +232,20 @@ collections:
               - { name: work_ti, label: "Work / place (Tigrinya)", widget: string, required: false }
               - { name: photo, label: "Photo", widget: image, required: false, media_folder: /images/orders, public_folder: images/orders }
               - { name: sample, label: "Example entry", widget: boolean, default: false, required: false }
+          - name: history
+            label: "History of the Eparchy (sorted by year automatically)"
+            label_singular: "year"
+            widget: list
+            collapsed: true
+            summary: "{{fields.year}} — {{fields.title}}"
+            fields:
+              - { name: year, label: "Year", widget: number, value_type: int }
+              - { name: date, label: "Exact date (optional — also shows the Ge’ez date)", widget: datetime, format: "YYYY-MM-DD", time_format: false, picker_utc: true, required: false }
+              - { name: title, label: "Title (English)", widget: string }
+              - { name: title_ti, label: "Title (Tigrinya)", widget: string, required: false }
+              - { name: text, label: "Text (English)", widget: text, required: false }
+              - { name: text_ti, label: "Text (Tigrinya)", widget: text, required: false }
+              - { name: check, label: "Still to be checked (shows “Dates to check”)", widget: boolean, default: false, required: false }
 
   # ------------------------------------------------------------
   #  PARISHES & CHAPELS PAGE

@@ -1,4 +1,33 @@
 {
+  "bishops": [
+    {
+      "name": "Most Rev. Kidane Yebio",
+      "name_ti": "ብፁዕ ኣቡነ ኪዳነ የብዮ",
+      "years": "2003 –",
+      "current": true,
+      "photo": "images/bishop.jpg",
+      "link": "bishop.html",
+      "sample": false
+    },
+    {
+      "name": "Name of late bishop",
+      "name_ti": "ስም ዝዓረፉ ጳጳስ",
+      "years": "",
+      "current": false,
+      "photo": "",
+      "link": "",
+      "sample": true
+    },
+    {
+      "name": "Name of late bishop",
+      "name_ti": "ስም ዝዓረፉ ጳጳስ",
+      "years": "",
+      "current": false,
+      "photo": "",
+      "link": "",
+      "sample": true
+    }
+  ],
   "priests": [
     {
       "name": "Abba — Name of priest",
@@ -94,6 +123,53 @@
       "work_ti": "ተልእኾ / ስራሕ · ቦታ",
       "photo": "",
       "sample": true
+    }
+  ],
+  "history": [
+    {
+      "year": 1993,
+      "date": "",
+      "title": "Vicariate of Keren",
+      "title_ti": "ቪካርያት ከረን",
+      "text": "The Western Eparchial Vicariate of Keren is set up within the Eparchy of Asmara.",
+      "text_ti": "ምዕራባዊ ኤጳርቅያዊ ቪካርያት ከረን ኣብ ውሽጢ ኤጳርቅና ኣስመራ ተመስሪቱ።",
+      "check": false
+    },
+    {
+      "year": 1995,
+      "date": "1995-12-21",
+      "title": "The Eparchy of Keren is founded",
+      "title_ti": "ኤጳርቅና ከረን ተመስሪታ",
+      "text": "Pope John Paul II erects the Eparchy of Keren.",
+      "text_ti": "ርእሰ ሊቃነ ጳጳሳት ዮሓንስ ጳውሎስ ካልኣይ ኤጳርቅና ከረን መስሪቶማ።",
+      "check": true
+    },
+    {
+      "year": 1995,
+      "date": "",
+      "title": "First Bishop of Keren",
+      "title_ti": "ቀዳማይ ጳጳስ ከረን",
+      "text": "Abune Tesfamariam Bedho becomes the first Bishop of Keren.",
+      "text_ti": "ብፁዕ ኣቡነ ተስፋማርያም በድሆ ቀዳማይ ጳጳስ ከረን ኮይኖም።",
+      "check": true
+    },
+    {
+      "year": 2003,
+      "date": "2003-03-02",
+      "title": "Abune Kidane Yebio",
+      "title_ti": "ብፁዕ ኣቡነ ኪዳነ የብዮ",
+      "text": "Consecrated the second Bishop of Keren.",
+      "text_ti": "ከም ካልኣይ ጳጳስ ከረን ተሾሙ።",
+      "check": false
+    },
+    {
+      "year": 2015,
+      "date": "2015-01-19",
+      "title": "The Eritrean Catholic Church",
+      "title_ti": "ቤተ ክርስቲያን ካቶሊክ ኤርትራ",
+      "text": "The Eritrean Catholic Church becomes a metropolitan Church of its own; Keren is one of its eparchies.",
+      "text_ti": "ቤተ ክርስቲያን ካቶሊክ ኤርትራ ናይ ገዛእ ርእሳ ሜትሮፖሊታዊት ቤተ ክርስቲያን ኮይና፤ ከረን ሓንቲ ካብ ኤጳርቅያታታ እያ።",
+      "check": true
     }
   ]
 }

@@ -29,6 +29,7 @@ Bilingual (English ⇄ Tigrinya), works on phones, tablets and computers. Plain 
 | Projects | `projects.html` | St. Michael’s (from `data/building.json`) + other projects from `data/projects.json` |
 | Formation | `formation.html` | catechesis, youth, families, catechists, liturgical formation |
 | Vocation | `vocation.html` | priesthood, religious life, first steps, prayer for vocations |
+| Major / Minor Seminary | `major-seminary.html`, `minor-seminary.html` | pages to be completed |
 
 ## Where things are
 ```

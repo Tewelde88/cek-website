@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Library — Catholic Eparchy of Keren</title>
-<meta name="description" content="Library of the Catholic Eparchy of Keren: Bible, Church documents, liturgical and catechetical texts.">
+<title>Major Seminary — Catholic Eparchy of Keren</title>
+<meta name="description" content="Seminarians continue with philosophy and theology, preparing for ordination to the diaconate and the priesthood.">
 <meta name="theme-color" content="#16315e">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/logo.png">
@@ -14,16 +14,12 @@
 <link rel="stylesheet" href="css/style.css?v=202610061200">
 <link rel="stylesheet" href="css/calendar.css?v=202610061200">
 <link rel="stylesheet" href="css/liturgy.css?v=202610061200">
-<link rel="stylesheet" href="css/eparchy.css?v=202610061200">
-<link rel="stylesheet" href="css/news.css?v=202610061200">
-<link rel="stylesheet" href="css/resources.css?v=202610061200">
+<link rel="stylesheet" href="css/pages.css?v=202610061200">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
 <body>
-
 <a class="skip-link" href="#content" data-i18n="skip">Skip to content</a>
-
 <!-- ================= TOP BAR: logo, name, language, search ================= -->
 <header class="topbar">
   <div class="wrap topbar-inner">
@@ -36,7 +32,6 @@
         <span class="brand-motto" data-i18n="motto">Faith • Service • Communion</span>
       </span>
     </a>
-
     <div class="topbar-tools">
       <div class="lang-switch" role="group" aria-label="Language / ቋንቋ">
         <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
@@ -52,7 +47,6 @@
     </div>
   </div>
 </header>
-
 <!-- ================= MAIN MENU ================= -->
 <nav class="mainnav" aria-label="Main">
   <div class="wrap mainnav-inner">
@@ -63,7 +57,7 @@
     <ul id="site-nav">
       <li><a href="index.html" data-i18n="nav.home">Home</a></li>
       <li><a href="news.html" data-i18n="nav.news">News</a></li>
-      <li class="has-sub"><a href="eparchy.html" data-i18n="nav.eparchy">Eparchy</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-eparchy" aria-label="Eparchy: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <li class="has-sub"><a href="eparchy.html" class="active" data-i18n="nav.eparchy">Eparchy</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-eparchy" aria-label="Eparchy: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         <ul class="sub" id="sub-eparchy">
           <li><a href="bishop.html" data-i18n="ep.nav.bishop">Bishop</a></li>
           <li><a href="priests.html" data-i18n="ep.nav.priests">Priests</a></li>
@@ -85,10 +79,10 @@
           <li><a href="pastoral.html#communities" data-i18n="pa.nav.communities">Christian Communities</a></li>
           <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
         </ul></li>
-      <li class="has-sub"><a href="resources.html" class="active" data-i18n="nav.resources">Resources</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-resources" aria-label="Resources: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <li class="has-sub"><a href="resources.html" data-i18n="nav.resources">Resources</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-resources" aria-label="Resources: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         <ul class="sub" id="sub-resources">
           <li><a href="sermons.html" data-i18n="q.sermons">Sermons</a></li>
-          <li><a href="library.html" aria-current="page" data-i18n="lb.title">Library</a></li>
+          <li><a href="library.html" data-i18n="lb.title">Library</a></li>
           <li><a href="liturgy.html#calendar" data-i18n="cal.title">Liturgical Calendar</a></li>
           <li><a href="news.html#view-list" data-i18n="nav.archive">Archive</a></li>
         </ul></li>
@@ -96,34 +90,52 @@
     </ul>
   </div>
 </nav>
-
-<main id="content" class="lit-page res-page">
-
+<main id="content" class="lit-page pages-page">
   <section class="page-head">
     <div class="wrap">
-      <p class="eyebrow eyebrow-light" data-i18n="lb.eyebrow">Read · Study · Pray</p>
-      <h1 data-i18n="lb.title">Library</h1>
-      <p class="page-lead" data-i18n="lb.lead">Church documents, the Bible, liturgical and catechetical texts, and publications of the Eparchy — to read online or download.</p>
+      <p class="eyebrow eyebrow-light" data-i18n="ep.nav.seminary">Seminary</p>
+      <h1 data-i18n="ep.sem.c2.t">Major Seminary</h1>
+      <p class="page-lead" data-i18n="ep.sem.c2.p">Seminarians continue with philosophy and theology, preparing for ordination to the diaconate and the priesthood.</p>
     </div>
   </section>
 
-  <section class="lit-section">
+  <section class="lit-section" id="about">
     <div class="wrap">
-      <div class="news-tools">
-        <div class="chips" id="library-cats" role="group" aria-label="Category"></div>
-        <label class="ep-search">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-          <input type="search" id="library-q" placeholder="Search by title, author or language…" data-i18n-placeholder="lb.search" aria-label="Search the library">
-        </label>
-      </div>
-      <p class="r-count" id="library-count"></p>
-      <!-- Items come from data/library.json — edit on the Admin page -->
-      <h2 class="sr-only" data-i18n="lb.title">Library</h2>
-      <div class="clamp-box" data-clamp="760">
-        <div class="book-grid" id="library-grid"></div>
-      </div>
-      <button type="button" class="show-more" hidden aria-expanded="false"><span class="when-closed" data-i18n="ep.more">Show more</span><span class="when-open" data-i18n="ep.less">Show less</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
-      <p class="muted r-empty" id="library-empty" hidden data-i18n="lb.none">Nothing found.</p>
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M3 12l13-6 13 6-13 6z"/><path d="M8 15v7c0 2 3.6 4 8 4s8-2 8-4v-7"/></svg></span>
+        <div>
+          <h2 class="section-title" data-i18n="sem.about">About the seminary</h2>
+          <p class="lit-lead" data-i18n="sem.major.about">Where seminarians study philosophy and theology on the way to ordination.</p>
+        </div>
+      </header>
+      <p class="pg-soon"><span class="sample-tag" data-i18n="sem.soon.tag">To be completed</span> <span data-i18n="sem.soon">This part will be written soon.</span></p>
+    </div>
+  </section>
+
+  <section class="lit-section alt" id="formation">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3c1.7 2.1 1.7 3.8 0 5.3c-1.7-1.5-1.7-3.2 0-5.3z"/><path d="M14.5 10h3v14h-3z"/><path d="M9 28h14"/></svg></span>
+        <div>
+          <h2 class="section-title" data-i18n="sem.formation">Formation and daily life</h2>
+          <p class="lit-lead" data-i18n="sem.formation.lead">Prayer, study, community life and pastoral work.</p>
+        </div>
+      </header>
+      <p class="pg-soon"><span class="sample-tag" data-i18n="sem.soon.tag">To be completed</span> <span data-i18n="sem.soon">This part will be written soon.</span></p>
+    </div>
+  </section>
+
+  <section class="lit-section" id="photos">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="4" y="7" width="24" height="18" rx="2"/><circle cx="12" cy="14" r="2.5"/><path d="M4 23l7-6 5 4 4-3 8 6"/></svg></span>
+        <div>
+          <h2 class="section-title" data-i18n="sem.photos">Photos</h2>
+          <p class="lit-lead" data-i18n="sem.photos.lead">Pictures of the seminary and its community.</p>
+        </div>
+      </header>
+      <p class="pg-soon"><span class="sample-tag" data-i18n="sem.soon.tag">To be completed</span> <span data-i18n="sem.soon">This part will be written soon.</span></p>
+      <p class="pg-actions"><a class="r-btn" href="eparchy.html#seminary" data-i18n="sem.back">Back to the Eparchy</a> <a class="r-btn" href="vocation.html" data-i18n="nav.vocation">Vocation</a></p>
     </div>
   </section>
 </main>
@@ -146,6 +158,6 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="LIBRARY=data/library.json#items" data-scripts="js/main.js js/resources.js"></script>
+<script src="js/boot.js" data-json="" data-scripts="js/main.js"></script>
 </body>
 </html>

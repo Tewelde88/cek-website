@@ -93,6 +93,19 @@ Open **Projects → Projects list** and press **Add project**. Fill in the name,
 
 On **Parishes**, fill in **Deanery** for each parish (the same spelling for every parish of one deanery). The Parishes page then shows a button for each deanery to filter the list.
 
+## 11. Eparchy page: bishops, priests, religious communities, history
+
+Open **Eparchy → Eparchy lists**. Each row of the Eparchy page has its own list:
+
+- **Bishops of Keren** — add each late bishop (name, years, photo). Put the current bishop first and tick **Current bishop**. They scroll sideways on the page.
+- **Priests** — name, role, parish and photo. The page shows 12 at a time with **Show more**.
+- **Religious orders & congregations** — name and photo (shown as a photo card with the name).
+- **History** — one entry per event: year, optional exact date (the Ge’ez date is added by itself), title and text. They are sorted by year, so add new years at any time. Tick **Still to be checked** to show “Dates to check”.
+
+Press **Add …** to add, or the bin icon to remove an entry, then **Save**. Untick **Example entry** when an entry is real.
+
+The two seminaries have their own pages (`major-seminary.html`, `minor-seminary.html`), ready to be written.
+
 ## Other ways to upload content
 
 | Way | When to use it |
