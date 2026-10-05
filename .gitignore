@@ -9,3 +9,7 @@ desktop.ini
 
 # Claude Code local settings
 .claude/
+
+# Design mockups (local only, not published)
+mockup-home.html
+compare.html
