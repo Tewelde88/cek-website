@@ -28,11 +28,11 @@ const TRANSLATIONS = {
     "nav.contact":   "ርኸቡና",
     "nav.churches":  "ኣብያተ ክርስቲያናትን ቤተጸሎታትን",
     "nav.cesk":      "CESK",
-    "nav.pastoral":  "ጓሳዊ ኣገልግሎት",
+    "nav.pastoral":  "ሓዋ. ጉስነት",
     "nav.resources": "ምንጭታት",
-    "nav.projects":  "ፕሮጀክትታት",
-    "nav.formation": "ስልጠና",
-    "nav.vocation":  "ጸዋዒት",
+    "nav.projects":  "ምጥናት",
+    "nav.formation": "ሥነ-መዕበያ",
+    "nav.vocation":  "ጸዋዕታ",
     "nav.quick":     "ቀልጢፍኩም ክፈቱ",
 
     /* Hero */
