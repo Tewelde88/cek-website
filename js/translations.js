@@ -26,6 +26,14 @@ const TRANSLATIONS = {
     "nav.news":      "ዜና",
     "nav.archive":   "ቤተመዛግብት",
     "nav.contact":   "ርኸቡና",
+    "nav.churches":  "ኣብያተ ክርስቲያናትን ቤተጸሎታትን",
+    "nav.cesk":      "CESK",
+    "nav.pastoral":  "ጓሳዊ ኣገልግሎት",
+    "nav.resources": "ምንጭታት",
+    "nav.projects":  "ፕሮጀክትታት",
+    "nav.formation": "ስልጠና",
+    "nav.vocation":  "ጸዋዒት",
+    "nav.quick":     "ቀልጢፍኩም ክፈቱ",
 
     /* Hero */
     "hero.title":    "“ረዐይኬ አባግዕየ”",
