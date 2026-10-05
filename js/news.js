@@ -105,7 +105,9 @@ function dateLine(s){
   const G = window.GeezCal;
   if (G){
     const [y, m, d] = s.split('-').map(Number), e = G.jdnToEt(G.grToJdn(y, m, d));
-    span.appendChild(el('span', 'ge', `${G.geez(e.d)} ${G.MONTHS_TI[e.m - 1]} ${G.geez(e.y)}`));
+    const ge = el('span', 'ge', `${G.geez(e.d)} ${G.MONTHS_TI[e.m - 1]} ${G.geez(e.y)}`);
+    ge.lang = 'ti';                                   // read as Tigrinya by screen readers
+    span.appendChild(ge);
   }
   span.appendChild(document.createTextNode(fmtDate(s)));
   return span;

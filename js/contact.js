@@ -78,7 +78,19 @@ function compose(){
   const v = id => ($(id).value || '').trim();
   const name = v('f-name'), msg = v('f-message');
   const status = $('ct-status');
-  if (!name || !msg){ status.textContent = T().invalid; status.className = 'ct-status is-error'; return null; }
+  // Show the error next to each empty required field and move focus to the first one
+  const missing = [['f-name', name], ['f-message', msg]].filter(([, val]) => !val).map(([id]) => $(id));
+  ['f-name', 'f-message'].forEach(id => {
+    const f = $(id), bad = missing.includes(f), errId = id + '-err';
+    f.classList.toggle('is-invalid', bad);
+    f.setAttribute('aria-invalid', String(bad));
+    let err = $(errId);
+    if (bad && !err){ err = el('span', 'field-error'); err.id = errId; f.after(err); }
+    if (err){ err.textContent = bad ? (isTi() ? 'እዚ ክፋል የድሊ እዩ።' : 'This field is required.') : ''; }
+    if (bad) f.setAttribute('aria-describedby', errId); else f.removeAttribute('aria-describedby');
+  });
+  if (missing.length){ status.textContent = T().invalid; status.className = 'ct-status is-error'; missing[0].focus(); return null; }
+  status.textContent = '';
   const sel = $('f-subject'), subj = sel.options[sel.selectedIndex].text;
   const lines = [`${T().lbl.name}: ${name}`];
   if (v('f-email')) lines.push(`${T().lbl.email}: ${v('f-email')}`);
@@ -105,3 +117,13 @@ function renderAll(){ renderDetails(); renderOffices(); }
 document.addEventListener('langchange', renderAll);
 renderAll();
 })();
+
+// Clear a field's error as soon as the visitor types in it
+['f-name', 'f-message'].forEach(id => {
+  const f = document.getElementById(id); if (!f) return;
+  f.addEventListener('input', () => {
+    if (!f.value.trim()) return;
+    f.classList.remove('is-invalid'); f.setAttribute('aria-invalid', 'false');
+    const err = document.getElementById(id + '-err'); if (err) err.textContent = '';
+  });
+});

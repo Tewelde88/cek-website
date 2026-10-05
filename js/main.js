@@ -102,7 +102,7 @@ setLang(isTi() ? 'ti' : 'en');
   const dots = root.querySelector('.dots');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const DELAY = 6000;  // slider speed in milliseconds
-  let i = 0, timer = null, paused = false;
+  let i = 0, timer = null, paused = false, userPaused = false;
 
   slides.forEach((s,n)=>{
     s.setAttribute('aria-roledescription','slide');
@@ -148,9 +148,22 @@ setLang(isTi() ? 'ti' : 'en');
   }
   function restart(){
     clearInterval(timer);
-    if (!reduceMotion && !paused && !document.hidden && slides.length > 1) timer=setInterval(()=>go(i+1, 1), DELAY);
+    if (!reduceMotion && !paused && !userPaused && !document.hidden && slides.length > 1) timer=setInterval(()=>go(i+1, 1), DELAY);
   }
   function pause(p){ paused=p; restart(); }
+
+  // Pause / play button (auto-rotating content must be stoppable)
+  const pb = root.querySelector('.sl-pause');
+  if (pb){
+    if (reduceMotion || slides.length < 2) pb.hidden = true;
+    pb.addEventListener('click', () => {
+      userPaused = !userPaused;
+      pb.setAttribute('aria-pressed', String(userPaused));
+      pb.setAttribute('aria-label', userPaused ? 'Play slideshow' : 'Pause slideshow');
+      pb.classList.toggle('is-paused', userPaused);
+      restart();
+    });
+  }
 
   root.querySelector('.sl-prev').onclick=()=>go(i-1, -1);
   root.querySelector('.sl-next').onclick=()=>go(i+1, 1);
@@ -338,7 +351,7 @@ document.querySelectorAll('[data-open]').forEach(link => {
   const nav = document.querySelector('.mainnav');
   if (!nav || document.querySelector('.today-line')) return;
   const bar = document.createElement('div'); bar.className = 'today-line';
-  bar.innerHTML = '<div class="wrap"><span class="today-ge"></span><span class="today-en"></span><a href="liturgy.html#calendar"></a></div>';
+  bar.innerHTML = '<div class="wrap"><span class="today-ge" lang="ti"></span><span class="today-en"></span><a href="liturgy.html#calendar"></a></div>';
   nav.after(bar);
   function render(){
     const ti = document.documentElement.lang === 'ti', et = jdnToEt(todayJ), wd = (todayJ + 1) % 7;
@@ -372,6 +385,7 @@ document.querySelectorAll('[data-open]').forEach(link => {
   function render(){
     const ti = document.documentElement.lang === 'ti', up = G.upcoming(5), first = G.jdnToEt(up[0].j);
     const month = document.getElementById('ms-month'); month.replaceChildren();
+    month.lang = 'ti';
     month.append(G.MONTHS_TI[first.m - 1]);
     const small = document.createElement('small');
     small.textContent = ti ? `ዝመጽኡ በዓላት — ካብ ${G.MONTHS_TI[first.m - 1]} ${G.geez(first.y)}` : `The coming feasts, from ${G.MONTHS_EN[first.m - 1]} ${first.y}`;
@@ -379,10 +393,10 @@ document.querySelectorAll('[data-open]').forEach(link => {
     list.replaceChildren();
     up.forEach(f => {
       const e = G.jdnToEt(f.j), g = G.jdnToDate(f.j), li = document.createElement('li');
-      const d = document.createElement('span'); d.className = 'd' + (f.major ? '' : ' plain'); d.textContent = G.geez(e.d);
+      const d = document.createElement('span'); d.className = 'd' + (f.major ? '' : ' plain'); d.textContent = G.geez(e.d); d.lang = 'ti';
       const n = document.createElement('span'); n.className = 'n';
       n.append(ti ? f.ti : f.en);
-      const sub = document.createElement('span'); sub.className = 'ge';
+      const sub = document.createElement('span'); sub.className = 'ge'; sub.lang = 'ti';
       sub.textContent = ti ? G.MONTHS_TI[e.m - 1] : `${f.ti} · ${G.MONTHS_TI[e.m - 1]}`;
       n.appendChild(sub);
       const gr = document.createElement('span'); gr.className = 'g';

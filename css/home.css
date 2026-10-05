@@ -110,3 +110,8 @@ html[lang="ti"] .build-row h2{font-family:var(--ethiopic)}
   .ms-feasts .g{grid-column:2;margin-top:-6px}
   .hero-ms .hero-controls{right:50%;transform:translateX(50%)}
 }
+.sl-pause .i-play{display:none}
+.sl-pause.is-paused .i-play{display:block}
+.sl-pause.is-paused .i-pause{display:none}
+.sl-pause svg path{stroke:#fff}
+.sl-pause .i-play path{fill:#fff}

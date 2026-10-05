@@ -408,3 +408,39 @@ h1,h2,h3{font-weight:700}
 /* Site name and motto in sentence case (no all-caps) */
 .brand-en{text-transform:none !important;letter-spacing:0 !important;font-size:clamp(1.05rem,.85rem + .9vw,1.45rem) !important}
 .brand-motto{text-transform:none !important;letter-spacing:.02em !important;font-style:italic;font-size:.9rem !important}
+
+/* ============================================================
+   QUALITY FIXES (ui-ux-pro-max audit)
+   ============================================================ */
+/* Focus ring with ≥3:1 contrast on light and dark backgrounds: red ring + white gap */
+:focus-visible{outline:3px solid var(--red);outline-offset:2px;box-shadow:0 0 0 2px #fff;border-radius:4px}
+:is(.mainnav,.hero,.page-head,.site-footer,.sermon-feature,.ep-cta,.lightbox) :focus-visible{outline-color:#fff;box-shadow:0 0 0 2px var(--ink)}
+
+/* Touch: no double-tap delay; every control at least 24px; 44px on touch screens */
+a,button,input,select,textarea,label,summary{touch-action:manipulation}
+.more,.today-line a,.ms-link,.back-link{display:inline-flex;align-items:center;min-height:24px;padding-block:3px}
+.sl-btn{width:44px;height:44px}
+.dots{gap:0}
+.dots button{width:24px !important;height:24px;padding:0;background:none !important;border-radius:999px;display:grid;place-items:center}
+.dots button::after{content:"";display:block;width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.6);transition:width .3s,background-color .3s}
+.dots button.on::after{width:22px;background:#fff}
+@media (pointer:coarse){
+  .more,.today-line a,.ms-link,.back-link,.r-btn,.chip-filter,.chip,.map-btn,.share-btn,.icon-btn,.lang-switch button,.view-toggle button,.cal-toggle,.show-more,.sl-btn,.panel,.ep-select select{min-height:44px}
+  .lang-switch button{min-width:44px}
+  .view-toggle button{min-width:44px}
+}
+
+/* Readable minimum size for small labels (was 11px) */
+.sample-tag,.order-type,.book-lang,.facts dt,.ex-badge.is-soon,.tag,.g-label,.ex-text small{font-size:.8rem !important}
+@media (max-width:560px){ .steps button > span:not(.st-n){font-size:.78rem !important} }
+
+/* Contrast */
+.lang-switch > span[aria-hidden]{color:var(--muted)}
+.stat.is-empty strong{color:var(--muted) !important}
+
+/* Visually hidden, still read by screen readers */
+.sr-only{position:absolute !important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Contact form: field-level error */
+.ct-form .is-invalid{border-color:var(--red) !important;box-shadow:0 0 0 3px rgba(163,34,27,.15) !important}
+.field-error{color:var(--red);font-size:.88rem;font-weight:700}
