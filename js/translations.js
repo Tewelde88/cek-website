@@ -18,7 +18,7 @@ const TRANSLATIONS = {
     "read":               "ተወሳኺ ኣንብቡ",
 
     /* Menu */
-    "nav.menu":      "ምናዩ",
+    "nav.menu":      "ከብሒ",
     "nav.home":      "ደምበ",
     "nav.eparchy":   "ኤጳርቅና",
     "nav.parishes":  "ቍምስናታትን ቤተጸሎታትን",
