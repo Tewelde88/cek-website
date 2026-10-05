@@ -36,6 +36,10 @@ const TRANSLATIONS = {
     /* Home page (new design) */
     "hm.cta":        "ኤጳርቅና ፍለጡ",
     "hm.shepherds":  "ጓሶትና",
+    "hm.ways":      "ካልኦት ካብ ኤጳርቅና",
+    "hm.way.cesk":  "ኣገልግሎት CESK ርኣዩ",
+    "hm.way.sermons": "ስብከታት ክፈቱ",
+    "hm.way.library": "ቤተ መጻሕፍቲ ዳህስሱ",
     "hm.bishop.role":"ጳጳስና፡ ካብ 2003",
     "hm.cal.link":   "ሊጡርጊያዊ ዓውደ-ኣዋርሕ ክፈቱ",
     "hero.text":     "ክርስቶስ ንቤተክርስቲያኑ ክትጓሲ ሓደራ ሃባ፤ ስለዚ ድማ ካቶሊካዊ ኤጳርቅና ከረን ነዚ ሓደራ ረቐቢሉ፣ ንሕዝበ እግዚአብሔር ብእምነትን፣ ሓዋርያዊ ጕስነትን፡ ስብከተ ወንጌልን ሕብረትን ክጓሲ ይርከብ ኣሎ።",

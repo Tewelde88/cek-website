@@ -407,3 +407,16 @@ document.querySelectorAll('[data-open]').forEach(link => {
   document.addEventListener('langchange', render);
   render();
 })();
+
+/* ---------- Home: newest sermon inside the Sermons card ---------- */
+(function(){
+  const box = document.getElementById('way-latest');
+  if (!box || typeof SERMONS === 'undefined' || !SERMONS.length) return;
+  const show = () => {
+    const b = document.createElement('b'); b.textContent = titleOf(SERMONS[0]);
+    box.replaceChildren((isTi() ? 'ናይ መወዳእታ ስብከት፡ ' : 'Latest: '), b);
+    box.hidden = false;
+  };
+  document.addEventListener('langchange', show);
+  show();
+})();
