@@ -1,8 +1,8 @@
 {
+  "percent": 80,
+  "updated": "2026-10-01",
   "name": "St. Michael’s",
   "name_ti": "ቅዱስ ሚካኤል",
-  "percent": 68,
-  "updated": "2026-10-01",
   "place": "Keren, Eritrea",
   "place_ti": "ከረን፣ ኤርትራ",
   "summary": "Together we build a home for prayer, education and community.",
@@ -11,11 +11,36 @@
   "about_ti": "እዚ ገጽ ምዕባለ ፕሮጀክት ህንጻ ቅዱስ ሚካኤል የርኢ፡ እንታይ ከም ዝተሃንጸ፡ ቀጺሉ እንታይ ከም ዝመጽእን ብኸመይ ክትሕግዙ ከም እትኽእሉን።\n\nነዚ ጽሑፍ ኣብ ገጽ ምምሕዳር ብታሪኽ እቲ ፕሮጀክት ቀይርዎ — ስለምንታይ ከም ዝህነጽ፡ ንመን ከም ዘገልግልን እንታይ ከም ዝሓዝን።",
   "stages_are_examples": true,
   "stages": [
-    { "title": "Foundation", "title_ti": "መሰረት", "date": "", "status": "done" },
-    { "title": "Walls and columns", "title_ti": "መናድቕን ዓንድታትን", "date": "", "status": "done" },
-    { "title": "Roof", "title_ti": "ናሕሲ", "date": "", "status": "current" },
-    { "title": "Windows, doors and interior", "title_ti": "መሳኹቲ፡ ማዕጾታትን ውሽጣዊ ስራሕን", "date": "", "status": "planned" },
-    { "title": "Blessing and opening", "title_ti": "ቡራኬን ምኽፋትን", "date": "", "status": "planned" }
+    {
+      "title": "Foundation",
+      "title_ti": "መሰረት",
+      "status": "done",
+      "date": ""
+    },
+    {
+      "title": "Walls and columns",
+      "title_ti": "መናድቕን ዓንድታትን",
+      "status": "done",
+      "date": ""
+    },
+    {
+      "title": "Roof",
+      "title_ti": "ናሕሲ",
+      "status": "current",
+      "date": ""
+    },
+    {
+      "title": "Windows, doors and interior",
+      "title_ti": "መሳኹቲ፡ ማዕጾታትን ውሽጣዊ ስራሕን",
+      "status": "planned",
+      "date": ""
+    },
+    {
+      "title": "Blessing and opening",
+      "title_ti": "ቡራኬን ምኽፋትን",
+      "status": "planned",
+      "date": ""
+    }
   ],
   "photos": []
 }
