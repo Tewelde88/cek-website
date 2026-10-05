@@ -28,7 +28,7 @@ const TRANSLATIONS = {
     "nav.contact":   "ርኸቡና",
 
     /* Hero */
-    "hero.title":    "“ረዓይኬ ኣባግዕየ”",
+    "hero.title":    "“ረዐይኬ አባግዕየ”",
     "hero.verse":    "“ጐይታ፣ ንስኻ ኵሉ ትፈልጥ ኢኻ፣ ከም ዘፍቅረካ ውን ትፈልጥ ኢኻ።”",
     "hero.ref":      "ዮሓ ፳፩፡፲፯",
     "hero.sub":      "“ጐይታ፣ ንስኻ ኵሉ ትፈልጥ ኢኻ፣ ከም ዘፍቅረካ ውን ትፈልጥ ኢኻ።”",
@@ -44,7 +44,7 @@ const TRANSLATIONS = {
 
     /* Feature cards */
     "pope.eyebrow":  "ቅዱስ ኣቦ",
-    "pope.name":     "ር.ሊ.ጳ. ሊዮ 14ይ",
+    "pope.name":     "ርእሰ ሊቃነ ጳጳሳት ልዮን ፲፬",
     "pope.alt":      "Pope Leo XIV",                          /* (EN) */
     "pope.text":     "ካብ ቺካጎ ናብ መንበር ቅዱስ ጴጥሮስ — ህይወትን ኣገልግሎትን ሮበርት ፍራንሲስ ፕረቮስት።",
     "pope.link":     "ታሪኽ ህይወት ኣንብቡ",
@@ -66,7 +66,7 @@ const TRANSLATIONS = {
     "tag.news":      "ዜና",
     "tag.article":   "ጽሑፍ",
     "tag.events":    "ፍጻመታት",
-    "news1.title":   "ር.ሊ.ጳ. ሊዮ 14ይ፡ ጓሳ ተስፋ ንዘመንና",
+    "news1.title":   "ርእሰ ሊቃነ ጳጳሳት ልዮን ፲፬፡ ጓሳ ተስፋ ንዘመንና",
     "news1.text":    "ቅዱስ ኣቦ ብመልእኽቲ ሰላምን ሓድነትን ንቤተ ክርስቲያን ምትብባዕ ቀጺሉ ኣሎ።",
     "news2.title":   "ጽባቐ ከረንን ህዝባን",
     "news2.text":    "ብዛዕባ እምነት፡ ጽንዓትን ሃብታም ባህልን ኤጳርቅናና ኣብ ኤርትራ ዝገልጽ ሓሳብ።",

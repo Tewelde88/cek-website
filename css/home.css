@@ -43,12 +43,10 @@ html[lang="ti"] .panel strong{font-family:var(--ethiopic)}
 .panel:hover strong{text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:4px}
 
 /* ---------- Shepherds: arched portraits with a cross ---------- */
-.shepherds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,56px);align-items:end;padding-top:30px}
+.shepherds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,56px);align-items:end;padding-top:8px}
 .shep{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:end;color:var(--ink)}
 .shep:hover{text-decoration:none}
 .arch{position:relative;width:clamp(120px,16vw,190px);aspect-ratio:3/4;border-radius:999px 999px 6px 6px;background:center top/cover no-repeat var(--parch);box-shadow:0 0 0 6px var(--bg),0 0 0 7px var(--gold)}
-.arch::before{content:"";position:absolute;left:50%;top:-30px;width:18px;height:22px;transform:translateX(-50%);background:
-  linear-gradient(var(--gold),var(--gold)) center/4px 100% no-repeat,linear-gradient(var(--gold),var(--gold)) center 7px/14px 4px no-repeat}
 .shep-text{display:flex;flex-direction:column}
 .shep .role{color:var(--muted);font-style:italic}
 .shep-name{font-size:1.5rem;font-weight:700;line-height:1.2}
@@ -115,3 +113,5 @@ html[lang="ti"] .build-row h2{font-family:var(--ethiopic)}
 .sl-pause.is-paused .i-pause{display:none}
 .sl-pause svg path{stroke:#fff}
 .sl-pause .i-play path{fill:#fff}
+.hero-harag{height:30px}
+.ms .harag{height:26px;margin:-6px 0 24px}

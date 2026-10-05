@@ -5,7 +5,7 @@
       "date": "2026-05-12",
       "category": "news",
       "title": "Pope Leo XIV: A Shepherd of Hope for Our Time",
-      "title_ti": "ር.ሊ.ጳ. ሊዮ 14ይ፡ ጓሳ ተስፋ ንዘመንና",
+      "title_ti": "ርእሰ ሊቃነ ጳጳሳት ልዮን ፲፬፡ ጓሳ ተስፋ ንዘመንና",
       "excerpt": "The Holy Father continues to inspire the Church with his message of peace and unity.",
       "excerpt_ti": "ቅዱስ ኣቦ ብመልእኽቲ ሰላምን ሓድነትን ንቤተ ክርስቲያን ምትብባዕ ቀጺሉ ኣሎ።",
       "body": "The Holy Father continues to inspire the Church with his message of peace and unity.\n\nThis is an example post that shows how a news article looks. Edit or delete it on the Admin page (admin/).",
@@ -15,7 +15,7 @@
         {
           "src": "images/pope.jpg",
           "caption": "Pope Leo XIV",
-          "caption_ti": "ር.ሊ.ጳ. ሊዮ 14ይ"
+          "caption_ti": "ርእሰ ሊቃነ ጳጳሳት ልዮን ፲፬"
         }
       ],
       "sample": true,

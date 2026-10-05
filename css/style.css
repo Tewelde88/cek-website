@@ -381,11 +381,10 @@ html[lang="ti"] .hl-text strong{font-family:var(--ethiopic-serif)}
 body{font-size:1.06rem;line-height:1.65}
 
 /* Harag: the woven band that opens sections in Ge'ez manuscripts */
-.harag{height:14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14'%3E%3Cg fill='none' stroke-width='2.2'%3E%3Cpath d='M0 3.5C7 3.5 7 10.5 14 10.5S21 3.5 28 3.5' stroke='%23A3221B'/%3E%3Cpath d='M0 10.5C7 10.5 7 3.5 14 3.5S21 10.5 28 10.5' stroke='%23C1883A'/%3E%3C/g%3E%3Ccircle cx='7' cy='7' r='1.4' fill='%231F1B18'/%3E%3Ccircle cx='21' cy='7' r='1.4' fill='%231F1B18'/%3E%3C/svg%3E") repeat-x center/28px 14px}
+.harag{height:28px;background:url("../images/harag.svg") repeat-x left center/auto 100%}
 /* Every page banner ends with a harag band */
 .page-head{position:relative}
-.page-head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:inherit;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14' viewBox='0 0 28 14'%3E%3Cg fill='none' stroke-width='2.2'%3E%3Cpath d='M0 3.5C7 3.5 7 10.5 14 10.5S21 3.5 28 3.5' stroke='%23A3221B'/%3E%3Cpath d='M0 10.5C7 10.5 7 3.5 14 3.5S21 10.5 28 10.5' stroke='%23C1883A'/%3E%3C/g%3E%3Ccircle cx='7' cy='7' r='1.4' fill='%23FBF6EC'/%3E%3Ccircle cx='21' cy='7' r='1.4' fill='%23FBF6EC'/%3E%3C/svg%3E") repeat-x center/28px 14px}
+.page-head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:28px;background:url("../images/harag.svg") repeat-x left center/auto 100%}
 .page-head{background:linear-gradient(160deg,#2b241e,#1a1613) !important}
 
 /* Quieter labels: no tracked-out capitals, no arrows on every link */
