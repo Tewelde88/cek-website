@@ -199,11 +199,11 @@ const TRANSLATIONS = {
     /* Eparchy page (eparchy.html) */
     "ep.eyebrow":      "ካቶሊካዊ ኤጳርቅና ከረን",
     "ep.title":        "ኤጳርቅና",
-    "ep.lead":         "ነቶም ንሕዝበ እግዚአብሔር ኣብ ኤጳርቅና ከረን ዘገልግሉ ጓሶት፡ ካህናት፡ ሰሚናርያውያን፡ ዲነሪታትን ማሕበራት ሃይማኖትን ፍለጡዎም።",
+    "ep.lead":         "ነቶም ንሕዝበ እግዚአብሔር ኣብ ኤጳርቅና ከረን ዘገልግሉ ጓሶት፡ ካህናት፡ ሰሚናርያውያን፡ መካናትን ማሕበራት ሃይማኖትን ፍለጡዎም።",
     "ep.nav.bishop":   "ጳጳስ",
     "ep.nav.priests":  "ካህናት",
     "ep.nav.seminary": "ሰሚናርዮ",
-    "ep.nav.deaneries":"ዲነሪታት",
+    "ep.nav.deaneries":"መካናት",
     "ep.nav.religious":"ማሕበራት ሃይማኖት",
 
     "ep.bishop.eyebrow":"ጓሳና",
@@ -233,7 +233,7 @@ const TRANSLATIONS = {
     "ep.sem.c3.l":     "ርኸቡና",
 
     "ep.dean.eyebrow": "ብሓባር ዝሰርሓ ቍምስናታት",
-    "ep.dean.lead":    "ቍምስናታት ኤጳርቅና ኣብ ዲነሪታት ተጠርኒፈን ኣለዋ፤ እዚ ድማ ካህናትን ማሕበረሰባትን ኣብ ጓስነታዊ ክንክን ብሓባር ክሰርሑ ይሕግዝ።",
+    "ep.dean.lead":    "ቍምስናታት ኤጳርቅና ኣብ መካናት ተጠርኒፈን ኣለዋ፤ እዚ ድማ ካህናትን ማሕበረሰባትን ኣብ ጓስነታዊ ክንክን ብሓባር ክሰርሑ ይሕግዝ።",
 
     "ep.rel.eyebrow":  "ሕይወት ምንኩስና",
     "ep.rel.lead":     "ደቂ ተባዕትዮን ደቂ ኣንስትዮን ኣባላት ማሕበራት ሃይማኖት ንኤጳርቅና ብጸሎት፡ ብትምህርቲ፡ ብክንክን ጥዕናን ብኣገልግሎት ድኻታትን የገልግሉ።",
@@ -244,7 +244,7 @@ const TRANSLATIONS = {
     "ep.nav.overview": "ሓፈሻዊ",
     "ep.stat.priests": "ካህናት",
     "ep.stat.parishes":"ቍምስናታት",
-    "ep.stat.deaneries":"ዲነሪታት",
+    "ep.stat.deaneries":"መካናት",
     "ep.stat.orders":  "ማሕበራት ሃይማኖት",
     "ep.ex.bishop":    "ብፁዕ ኣቡነ ኪዳነ የብዮ — ህይወቶም፡ ኣገልግሎቶምን ታሪኽ ህይወቶምን።",
     "ep.ex.priests":   "ነቶም ንቍምስናታትናን ማሕበረሰባትናን ዘገልግሉ ካህናት ፍለጡዎም።",

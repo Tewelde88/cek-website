@@ -11,7 +11,7 @@ const D = (typeof EPARCHY !== 'undefined' && EPARCHY) ? EPARCHY : { priests: [],
 const $ = id => document.getElementById(id);
 const L = () => isTi() ? {
   all: 'ኩሉ', sample: 'ኣብነት', none: 'ዝተረኽበ የለን።', soon: 'ቀልጢፉ ይመጽእ',
-  count: (n, w) => `${n} ${w}`, priests: 'ካህናት', deaneries: 'ዲነሪታት', orders: 'ማሕበራት',
+  count: (n, w) => `${n} ${w}`, priests: 'ካህናት', deaneries: 'መካናት', orders: 'ማሕበራት',
   role: 'ሓላፍነት', place: 'ቍምስና / ቦታ', dean: 'ዲን', parishes: 'ቍምስናታት', men: 'ደቂ ተባዕትዮ', women: 'ደቂ ኣንስትዮ',
   work: 'ስራሕ', open: 'ዝርዝር ርኣዩ', findParish: 'ኣብ ገጽ ቍምስናታት ድለዩ', of: 'ካብ'
 } : {

@@ -9,7 +9,7 @@ if (typeof PARISHES_DATA === 'undefined') return;
 const isTi = () => document.documentElement.lang === 'ti';
 const tr = (o, f) => (isTi() && o[f + '_ti']) ? o[f + '_ti'] : (o[f] || '');
 const L = () => isTi() ? {
-  sample: 'ኣብነት', patron: 'ጠባቒ ቅዱስ', deanery: 'ዲነሪ', priest: 'ኣባ ሰበኻ', mass: 'ሰዓታት ቅዳሴ',
+  sample: 'ኣብነት', patron: 'ጠባቒ ቅዱስ', deanery: 'መካን', priest: 'ኣባ ሰበኻ', mass: 'ሰዓታት ቅዳሴ',
   phone: 'ተሌፎን', map: 'ካርታ', parish: 'ቍምስና', meets: 'ኣኼባ', feast: 'በዓል',
   soon: 'ዝርዝር ሓበሬታ ቀልጢፉ ይመጽእ።', none: 'ዝተረኽበ የለን።', count: n => `${n} ቍምስናታት`
 } : {

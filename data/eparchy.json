@@ -34,7 +34,7 @@
   "deaneries": [
     {
       "name": "Name of deanery",
-      "name_ti": "ስም ዲነሪ",
+      "name_ti": "ስም መካን",
       "dean": "Abba — Name of dean",
       "dean_ti": "ኣባ — ስም ዲን",
       "parishes": [
@@ -52,7 +52,7 @@
     },
     {
       "name": "Name of deanery",
-      "name_ti": "ስም ዲነሪ",
+      "name_ti": "ስም መካን",
       "dean": "Abba — Name of dean",
       "dean_ti": "ኣባ — ስም ዲን",
       "parishes": [
