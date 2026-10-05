@@ -1,0 +1,58 @@
+/* ============================================================
+   PASTORAL, RESOURCES, PROJECTS, FORMATION, VOCATION pages
+   ============================================================ */
+
+/* ---------- Hub cards: each card opens a page ---------- */
+.hubs{list-style:none;margin:0;padding:0;display:grid;gap:clamp(14px,2vw,22px);grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+.hubs li{display:flex}
+.hub{flex:1;display:flex;flex-direction:column;gap:6px;padding:clamp(20px,2.6vw,28px);background:#fff;color:var(--ink);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:var(--radius);transition:border-color .2s,box-shadow .2s}
+.hub:hover,.hub:focus-visible{text-decoration:none;border-color:var(--navy);border-top-color:var(--red);box-shadow:0 10px 24px rgba(15,36,71,.12)}
+.hub-ic{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:var(--navy-soft);margin-bottom:6px;transition:background-color .2s}
+.hub-ic svg{width:58%;height:58%;fill:none;stroke:var(--navy);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s}
+.hub:hover .hub-ic,.hub:focus-visible .hub-ic{background:var(--navy)}
+.hub:hover .hub-ic svg,.hub:focus-visible .hub-ic svg{stroke:#fff}
+.hub-t{font-family:var(--serif);font-weight:700;font-size:1.2rem;color:var(--navy)}
+html[lang="ti"] .hub-t{font-family:var(--ethiopic)}
+.hub:hover .hub-t,.hub:focus-visible .hub-t{text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:4px}
+.hub-d{color:var(--muted)}
+
+/* ---------- Cards with a small icon (formation, vocation) ---------- */
+.card-ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--navy-soft)}
+.card-ic svg{width:58%;height:58%;fill:none;stroke:var(--navy);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.lit-card .more{margin-top:auto;font-weight:700}
+.pg-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(20px,3vw,28px)}
+
+/* ---------- Vocation: first steps (a real sequence, so numbered) ---------- */
+.vc-steps{list-style:none;margin:0;padding:0;counter-reset:step;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.vc-steps li{counter-increment:step;display:flex;flex-direction:column;gap:4px;padding:20px 20px 20px 66px;position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
+.vc-steps li::before{content:counter(step);position:absolute;left:18px;top:18px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--red);color:#fff;font-family:var(--serif);font-weight:700}
+.vc-steps strong{color:var(--navy);font-size:1.05rem}
+.vc-steps span{color:var(--muted)}
+
+/* ---------- Vocation: prayer, set like a manuscript page ---------- */
+.vc-prayer{max-width:680px;margin:0 auto;padding:clamp(26px,4vw,40px);text-align:center;background:var(--parch);border-radius:var(--radius);position:relative}
+.vc-prayer::before{content:"";display:block;height:20px;margin:-6px 0 18px;background:url("../images/harag.svg") repeat-x left center/auto 100%}
+.vc-prayer h2{font-family:var(--serif);color:var(--red);font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem);margin-bottom:12px}
+html[lang="ti"] .vc-prayer h2{font-family:var(--ethiopic)}
+.vc-prayer blockquote{margin:0;font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,1rem + .3vw,1.2rem);line-height:1.75}
+html[lang="ti"] .vc-prayer blockquote{font-family:var(--ethiopic);font-style:normal}
+.vc-prayer figcaption{margin-top:12px;color:var(--muted);font-size:.9rem}
+
+/* ---------- Projects ---------- */
+.pj-grid{display:grid;gap:clamp(16px,2.4vw,26px);grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.pj{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.pj-img{aspect-ratio:16/9;background:var(--parch) center/cover no-repeat;display:grid;place-items:center}
+.pj-img svg{width:34%;height:auto;fill:none;stroke:var(--gold);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.pj-body{flex:1;display:flex;flex-direction:column;gap:8px;padding:20px 22px 22px}
+.pj-body h3{font-family:var(--serif);font-size:1.25rem;color:var(--navy)}
+html[lang="ti"] .pj-body h3{font-family:var(--ethiopic)}
+.pj-place{font-size:.9rem;color:var(--muted);font-style:italic}
+.pj-bar{height:10px;border-radius:999px;background:#efe6d4;overflow:hidden;margin-top:6px}
+.pj-bar span{display:block;height:100%;background:var(--gold);border-radius:inherit}
+.pj-pct{display:flex;justify-content:space-between;gap:10px;font-size:.9rem;color:var(--muted)}
+.pj-pct b{color:var(--ink)}
+.pj-status{align-self:flex-start;padding:2px 10px;border-radius:999px;font-size:.8rem;font-weight:700;background:var(--navy-soft);color:var(--navy)}
+.pj-status.st-done{background:#e7f1e4;color:#2f5d26}
+.pj-body .more{margin-top:auto;padding-top:8px;font-weight:700}
+.r-btn{display:inline-flex;align-items:center;gap:6px;height:42px;padding:0 18px;border-radius:999px;border:1px solid var(--navy);background:#fff;color:var(--navy);font-weight:700;font-size:.95rem;white-space:nowrap}
+.r-btn:hover{background:var(--navy);color:#fff;text-decoration:none}

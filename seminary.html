@@ -11,12 +11,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=202610052200">
-<link rel="stylesheet" href="css/calendar.css?v=202610052200">
-<link rel="stylesheet" href="css/liturgy.css?v=202610052200">
-<link rel="stylesheet" href="css/news.css?v=202610052200">
-<link rel="stylesheet" href="css/resources.css?v=202610052200">
-<link rel="stylesheet" href="css/eparchy.css?v=202610052200">
+<link rel="stylesheet" href="css/style.css?v=202610061010">
+<link rel="stylesheet" href="css/calendar.css?v=202610061010">
+<link rel="stylesheet" href="css/liturgy.css?v=202610061010">
+<link rel="stylesheet" href="css/news.css?v=202610061010">
+<link rel="stylesheet" href="css/resources.css?v=202610061010">
+<link rel="stylesheet" href="css/eparchy.css?v=202610061010">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -62,11 +62,36 @@
     </button>
     <ul id="site-nav">
       <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-      <li><a href="eparchy.html" class="active" aria-current="page" data-i18n="nav.eparchy">Eparchy</a></li>
-      <li><a href="parishes.html" data-i18n="nav.parishes">Parishes &amp; Chapels</a></li>
-      <li><a href="liturgy.html" data-i18n="nav.liturgy">Liturgy</a></li>
       <li><a href="news.html" data-i18n="nav.news">News</a></li>
-      <li><a href="sermons.html" data-i18n="nav.archive">Archive</a></li>
+      <li class="has-sub"><a href="eparchy.html" class="active" data-i18n="nav.eparchy">Eparchy</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-eparchy" aria-label="Eparchy: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="sub" id="sub-eparchy">
+          <li><a href="bishop.html" data-i18n="ep.nav.bishop">Bishop</a></li>
+          <li><a href="priests.html" data-i18n="ep.nav.priests">Priests</a></li>
+          <li><a href="seminary.html" aria-current="page" data-i18n="ep.nav.seminary">Seminary</a></li>
+          <li><a href="religious.html" data-i18n="ep.nav.religious">Religious Orders</a></li>
+        </ul></li>
+      <li class="has-sub"><a href="deaneries.html" data-i18n="ep.nav.deaneries">Deaneries</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-deaneries" aria-label="Deaneries: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="sub" id="sub-deaneries">
+          <li><a href="parishes.html#parishes" data-i18n="pa.nav.parishes">Parishes</a></li>
+          <li><a href="parishes.html#chapels" data-i18n="pa.nav.chapels">Chapels</a></li>
+          <li><a href="parishes.html#sanctuaries" data-i18n="pa.nav.sanctuaries">Sanctuaries</a></li>
+        </ul></li>
+      <li><a href="cesk.html" data-i18n="nav.cesk">CESK</a></li>
+      <li class="has-sub"><a href="pastoral.html" data-i18n="nav.pastoral">Pastoral</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-pastoral" aria-label="Pastoral: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="sub" id="sub-pastoral">
+          <li><a href="liturgy.html" data-i18n="nav.liturgy">Liturgy</a></li>
+          <li><a href="formation.html" data-i18n="nav.formation">Formation</a></li>
+          <li><a href="vocation.html" data-i18n="nav.vocation">Vocation</a></li>
+          <li><a href="pastoral.html#communities" data-i18n="pa.nav.communities">Christian Communities</a></li>
+          <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+        </ul></li>
+      <li class="has-sub"><a href="resources.html" data-i18n="nav.resources">Resources</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-resources" aria-label="Resources: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="sub" id="sub-resources">
+          <li><a href="sermons.html" data-i18n="q.sermons">Sermons</a></li>
+          <li><a href="library.html" data-i18n="lb.title">Library</a></li>
+          <li><a href="liturgy.html#calendar" data-i18n="cal.title">Liturgical Calendar</a></li>
+          <li><a href="news.html#view-list" data-i18n="nav.archive">Archive</a></li>
+        </ul></li>
       <li><a href="contact.html" data-i18n="nav.contact">Contact Us</a></li>
     </ul>
   </div>

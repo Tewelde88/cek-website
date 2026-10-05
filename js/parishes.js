@@ -11,11 +11,11 @@ const tr = (o, f) => (isTi() && o[f + '_ti']) ? o[f + '_ti'] : (o[f] || '');
 const L = () => isTi() ? {
   sample: 'ኣብነት', patron: 'ጠባቒ ቅዱስ', deanery: 'መካን', priest: 'ኣባ ሰበኻ', mass: 'ሰዓታት ቅዳሴ',
   phone: 'ተሌፎን', map: 'ካርታ', parish: 'ቍምስና', meets: 'ኣኼባ', feast: 'በዓል',
-  soon: 'ዝርዝር ሓበሬታ ቀልጢፉ ይመጽእ።', none: 'ዝተረኽበ የለን።', count: n => `${n} ቍምስናታት`
+  soon: 'ዝርዝር ሓበሬታ ቀልጢፉ ይመጽእ።', none: 'ዝተረኽበ የለን።', count: n => `${n} ቍምስናታት`, all: 'ኩሎም መካናት'
 } : {
   sample: 'Example', patron: 'Patron', deanery: 'Deanery', priest: 'Parish priest', mass: 'Mass times',
   phone: 'Phone', map: 'Map', parish: 'Parish', meets: 'Meets', feast: 'Feast',
-  soon: 'Details coming soon.', none: 'No results.', count: n => `${n} parishes`
+  soon: 'Details coming soon.', none: 'No results.', count: n => `${n} parishes`, all: 'All deaneries'
 };
 
 function el(tag, cls, text){
@@ -56,11 +56,26 @@ const q = document.getElementById('parish-q');
 // Opened from a deanery: parishes.html?q=<parish name>
 const urlQ = new URLSearchParams(location.search).get('q');
 if (q && urlQ) q.value = urlQ;
+// Deanery filter (parishes.html?deanery=<name> opens it already filtered)
+let dean = new URLSearchParams(location.search).get('deanery') || '';
+function renderDeaneries(){
+  const box = document.getElementById('dean-chips'); if (!box) return;
+  const names = [...new Set(PARISHES_DATA.parishes.map(p => p.deanery).filter(Boolean))];
+  box.hidden = names.length === 0;
+  box.replaceChildren();
+  ['', ...names].forEach(n => {
+    const p = PARISHES_DATA.parishes.find(x => x.deanery === n);
+    const b = el('button', 'chip-filter', n ? tr(p, 'deanery') : L().all);
+    b.type = 'button'; b.setAttribute('aria-pressed', String(dean === n));
+    b.addEventListener('click', () => { dean = n; renderDeaneries(); renderParishes(); });
+    box.appendChild(b);
+  });
+}
 function renderParishes(){
   const grid = document.getElementById('parish-grid'); if (!grid) return;
   const f = (q && q.value || '').trim().toLowerCase();
   grid.replaceChildren();
-  const list = PARISHES_DATA.parishes.filter(p =>
+  const list = PARISHES_DATA.parishes.filter(p => (!dean || p.deanery === dean) &&
     ['name','name_ti','patron','patron_ti','deanery','deanery_ti','place','place_ti','priest','priest_ti']
       .some(k => (p[k] || '').toLowerCase().includes(f)));
   list.forEach(p => {
@@ -133,7 +148,7 @@ function renderSanctuaries(){
   });
 }
 
-function renderAll(){ renderParishes(); renderChapels(); renderCommunities(); renderSanctuaries(); }
+function renderAll(){ renderDeaneries(); renderParishes(); renderChapels(); renderCommunities(); renderSanctuaries(); }
 document.addEventListener('langchange', renderAll);
 renderAll();
 })();

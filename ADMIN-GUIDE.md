@@ -85,6 +85,14 @@ Admin page → **Contact details**: phone, **email** (the contact form sends mes
 
 Open **Building project → St. Michael’s building project**. Change **Progress (%)** and the church drawing on the home page and on the project page fills up to that number. Set each stage to *Done*, *Under way* or *Next*, add construction photos, and write the story of the project. When the stages are real, untick **Stages are still examples**. Press **Save**.
 
+## 9. Other projects
+
+Open **Projects → Projects list** and press **Add project**. Fill in the name, status (planned / under way / completed), progress, a short description and a photo. They appear on the Projects page after St. Michael’s, which is still edited under **Building project**.
+
+## 10. Deanery of each parish
+
+On **Parishes**, fill in **Deanery** for each parish (the same spelling for every parish of one deanery). The Parishes page then shows a button for each deanery to filter the list.
+
 ## Other ways to upload content
 
 | Way | When to use it |

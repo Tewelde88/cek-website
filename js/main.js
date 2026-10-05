@@ -408,15 +408,27 @@ document.querySelectorAll('[data-open]').forEach(link => {
   render();
 })();
 
-/* ---------- Home: newest sermon inside the Sermons card ---------- */
+/* ---------- Main menu: drop-down lists (click/tap the arrow; Esc or a click outside closes) ---------- */
 (function(){
-  const box = document.getElementById('way-latest');
-  if (!box || typeof SERMONS === 'undefined' || !SERMONS.length) return;
-  const show = () => {
-    const b = document.createElement('b'); b.textContent = titleOf(SERMONS[0]);
-    box.replaceChildren((isTi() ? 'ናይ መወዳእታ ስብከት፡ ' : 'Latest: '), b);
-    box.hidden = false;
-  };
-  document.addEventListener('langchange', show);
-  show();
+  const subs = document.querySelectorAll('.mainnav .has-sub');
+  if (!subs.length) return;
+  const closeAll = except => subs.forEach(li => {
+    if (li === except || !li.classList.contains('is-open')) return;
+    li.classList.remove('is-open'); li.querySelector('.sub-tgl').setAttribute('aria-expanded', 'false');
+  });
+  subs.forEach(li => {
+    const b = li.querySelector('.sub-tgl');
+    b.addEventListener('click', () => {
+      const open = !li.classList.contains('is-open');
+      closeAll(li); li.classList.toggle('is-open', open); b.setAttribute('aria-expanded', String(open));
+    });
+    // Leaving the list with the keyboard closes it
+    li.addEventListener('focusout', e => { if (!li.contains(e.relatedTarget)) closeAll(); });
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    const li = document.querySelector('.mainnav .has-sub.is-open'); if (!li) return;
+    closeAll(); li.querySelector('.sub-tgl').focus();
+  });
+  document.addEventListener('click', e => { if (!e.target.closest('.has-sub')) closeAll(); });
 })();

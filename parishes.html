@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Parishes &amp; Chapels — Catholic Eparchy of Keren</title>
-<meta name="description" content="Parishes, chapels, small Christian communities and sanctuaries of the Catholic Eparchy of Keren, with Mass times and directions.">
+<meta name="description" content="Parishes, chapels and sanctuaries of the Catholic Eparchy of Keren, with Mass times and directions.">
 <meta name="theme-color" content="#16315e">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=202610052200">
-<link rel="stylesheet" href="css/calendar.css?v=202610052200">
-<link rel="stylesheet" href="css/liturgy.css?v=202610052200">
-<link rel="stylesheet" href="css/eparchy.css?v=202610052200">
-<link rel="stylesheet" href="css/parishes.css?v=202610052200">
+<link rel="stylesheet" href="css/style.css?v=202610061010">
+<link rel="stylesheet" href="css/calendar.css?v=202610061010">
+<link rel="stylesheet" href="css/liturgy.css?v=202610061010">
+<link rel="stylesheet" href="css/eparchy.css?v=202610061010">
+<link rel="stylesheet" href="css/parishes.css?v=202610061010">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -61,11 +61,36 @@
     </button>
     <ul id="site-nav">
       <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-      <li><a href="eparchy.html" data-i18n="nav.eparchy">Eparchy</a></li>
-      <li><a href="parishes.html" class="active" aria-current="page" data-i18n="nav.parishes">Parishes &amp; Chapels</a></li>
-      <li><a href="liturgy.html" data-i18n="nav.liturgy">Liturgy</a></li>
       <li><a href="news.html" data-i18n="nav.news">News</a></li>
-      <li><a href="sermons.html" data-i18n="nav.archive">Archive</a></li>
+      <li class="has-sub"><a href="eparchy.html" data-i18n="nav.eparchy">Eparchy</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-eparchy" aria-label="Eparchy: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="sub" id="sub-eparchy">
+          <li><a href="bishop.html" data-i18n="ep.nav.bishop">Bishop</a></li>
+          <li><a href="priests.html" data-i18n="ep.nav.priests">Priests</a></li>
+          <li><a href="seminary.html" data-i18n="ep.nav.seminary">Seminary</a></li>
+          <li><a href="religious.html" data-i18n="ep.nav.religious">Religious Orders</a></li>
+        </ul></li>
+      <li class="has-sub"><a href="deaneries.html" class="active" data-i18n="ep.nav.deaneries">Deaneries</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-deaneries" aria-label="Deaneries: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="sub" id="sub-deaneries">
+          <li><a href="parishes.html#parishes" data-i18n="pa.nav.parishes">Parishes</a></li>
+          <li><a href="parishes.html#chapels" data-i18n="pa.nav.chapels">Chapels</a></li>
+          <li><a href="parishes.html#sanctuaries" data-i18n="pa.nav.sanctuaries">Sanctuaries</a></li>
+        </ul></li>
+      <li><a href="cesk.html" data-i18n="nav.cesk">CESK</a></li>
+      <li class="has-sub"><a href="pastoral.html" data-i18n="nav.pastoral">Pastoral</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-pastoral" aria-label="Pastoral: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="sub" id="sub-pastoral">
+          <li><a href="liturgy.html" data-i18n="nav.liturgy">Liturgy</a></li>
+          <li><a href="formation.html" data-i18n="nav.formation">Formation</a></li>
+          <li><a href="vocation.html" data-i18n="nav.vocation">Vocation</a></li>
+          <li><a href="pastoral.html#communities" data-i18n="pa.nav.communities">Christian Communities</a></li>
+          <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+        </ul></li>
+      <li class="has-sub"><a href="resources.html" data-i18n="nav.resources">Resources</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-resources" aria-label="Resources: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <ul class="sub" id="sub-resources">
+          <li><a href="sermons.html" data-i18n="q.sermons">Sermons</a></li>
+          <li><a href="library.html" data-i18n="lb.title">Library</a></li>
+          <li><a href="liturgy.html#calendar" data-i18n="cal.title">Liturgical Calendar</a></li>
+          <li><a href="news.html#view-list" data-i18n="nav.archive">Archive</a></li>
+        </ul></li>
       <li><a href="contact.html" data-i18n="nav.contact">Contact Us</a></li>
     </ul>
   </div>
@@ -78,7 +103,7 @@
     <div class="wrap">
       <p class="eyebrow eyebrow-light" data-i18n="pa.eyebrow">Catholic Eparchy of Keren</p>
       <h1 data-i18n="nav.parishes">Parishes &amp; Chapels</h1>
-      <p class="page-lead" data-i18n="pa.lead">Find a parish, chapel, Christian community or sanctuary of the Eparchy of Keren — with Mass times, contacts and directions.</p>
+      <p class="page-lead" data-i18n="pa.lead">Find a parish, chapel or sanctuary of the Eparchy of Keren — with Mass times, contacts and directions.</p>
     </div>
   </section>
 
@@ -88,7 +113,6 @@
       <ul>
         <li><a href="#parishes" data-i18n="pa.nav.parishes">Parishes</a></li>
         <li><a href="#chapels" data-i18n="pa.nav.chapels">Chapels</a></li>
-        <li><a href="#communities" data-i18n="pa.nav.communities">Christian Communities</a></li>
         <li><a href="#sanctuaries" data-i18n="pa.nav.sanctuaries">Sanctuaries</a></li>
       </ul>
     </div>
@@ -112,6 +136,8 @@
         </label>
         <span class="pa-count" id="parish-count"></span>
       </div>
+      <!-- Deanery filter: built from the "Deanery" of each parish (Admin page → Parishes) -->
+      <div class="chips pa-deans" id="dean-chips" role="group" aria-label="Deanery" hidden></div>
       <div class="pc-grid" id="parish-grid"></div>
     </div>
   </section>
@@ -131,23 +157,8 @@
     </div>
   </section>
 
-  <!-- ================= 3. CHRISTIAN COMMUNITIES ================= -->
-  <section class="lit-section" id="communities">
-    <div class="wrap">
-      <header class="lit-head">
-        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="9" r="4"/><circle cx="7" cy="13" r="3"/><circle cx="25" cy="13" r="3"/><path d="M9 27c0-4.5 3-8 7-8s7 3.5 7 8M2 25c0-3 2-5.5 5-5.5M30 25c0-3-2-5.5-5-5.5"/></svg></span>
-        <div>
-          <p class="eyebrow eyebrow-red" data-i18n="pa.com.eyebrow">Living Cells of the Parish</p>
-          <h2 class="section-title" data-i18n="pa.nav.communities">Christian Communities</h2>
-          <p class="lit-lead" data-i18n="pa.com.lead">Small Christian communities bring neighbours together to pray, read the Word of God and support one another as living cells of the parish.</p>
-        </div>
-      </header>
-      <div class="pc-grid" id="community-grid"></div>
-    </div>
-  </section>
-
-  <!-- ================= 4. SANCTUARIES ================= -->
-  <section class="lit-section alt" id="sanctuaries">
+  <!-- ================= 3. SANCTUARIES ================= -->
+  <section class="lit-section" id="sanctuaries">
     <div class="wrap">
       <header class="lit-head">
         <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 2l3 6h-6z"/><path d="M8 29V14h16v15z"/><path d="M5 14h22M12 29v-6a4 4 0 0 1 8 0v6"/></svg></span>

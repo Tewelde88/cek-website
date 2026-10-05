@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Deaneries — Catholic Eparchy of Keren</title>
-<meta name="description" content="Deaneries and their parishes in the Catholic Eparchy of Keren.">
+<title>Projects — Catholic Eparchy of Keren</title>
+<meta name="description" content="Building and development projects of the Catholic Eparchy of Keren and their progress.">
 <meta name="theme-color" content="#16315e">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/logo.png">
@@ -14,16 +14,12 @@
 <link rel="stylesheet" href="css/style.css?v=202610061010">
 <link rel="stylesheet" href="css/calendar.css?v=202610061010">
 <link rel="stylesheet" href="css/liturgy.css?v=202610061010">
-<link rel="stylesheet" href="css/news.css?v=202610061010">
-<link rel="stylesheet" href="css/resources.css?v=202610061010">
-<link rel="stylesheet" href="css/eparchy.css?v=202610061010">
+<link rel="stylesheet" href="css/pages.css?v=202610061010">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
 <body>
-
 <a class="skip-link" href="#content" data-i18n="skip">Skip to content</a>
-
 <!-- ================= TOP BAR: logo, name, language, search ================= -->
 <header class="topbar">
   <div class="wrap topbar-inner">
@@ -36,7 +32,6 @@
         <span class="brand-motto" data-i18n="motto">Faith • Service • Communion</span>
       </span>
     </a>
-
     <div class="topbar-tools">
       <div class="lang-switch" role="group" aria-label="Language / ቋንቋ">
         <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
@@ -52,7 +47,6 @@
     </div>
   </div>
 </header>
-
 <!-- ================= MAIN MENU ================= -->
 <nav class="mainnav" aria-label="Main">
   <div class="wrap mainnav-inner">
@@ -70,20 +64,20 @@
           <li><a href="seminary.html" data-i18n="ep.nav.seminary">Seminary</a></li>
           <li><a href="religious.html" data-i18n="ep.nav.religious">Religious Orders</a></li>
         </ul></li>
-      <li class="has-sub"><a href="deaneries.html" class="active" aria-current="page" data-i18n="ep.nav.deaneries">Deaneries</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-deaneries" aria-label="Deaneries: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <li class="has-sub"><a href="deaneries.html" data-i18n="ep.nav.deaneries">Deaneries</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-deaneries" aria-label="Deaneries: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         <ul class="sub" id="sub-deaneries">
           <li><a href="parishes.html#parishes" data-i18n="pa.nav.parishes">Parishes</a></li>
           <li><a href="parishes.html#chapels" data-i18n="pa.nav.chapels">Chapels</a></li>
           <li><a href="parishes.html#sanctuaries" data-i18n="pa.nav.sanctuaries">Sanctuaries</a></li>
         </ul></li>
       <li><a href="cesk.html" data-i18n="nav.cesk">CESK</a></li>
-      <li class="has-sub"><a href="pastoral.html" data-i18n="nav.pastoral">Pastoral</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-pastoral" aria-label="Pastoral: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <li class="has-sub"><a href="pastoral.html" class="active" data-i18n="nav.pastoral">Pastoral</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-pastoral" aria-label="Pastoral: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         <ul class="sub" id="sub-pastoral">
           <li><a href="liturgy.html" data-i18n="nav.liturgy">Liturgy</a></li>
           <li><a href="formation.html" data-i18n="nav.formation">Formation</a></li>
           <li><a href="vocation.html" data-i18n="nav.vocation">Vocation</a></li>
           <li><a href="pastoral.html#communities" data-i18n="pa.nav.communities">Christian Communities</a></li>
-          <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="projects.html" aria-current="page" data-i18n="nav.projects">Projects</a></li>
         </ul></li>
       <li class="has-sub"><a href="resources.html" data-i18n="nav.resources">Resources</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-resources" aria-label="Resources: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         <ul class="sub" id="sub-resources">
@@ -96,37 +90,20 @@
     </ul>
   </div>
 </nav>
-
-<main id="content" class="lit-page ep-page ep-sub">
-
-  <section class="page-head ep-head">
+<main id="content" class="lit-page pages-page">
+  <section class="page-head">
     <div class="wrap">
-      <p class="crumbs"><a href="eparchy.html" data-i18n="ep.title">The Eparchy</a> <span aria-hidden="true">›</span> <span data-i18n="ep.nav.deaneries">Deaneries</span></p>
-      <h1 data-i18n="ep.nav.deaneries">Deaneries</h1>
-      <p class="page-lead" data-i18n="ep.dean.lead">The parishes of the Eparchy are grouped into deaneries, which help priests and communities to work together in pastoral care.</p>
+      <p class="eyebrow eyebrow-light" data-i18n="nav.pastoral">Pastoral</p>
+      <h1 data-i18n="nav.projects">Projects</h1>
+      <p class="page-lead" data-i18n="pj.lead">Projects of the Eparchy and how far each one has come.</p>
     </div>
   </section>
-  <!-- ===== Eparchy tabs (same on all Eparchy pages) ===== -->
-  <nav class="subnav ep-tabs" aria-label="Eparchy sections">
+
+  <!-- Projects: St. Michael's comes from data/building.json, the others from data/projects.json (Admin page → Projects) -->
+  <section class="lit-section" aria-labelledby="pj-title">
     <div class="wrap">
-      <ul>
-        <li><a href="eparchy.html" data-tab="eparchy"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span data-i18n="ep.nav.overview">Overview</span></a></li>
-        <li><a href="bishop.html" data-tab="bishop"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v4M10 4h4M6 21V11c0-3 2.7-5 6-5s6 2 6 5v10z"/></svg><span data-i18n="ep.nav.bishop">Bishop</span></a></li>
-        <li><a href="priests.html" data-tab="priests"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8M10.5 13h3v3h-3z"/></svg><span data-i18n="ep.nav.priests">Priests</span></a></li>
-        <li><a href="seminary.html" data-tab="seminary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg><span data-i18n="ep.nav.seminary">Seminary</span></a></li>
-        <li><a href="deaneries.html" data-tab="deaneries" class="active" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l9 6v13H3V8z"/><path d="M10 21v-5h4v5"/></svg><span data-i18n="ep.nav.deaneries">Deaneries</span></a></li>
-        <li><a href="religious.html" data-tab="religious"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="7" r="3"/><circle cx="16" cy="7" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M10 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg><span data-i18n="ep.nav.religious">Religious Orders</span></a></li>
-      </ul>
-    </div>
-  </nav>
-  <section class="lit-section">
-    <div class="wrap">
-      <!-- Deaneries come from data/eparchy.json — add them on the Admin page -->
-      <div class="ep-toolbar">
-        <p class="ep-count" id="deanery-count" aria-live="polite"></p>
-        <button type="button" class="r-btn" id="deanery-all" aria-pressed="false"><span class="when-closed" data-i18n="ep.dean.open">Open all</span><span class="when-open" data-i18n="ep.dean.close">Close all</span></button>
-      </div>
-      <div class="dn-list" id="deanery-grid"></div>
+      <h2 class="sr-only" id="pj-title" data-i18n="nav.projects">Projects</h2>
+      <div class="pj-grid" id="pj-grid"></div>
     </div>
   </section>
 </main>
@@ -149,6 +126,6 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json" data-scripts="js/main.js js/eparchy.js"></script>
+<script src="js/boot.js" data-json="BUILDING=data/building.json PROJECTS=data/projects.json#projects" data-scripts="js/main.js js/projects.js"></script>
 </body>
 </html>

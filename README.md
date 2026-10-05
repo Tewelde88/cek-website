@@ -24,6 +24,11 @@ Bilingual (English ⇄ Tigrinya), works on phones, tablets and computers. Plain 
 | CESK — Caritas | `cesk.html` | — |
 | Contact Us | `contact.html` | address, phone, email, WhatsApp, offices |
 | St. Michael’s building project | `building.html` | progress (church drawing), stages, story, photos, how to help — data in `data/building.json` |
+| Pastoral | `pastoral.html` | hub: Liturgy, Formation, Vocation, Projects + Christian communities (from `data/parishes.json`) |
+| Resources | `resources.html` | hub: Sermons, Library, Liturgical calendar, Archive |
+| Projects | `projects.html` | St. Michael’s (from `data/building.json`) + other projects from `data/projects.json` |
+| Formation | `formation.html` | catechesis, youth, families, catechists, liturgical formation |
+| Vocation | `vocation.html` | priesthood, religious life, first steps, prayer for vocations |
 
 ## Where things are
 ```
@@ -53,3 +58,11 @@ VS Code → install **Live Server** → right-click `index.html` → **Open with
 
 ## Liturgical calendar
 Ethiopian (Ge'ez rite) calendar with Gregorian dates. Easter (Fasika) uses the Alexandrian computus (same date as the Ethiopian/Eritrean Churches); movable feasts and fasts are counted from it. Christmas is 29 Tahsas (28 Tahsas in the year after a leap year), so it stays on 7 January.
+
+## Main menu
+
+Home · News · Eparchy ▾ · Deaneries ▾ · CESK · Pastoral ▾ · Resources ▾ · Contact us.
+The menu is the same on every page; the drop-down lists are built from the list at the top of the
+menu script used to write them (keep all pages identical when you change it). Christian communities
+are shown on the Pastoral page; parishes can be filtered by deanery (fill in “Deanery” for each parish
+on the Admin page).

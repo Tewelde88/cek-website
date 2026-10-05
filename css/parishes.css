@@ -31,3 +31,11 @@ html[lang="ti"] .pc-facts div{grid-template-columns:120px 1fr}
 .map-btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2}
 .map-btn:hover{background:var(--navy);color:#fff;text-decoration:none}
 @media (max-width:420px){ .pc-facts div{grid-template-columns:1fr;gap:0} }
+
+/* Deanery filter */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.pa-deans{margin:-6px 0 22px}
+.chip-filter{min-height:36px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--navy);font-weight:600;font-size:.85rem;cursor:pointer}
+.chip-filter:hover{border-color:var(--navy)}
+.chip-filter[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+html[lang="ti"] .chip-filter{font-family:var(--ethiopic)}

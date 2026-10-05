@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Deaneries — Catholic Eparchy of Keren</title>
-<meta name="description" content="Deaneries and their parishes in the Catholic Eparchy of Keren.">
+<title>Vocation — Catholic Eparchy of Keren</title>
+<meta name="description" content="Vocations in the Catholic Eparchy of Keren: priesthood, religious life and first steps in discernment.">
 <meta name="theme-color" content="#16315e">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/logo.png">
@@ -14,16 +14,12 @@
 <link rel="stylesheet" href="css/style.css?v=202610061010">
 <link rel="stylesheet" href="css/calendar.css?v=202610061010">
 <link rel="stylesheet" href="css/liturgy.css?v=202610061010">
-<link rel="stylesheet" href="css/news.css?v=202610061010">
-<link rel="stylesheet" href="css/resources.css?v=202610061010">
-<link rel="stylesheet" href="css/eparchy.css?v=202610061010">
+<link rel="stylesheet" href="css/pages.css?v=202610061010">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
 <body>
-
 <a class="skip-link" href="#content" data-i18n="skip">Skip to content</a>
-
 <!-- ================= TOP BAR: logo, name, language, search ================= -->
 <header class="topbar">
   <div class="wrap topbar-inner">
@@ -36,7 +32,6 @@
         <span class="brand-motto" data-i18n="motto">Faith • Service • Communion</span>
       </span>
     </a>
-
     <div class="topbar-tools">
       <div class="lang-switch" role="group" aria-label="Language / ቋንቋ">
         <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
@@ -52,7 +47,6 @@
     </div>
   </div>
 </header>
-
 <!-- ================= MAIN MENU ================= -->
 <nav class="mainnav" aria-label="Main">
   <div class="wrap mainnav-inner">
@@ -70,18 +64,18 @@
           <li><a href="seminary.html" data-i18n="ep.nav.seminary">Seminary</a></li>
           <li><a href="religious.html" data-i18n="ep.nav.religious">Religious Orders</a></li>
         </ul></li>
-      <li class="has-sub"><a href="deaneries.html" class="active" aria-current="page" data-i18n="ep.nav.deaneries">Deaneries</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-deaneries" aria-label="Deaneries: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <li class="has-sub"><a href="deaneries.html" data-i18n="ep.nav.deaneries">Deaneries</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-deaneries" aria-label="Deaneries: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         <ul class="sub" id="sub-deaneries">
           <li><a href="parishes.html#parishes" data-i18n="pa.nav.parishes">Parishes</a></li>
           <li><a href="parishes.html#chapels" data-i18n="pa.nav.chapels">Chapels</a></li>
           <li><a href="parishes.html#sanctuaries" data-i18n="pa.nav.sanctuaries">Sanctuaries</a></li>
         </ul></li>
       <li><a href="cesk.html" data-i18n="nav.cesk">CESK</a></li>
-      <li class="has-sub"><a href="pastoral.html" data-i18n="nav.pastoral">Pastoral</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-pastoral" aria-label="Pastoral: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <li class="has-sub"><a href="pastoral.html" class="active" data-i18n="nav.pastoral">Pastoral</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-pastoral" aria-label="Pastoral: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         <ul class="sub" id="sub-pastoral">
           <li><a href="liturgy.html" data-i18n="nav.liturgy">Liturgy</a></li>
           <li><a href="formation.html" data-i18n="nav.formation">Formation</a></li>
-          <li><a href="vocation.html" data-i18n="nav.vocation">Vocation</a></li>
+          <li><a href="vocation.html" aria-current="page" data-i18n="nav.vocation">Vocation</a></li>
           <li><a href="pastoral.html#communities" data-i18n="pa.nav.communities">Christian Communities</a></li>
           <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
         </ul></li>
@@ -96,37 +90,72 @@
     </ul>
   </div>
 </nav>
-
-<main id="content" class="lit-page ep-page ep-sub">
-
-  <section class="page-head ep-head">
+<main id="content" class="lit-page pages-page">
+  <section class="page-head">
     <div class="wrap">
-      <p class="crumbs"><a href="eparchy.html" data-i18n="ep.title">The Eparchy</a> <span aria-hidden="true">›</span> <span data-i18n="ep.nav.deaneries">Deaneries</span></p>
-      <h1 data-i18n="ep.nav.deaneries">Deaneries</h1>
-      <p class="page-lead" data-i18n="ep.dean.lead">The parishes of the Eparchy are grouped into deaneries, which help priests and communities to work together in pastoral care.</p>
+      <p class="eyebrow eyebrow-light" data-i18n="nav.pastoral">Pastoral</p>
+      <h1 data-i18n="nav.vocation">Vocation</h1>
+      <p class="page-lead" data-i18n="vc.lead">Is God calling you? Discover the priesthood and religious life, and how to take the first step.</p>
     </div>
   </section>
-  <!-- ===== Eparchy tabs (same on all Eparchy pages) ===== -->
-  <nav class="subnav ep-tabs" aria-label="Eparchy sections">
+
+  <section class="lit-section" id="paths">
     <div class="wrap">
-      <ul>
-        <li><a href="eparchy.html" data-tab="eparchy"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span data-i18n="ep.nav.overview">Overview</span></a></li>
-        <li><a href="bishop.html" data-tab="bishop"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v4M10 4h4M6 21V11c0-3 2.7-5 6-5s6 2 6 5v10z"/></svg><span data-i18n="ep.nav.bishop">Bishop</span></a></li>
-        <li><a href="priests.html" data-tab="priests"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8M10.5 13h3v3h-3z"/></svg><span data-i18n="ep.nav.priests">Priests</span></a></li>
-        <li><a href="seminary.html" data-tab="seminary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg><span data-i18n="ep.nav.seminary">Seminary</span></a></li>
-        <li><a href="deaneries.html" data-tab="deaneries" class="active" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l9 6v13H3V8z"/><path d="M10 21v-5h4v5"/></svg><span data-i18n="ep.nav.deaneries">Deaneries</span></a></li>
-        <li><a href="religious.html" data-tab="religious"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="7" r="3"/><circle cx="16" cy="7" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M10 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg><span data-i18n="ep.nav.religious">Religious Orders</span></a></li>
-      </ul>
-    </div>
-  </nav>
-  <section class="lit-section">
-    <div class="wrap">
-      <!-- Deaneries come from data/eparchy.json — add them on the Admin page -->
-      <div class="ep-toolbar">
-        <p class="ep-count" id="deanery-count" aria-live="polite"></p>
-        <button type="button" class="r-btn" id="deanery-all" aria-pressed="false"><span class="when-closed" data-i18n="ep.dean.open">Open all</span><span class="when-open" data-i18n="ep.dean.close">Close all</span></button>
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M13 29V11a5.5 5.5 0 0 1 11 0v2"/><path d="M24 13a1.8 1.8 0 0 1-3.6 0"/><path d="M8 29h11"/></svg></span>
+        <div>
+          <h2 class="section-title" data-i18n="vc.h1">Ways to serve</h2>
+          <p class="lit-lead" data-i18n="vc.h1.lead">God calls each person by name. These are the paths of life in the Church.</p>
+        </div>
+      </header>
+      <div class="lit-cards">
+        <article class="lit-card">
+          <span class="card-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3v5M13.5 5.5h5"/><path d="M8 29V17c0-4 3.6-7 8-7s8 3 8 7v12z"/><path d="M14 13h4v5h-4z"/></svg></span>
+          <h3 data-i18n="vc.p1.t">Priesthood</h3>
+          <p data-i18n="vc.p1.p">Serving the People of God at the altar and in the parish. Formation begins in the seminary.</p>
+          <a class="more" href="seminary.html"><span data-i18n="ep.nav.seminary">Seminary</span></a>
+        </article>
+        <article class="lit-card">
+          <span class="card-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M9 29v-9c0-5 3.1-9 7-9s7 4 7 9v9"/><path d="M11.5 18.5c0-3.2 2-5.5 4.5-5.5s4.5 2.3 4.5 5.5"/><path d="M16 22v5M14 24h4"/></svg></span>
+          <h3 data-i18n="vc.p2.t">Religious life</h3>
+          <p data-i18n="vc.p2.p">Consecrated life as a sister or brother in one of the religious communities of the Eparchy.</p>
+          <a class="more" href="religious.html"><span data-i18n="ep.nav.religious">Religious Orders</span></a>
+        </article>
+        <article class="lit-card">
+          <span class="card-ic" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="8" r="3.5"/><path d="M8 28c0-5 3.6-9 8-9s8 4 8 9"/><path d="M6 15l3 2M26 15l-3 2"/></svg></span>
+          <h3 data-i18n="vc.p3.t">Married and lay life</h3>
+          <p data-i18n="vc.p3.p">Every baptised person is called to holiness — in the family, at work and in service to the parish.</p>
+        </article>
       </div>
-      <div class="dn-list" id="deanery-grid"></div>
+    </div>
+  </section>
+
+  <section class="lit-section alt" id="steps">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="8" r="3.5"/><path d="M8 28c0-5 3.6-9 8-9s8 4 8 9"/><path d="M6 15l3 2M26 15l-3 2"/></svg></span>
+        <div>
+          <h2 class="section-title" data-i18n="vc.h2">First steps</h2>
+          <p class="lit-lead" data-i18n="vc.h2.lead">You do not need to have every answer. Begin here.</p>
+        </div>
+      </header>
+      <ol class="vc-steps">
+        <li><strong data-i18n="vc.s1.t">Pray</strong><span data-i18n="vc.s1.p">Ask God in prayer what He wants for your life.</span></li>
+        <li><strong data-i18n="vc.s2.t">Talk to your parish priest</strong><span data-i18n="vc.s2.p">Share your questions with a priest you trust.</span></li>
+        <li><strong data-i18n="vc.s3.t">Meet the vocation director</strong><span data-i18n="vc.s3.p">The Eparchy accompanies young people who are discerning their call.</span></li>
+        <li><strong data-i18n="vc.s4.t">Come and see</strong><span data-i18n="vc.s4.p">Visit the seminary or a religious community.</span></li>
+      </ol>
+      <p class="pg-actions"><a class="btn btn-red" href="contact.html" data-i18n="vc.cta">Talk to the vocation director</a></p>
+    </div>
+  </section>
+
+  <section class="lit-section" id="prayer" aria-labelledby="vc-prayer">
+    <div class="wrap">
+      <figure class="vc-prayer">
+        <h2 id="vc-prayer" data-i18n="vc.h3">Prayer for vocations</h2>
+        <blockquote><p data-i18n="vc.prayer">Lord of the harvest, send labourers into your harvest. Call the young men and women of our Eparchy to serve you with joyful hearts, and give them courage to answer: Here I am. Amen.</p></blockquote>
+        <figcaption data-i18n="vc.prayer.ref">After Matthew 9:38</figcaption>
+      </figure>
     </div>
   </section>
 </main>
@@ -149,6 +178,6 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json" data-scripts="js/main.js js/eparchy.js"></script>
+<script src="js/boot.js" data-json="" data-scripts="js/main.js"></script>
 </body>
 </html>

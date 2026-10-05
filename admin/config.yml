@@ -381,3 +381,35 @@ collections:
               - { name: src, label: "Photo", widget: image, media_folder: /images/building, public_folder: images/building }
               - { name: caption, label: "Caption (English)", widget: string, required: false }
               - { name: caption_ti, label: "Caption (Tigrinya)", widget: string, required: false }
+
+  # ------------------------------------------------------------
+  #  PROJECTS  (projects.html — St. Michael's is added automatically
+  #  from "Building project"; list the other projects here)
+  # ------------------------------------------------------------
+  - name: projects
+    label: "Projects"
+    icon: handyman
+    description: "Other projects of the Eparchy (St. Michael’s is edited under “Building project”)."
+    files:
+      - name: projects
+        label: "Projects list"
+        file: data/projects.json
+        fields:
+          - name: projects
+            label: "Projects"
+            label_singular: "project"
+            widget: list
+            required: false
+            summary: "{{fields.title}} — {{fields.percent}}%"
+            fields:
+              - { name: title, label: "Name (English)", widget: string }
+              - { name: title_ti, label: "Name (Tigrinya)", widget: string, required: false }
+              - { name: status, label: "Status", widget: select, default: current,
+                  options: [ { label: "Planned", value: planned }, { label: "Under way", value: current }, { label: "Completed", value: done } ] }
+              - { name: percent, label: "Progress (%)", widget: number, value_type: int, min: 0, max: 100, required: false }
+              - { name: place, label: "Place (English)", widget: string, required: false }
+              - { name: place_ti, label: "Place (Tigrinya)", widget: string, required: false }
+              - { name: summary, label: "Short description (English)", widget: text, required: false }
+              - { name: summary_ti, label: "Short description (Tigrinya)", widget: text, required: false }
+              - { name: image, label: "Photo", widget: image, required: false, media_folder: /images/projects, public_folder: images/projects }
+              - { name: link, label: "Link for “See the project” (optional)", widget: string, required: false }
