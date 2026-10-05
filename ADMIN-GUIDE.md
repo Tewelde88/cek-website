@@ -81,6 +81,10 @@ Admin page → **Contact details**: phone, **email** (the contact form sends mes
 
 ---
 
+## 8. St. Michael’s building project
+
+Open **Building project → St. Michael’s building project**. Change **Progress (%)** and the church drawing on the home page and on the project page fills up to that number. Set each stage to *Done*, *Under way* or *Next*, add construction photos, and write the story of the project. When the stages are real, untick **Stages are still examples**. Press **Save**.
+
 ## Other ways to upload content
 
 | Way | When to use it |

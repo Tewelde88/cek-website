@@ -336,3 +336,48 @@ collections:
               - { name: email, label: "Email", widget: string, required: false }
               - { name: link, label: "Link to a page (optional)", widget: string, required: false }
               - { name: sample, label: "Example entry", widget: boolean, default: false, required: false }
+
+  # ------------------------------------------------------------
+  #  BUILDING PROJECT  (home page block + building.html)
+  # ------------------------------------------------------------
+  - name: building
+    label: "Building project"
+    icon: construction
+    description: "St. Michael’s: progress percentage, stages, story and photos."
+    files:
+      - name: building
+        label: "St. Michael’s building project"
+        file: data/building.json
+        fields:
+          - { name: percent, label: "Progress (%)", widget: number, value_type: int, min: 0, max: 100, hint: "The church drawing fills up to this number" }
+          - { name: updated, label: "Last updated", widget: datetime, format: "YYYY-MM-DD", time_format: false, picker_utc: true, required: false }
+          - { name: name, label: "Name (English)", widget: string }
+          - { name: name_ti, label: "Name (Tigrinya)", widget: string, required: false }
+          - { name: place, label: "Place (English)", widget: string, required: false }
+          - { name: place_ti, label: "Place (Tigrinya)", widget: string, required: false }
+          - { name: summary, label: "One-line summary (English)", widget: string, required: false }
+          - { name: summary_ti, label: "One-line summary (Tigrinya)", widget: string, required: false }
+          - { name: about, label: "About the project (English)", widget: text, required: false, hint: "Leave an empty line between paragraphs" }
+          - { name: about_ti, label: "About the project (Tigrinya)", widget: text, required: false }
+          - { name: stages_are_examples, label: "Stages are still examples (shows an 'Example' tag)", widget: boolean, default: false, required: false }
+          - name: stages
+            label: "Building stages"
+            label_singular: "stage"
+            widget: list
+            summary: "{{fields.title}} — {{fields.status}}"
+            fields:
+              - { name: title, label: "Stage (English)", widget: string }
+              - { name: title_ti, label: "Stage (Tigrinya)", widget: string, required: false }
+              - { name: status, label: "Status", widget: select, default: planned,
+                  options: [ { label: "Done", value: done }, { label: "Under way", value: current }, { label: "Next / planned", value: planned } ] }
+              - { name: date, label: "Date (optional)", widget: datetime, format: "YYYY-MM-DD", time_format: false, picker_utc: true, required: false }
+          - name: photos
+            label: "Construction photos"
+            label_singular: "photo"
+            widget: list
+            required: false
+            summary: "{{fields.caption}}"
+            fields:
+              - { name: src, label: "Photo", widget: image, media_folder: /images/building, public_folder: images/building }
+              - { name: caption, label: "Caption (English)", widget: string, required: false }
+              - { name: caption_ti, label: "Caption (Tigrinya)", widget: string, required: false }

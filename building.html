@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Parishes &amp; Chapels — Catholic Eparchy of Keren</title>
-<meta name="description" content="Parishes, chapels, small Christian communities and sanctuaries of the Catholic Eparchy of Keren, with Mass times and directions.">
+<title>St. Michael’s Building Project — Catholic Eparchy of Keren</title>
+<meta name="description" content="St. Michael’s building project of the Catholic Eparchy of Keren: progress, stages, photos and how to help.">
 <meta name="theme-color" content="#16315e">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/logo.png">
@@ -14,15 +14,13 @@
 <link rel="stylesheet" href="css/style.css?v=202610052130">
 <link rel="stylesheet" href="css/calendar.css?v=202610052130">
 <link rel="stylesheet" href="css/liturgy.css?v=202610052130">
-<link rel="stylesheet" href="css/eparchy.css?v=202610052130">
-<link rel="stylesheet" href="css/parishes.css?v=202610052130">
+<link rel="stylesheet" href="css/resources.css?v=202610052130">
+<link rel="stylesheet" href="css/building.css?v=202610052130">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
 <body>
-
 <a class="skip-link" href="#content" data-i18n="skip">Skip to content</a>
-
 <!-- ================= TOP BAR: logo, name, language, search ================= -->
 <header class="topbar">
   <div class="wrap topbar-inner">
@@ -35,7 +33,6 @@
         <span class="brand-motto" data-i18n="motto">Faith • Service • Communion</span>
       </span>
     </a>
-
     <div class="topbar-tools">
       <div class="lang-switch" role="group" aria-label="Language / ቋንቋ">
         <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
@@ -51,7 +48,6 @@
     </div>
   </div>
 </header>
-
 <!-- ================= MAIN MENU ================= -->
 <nav class="mainnav" aria-label="Main">
   <div class="wrap mainnav-inner">
@@ -62,7 +58,7 @@
     <ul id="site-nav">
       <li><a href="index.html" data-i18n="nav.home">Home</a></li>
       <li><a href="eparchy.html" data-i18n="nav.eparchy">Eparchy</a></li>
-      <li><a href="parishes.html" class="active" aria-current="page" data-i18n="nav.parishes">Parishes &amp; Chapels</a></li>
+      <li><a href="parishes.html" data-i18n="nav.parishes">Parishes &amp; Chapels</a></li>
       <li><a href="liturgy.html" data-i18n="nav.liturgy">Liturgy</a></li>
       <li><a href="news.html" data-i18n="nav.news">News</a></li>
       <li><a href="sermons.html" data-i18n="nav.archive">Archive</a></li>
@@ -70,94 +66,69 @@
     </ul>
   </div>
 </nav>
+<main id="content" class="lit-page bp-page">
 
-<main id="content" class="lit-page pa-page">
-
-  <!-- ================= PAGE TITLE ================= -->
   <section class="page-head">
     <div class="wrap">
-      <p class="eyebrow eyebrow-light" data-i18n="pa.eyebrow">Catholic Eparchy of Keren</p>
-      <h1 data-i18n="nav.parishes">Parishes &amp; Chapels</h1>
-      <p class="page-lead" data-i18n="pa.lead">Find a parish, chapel, Christian community or sanctuary of the Eparchy of Keren — with Mass times, contacts and directions.</p>
+      <p class="eyebrow eyebrow-light" data-i18n="build.eyebrow">Building Project</p>
+      <h1 data-i18n="bp.title">St. Michael’s Building Project</h1>
+      <p class="page-lead" data-i18n="build.text">Together we build a home for prayer, education and community.</p>
     </div>
   </section>
 
-  <!-- ================= SUB-MENU (sticky) ================= -->
-  <nav class="subnav" aria-label="Parishes and chapels sections">
+  <nav class="subnav" aria-label="Project sections">
     <div class="wrap">
       <ul>
-        <li><a href="#parishes" data-i18n="pa.nav.parishes">Parishes</a></li>
-        <li><a href="#chapels" data-i18n="pa.nav.chapels">Chapels</a></li>
-        <li><a href="#communities" data-i18n="pa.nav.communities">Christian Communities</a></li>
-        <li><a href="#sanctuaries" data-i18n="pa.nav.sanctuaries">Sanctuaries</a></li>
+        <li><a href="#progress" data-i18n="bp.nav.progress">Progress</a></li>
+        <li><a href="#stages" data-i18n="bp.nav.stages">Stages</a></li>
+        <li><a href="#about" data-i18n="bp.nav.about">About the project</a></li>
+        <li><a href="#photos" data-i18n="bp.nav.photos">Photos</a></li>
+        <li><a href="#help" data-i18n="bp.nav.help">How to help</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- ================= 1. PARISHES (list in data/parishes.json — edit on the Admin page) ================= -->
-  <section class="lit-section" id="parishes">
+  <!-- Everything below comes from data/building.json — edit it on the Admin page ("Building project") -->
+  <section class="lit-section" id="progress">
     <div class="wrap">
-      <header class="lit-head">
-        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 2v6M13 5h6"/><path d="M6 29V16l10-7 10 7v13z"/><path d="M13 29v-7h6v7"/></svg></span>
-        <div>
-          <p class="eyebrow eyebrow-red" data-i18n="pa.par.eyebrow">Our Parish Family</p>
-          <h2 class="section-title" data-i18n="pa.nav.parishes">Parishes</h2>
-          <p class="lit-lead" data-i18n="pa.par.lead">The parishes of the Eparchy are the home of the faithful: here we celebrate the Divine Liturgy, receive the sacraments and live as one family in Christ.</p>
-        </div>
-      </header>
-      <div class="pa-tools">
-        <label class="ep-search">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-          <input type="search" id="parish-q" placeholder="Find a parish by name, place or priest…" data-i18n-placeholder="pa.par.search" aria-label="Search parishes">
-        </label>
-        <span class="pa-count" id="parish-count"></span>
+      <h2 class="sr-only" data-i18n="bp.nav.progress">Progress</h2>
+      <div class="bp-overview" id="bp-overview"></div>
+    </div>
+  </section>
+
+  <section class="lit-section alt" id="stages">
+    <div class="wrap bp-two">
+      <div>
+        <h2 class="section-title" data-i18n="bp.nav.stages">Stages</h2>
+        <p class="lit-lead" data-i18n="bp.stages.lead">From the foundation to the blessing of the finished building.</p>
+        <span class="sample-tag" id="bp-example" hidden data-i18n="bp.example">Example stages — edit on the Admin page</span>
       </div>
-      <div class="pc-grid" id="parish-grid"></div>
+      <div id="bp-stage-list"></div>
     </div>
   </section>
 
-  <!-- ================= 2. CHAPELS ================= -->
-  <section class="lit-section alt" id="chapels">
-    <div class="wrap">
-      <header class="lit-head">
-        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3v5M13.5 5.5h5"/><path d="M9 29V15l7-5 7 5v14z"/><path d="M14 29v-5h4v5"/></svg></span>
-        <div>
-          <p class="eyebrow eyebrow-red" data-i18n="pa.cha.eyebrow">Close to Every Village</p>
-          <h2 class="section-title" data-i18n="pa.nav.chapels">Chapels</h2>
-          <p class="lit-lead" data-i18n="pa.cha.lead">Chapels serve villages and neighbourhoods within a parish, bringing the Eucharist and prayer close to the faithful.</p>
-        </div>
-      </header>
-      <div class="pc-grid" id="chapel-grid"></div>
+  <section class="lit-section" id="about">
+    <div class="wrap bp-two">
+      <h2 class="section-title" data-i18n="bp.nav.about">About the project</h2>
+      <div class="bp-about" id="bp-about"></div>
     </div>
   </section>
 
-  <!-- ================= 3. CHRISTIAN COMMUNITIES ================= -->
-  <section class="lit-section" id="communities">
+  <section class="lit-section alt" id="photos">
     <div class="wrap">
-      <header class="lit-head">
-        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="9" r="4"/><circle cx="7" cy="13" r="3"/><circle cx="25" cy="13" r="3"/><path d="M9 27c0-4.5 3-8 7-8s7 3.5 7 8M2 25c0-3 2-5.5 5-5.5M30 25c0-3-2-5.5-5-5.5"/></svg></span>
-        <div>
-          <p class="eyebrow eyebrow-red" data-i18n="pa.com.eyebrow">Living Cells of the Parish</p>
-          <h2 class="section-title" data-i18n="pa.nav.communities">Christian Communities</h2>
-          <p class="lit-lead" data-i18n="pa.com.lead">Small Christian communities bring neighbours together to pray, read the Word of God and support one another as living cells of the parish.</p>
-        </div>
-      </header>
-      <div class="pc-grid" id="community-grid"></div>
+      <h2 class="section-title" data-i18n="bp.nav.photos">Photos</h2>
+      <div class="bp-photos" id="bp-photos"></div>
     </div>
   </section>
 
-  <!-- ================= 4. SANCTUARIES ================= -->
-  <section class="lit-section alt" id="sanctuaries">
+  <section class="lit-section" id="help">
     <div class="wrap">
-      <header class="lit-head">
-        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 2l3 6h-6z"/><path d="M8 29V14h16v15z"/><path d="M5 14h22M12 29v-6a4 4 0 0 1 8 0v6"/></svg></span>
-        <div>
-          <p class="eyebrow eyebrow-red" data-i18n="pa.san.eyebrow">Places of Pilgrimage</p>
-          <h2 class="section-title" data-i18n="pa.nav.sanctuaries">Sanctuaries</h2>
-          <p class="lit-lead" data-i18n="pa.san.lead">Sanctuaries and places of pilgrimage where the faithful come to pray, especially on their feast days.</p>
-        </div>
-      </header>
-      <div class="pc-grid" id="sanctuary-grid"></div>
+      <h2 class="section-title" data-i18n="bp.nav.help">How to help</h2>
+      <div class="lit-cards bp-help">
+        <article class="lit-card"><h3 data-i18n="bp.h1.t">Pray</h3><p data-i18n="bp.h1.p">Remember the builders, the benefactors and the community in your prayers.</p></article>
+        <article class="lit-card"><h3 data-i18n="bp.h2.t">Give</h3><p data-i18n="bp.h2.p">Every gift helps to complete the next stage. Contact the Eparchy to learn how to give.</p><a class="more" href="contact.html" data-i18n="ep.sem.c3.l">Contact us</a></article>
+        <article class="lit-card"><h3 data-i18n="bp.h3.t">Lend a hand</h3><p data-i18n="bp.h3.p">Skills, materials or time — speak with your parish priest about how you can take part.</p><a class="more" href="parishes.html" data-i18n="ct.parish.l">Find a parish</a></article>
+      </div>
     </div>
   </section>
 </main>
@@ -180,6 +151,6 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="PARISHES_DATA=data/parishes.json" data-scripts="js/main.js js/parishes.js"></script>
+<script src="js/boot.js" data-json="BUILDING=data/building.json" data-scripts="js/main.js js/building.js"></script>
 </body>
 </html>

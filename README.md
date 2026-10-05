@@ -23,6 +23,7 @@ Bilingual (English ⇄ Tigrinya), works on phones, tablets and computers. Plain 
 | Library | `library.html` | books and documents (PDF or link) |
 | CESK — Caritas | `cesk.html` | — |
 | Contact Us | `contact.html` | address, phone, email, WhatsApp, offices |
+| St. Michael’s building project | `building.html` | progress (church drawing), stages, story, photos, how to help — data in `data/building.json` |
 
 ## Where things are
 ```

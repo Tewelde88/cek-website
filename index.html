@@ -11,8 +11,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=202610051919">
-<link rel="stylesheet" href="css/home.css?v=202610051919">
+<link rel="stylesheet" href="css/style.css?v=202610052130">
+<link rel="stylesheet" href="css/home.css?v=202610052130">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -164,6 +164,14 @@
     </div>
   </section>
 
+  <!-- ================= ST. MICHAEL'S BUILDING PROJECT (data/building.json — edit on the Admin page) ================= -->
+  <section class="hm-sec hm-tight" aria-labelledby="bp-title">
+    <div class="wrap">
+      <h2 class="sr-only" id="bp-title" data-i18n="build.title">St. Michael’s Building Progress</h2>
+      <div class="bp-home" id="bp-home"></div>
+    </div>
+  </section>
+
   <!-- ================= CALENDAR as a manuscript page (feasts from the Ge'ez calendar) ================= -->
   <section class="hm-sec">
     <div class="wrap">
@@ -180,23 +188,6 @@
     </div>
   </section>
 
-  <!-- ================= BUILDING PROJECT ================= -->
-  <section class="hm-sec hm-tight">
-    <div class="wrap">
-      <div class="build-row">
-        <div>
-          <h2 data-i18n="build.title">St. Michael’s Building Progress</h2>
-          <p data-i18n="build.text">Together we build a home for prayer, education and community.</p>
-        </div>
-        <!-- Change the number in BOTH data-value and the text below -->
-        <div class="progress" role="progressbar" aria-label="Building progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="68" data-value="68">
-          <span class="progress-num">68% <span data-i18n="build.complete">complete</span></span>
-          <div class="bar"><span></span></div>
-        </div>
-        <a class="r-btn" href="contact.html" data-i18n="build.link">Support the Project</a>
-      </div>
-    </div>
-  </section>
 
   <!-- ================= VATICAN NEWS WIDGET =================
        Official widget from https://www.vaticannews.va/widget/embed.html
@@ -233,7 +224,7 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="SERMONS=data/sermons.json#sermons NEWS=data/news.json#posts" data-scripts="js/main.js js/news.js"></script>
+<script src="js/boot.js" data-json="SERMONS=data/sermons.json#sermons NEWS=data/news.json#posts BUILDING=data/building.json" data-scripts="js/main.js js/news.js js/building.js"></script>
 <script src="https://www.vaticannews.va/widget.js" async></script>
 </body>
 </html>
