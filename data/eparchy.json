@@ -7,7 +7,143 @@
       "current": true,
       "photo": "images/bishop.jpg",
       "link": "bishop.html",
-      "sample": false
+      "sample": false,
+      "title": "Bishop of Keren",
+      "title_ti": "ጳጳስ ከረን",
+      "order": "Second Bishop of Keren",
+      "order_ti": "ካልኣይ ጳጳስ ከረን",
+      "motto": "",
+      "motto_ti": "",
+      "summary": "Most Rev. Kidane Yebio, Bishop of Keren, has devoted his life to study, priestly ministry, pastoral service, and leadership. Born in Shnara, Eritrea, his journey from local schools and seminaries to advanced studies in Rome prepared him for decades of service to the Church and the communities of the Eparchy of Keren.",
+      "summary_ti": "ብፁዕ ኣቡነ ኪዳነ የብዮ፣ ጳጳስ ከረን፣ ህይወቶም ንትምህርቲ፣ ክህነት፣ ጓስነታዊ ኣገልግሎትን መሪሕነትን ዝወፈዩ እዮም። ኣብ ሽናራ፣ ኤርትራ ተወሊዶም፤ ካብ ከባብያዊ ኣብያተ ትምህርትን ሰሚናራትን ጀሚሩ ክሳብ ላዕለዋይ ትምህርቲ ኣብ ሮማ ዝበጽሐ ጉዕዞኦም፣ ንነዊሕ ዓመታት ንቤተ ክርስቲያንን ንማሕበረሰብ ኤጳርቅና ከረንን ንኸገልግሉ ኣዳልዩዎም።",
+      "facts": [
+        {
+          "label": "Born",
+          "label_ti": "ልደት",
+          "value": "25 January 1958, Shnara, Eritrea",
+          "value_ti": "25 ጥሪ 1958፣ ሽናራ፣ ኤርትራ"
+        },
+        {
+          "label": "Ordained priest",
+          "label_ti": "ሲመተ ክህነት",
+          "value": "30 June 1985",
+          "value_ti": "30 ሰነ 1985"
+        },
+        {
+          "label": "Consecrated bishop",
+          "label_ti": "ሲመተ ጵጵስና",
+          "value": "2 March 2003 — second Bishop of Keren",
+          "value_ti": "2 መጋቢት 2003 — ካልኣይ ጳጳስ ከረን"
+        },
+        {
+          "label": "Languages",
+          "label_ti": "ቋንቋታት",
+          "value": "Blin, Tigre, Tigrigna, Amharic, English, Italian",
+          "value_ti": "ብሊን፣ ትግረ፣ ትግርኛ፣ ኣምሓርኛ፣ እንግሊዝኛ፣ ጥልያንኛ"
+        }
+      ],
+      "timeline": [
+        {
+          "years": "1958",
+          "text": "Born on 25 January in Shnara, Eritrea.",
+          "text_ti": "ብ25 ጥሪ ኣብ ሽናራ፣ ኤርትራ ተወሊዶም።",
+          "kind": "study",
+          "key": false
+        },
+        {
+          "years": "1969–1973",
+          "text": "Elementary studies at St Joseph School, Keren, run by the De La Salle Christian Brothers.",
+          "text_ti": "ኣብታ ብኣሕዋት ክርስቲያን ደ ላ ሳል እትመሓደር ቤት ትምህርቲ ቅዱስ ዮሴፍ ከረን መባእታዊ ትምህርቶም ወዲኦም።",
+          "kind": "study",
+          "key": false
+        },
+        {
+          "years": "1974",
+          "text": "Enters the minor seminary in Keren.",
+          "text_ti": "ኣብ ከረን ዝርከብ ንኡስ ሰሚናርዮ ኣተዉ።",
+          "kind": "study",
+          "key": false
+        },
+        {
+          "years": "1976–1980",
+          "text": "Major seminary in Asmara, where he completes high school.",
+          "text_ti": "ኣብ ዓቢይ ሰሚናርዮ ኣስመራ ካልኣይ ደረጃ ትምህርቶም ወዲኦም።",
+          "kind": "study",
+          "key": false
+        },
+        {
+          "years": "1980–1982",
+          "text": "Studies biology and other basic sciences at Asmara University.",
+          "text_ti": "ኣብ ዩኒቨርሲቲ ኣስመራ ባዮሎጂን ካልኦት መሰረታዊ ሳይንሳትን ተማሂሮም።",
+          "kind": "study",
+          "key": false
+        },
+        {
+          "years": "1983–1985",
+          "text": "Theological Institute in Asmara.",
+          "text_ti": "ኣብ ኣስመራ ኣብ ዝርከብ ትካል ስነ-መለኮት ተማሂሮም።",
+          "kind": "study",
+          "key": false
+        },
+        {
+          "years": "1985",
+          "text": "Ordained a priest on 30 June.",
+          "text_ti": "ብ30 ሰነ ካህን ኮይኖም ተሸሙ።",
+          "kind": "ministry",
+          "key": true
+        },
+        {
+          "years": "1986–1988",
+          "text": "Licentiate in Biblical Theology at St Thomas University (Angelicum), Rome. Summers of pastoral work in a parish on Long Island, New York.",
+          "text_ti": "ኣብ ዩኒቨርሲቲ ቅዱስ ቶማስ (ኣንጀሊኩም)፡ ሮማ፡ ሊቸንሳ መጽሓፍ ቅዱሳዊ ስነ-መለኮት። ኣብ ክረምቲ ኣብ ሎንግ ኣይላንድ፡ ኒው ዮርክ ጓስነታዊ ኣገልግሎት።",
+          "kind": "study",
+          "key": false
+        },
+        {
+          "years": "1988–1990",
+          "text": "Licentiate in Oriental Canon Law at the Pontifical Oriental Institute, Rome.",
+          "text_ti": "ኣብ ጳጳሳዊ ትካል ምብራቓዊ መጽናዕቲ፡ ሮማ፡ ሊቸንሳ ምብራቓዊ ሕጊ ቤተ ክርስቲያን።",
+          "kind": "study",
+          "key": false
+        },
+        {
+          "years": "1991–1992",
+          "text": "Pastor of Haddish Addi.",
+          "text_ti": "ኣባ ሰበኻ ሓዲሽ ዓዲ።",
+          "kind": "ministry",
+          "key": false
+        },
+        {
+          "years": "1992–1993",
+          "text": "Director of the major seminary of Asmara; teacher of Bible and Canon Law at the Asmara Theological Institute.",
+          "text_ti": "ዳይረክተር ዓቢይ ሰሚናርዮ ኣስመራን ኣብ ትካል ስነ-መለኮት ኣስመራ መምህር መጽሓፍ ቅዱስን ሕጊ ቤተ ክርስቲያንን።",
+          "kind": "ministry",
+          "key": false
+        },
+        {
+          "years": "1993–1997",
+          "text": "Vicar general for the Western Eparchial Vicariate of Keren (1993–1995); pastor of Shinnara, Jengeren, Halhal and Afabet.",
+          "text_ti": "ጠቕላሊ ቪካር ምዕራባዊ ኤጳርቅናዊ ቪካርያት ከረን (1993–1995)፤ ኣባ ሰበኻ ሽናራ፣ ጀንገረን፣ ሃልሃልን ዓፋበትን።",
+          "kind": "ministry",
+          "key": false
+        },
+        {
+          "years": "1996–2002",
+          "text": "Vicar general of the Eparchy of Keren and pastor of Bambi.",
+          "text_ti": "ጠቕላሊ ቪካር ኤጳርቅና ከረንን ኣባ ሰበኻ ባምቢን።",
+          "kind": "ministry",
+          "key": false
+        },
+        {
+          "years": "2003",
+          "text": "Consecrated on 2 March as the second Bishop of Keren.",
+          "text_ti": "ብ2 መጋቢት ካልኣይ ጳጳስ ከረን ኮይኖም ተቐብኡ።",
+          "kind": "ministry",
+          "key": true
+        }
+      ],
+      "bio": "## Education and Formation\n\nBishop Kidane completed his elementary studies at St. Joseph School in Keren, run by the De La Salle Christian Brothers, from 1969 to 1973. In 1974, he entered the minor seminary in Keren. Two years later, he moved to the major seminary in Asmara, where he completed high school between 1976 and 1980. He then studied biology and other basic sciences at Asmara University from 1980 to 1982.\n\nFrom 1983 to 1985, he studied at the Theological Institute in Asmara and was ordained a priest on June 30, 1985. He was later sent to Rome, where he earned a Licentiate degree in Biblical Theology at St. Thomas University (Angelicum) from 1986 to 1988. He continued his studies at the Pontifical Oriental Institute, earning a Licentiate in Oriental Canon Law between 1988 and 1990.\n\n## Pastoral Experience and Linguistic Work\n\nDuring four summers while studying in Rome, Abba Kidane worked in Long Island, New York, assisting in a parish and gaining valuable pastoral experience. He also contributed to the translation of the Mass, parts of the New Testament, and other liturgical prayers into the Blin language. His scholarly work includes a study paper titled Religion of the Bilin People. He is fluent in Blin, Tigre, Tigrigna, Amharic, English, and Italian.\n\n## Service in the Eparchy of Keren\n\nAfter returning from his studies, Abba Kidane served in a succession of pastoral, academic, and administrative roles. He was pastor of Haddish Addi from 1991 to 1992; director of the major seminary of Asmara from 1992 to 1993; and a teacher of Bible and Canon Law at the Asmara Theological Institute during the same period. From 1993 to 1995, he served as vicar general for the Western Eparchial Vicariate of Keren. He was also pastor of Shinnara, Jengeren, Halhal, and Afabet from 1993 to 1997, and later served as vicar general of the Eparchy of Keren and pastor of Bambi from 1996 to 2002.\n\n## Bishop of Keren\n\nAfter serving as vicar general of the Eparchy of Keren from 1996 to 2002, Abba Kidane Yebio was consecrated Bishop of Keren on March 2, 2003. He became the second Bishop of Keren, bringing to the role a foundation in theology and canon law, broad pastoral experience, and a longstanding commitment to language, liturgy, education, and service.",
+      "bio_ti": "## ትምህርትን ምስንዳውን\n\nኣቡነ ኪዳነ ካብ 1969 ክሳብ 1973 ኣብታ ብኣሕዋት ክርስቲያን ደ ላ ሳል እትመሓደር ናይ ከረን ቤት ትምህርቲ ቅዱስ ዮሴፍ መባእታዊ ትምህርቶም ወዲኦም። ብ1974 ኣብ ከረን ዝርከብ ንኡስ ሰሚናርዮ ኣተዉ። ድሕሪ ክልተ ዓመት፣ ካብ 1976 ክሳብ 1980 ካልኣይ ደረጃ ትምህርቶም ናብ ዝወድኡሉ ናይ ኣስመራ ዓቢይ ሰሚናርዮ ተዛወሩ። ካብ 1980 ክሳብ 1982 ድማ ኣብ ዩኒቨርሲቲ ኣስመራ ባዮሎጂን ካልኦት መሰረታዊ ሳይንሳትን ተማሂሮም።\n\nካብ 1983 ክሳብ 1985 ኣብ ኣስመራ ኣብ ዝርከብ ትካል ስነ-መለኮት ተማሂሮም፣ ብ30 ሰነ 1985 ድማ ካህን ኮይኖም ተሸሙ። ድሕሪኡ ናብ ሮማ ተላኢኾም፣ ካብ 1986 ክሳብ 1988 ኣብ ዩኒቨርሲቲ ቅዱስ ቶማስ (ኣንጀሊኩም) መጽሓፍ ቅዱሳዊ ስነ-መለኮት ተማሂሮም ሊቸንሳ ኣማልኡ። ካብ 1988 ክሳብ 1990 ድማ ኣብ ጳጳሳዊ ትካል ምብራቓዊ መጽናዕቲ ትምህርቶም ብምቕጻል፣ ኣብ ምብራቓዊ ሕጊ ቤተ ክርስቲያን ሊቸንሳ ረኺቦም።\n\n## ጓስነታዊ ተመክሮን ኣበርክቶ ቋንቋን\n\nኣብ ሮማ እናተማህሩ፣ ንኣርባዕተ ክረምቲ ኣብ ሎንግ ኣይላንድ፣ ኒው ዮርክ፣ ኣብ ሓንቲ ሰበኻ ብምሕጋዝ ክቡር ጓስነታዊ ተመክሮ ኣጥርዮም። ንቅዳሴ፣ ንገለ ክፋላት ሓድሽ ኪዳንን ንኻልኦት ስርዓተ ኣምልኾ ጸሎታትን ናብ ቋንቋ ብሊን ኣብ ምትርጓም እውን ኣበርክቶ ገይሮም። ሃይማኖት ህዝቢ ብሊን ዘርእስቱ ናይ መጽናዕቲ ወረቐት ጽሒፎም። ብቋንቋታት ብሊን፣ ትግረ፣ ትግርኛ፣ ኣምሓርኛ፣ እንግሊዝኛን ጥልያንኛን ብቕልጡፍ ይዛረቡ።\n\n## ኣገልግሎት ኣብ ኤጳርቅና ከረን\n\nድሕሪ ትምህርቶም ምምላሶም፣ ኣባ ኪዳነ ብተኸታታሊ ጓስነታዊ፣ ኣካዳሚያውን ምምሕዳራውን ሓላፍነታት ኣገልጊሎም። ካብ 1991 ክሳብ 1992 ኣባ ሰበኻ ሓዲሽ ዓዲ፤ ካብ 1992 ክሳብ 1993 ዳይረክተር ዓቢይ ሰሚናርዮ ኣስመራን ኣብ ትካል ስነ-መለኮት ኣስመራ መምህር መጽሓፍ ቅዱስን ሕጊ ቤተ ክርስቲያንን፤ ካብ 1993 ክሳብ 1995 ጠቕላሊ ቪካር ምዕራባዊ ኤጳርቅናዊ ቪካርያት ከረን ኮይኖም። ካብ 1993 ክሳብ 1997 ኣባ ሰበኻ ሽናራ፣ ጀንገረን፣ ሃልሃልን ዓፋበትን ኮይኖም፣ ካብ 1996 ክሳብ 2002 ድማ ጠቕላሊ ቪካር ኤጳርቅና ከረንን ኣባ ሰበኻ ባምቢን ኮይኖም ኣገልጊሎም።\n\n## ጳጳስ ከረን\n\nካብ 1996 ክሳብ 2002 ጠቕላሊ ቪካር ኤጳርቅና ከረን ኮይኖም ድሕሪ ምግልጋሎም፣ ኣባ ኪዳነ የብዮ ብ2 መጋቢት 2003 ጳጳስ ከረን ኮይኖም ተቐብኡ። ከም ካልኣይ ጳጳስ ከረን፣ ኣብ ስነ-መለኮትን ሕጊ ቤተ ክርስቲያንን ዘጥረይዎ ፍልጠት፣ ሰፊሕ ጓስነታዊ ተመክሮን ንቋንቋ፣ ስርዓተ ኣምልኾ፣ ትምህርትን ኣገልግሎትን ዘለዎም ነዊሕ ዘመናዊ ተወፋይነት ሒዞም ናብዚ ሓላፍነት መጺኦም።"
     },
     {
       "name": "Name of late bishop",
@@ -16,7 +152,30 @@
       "current": false,
       "photo": "",
       "link": "",
-      "sample": true
+      "sample": true,
+      "title": "Bishop of Keren",
+      "title_ti": "ጳጳስ ከረን",
+      "order": "",
+      "order_ti": "",
+      "summary": "A short history of his life and ministry will be added here.",
+      "summary_ti": "ሓጺር ታሪኽ ህይወቶምን ኣገልግሎቶምን ኣብዚ ክውሰኽ እዩ።",
+      "facts": [
+        {
+          "label": "Born",
+          "label_ti": "ልደት",
+          "value": "",
+          "value_ti": ""
+        },
+        {
+          "label": "Died",
+          "label_ti": "ዝዓረፉሉ",
+          "value": "",
+          "value_ti": ""
+        }
+      ],
+      "timeline": [],
+      "bio": "",
+      "bio_ti": ""
     },
     {
       "name": "Name of late bishop",
@@ -25,7 +184,30 @@
       "current": false,
       "photo": "",
       "link": "",
-      "sample": true
+      "sample": true,
+      "title": "Bishop of Keren",
+      "title_ti": "ጳጳስ ከረን",
+      "order": "",
+      "order_ti": "",
+      "summary": "A short history of his life and ministry will be added here.",
+      "summary_ti": "ሓጺር ታሪኽ ህይወቶምን ኣገልግሎቶምን ኣብዚ ክውሰኽ እዩ።",
+      "facts": [
+        {
+          "label": "Born",
+          "label_ti": "ልደት",
+          "value": "",
+          "value_ti": ""
+        },
+        {
+          "label": "Died",
+          "label_ti": "ዝዓረፉሉ",
+          "value": "",
+          "value_ti": ""
+        }
+      ],
+      "timeline": [],
+      "bio": "",
+      "bio_ti": ""
     }
   ],
   "priests": [
