@@ -86,7 +86,7 @@ function compose(){
     f.setAttribute('aria-invalid', String(bad));
     let err = $(errId);
     if (bad && !err){ err = el('span', 'field-error'); err.id = errId; f.after(err); }
-    if (err){ err.textContent = bad ? (isTi() ? 'እዚ ክፋል የድሊ እዩ።' : 'This field is required.') : ''; }
+    if (err){ err.textContent = bad ? (isTi() ? 'እዚ ሓበሬታ ኣድላዪ እዩ!' : 'This field is required.') : ''; }
     if (bad) f.setAttribute('aria-describedby', errId); else f.removeAttribute('aria-describedby');
   });
   if (missing.length){ status.textContent = T().invalid; status.className = 'ct-status is-error'; missing[0].focus(); return null; }
