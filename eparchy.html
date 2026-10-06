@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="css/liturgy.css?v=202610061710">
 <link rel="stylesheet" href="css/news.css?v=202610061710">
 <link rel="stylesheet" href="css/resources.css?v=202610061710">
-<link rel="stylesheet" href="css/eparchy.css?v=202610070010">
+<link rel="stylesheet" href="css/eparchy.css?v=202610070030">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -244,6 +244,72 @@
     </div>
   </section>
 
+  <!-- ===== HOW THE EPARCHY IS ORGANISED: levels of service, each role opens its details (js/order.js; counts from the Admin page lists) ===== -->
+  <section class="chap og-sec" id="structure" aria-labelledby="og-title">
+    <div class="wrap">
+      <header class="chap-head">
+        <div><h2 id="og-title" data-i18n="og.title">How the Eparchy is organised</h2>
+        <p data-i18n="og.lead">Every role serves one mission — from the bishop to the parishes, with religious and lay faithful at their side.</p></div>
+      </header>
+      <div class="og" id="og">
+        <ol class="og-tiers" role="list">
+          <li class="og-tier"><span class="og-lv" data-i18n="og.l1">Shepherd</span>
+            <div class="og-row">
+              <button type="button" class="og-node" data-k="bishop" data-link="bishop.html" aria-pressed="true">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4v5M9 28V16c0-4 3-7 7-7s7 3 7 7v12z"/><path d="M9 22h14"/></svg>
+                <b data-i18n="og.bishop">Bishop</b><small data-i18n="og.bishop.s">Shepherd of the Eparchy</small>
+                <span class="og-long" hidden data-i18n="og.bishop.l">The bishop teaches, sanctifies and guides the Eparchy, in communion with the Pope and the Eritrean Catholic Church.</span></button>
+            </div></li>
+          <li class="og-tier"><span class="og-lv" data-i18n="og.l2">Helping the bishop</span>
+            <div class="og-row">
+              <button type="button" class="og-node" data-k="curia" data-link="contact.html" aria-pressed="false">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 27V11l10-6 10 6v16"/><path d="M3 27h26"/><path d="M11 27v-9h10v9M11 22h10"/></svg>
+                <b data-i18n="og.curia">Eparchial curia</b><small data-i18n="og.curia.s">Helps the bishop govern</small>
+                <span class="og-long" hidden data-i18n="og.curia.l">The vicar general, the chancellor and the offices for finance and pastoral work help the bishop lead the whole Eparchy.</span></button>
+              <button type="button" class="og-node" data-k="cesk" data-link="cesk.html" aria-pressed="false">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 27s-10-6-10-13a5.5 5.5 0 0 1 10-3a5.5 5.5 0 0 1 10 3c0 7-10 13-10 13z"/></svg>
+                <b>CESK</b><small data-i18n="og.cesk.s">Social service office</small>
+                <span class="og-long" hidden data-i18n="og.cesk.l">The Eparchy’s office for relief, health, education and development, serving every person in need.</span></button>
+            </div></li>
+          <li class="og-tier"><span class="og-lv" data-i18n="og.l3">Deaneries</span>
+            <div class="og-row">
+              <button type="button" class="og-node" data-k="archpriests" data-link="deaneries.html" aria-pressed="false">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M14 29V12"/><path d="M14 12c0-4.5 2.6-7.5 6-7.5s5.5 2.4 5.5 5.2c0 2.4-1.8 4.3-4.2 4.3c-1.9 0-3.3-1.4-3.3-3.1c0-1.4 1-2.4 2.3-2.4"/></svg>
+                <b data-i18n="og.arch">Archpriests</b><small data-i18n="og.arch.s">Lead the three deaneries</small>
+                <span class="og-long" hidden data-i18n="og.arch.l">Each deanery — Keren, Habinmentel and Hagaz — is led by an Archpriest who brings its parishes, chapels and sanctuaries together.</span></button>
+            </div></li>
+          <li class="og-tier"><span class="og-lv" data-i18n="og.l4">Parishes</span>
+            <div class="og-row">
+              <button type="button" class="og-node" data-k="priests" data-link="priests.html" aria-pressed="false">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="9" r="5"/><path d="M6 28c0-5.5 4.5-10 10-10s10 4.5 10 10M14 18h4v4h-4z"/></svg>
+                <b data-i18n="og.pri">Priests</b><small data-i18n="og.pri.s">Serve the parishes</small>
+                <span class="og-long" hidden data-i18n="og.pri.l">Priests celebrate the sacraments, preach the Word and care for the faithful of their parishes and chapels.</span></button>
+              <button type="button" class="og-node" data-k="deacons" data-link="liturgy.html" aria-pressed="false">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 9c-3.5-2.2-7.5-2.6-11-1.5v17c3.5-1.1 7.5-.7 11 1.5c3.5-2.2 7.5-2.6 11-1.5v-17c-3.5-1.1-7.5-.7-11 1.5z"/><path d="M16 9v17"/></svg>
+                <b data-i18n="og.dea">Deacons</b><small data-i18n="og.dea.s">Serve at the altar and the poor</small>
+                <span class="og-long" hidden data-i18n="og.dea.l">Deacons assist at the Divine Liturgy, proclaim the Gospel and serve those in need.</span></button>
+            </div></li>
+          <li class="og-tier og-side"><span class="og-lv" data-i18n="og.l5">At their side</span>
+            <div class="og-row">
+              <button type="button" class="og-node" data-k="religious" data-link="religious.html" aria-pressed="false">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="11" cy="9" r="4"/><circle cx="21" cy="9" r="4"/><path d="M3 27c0-4.4 3.6-8 8-8s8 3.6 8 8M13 27c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+                <b data-i18n="bm.religious">Religious men and women</b><small data-i18n="og.rel.s">Prayer, schools and care</small>
+                <span class="og-long" hidden data-i18n="og.rel.l">Religious communities live their vows in prayer and serve in schools, clinics and parishes across the Eparchy.</span></button>
+              <button type="button" class="og-node" data-k="seminarians" data-link="seminary.html" aria-pressed="false">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 12l13-6 13 6-13 6z"/><path d="M8 15v7c0 2 3.6 4 8 4s8-2 8-4v-7"/></svg>
+                <b data-i18n="og.sem">Seminarians</b><small data-i18n="og.sem.s">Preparing for the priesthood</small>
+                <span class="og-long" hidden data-i18n="og.sem.l">In the minor and major seminaries young men are formed to become the priests of tomorrow.</span></button>
+              <button type="button" class="og-node" data-k="laity" data-link="pastoral.html#communities" aria-pressed="false">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="9" r="4"/><circle cx="7" cy="13" r="3"/><circle cx="25" cy="13" r="3"/><path d="M9 27c0-4.5 3-8 7-8s7 3.5 7 8M2 25c0-3 2-5.5 5-5.5M30 25c0-3-2-5.5-5-5.5"/></svg>
+                <b data-i18n="og.lay">Catechists and lay faithful</b><small data-i18n="og.lay.s">Living cells of the parish</small>
+                <span class="og-long" hidden data-i18n="og.lay.l">Catechists, parish councils and small Christian communities carry the faith into every home and village.</span></button>
+            </div></li>
+        </ol>
+        <aside class="og-card" id="og-card" aria-live="polite"></aside>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== ROW 3 · Priests (Admin page → Eparchy → Priests) ===== -->
   <section class="chap chap-alt" id="priests" aria-labelledby="priests-title">
     <div class="wrap">
@@ -325,6 +391,6 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json" data-scripts="js/main.js js/eparchy-book.js js/shepherd.js js/story.js"></script>
+<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json PARISHES_DATA=data/parishes.json" data-scripts="js/main.js js/eparchy-book.js js/shepherd.js js/story.js js/order.js"></script>
 </body>
 </html>
