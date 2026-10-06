@@ -69,8 +69,9 @@ are shown on the Pastoral page; parishes can be filtered by deanery (fill in “
 on the Admin page).
 
 Site map (the menu follows it):
-- **Eparchy** › Bishop, Priests, Seminary (› Major Seminary, Minor Seminary), Religious Orders
+- **Eparchy** › Bishop, Priests, Seminary (› Major Seminary, Minor Seminary), Religious Orders, Blessed Memory (`blessed-memory.html`)
 - **Deaneries** › Keren, Habinmentel, Hagaz · Parishes, Chapels, Sanctuaries
+- **CESK** › Emergency Relief, Health Care, Education Support, Water & Agriculture, Women & Youth, Elderly & Disabled (`cesk-*.html`, to be completed)
 - **Pastoral** › Liturgy, Formation, Vocation, Christian Communities, Projects (› St. Michael’s Building Project)
 - **Resources** › Liturgical Calendar, Sermons, Library, News Archive
 

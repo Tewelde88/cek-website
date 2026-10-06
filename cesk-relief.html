@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Library — Catholic Eparchy of Keren</title>
-<meta name="description" content="Library of the Catholic Eparchy of Keren: Bible, Church documents, liturgical and catechetical texts.">
+<title>Emergency Relief — Catholic Eparchy of Keren</title>
+<meta name="description" content="Food, water and basic support for families affected by drought and hardship.">
 <meta name="theme-color" content="#16315e">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/logo.png">
@@ -14,16 +14,12 @@
 <link rel="stylesheet" href="css/style.css?v=202610061800">
 <link rel="stylesheet" href="css/calendar.css?v=202610061710">
 <link rel="stylesheet" href="css/liturgy.css?v=202610061710">
-<link rel="stylesheet" href="css/eparchy.css?v=202610061710">
-<link rel="stylesheet" href="css/news.css?v=202610061710">
-<link rel="stylesheet" href="css/resources.css?v=202610061710">
+<link rel="stylesheet" href="css/pages.css?v=202610061710">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
 <body>
-
 <a class="skip-link" href="#content" data-i18n="skip">Skip to content</a>
-
 <!-- ================= TOP BAR: logo, name, language, search ================= -->
 <header class="topbar">
   <div class="wrap topbar-inner">
@@ -36,7 +32,6 @@
         <span class="brand-motto" data-i18n="motto">Faith • Service • Communion</span>
       </span>
     </a>
-
     <div class="topbar-tools">
       <div class="lang-switch" role="group" aria-label="Language / ቋንቋ">
         <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
@@ -52,7 +47,6 @@
     </div>
   </div>
 </header>
-
 <!-- ================= MAIN MENU ================= -->
 <nav class="mainnav" aria-label="Main">
   <div class="wrap mainnav-inner">
@@ -83,9 +77,9 @@
           <li><a href="parishes.html#chapels" data-i18n="pa.nav.chapels">Chapels</a></li>
           <li><a href="parishes.html#sanctuaries" data-i18n="pa.nav.sanctuaries">Sanctuaries</a></li>
         </ul></li>
-      <li class="has-sub"><a href="cesk.html" data-i18n="nav.cesk">CESK</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-cesk" aria-label="CESK: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <li class="has-sub"><a href="cesk.html" class="active" data-i18n="nav.cesk">CESK</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-cesk" aria-label="CESK: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         <ul class="sub" id="sub-cesk">
-          <li><a href="cesk-relief.html" data-i18n="ck.w1.t">Emergency Relief</a></li>
+          <li><a href="cesk-relief.html" aria-current="page" data-i18n="ck.w1.t">Emergency Relief</a></li>
           <li><a href="cesk-health.html" data-i18n="ck.w2.t">Health Care</a></li>
           <li><a href="cesk-education.html" data-i18n="ck.w3.t">Education Support</a></li>
           <li><a href="cesk-water.html" data-i18n="ck.w4.t">Water &amp; Agriculture</a></li>
@@ -101,46 +95,63 @@
           <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
           <li class="sub-in"><a href="building.html" data-i18n="bp.title">St. Michael’s Building Project</a></li>
         </ul></li>
-      <li class="has-sub"><a href="resources.html" class="active" data-i18n="nav.resources">Resources</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-resources" aria-label="Resources: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <li class="has-sub"><a href="resources.html" data-i18n="nav.resources">Resources</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-resources" aria-label="Resources: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         <ul class="sub" id="sub-resources">
           <li><a href="liturgy.html#calendar" data-i18n="cal.title">Liturgical Calendar</a></li>
           <li><a href="sermons.html" data-i18n="q.sermons">Sermons</a></li>
-          <li><a href="library.html" aria-current="page" data-i18n="lb.title">Library</a></li>
+          <li><a href="library.html" data-i18n="lb.title">Library</a></li>
           <li><a href="news.html#view-list" data-i18n="nav.archive">News Archive</a></li>
         </ul></li>
       <li><a href="contact.html" data-i18n="nav.contact">Contact Us</a></li>
     </ul>
   </div>
 </nav>
-
-<main id="content" class="lit-page res-page">
-
+<main id="content" class="lit-page pages-page">
   <section class="page-head">
     <div class="wrap">
-      <nav aria-label="Breadcrumb"><p class="crumbs"><a href="resources.html" data-i18n="nav.resources">Resources</a> <span aria-hidden="true">›</span> <span aria-current="page" data-i18n="lb.title">Library</span></p></nav>
-      <p class="eyebrow eyebrow-light" data-i18n="lb.eyebrow">Read · Study · Pray</p>
-      <h1 data-i18n="lb.title">Library</h1>
-      <p class="page-lead" data-i18n="lb.lead">Church documents, the Bible, liturgical and catechetical texts, and publications of the Eparchy — to read online or download.</p>
+      <nav aria-label="Breadcrumb"><p class="crumbs"><a href="cesk.html" data-i18n="nav.cesk">CESK</a> <span aria-hidden="true">›</span> <span aria-current="page" data-i18n="ck.w1.t">Emergency Relief</span></p></nav>
+      <h1 data-i18n="ck.w1.t">Emergency Relief</h1>
+      <p class="page-lead" data-i18n="ck.w1.p">Food, water and basic support for families affected by drought and hardship.</p>
     </div>
   </section>
 
-  <section class="lit-section">
+  <section class="lit-section" id="about">
     <div class="wrap">
-      <div class="news-tools">
-        <div class="chips" id="library-cats" role="group" aria-label="Category"></div>
-        <label class="ep-search">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-          <input type="search" id="library-q" placeholder="Search by title, author or language…" data-i18n-placeholder="lb.search" aria-label="Search the library">
-        </label>
-      </div>
-      <p class="r-count" id="library-count"></p>
-      <!-- Items come from data/library.json — edit on the Admin page -->
-      <h2 class="sr-only" data-i18n="lb.title">Library</h2>
-      <div class="clamp-box" data-clamp="760">
-        <div class="book-grid" id="library-grid"></div>
-      </div>
-      <button type="button" class="show-more" hidden aria-expanded="false"><span class="when-closed" data-i18n="ep.more">Show more</span><span class="when-open" data-i18n="ep.less">Show less</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
-      <p class="muted r-empty" id="library-empty" hidden data-i18n="lb.none">Nothing found.</p>
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M5 12h22v14H5z"/><path d="M3 7h26v5H3z"/><path d="M16 7v19"/></svg></span>
+        <div>
+          <h2 class="section-title" data-i18n="ck.pg.about">About the programme</h2>
+          <p class="lit-lead" data-i18n="ck.pg.about.lead">What the programme does and whom it serves.</p>
+        </div>
+      </header>
+      <p class="pg-soon"><span class="sample-tag" data-i18n="sem.soon.tag">To be completed</span> <span data-i18n="sem.soon">This part will be written soon.</span></p>
+    </div>
+  </section>
+
+  <section class="lit-section alt" id="activities">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 18l6-1 6 4 8-2 4 3-10 6-8-3H4z"/><path d="M14 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM22 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg></span>
+        <div>
+          <h2 class="section-title" data-i18n="ck.pg.work">Activities</h2>
+          <p class="lit-lead" data-i18n="ck.pg.work.lead">What is being done, where and with whom.</p>
+        </div>
+      </header>
+      <p class="pg-soon"><span class="sample-tag" data-i18n="sem.soon.tag">To be completed</span> <span data-i18n="sem.soon">This part will be written soon.</span></p>
+    </div>
+  </section>
+
+  <section class="lit-section" id="photos">
+    <div class="wrap">
+      <header class="lit-head">
+        <span class="lit-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="4" y="7" width="24" height="18" rx="2"/><circle cx="12" cy="14" r="2.5"/><path d="M4 23l7-6 5 4 4-3 8 6"/></svg></span>
+        <div>
+          <h2 class="section-title" data-i18n="sem.photos">Photos</h2>
+          <p class="lit-lead" data-i18n="ck.pg.photos.lead">Pictures of the programme’s work.</p>
+        </div>
+      </header>
+      <p class="pg-soon"><span class="sample-tag" data-i18n="sem.soon.tag">To be completed</span> <span data-i18n="sem.soon">This part will be written soon.</span></p>
+      <p class="pg-actions"><a class="r-btn" href="cesk.html#work" data-i18n="ck.back">Back to CESK</a> <a class="r-btn" href="cesk.html#involved" data-i18n="ck.nav.involved">Get Involved</a></p>
     </div>
   </section>
 </main>
@@ -163,6 +174,6 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="LIBRARY=data/library.json#items" data-scripts="js/main.js js/resources.js"></script>
+<script src="js/boot.js" data-json="" data-scripts="js/main.js"></script>
 </body>
 </html>

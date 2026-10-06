@@ -432,3 +432,6 @@ document.querySelectorAll('[data-open]').forEach(link => {
   });
   document.addEventListener('click', e => { if (!e.target.closest('.has-sub')) closeAll(); });
 })();
+
+/* ---------- Eparchy tabs: on phones, slide the current tab into view ---------- */
+(function(){ const a = document.querySelector('.ep-tabs a.active'); if (!a) return; const ul = a.closest('ul'); if (ul && ul.scrollWidth > ul.clientWidth) ul.scrollLeft = a.parentElement.offsetLeft - 16; })();
