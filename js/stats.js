@@ -80,11 +80,11 @@ const svgEl = (tag, attrs) => { const e = document.createElementNS(NS, tag); for
 
 function build(){
   field.replaceChildren();
-  const groups = KEYS.concat(items.some(i => !DEANS[i.d]) ? ['none'] : []);
-  groups.forEach(g => {
-    const mine = items.filter(i => g === 'none' ? !DEANS[i.d] : i.d === g);
+  // the whole Eparchy (every place, with or without a deanery) and then the three deaneries
+  ['', ...KEYS].forEach(g => {
+    const mine = items.filter(i => !g || i.d === g);
     const btn = document.createElement('button');
-    btn.type = 'button'; btn.className = 'st-cl' + (g === 'none' ? ' is-none' : ''); btn.dataset.d = g;
+    btn.type = 'button'; btn.className = 'st-cl' + (g ? '' : ' is-all'); btn.dataset.d = g;
     btn.setAttribute('aria-pressed', 'false');
     const svg = svgEl('svg', { viewBox: '-50 -50 100 100', 'aria-hidden': 'true' });
     svg.appendChild(svgEl('circle', { class: 'st-ring', r: 47 }));
@@ -104,19 +104,17 @@ function build(){
       svg.appendChild(lt);
     });
     const name = document.createElement('b');
-    name.textContent = g === 'none' ? (isTi() ? 'መካን ገና ዘይተወሰነ' : 'Deanery not set yet') : DEANS[g][isTi() ? 1 : 0];
+    name.textContent = g ? DEANS[g][isTi() ? 1 : 0] : (isTi() ? 'ኤጳርቅና' : 'Eparchy');
     const sm = document.createElement('small');
     sm.textContent = n ? (isTi() ? `${n} ቦታታት` : `${n} ${n === 1 ? 'place' : 'places'}`) : (isTi() ? 'ገና ኣይተመዝገበን' : 'None listed yet');
     btn.append(svg, name, sm);
-    // the "not set" group explains itself instead of filtering
-    btn.addEventListener('click', () => g === 'none' ? say(null, true) : choose(sel === g ? '' : g));
+    btn.addEventListener('click', () => choose(sel === g ? '' : g));
     field.appendChild(btn);
   });
   mark();
 }
 
-function say(it, unset){
-  if (unset){ cap.textContent = isTi() ? 'መካን ናይዞም ቦታታት ኣብ ገጽ ምምሕዳር ይምላእ።' : 'The deanery of these places is chosen on the Admin page.'; return; }
+function say(it){
   if (!it){ cap.textContent = capDefault(); return; }
   const ti = isTi(), T = TYPE[it.t];
   const where = DEANS[it.d] ? ` — ${DEANS[it.d][ti ? 1 : 0]}` : '';
@@ -127,7 +125,7 @@ function say(it, unset){
 function mark(){
   box.querySelectorAll('.st-filter button').forEach(b => b.setAttribute('aria-pressed', b.dataset.d === sel));
   field.querySelectorAll('.st-cl').forEach(c => {
-    c.setAttribute('aria-pressed', !!sel && c.dataset.d === sel);
+    c.setAttribute('aria-pressed', c.dataset.d === sel);
     c.classList.toggle('is-dim', !!sel && c.dataset.d !== sel);
   });
 }
