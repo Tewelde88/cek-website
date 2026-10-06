@@ -753,3 +753,50 @@ html[lang="ti"] .bf-panel h3{font-family:var(--ethiopic);font-weight:400}
   .bf-body{text-align:left}
 }
 @media (prefers-reduced-motion:reduce){.bf-tasks::after{transition:none}.bf-panel.is-new > *{animation:none}}
+
+/* ============================================================
+   EPARCHY PAGE — "Our story": an illuminated chronicle in three parts
+   ============================================================ */
+.sy{display:grid;grid-template-columns:190px minmax(0,1fr);gap:clamp(20px,4vw,52px);align-items:start}
+.sy-index{position:sticky;top:calc(var(--nav-h) + 74px)}
+.sy-index ol{list-style:none;margin:0;padding:0 0 0 14px;border-left:2px solid rgba(193,136,58,.4)}
+.sy-index a{position:relative;display:flex;align-items:baseline;gap:10px;min-height:44px;padding:10px 0;color:var(--muted);font-weight:700;text-decoration:none}
+html[lang="ti"] .sy-index a{font-family:var(--ethiopic);font-weight:400}
+.sy-index a b{font-family:var(--ethiopic);font-weight:400;font-size:1.25rem;color:var(--gold)}
+.sy-index a::before{content:"";position:absolute;left:-19px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--parch);box-shadow:0 0 0 2px rgba(193,136,58,.6);transition:background-color .25s,transform .25s}
+.sy-index a:hover{color:var(--ink)}
+.sy-index a[aria-current]{color:var(--red)}
+.sy-index a[aria-current] b{color:var(--red)}
+.sy-index a[aria-current]::before{background:var(--red);box-shadow:0 0 0 2px var(--red);transform:scale(1.25)}
+.sy-index a:focus-visible{outline:3px solid var(--navy);outline-offset:2px;border-radius:4px}
+.sy-part{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:clamp(18px,3vw,40px);padding:clamp(18px,2.6vw,28px) 0;border-bottom:1px dotted #cbbd9f;scroll-margin-top:calc(var(--nav-h) + 74px)}
+.sy-part:last-of-type{border-bottom:0}
+.sy-kicker{font-style:italic;color:var(--red);margin-bottom:2px}
+html[lang="ti"] .sy-kicker{font-family:var(--ethiopic);font-style:normal}
+.sy-main h3{font-family:var(--serif);font-size:clamp(1.4rem,1.1rem + 1.1vw,1.9rem);line-height:1.2;color:var(--navy);margin-bottom:10px}
+html[lang="ti"] .sy-main h3{font-family:var(--ethiopic);font-weight:400}
+.sy-p{max-width:62ch;margin:0 0 12px;font-size:1.06rem;line-height:1.75;color:var(--ink)}
+.sy-first::first-letter{float:left;margin:6px 10px 0 0;font-family:var(--serif);font-size:3.2em;line-height:.8;color:var(--red)}
+html[lang="ti"] .sy-first::first-letter{float:none;margin:0;font:inherit;color:inherit}
+.sy-gloss{padding-left:16px;border-left:2px solid rgba(163,34,27,.35)}
+.sy-gloss ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.sy-gloss li{display:flex;flex-direction:column;gap:1px;font-size:.92rem;color:var(--muted)}
+.sy-gloss li b{font-family:var(--serif);font-size:1.5rem;line-height:1;color:var(--gold)}
+.sy-gloss li small{font-style:italic;color:var(--red)}
+html[lang="ti"] .sy-gloss li small{font-family:var(--ethiopic);font-style:normal}
+.sy-gloss li span{color:var(--ink)}
+html[lang="ti"] .sy-gloss li span{font-family:var(--ethiopic)}
+.sy-gloss li em{font-size:.78rem;color:#7a5320}
+.sy-link{display:block;padding:6px 0;font-weight:700;color:var(--navy)}
+html[lang="ti"] .sy-link{font-family:var(--ethiopic);font-weight:400}
+.sy-note{margin-top:8px;display:inline-block;padding:3px 10px;border:1px dashed var(--gold);border-radius:4px;font-size:.8rem;color:#7a5320}
+
+@media (max-width:900px){
+  .sy{grid-template-columns:1fr}
+  .sy-index{position:static}
+  .sy-index ol{display:flex;flex-wrap:wrap;gap:4px 18px;border-left:0;padding:0}
+  .sy-index a::before{display:none}
+  .sy-part{grid-template-columns:1fr}
+  .sy-gloss{padding:12px 0 0;border-left:0;border-top:2px solid rgba(163,34,27,.25)}
+  .sy-gloss ul{flex-direction:row;flex-wrap:wrap;gap:12px 22px}
+}

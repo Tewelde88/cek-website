@@ -276,6 +276,24 @@ collections:
               - { name: work_ti, label: "Work / place (Tigrinya)", widget: string, required: false }
               - { name: photo, label: "Photo", widget: image, required: false, media_folder: /images/orders, public_folder: images/orders }
               - { name: sample, label: "Example entry", widget: boolean, default: false, required: false }
+          - name: about_sample
+            label: "“Our story” is still an example (untick when the text is checked)"
+            widget: boolean
+            default: false
+            required: false
+          - name: about
+            label: "Our story — About the Eparchy (Eparchy page, three parts: foundation, growth, commitment)"
+            label_singular: "part"
+            widget: list
+            collapsed: true
+            summary: "{{fields.label}} — {{fields.title}}"
+            fields:
+              - { name: label, label: "Part name (English, e.g. Foundation)", widget: string, required: false }
+              - { name: label_ti, label: "Part name (Tigrinya)", widget: string, required: false }
+              - { name: title, label: "Title (English)", widget: string }
+              - { name: title_ti, label: "Title (Tigrinya)", widget: string, required: false }
+              - { name: text, label: "Text (English) — leave an empty line between paragraphs", widget: text }
+              - { name: text_ti, label: "Text (Tigrinya)", widget: text, required: false }
           - name: history
             label: "History of the Eparchy (sorted by year automatically)"
             label_singular: "year"

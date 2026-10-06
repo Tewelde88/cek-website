@@ -10,7 +10,7 @@ Bilingual (English ⇄ Tigrinya), works on phones, tablets and computers. Plain 
 | Page | File | Content edited on the Admin page |
 |---|---|---|
 | Home (shepherds, ribbon links, news, “Pastoral life” book, “The Eparchy in numbers”, CESK invitation (the mesob of six areas), the liturgical year as a scroll, Questions + Newsletter) | `index.html` | latest news posts; the Pastoral life book and “The Eparchy in numbers” count parishes, chapels, sanctuaries, priests and religious orders by themselves |
-| Eparchy — contents, “The shepherd of the Eparchy” (current bishop, motto, his three tasks), bishops, priests, seminary, orders, history | `eparchy.html` | (counts come from the lists below) |
+| Eparchy — contents, “The shepherd of the Eparchy” (current bishop, motto, his three tasks), “Our story” (foundation, growth, commitment — Admin page → Eparchy), bishops, priests, seminary, orders, history | `eparchy.html` | (counts come from the lists below) |
 | Eparchy › Bishop (profile, interactive timeline, biography) | `bishop.html` | — |
 | Eparchy › Priests (search, role filter, sort, grid/list, profile window) | `priests.html` | priests |
 | Eparchy › Seminary (step-by-step path, vocations) | `seminary.html` | — |
