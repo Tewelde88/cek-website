@@ -187,8 +187,12 @@ const shortName = key => N().feasts[key].split(' — ')[0];
 const fmtEt = (et, withYear = true) => `${et.d} ${N().months[et.m - 1]}` + (withYear ? ` ${et.y} ${N().era}` : '');
 const fmtGr = (g, long = true) => long ? `${g.d} ${N().grMonths[g.m - 1]} ${g.y}` : `${g.d} ${N().grShort[g.m - 1]}`;
 
+// Shared with the Home page year scroll (js/yearscroll.js); also handy in the browser console
+window.LiturgicalCalendar = { etToJdn, jdnToEt, grToJdn, jdnToGr, easterJdn, yearData, NAMES, weekday, monthDays };
+
 /* ---------- 4. Page ---------- */
 const $ = id => document.getElementById(id);
+if (!$('cal-grid')) return;                     // pages without the full calendar only use the data above
 const now = new Date();
 const todayJ = grToJdn(now.getFullYear(), now.getMonth() + 1, now.getDate());
 const todayEt = jdnToEt(todayJ);
@@ -409,6 +413,4 @@ $('conv-et-d').value = todayEt.d; $('conv-et-y').value = todayEt.y;
 document.addEventListener('langchange', renderAll);
 renderAll();
 
-// Exposed for testing in the browser console: LiturgicalCalendar.etToJdn(...) etc.
-window.LiturgicalCalendar = { etToJdn, jdnToEt, grToJdn, jdnToGr, easterJdn, yearData };
 })();

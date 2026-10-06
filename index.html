@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css?v=202610061800">
-<link rel="stylesheet" href="css/home.css?v=202610062010">
+<link rel="stylesheet" href="css/home.css?v=202610062100">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -366,17 +366,34 @@
     </div>
   </section>
 
-  <!-- ================= CALENDAR as a manuscript page (feasts from the Ge'ez calendar) ================= -->
-  <section class="hm-sec">
+  <!-- ================= CALENDAR: the liturgical year as a scroll — feasts, fasts and today (js/yearscroll.js; dates from js/calendar.js) ================= -->
+  <section class="hm-sec" aria-labelledby="yr-title">
     <div class="wrap">
-      <div class="ms">
+      <div class="hm-head"><h2 id="yr-title" data-i18n="cal.title">Liturgical Calendar</h2><span class="ge only-en" lang="ti">ዓውደ-ኣዋርሕ</span><a href="liturgy.html#calendar" data-i18n="hm.cal.link">Open the liturgical calendar</a></div>
+      <div class="ms yr" id="ycal">
         <div class="harag" aria-hidden="true"></div>
-        <div class="ms-grid">
-          <div class="ms-month" id="ms-month"></div>
-          <div>
-            <ul class="ms-feasts" id="ms-feasts"></ul>
-            <a class="ms-link" href="liturgy.html#calendar" data-i18n="hm.cal.link">Open the liturgical calendar</a>
+        <div class="yr-top">
+          <div class="yr-today" id="yr-today"></div>
+          <div class="yr-next" id="yr-next"></div>
+        </div>
+        <div class="yr-bar">
+          <p class="yr-hint" data-i18n="hm.cal.hint">Slide along the year. Choose a feast to read about it.</p>
+          <div class="yr-nav">
+            <button type="button" data-go="-1" aria-label="Earlier"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <button type="button" data-go="0" data-i18n="hm.cal.today">Today</button>
+            <button type="button" data-go="1" aria-label="Later"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
           </div>
+        </div>
+        <div class="yr-scroll" id="yr-scroll" tabindex="0" aria-label="The liturgical year">
+          <div class="yr-track" id="yr-track"></div>
+        </div>
+        <div class="yr-foot">
+          <div class="yr-card" id="yr-card" aria-live="polite"></div>
+          <ul class="yr-legend" role="list">
+            <li><i class="lg-major" aria-hidden="true"></i><span data-i18n="hm.cal.major">Major feast</span></li>
+            <li><i class="lg-feast" aria-hidden="true"></i><span data-i18n="hm.cal.feast">Feast</span></li>
+            <li><i class="lg-fast" aria-hidden="true"></i><span data-i18n="hm.cal.fast">Fast</span></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -418,7 +435,7 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="SERMONS=data/sermons.json#sermons NEWS=data/news.json#posts BUILDING=data/building.json PARISHES_DATA=data/parishes.json PROJECTS=data/projects.json#projects EPARCHY=data/eparchy.json" data-scripts="js/main.js js/news.js js/folio.js js/stats.js js/cta.js"></script>
+<script src="js/boot.js" data-json="SERMONS=data/sermons.json#sermons NEWS=data/news.json#posts BUILDING=data/building.json PARISHES_DATA=data/parishes.json PROJECTS=data/projects.json#projects EPARCHY=data/eparchy.json" data-scripts="js/main.js js/news.js js/folio.js js/stats.js js/cta.js js/calendar.js js/yearscroll.js"></script>
 <script src="https://www.vaticannews.va/widget.js" async></script>
 </body>
 </html>
