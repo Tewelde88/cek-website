@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css?v=202610061800">
-<link rel="stylesheet" href="css/home.css?v=202610062100">
+<link rel="stylesheet" href="css/home.css?v=202610062200">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -415,6 +415,58 @@
       <div class="vn-box" id="vn-widget"></div>
     </div>
   </section>
+
+  <!-- ================= QUESTIONS + NEWSLETTER: margin notes (data/faq.json) and a sealed letter (sign-ups go to a Google Form — js/faq.js, js/newsletter.js) ================= -->
+  <section class="hm-sec" aria-label="Questions and newsletter">
+    <div class="wrap fn-row">
+
+      <!-- left: frequently asked questions -->
+      <div class="fq" id="fq">
+        <div class="hm-head"><h2 id="fq-title" data-i18n="fq.title">Questions</h2><span class="ge only-en" lang="ti">ሕቶታት</span></div>
+        <div class="fq-tools">
+          <div class="fq-topics" role="group" aria-labelledby="fq-title">
+            <button type="button" data-t="" aria-pressed="true" data-i18n="fq.all">All</button>
+            <button type="button" data-t="eparchy" aria-pressed="false" data-i18n="nav.eparchy">Eparchy</button>
+            <button type="button" data-t="liturgy" aria-pressed="false" data-i18n="nav.liturgy">Liturgy</button>
+            <button type="button" data-t="parish" aria-pressed="false" data-i18n="fq.parish">Parish life</button>
+          </div>
+          <label class="fq-search"><span class="sr-only" data-i18n="fq.search">Search the questions</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            <input type="search" id="fq-q" placeholder="Search the questions…" data-i18n-placeholder="fq.search" autocomplete="off">
+          </label>
+        </div>
+        <div class="fq-list" id="fq-list"></div>
+        <p class="fq-more"><span data-i18n="fq.more">Still have a question?</span> <a href="contact.html" data-i18n="fq.ask">Write to us</a></p>
+      </div>
+
+      <!-- right: the newsletter as a sealed letter -->
+      <form class="nl" id="nl" novalidate>
+        <div class="nl-env" aria-hidden="true"><span class="nl-paper"></span><span class="nl-flap"></span></div>
+        <div class="nl-in">
+          <h2 data-i18n="nl.title">Letters from the Eparchy</h2>
+          <p class="nl-lead" data-i18n="nl.lead">News, feasts and announcements, sent to your email about once a month.</p>
+          <label class="nl-field"><span data-i18n="nl.email">Your email</span>
+            <input type="email" name="email" id="nl-email" required autocomplete="email" inputmode="email" placeholder="name@example.com">
+          </label>
+          <fieldset class="nl-lang">
+            <legend data-i18n="nl.lang">Letters in</legend>
+            <label><input type="radio" name="lang" value="English" checked> English</label>
+            <label><input type="radio" name="lang" value="Tigrinya"> <span lang="ti">ትግርኛ</span></label>
+          </fieldset>
+          <p class="nl-err" id="nl-err" role="alert" hidden></p>
+          <button type="submit" class="nl-seal"><span class="nl-wax" aria-hidden="true">ከ</span><span data-i18n="nl.go">Seal and subscribe</span></button>
+          <p class="nl-note" data-i18n="nl.note">Your email is used only for letters from the Eparchy. To stop them, reply “stop”.</p>
+        </div>
+        <div class="nl-done" id="nl-done" hidden tabindex="-1">
+          <span class="nl-wax nl-wax-lg" aria-hidden="true">ከ</span>
+          <h2 data-i18n="nl.thanks">Thank you!</h2>
+          <p data-i18n="nl.thanks.p">Your email is on our list. The next letter from the Eparchy will come to your email.</p>
+        </div>
+      </form>
+
+    </div>
+  </section>
+
 </main>
 
 <!-- ================= FOOTER ================= -->
@@ -435,7 +487,7 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="SERMONS=data/sermons.json#sermons NEWS=data/news.json#posts BUILDING=data/building.json PARISHES_DATA=data/parishes.json PROJECTS=data/projects.json#projects EPARCHY=data/eparchy.json" data-scripts="js/main.js js/news.js js/folio.js js/stats.js js/cta.js js/calendar.js js/yearscroll.js"></script>
+<script src="js/boot.js" data-json="SERMONS=data/sermons.json#sermons NEWS=data/news.json#posts BUILDING=data/building.json PARISHES_DATA=data/parishes.json PROJECTS=data/projects.json#projects EPARCHY=data/eparchy.json FAQ=data/faq.json#faqs NEWSLETTER=data/newsletter.json" data-scripts="js/main.js js/news.js js/folio.js js/stats.js js/cta.js js/calendar.js js/yearscroll.js js/faq.js js/newsletter.js"></script>
 <script src="https://www.vaticannews.va/widget.js" async></script>
 </body>
 </html>

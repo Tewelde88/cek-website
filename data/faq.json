@@ -1,0 +1,76 @@
+{
+  "faqs": [
+    {
+      "topic": "eparchy",
+      "q": "What is the Catholic Eparchy of Keren?",
+      "q_ti": "ካቶሊካዊ ኤጳርቅና ከረን እንታይ እዩ?",
+      "a": "It is a diocese of the Eritrean Catholic Church, which prays in the Ge’ez (Alexandrian) tradition and is in full communion with the Pope. Its seat is in Keren, and it is led by its bishop.",
+      "a_ti": "ኣብ ሥርዓተ ግእዝ (ኣሌክሳንድርያዊ ልምዲ) ዝጽሊ፡ ምስ ርእሰ ሊቃነ ጳጳሳት ምሉእ ሕብረት ዘለዎ ኤጳርቅና ናይ ኤርትራዊት ካቶሊካዊት ቤተ ክርስቲያን እዩ። መንበሩ ኣብ ከረን ኮይኑ ብጳጳሱ ይምራሕ።",
+      "link": "eparchy.html",
+      "sample": true
+    },
+    {
+      "topic": "eparchy",
+      "q": "How is the Eparchy organised?",
+      "q_ti": "ኤጳርቅና ብኸመይ ተወዲባ ኣላ?",
+      "a": "It has three deaneries — Keren, Habinmentel and Hagaz. Each is led by an Archpriest and gathers its parishes, chapels and sanctuaries.",
+      "a_ti": "ሰለስተ መካናት ኣለዉዋ — ከረን፡ ሓቢንመንተልን ሓጋዝን። ነፍሲ ወከፍ መካን ብሊቀካህናት ይምራሕ፡ ቍምስናታቱ፡ ቤተጸሎታቱን ቅዱሳት ቦታታቱን ድማ የኪቦ።",
+      "link": "deaneries.html",
+      "sample": true
+    },
+    {
+      "topic": "liturgy",
+      "q": "Which rite does the Eparchy celebrate?",
+      "q_ti": "ኤጳርቅና ብኣየናይ ሥርዓት ትብዕል?",
+      "a": "The Ge’ez rite. The Divine Liturgy (Qiddase) is celebrated in Ge’ez and Tigrinya, with the chant handed down from Saint Yared.",
+      "a_ti": "ብሥርዓተ ግእዝ። ቅዳሴ ብግእዝን ብትግርኛን ይብዓል፡ ምስቲ ካብ ቅዱስ ያሬድ ዝተወርሰ ዜማ።",
+      "link": "liturgy.html",
+      "sample": true
+    },
+    {
+      "topic": "liturgy",
+      "q": "Where can I find the Mass times?",
+      "q_ti": "ሰዓታት ቅዳሴ ኣበይ ክረኽቦ እኽእል?",
+      "a": "Each parish on the Parishes page shows its Mass times. You can also ask the parish priest after the Liturgy.",
+      "a_ti": "ኣብ ገጽ ቍምስናታት ነፍሲ ወከፍ ቍምስና ሰዓታት ቅዳሴኣ ተርኢ። ድሕሪ ቅዳሴ ንኣባ ሰበኻ ውን ክትሓቱ ትኽእሉ ኢኹም።",
+      "link": "parishes.html#parishes",
+      "sample": true
+    },
+    {
+      "topic": "liturgy",
+      "q": "When are the feasts and fasts?",
+      "q_ti": "በዓላትን ኣጽዋማትን መዓስ እዮም?",
+      "a": "The liturgical calendar follows the Ge’ez (Ethiopian) calendar. The Liturgy page shows every feast and fast with its Gregorian date.",
+      "a_ti": "ሊጡርጊያዊ ዓውደ-ኣዋርሕ ዓውደ-ኣዋርሕ ግእዝ ይኽተል። ኣብ ገጽ ሊጡርጊያ ኩሎም በዓላትን ኣጽዋማትን ምስ ዕለት ግሪጎርያን ይርኣዩ።",
+      "link": "liturgy.html#calendar",
+      "sample": true
+    },
+    {
+      "topic": "parish",
+      "q": "How do I join a parish?",
+      "q_ti": "ኣባል ቍምስና ብኸመይ ክኸውን እኽእል?",
+      "a": "Go to the parish nearest your home and speak with the parish priest after the Liturgy. He will welcome you and register your family.",
+      "a_ti": "ናብታ ናብ ገዛኹም ዝቐረበት ቍምስና ኬድኩም ድሕሪ ቅዳሴ ምስ ኣባ ሰበኻ ተዘራረቡ። ብሓጐስ ተቐቢሉ ስድራኹም ክምዝግብ እዩ።",
+      "link": "parishes.html#parishes",
+      "sample": true
+    },
+    {
+      "topic": "parish",
+      "q": "How do we prepare for baptism or marriage?",
+      "q_ti": "ንጥምቀት ወይ ንመርዓ ብኸመይ ንዳሎ?",
+      "a": "Speak with your parish priest early. He will explain the preparation, the documents needed and the date of the celebration.",
+      "a_ti": "ብኣጋ ምስ ኣባ ሰበኻኹም ተዘራረቡ። ምድላው፡ ዘድልዩ ሰነዳትን ዕለት በዓልን ክገልጸልኩም እዩ።",
+      "link": "sacraments.html",
+      "sample": true
+    },
+    {
+      "topic": "parish",
+      "q": "How can I help in my parish?",
+      "q_ti": "ኣብ ቍምስናይ ብኸመይ ክሕግዝ እኽእል?",
+      "a": "Join a small Christian community, the choir or the catechists, or give your time to the charitable work of CESK.",
+      "a_ti": "ንእሽቶ ክርስትያናዊ ማሕበረሰብ፡ መዘምራን ወይ መምህራን ትምህርተ ክርስቶስ ተጸንበሩ፡ ወይ ንግብረ ሠናይ ስራሕ CESK ግዜኹም ሃቡ።",
+      "link": "cesk.html#involved",
+      "sample": true
+    }
+  ]
+}

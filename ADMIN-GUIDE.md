@@ -111,6 +111,17 @@ Press **Add …** to add, or the bin icon to remove an entry, then **Save**. Unt
 
 The two seminaries have their own pages (`major-seminary.html`, `minor-seminary.html`), ready to be written.
 
+## 12. Home page: Questions and Newsletter
+
+**Questions (FAQ):** Admin page → **Questions (FAQ)**. Each question has a topic (Eparchy, Liturgy or Parish life), the question and answer in English and Tigrinya, and an optional “Read more” link. The first eight questions are examples written for you: correct them and untick **Example entry**. Add or remove questions any time; if the list is empty the section hides itself.
+
+**Newsletter:** the sign-up box sends each email to a Google Form, and the addresses collect in a Google Sheet.
+1. Create the form once: open https://script.google.com → New project, paste the file `tools/newsletter-form.gs`, choose **createNewsletterForm** and click **Run** (Allow when asked).
+2. Open **Execution log** and copy its three lines into Admin page → **Newsletter**: *Form address*, *Email field code*, *Language field code*. Save.
+3. New sign-ups now appear in the Sheet “Letters from the Eparchy — subscribers” in your Google Drive. Send the letters from Gmail (put the addresses in **Bcc**).
+
+Until step 2 is done, the box tells visitors that sign-up is not open yet.
+
 ## Other ways to upload content
 
 | Way | When to use it |

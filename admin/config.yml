@@ -486,3 +486,47 @@ collections:
               - { name: summary_ti, label: "Short description (Tigrinya)", widget: text, required: false }
               - { name: image, label: "Photo", widget: image, required: false, media_folder: /images/projects, public_folder: images/projects }
               - { name: link, label: "Link for “See the project” (optional)", widget: string, required: false }
+
+  # ------------------------------------------------------------
+  #  QUESTIONS (FAQ) — Home page, "Questions"
+  # ------------------------------------------------------------
+  - name: faq
+    label: "Questions (FAQ)"
+    icon: help
+    description: "The questions and answers on the Home page. Untick “Example” when a question is checked."
+    files:
+      - name: faq
+        label: "Questions and answers"
+        file: data/faq.json
+        fields:
+          - name: faqs
+            label: "Questions"
+            label_singular: "question"
+            widget: list
+            required: false
+            summary: "{{fields.q}}"
+            fields:
+              - { name: topic, label: "Topic", widget: select, default: parish,
+                  options: [ { label: "Eparchy — ኤጳርቅና", value: eparchy }, { label: "Liturgy — ሊጡርጊያ", value: liturgy }, { label: "Parish life — ህይወት ቍምስና", value: parish } ] }
+              - { name: q, label: "Question (English)", widget: string }
+              - { name: q_ti, label: "Question (Tigrinya)", widget: string, required: false }
+              - { name: a, label: "Answer (English)", widget: text }
+              - { name: a_ti, label: "Answer (Tigrinya)", widget: text, required: false }
+              - { name: link, label: "“Read more” link (optional, e.g. parishes.html)", widget: string, required: false }
+              - { name: sample, label: "Example entry", widget: boolean, default: false, required: false }
+
+  # ------------------------------------------------------------
+  #  NEWSLETTER — where the Home page sign-ups go (a Google Form)
+  # ------------------------------------------------------------
+  - name: newsletter
+    label: "Newsletter"
+    icon: mail
+    description: "Connect the Home page sign-up box to your Google Form (see ADMIN-GUIDE, section 12)."
+    files:
+      - name: newsletter
+        label: "Newsletter Google Form"
+        file: data/newsletter.json
+        fields:
+          - { name: form_action, label: "Form address (ends with /formResponse)", widget: string, required: false }
+          - { name: email_entry, label: "Email field code (entry.…)", widget: string, required: false }
+          - { name: lang_entry, label: "Language field code (entry.…)", widget: string, required: false }
