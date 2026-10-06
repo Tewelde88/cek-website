@@ -24,7 +24,7 @@ const TRANSLATIONS = {
     "nav.parishes":  "ቍምስናታትን ቤተጸሎታትን",
     "nav.liturgy":   "ሊጡርጊያ",
     "nav.news":      "ዜና",
-    "nav.archive":   "ቤተመዛግብት",
+    "nav.archive":   "መዛግብቲ ዜና",
     "nav.contact":   "ርኸቡና",
     "nav.churches":  "ኣብያተ ክርስቲያናትን ቤተጸሎታትን",
     "nav.cesk":      "CESK",

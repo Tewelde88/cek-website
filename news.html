@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="css/calendar.css?v=202610061710">
 <link rel="stylesheet" href="css/liturgy.css?v=202610061710">
 <link rel="stylesheet" href="css/eparchy.css?v=202610061710">
-<link rel="stylesheet" href="css/news.css?v=202610061710">
+<link rel="stylesheet" href="css/news.css?v=202610062300">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -105,7 +105,7 @@
           <li><a href="liturgy.html#calendar" data-i18n="cal.title">Liturgical Calendar</a></li>
           <li><a href="sermons.html" data-i18n="q.sermons">Sermons</a></li>
           <li><a href="library.html" data-i18n="lb.title">Library</a></li>
-          <li><a href="news.html#view-list" data-i18n="nav.archive">News Archive</a></li>
+          <li><a href="news-archive.html" data-i18n="nav.archive">News Archive</a></li>
         </ul></li>
       <li><a href="contact.html" data-i18n="nav.contact">Contact Us</a></li>
     </ul>
@@ -147,6 +147,16 @@
       <div class="cards news-grid" id="news-grid"></div>
       <p class="muted news-empty" id="news-empty" hidden data-i18n="nw.none">No posts found.</p>
       <div class="news-more-row"><button type="button" class="cal-toggle" id="news-more" hidden data-i18n="nw.more">Load more</button></div>
+
+      <!-- ===== THE NEWS ARCHIVE: older posts kept as yearly volumes on a shelf (js/archive.js) ===== -->
+      <aside class="ar-cta" aria-labelledby="ar-cta-title">
+        <div class="ar-cta-text">
+          <h2 id="ar-cta-title" data-i18n="ar.title">News Archive</h2>
+          <p data-i18n="ar.lead">Older news, articles and events, kept year by year like volumes on a shelf. Choose a year, or open the whole archive.</p>
+          <a class="btn btn-red" href="news-archive.html" data-i18n="ar.open">Open the archive</a>
+        </div>
+        <div class="ar-shelf" data-shelf></div>
+      </aside>
     </div>
   </section>
 
@@ -202,6 +212,6 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="NEWS=data/news.json#posts" data-scripts="js/main.js js/news.js"></script>
+<script src="js/boot.js" data-json="NEWS=data/news.json#posts" data-scripts="js/main.js js/news.js js/archive.js"></script>
 </body>
 </html>

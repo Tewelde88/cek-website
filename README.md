@@ -73,6 +73,7 @@ Site map (the menu follows it):
 - **Deaneries** › Keren, Habinmentel, Hagaz · Parishes, Chapels, Sanctuaries
 - **CESK** › Emergency Relief, Health Care, Education Support, Water & Agriculture, Women & Youth, Elderly & Disabled (`cesk-*.html`, to be completed)
 - **Pastoral** › Liturgy (› Sacraments and Sacramentals, Chanting, Icons and Architecture, Ge’ez Language — linked from “More about the liturgy” on the Liturgy page), Formation, Vocation, Christian Communities, Projects (› St. Michael’s Building Project)
+- **News** › News Archive (`news-archive.html`: every post by year and month; the shelf of yearly volumes also sits under the list on news.html)
 - **Resources** › Liturgical Calendar, Sermons, Library, News Archive
 
 A page under another one is indented in its menu list (`<li class="sub-in">`). Every lower-level page shows
