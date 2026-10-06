@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="css/liturgy.css?v=202610061710">
 <link rel="stylesheet" href="css/news.css?v=202610061710">
 <link rel="stylesheet" href="css/resources.css?v=202610061710">
-<link rel="stylesheet" href="css/eparchy.css?v=202610061710">
+<link rel="stylesheet" href="css/eparchy.css?v=202610062330">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -165,6 +165,54 @@
     </div>
   </section>
 
+  <!-- ===== THE SHEPHERD: the current bishop and his three tasks — teach, sanctify, guide (js/shepherd.js; data: Admin page → Eparchy → Bishops) ===== -->
+  <section class="chap bf-sec" id="shepherd" aria-labelledby="bf-title">
+    <div class="wrap">
+      <div class="bf" id="bf">
+        <div class="harag" aria-hidden="true"></div>
+        <div class="bf-grid">
+          <a class="bf-arch" id="bf-arch" href="bishop.html" aria-hidden="true" tabindex="-1"></a>
+          <div class="bf-body">
+            <p class="bf-kicker" data-i18n="bf.title" id="bf-title">The shepherd of the Eparchy</p>
+            <h2 class="bf-name" id="bf-name"></h2>
+            <p class="bf-since" id="bf-since"></p>
+            <figure class="bf-motto" id="bf-motto"></figure>
+            <p class="bf-lead" data-i18n="bf.lead">The bishop teaches, sanctifies and guides the People of God entrusted to him.</p>
+
+            <div class="bf-tasks" role="tablist" aria-label="The bishop's three tasks">
+              <button type="button" role="tab" id="bf-t1" aria-controls="bf-p1" aria-selected="true">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 9c-3.5-2.2-7.5-2.6-11-1.5v17c3.5-1.1 7.5-.7 11 1.5c3.5-2.2 7.5-2.6 11-1.5v-17c-3.5-1.1-7.5-.7-11 1.5z"/><path d="M16 9v17"/></svg>
+                <span data-i18n="bf.t1">Teach</span></button>
+              <button type="button" role="tab" id="bf-t2" aria-controls="bf-p2" aria-selected="false" tabindex="-1">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 6h14c0 7-3.2 11-7 11s-7-4-7-11z"/><path d="M16 17v7M11 28h10M13 24.5h6"/></svg>
+                <span data-i18n="bf.t2">Sanctify</span></button>
+              <button type="button" role="tab" id="bf-t3" aria-controls="bf-p3" aria-selected="false" tabindex="-1">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M14 29V12"/><path d="M14 12c0-4.5 2.6-7.5 6-7.5s5.5 2.4 5.5 5.2c0 2.4-1.8 4.3-4.2 4.3c-1.9 0-3.3-1.4-3.3-3.1c0-1.4 1-2.4 2.3-2.4"/></svg>
+                <span data-i18n="bf.t3">Guide</span></button>
+            </div>
+            <div class="bf-panel" role="tabpanel" id="bf-p1" aria-labelledby="bf-t1">
+              <h3 data-i18n="bf.p1.t">Teacher of the faith</h3>
+              <p data-i18n="bf.p1">He proclaims the Gospel and guards the faith of the Church through his preaching and pastoral letters.</p>
+              <a class="more" href="library.html" data-i18n="bf.p1.l">Pastoral letters in the Library</a>
+            </div>
+            <div class="bf-panel" role="tabpanel" id="bf-p2" aria-labelledby="bf-t2" hidden>
+              <h3 data-i18n="bf.p2.t">Priest of the sacraments</h3>
+              <p data-i18n="bf.p2">He celebrates the Divine Liturgy, confirms the faithful and ordains the priests who serve the parishes.</p>
+              <a class="more" href="#priests" data-i18n="bf.p2.l">Meet the priests</a>
+            </div>
+            <div class="bf-panel" role="tabpanel" id="bf-p3" aria-labelledby="bf-t3" hidden>
+              <h3 data-i18n="bf.p3.t">Shepherd who guides</h3>
+              <p data-i18n="bf.p3">With the Archpriests and priests he guides the three deaneries and all the parishes of the Eparchy.</p>
+              <a class="more" href="deaneries.html" data-i18n="hm.st.all">See the deaneries</a>
+            </div>
+
+            <p class="bf-go"><a class="btn btn-red" href="bishop.html" data-i18n="bf.go">Read his full story</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== ROW 2 · Bishops of Keren (Admin page → Eparchy → Bishops) ===== -->
   <section class="chap" id="bishop" aria-labelledby="bishop-title">
     <div class="wrap">
@@ -262,6 +310,6 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json" data-scripts="js/main.js js/eparchy-book.js"></script>
+<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json" data-scripts="js/main.js js/eparchy-book.js js/shepherd.js"></script>
 </body>
 </html>

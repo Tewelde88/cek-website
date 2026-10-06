@@ -704,3 +704,52 @@ html[lang="ti"] .cmp-name{font-family:var(--ethiopic)}
 .dn-page .bi-arch.ph-red{background:linear-gradient(160deg,#c23a30,#7e1912)}
 .dn-page .bi-arch.ph-navy{background:linear-gradient(160deg,#2d5191,#16315e)}
 .dn-page .bi-arch.ph-ochre{background:linear-gradient(160deg,#c1883a,#7a5320)}
+
+/* ============================================================
+   EPARCHY PAGE — "The shepherd of the Eparchy" (after the contents)
+   ============================================================ */
+.bf{position:relative;padding:0 clamp(20px,4vw,52px) clamp(26px,4vw,44px);background:var(--parch);border-radius:6px;box-shadow:0 1px 0 #e6dcc5,0 18px 40px rgba(60,40,10,.10)}
+.bf > .harag{height:22px;margin:0 calc(-1 * clamp(20px,4vw,52px)) clamp(22px,3vw,34px);border-radius:6px 6px 0 0}
+.bf-grid{display:grid;grid-template-columns:minmax(200px,300px) minmax(0,1fr);gap:clamp(24px,4.5vw,60px);align-items:start}
+.bf-arch{display:grid;place-items:center;width:100%;aspect-ratio:3/4;border-radius:999px 999px 10px 10px;background:center top/cover no-repeat #e9dcc0;box-shadow:0 0 0 6px var(--parch),0 0 0 7px var(--gold),0 18px 30px rgba(60,40,10,.18)}
+.bf-arch.is-ph{background:linear-gradient(160deg,#c23a30,#7e1912)}
+.bf-ini{font-family:var(--serif);font-size:3rem;color:rgba(255,255,255,.92)}
+.bf-kicker{font-style:italic;color:var(--red);margin-bottom:4px}
+html[lang="ti"] .bf-kicker{font-family:var(--ethiopic);font-style:normal}
+.bf-name{font-family:var(--serif);font-size:clamp(1.7rem,1.2rem + 1.8vw,2.6rem);line-height:1.12;color:var(--navy)}
+html[lang="ti"] .bf-name{font-family:var(--ethiopic);font-weight:400}
+.bf-since{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-top:6px;color:var(--muted)}
+.bf-since span + span::before{content:"·";margin-right:12px;color:var(--gold)}
+.bf-since b{font-family:var(--ethiopic);font-weight:400;color:var(--gold);font-size:1.15rem}
+.bf-motto{margin:18px 0 14px;padding:14px 0 12px;border-block:1px solid rgba(193,136,58,.45)}
+.bf-motto blockquote{margin:0;font-family:var(--ethiopic);font-size:clamp(1.7rem,1.2rem + 1.8vw,2.5rem);line-height:1.2;color:var(--red)}
+.bf-motto blockquote:not([lang]){font-family:var(--serif);font-style:italic}
+.bf-motto figcaption{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-top:6px;color:var(--muted);font-style:italic}
+html[lang="ti"] .bf-motto figcaption{font-family:var(--ethiopic);font-style:normal}
+.bf-lead{max-width:56ch;color:var(--ink);font-size:1.05rem}
+
+.bf-tasks{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:20px;padding-bottom:12px}
+.bf-tasks::before{content:"";position:absolute;left:0;right:0;bottom:3px;height:2px;background:rgba(193,136,58,.35);border-radius:2px}
+.bf-tasks::after{content:"";position:absolute;bottom:0;left:calc(var(--task,0) * (100% + 8px) / 3);width:calc((100% - 16px) / 3);height:8px;border-radius:999px;background:var(--red);transition:left .45s cubic-bezier(.3,.7,.2,1)}
+.bf-tasks button{display:flex;flex-direction:column;align-items:center;gap:6px;min-height:84px;padding:12px 6px;border:1px solid transparent;border-radius:12px;background:rgba(255,255,255,.55);color:var(--ink);font:inherit;font-weight:700;cursor:pointer;transition:background-color .2s,color .2s,border-color .2s}
+html[lang="ti"] .bf-tasks button{font-family:var(--ethiopic);font-weight:400}
+.bf-tasks svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.bf-tasks button:hover{border-color:var(--gold)}
+.bf-tasks button[aria-selected="true"]{background:#fff;color:var(--red);border-color:rgba(163,34,27,.35)}
+.bf-tasks button:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+.bf-panel{min-height:120px;padding:16px 4px 0}
+.bf-panel h3{font-family:var(--serif);font-size:1.25rem;color:var(--navy)}
+html[lang="ti"] .bf-panel h3{font-family:var(--ethiopic);font-weight:400}
+.bf-panel p{margin:4px 0 8px;max-width:58ch;color:var(--muted)}
+.bf-panel .more{font-weight:700}
+.bf-panel.is-new > *{animation:bf-in .35s ease-out both}
+.bf-panel.is-new > *:nth-child(2){animation-delay:.05s}.bf-panel.is-new > *:nth-child(3){animation-delay:.1s}
+@keyframes bf-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.bf-go{margin-top:16px}
+
+@media (max-width:760px){
+  .bf-grid{grid-template-columns:1fr}
+  .bf-arch{max-width:220px;justify-self:center}
+  .bf-body{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){.bf-tasks::after{transition:none}.bf-panel.is-new > *{animation:none}}
