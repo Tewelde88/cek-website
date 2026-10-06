@@ -511,3 +511,13 @@ html[lang="ti"] .st-text strong{font-family:var(--ethiopic)}
 }
 .mainnav .sub .sub-sep{height:1px;margin:6px 20px;background:var(--gold-soft)}
 @media (max-width:1023px){.mainnav .sub .sub-sep{margin:4px 12px;background:rgba(255,255,255,.15)}}
+
+/* ---------- Breadcrumbs (top of every lower-level page) ---------- */
+.page-head .crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:2px 0;font-size:.9rem;color:rgba(255,255,255,.75);margin-bottom:8px}
+.page-head .crumbs a{color:#fff;font-weight:600;text-decoration:underline;text-decoration-color:rgba(193,136,58,.7);text-underline-offset:3px}
+.page-head .crumbs a:hover{text-decoration-color:#fff}
+.page-head .crumbs span[aria-hidden]{margin:0 8px;opacity:.6}
+html[lang="ti"] .page-head .crumbs{font-family:var(--ethiopic)}
+/* ---------- Menu: a page that sits under the one above it (e.g. Seminary › Major Seminary) ---------- */
+.mainnav .sub .sub-in a{position:relative;padding-left:38px;font-weight:500;font-size:.95em}
+.mainnav .sub .sub-in a::before{content:"";position:absolute;left:24px;top:50%;width:8px;height:1px;background:var(--gold)}

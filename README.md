@@ -67,3 +67,12 @@ The menu (`<ul id="site-nav">`) is written into every page; when you change it, 
 the same way (only the `class="active"` / `aria-current` marks differ). Christian communities
 are shown on the Pastoral page; parishes can be filtered by deanery (fill in “Deanery” for each parish
 on the Admin page).
+
+Site map (the menu follows it):
+- **Eparchy** › Bishop, Priests, Seminary (› Major Seminary, Minor Seminary), Religious Orders
+- **Deaneries** › Keren, Habinmentel, Hagaz · Parishes, Chapels, Sanctuaries
+- **Pastoral** › Liturgy, Formation, Vocation, Christian Communities, Projects (› St. Michael’s Building Project)
+- **Resources** › Liturgical Calendar, Sermons, Library, News Archive
+
+A page under another one is indented in its menu list (`<li class="sub-in">`). Every lower-level page shows
+a breadcrumb at the top (`<p class="crumbs">`, e.g. “Pastoral › Projects › St. Michael’s Building Project”).
