@@ -15,7 +15,10 @@ const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls)
 const still = window.matchMedia('(prefers-reduced-motion: reduce)');
 // a place is searched by name, or given as '@lat,lon' (the Anseba region: 16°00′N 38°00′E)
 const earth = q => q.startsWith('@') ? 'https://earth.google.com/web/' + q + ',900a,320000d,35y,0h,0t,0r' : 'https://earth.google.com/web/search/' + encodeURIComponent(q);
-const satSrc = q => q.startsWith('@') ? 'https://maps.google.com/maps?q=' + q.slice(1) + '&t=k&z=9&output=embed' : 'https://maps.google.com/maps?q=' + encodeURIComponent(q) + '&t=k&z=12&output=embed';
+// Google's own embed address (satellite view, no key needed); a name or 'lat,lon'
+const satQ = q => q.startsWith('@') ? q.slice(1) : q;
+const satSrc = q => 'https://www.google.com/maps/embed?origin=mfe&pb=!1m4!2m1!1s' + encodeURIComponent(satQ(q)).replace(/%20/g, '+').replace(/%2C/g, ',') + '!5e1!6i' + (q.startsWith('@') ? 9 : 12);
+const satLink = q => 'https://www.google.com/maps/search/' + encodeURIComponent(satQ(q));
 
 // [x %, y %, English, Tigrinya, note EN, note TI, search for Google Earth, level it opens]
 const LEVELS = [
@@ -77,7 +80,7 @@ function info(){
     });
     card.appendChild(chips);
   }
-  if (lv >= 2){
+  if (lv >= 1){
     const pl = el('div', 'mp-place');
     pl.append(el('strong', '', place[ti() ? 1 : 0]), el('span', '', place[ti() ? 3 : 2]));
     card.appendChild(pl);
@@ -102,7 +105,12 @@ function info(){
 }
 function go(n, from){
   n = Math.max(0, Math.min(3, n));
-  if (n === 3){ const src = satSrc(place[4]); if (sat.getAttribute('src') !== src) sat.src = src; }
+  if (n === 3){
+    const src = satSrc(place[4]); if (sat.getAttribute('src') !== src) sat.src = src;
+    // shown behind the map: if a browser blocks the map, this link still opens it
+    const fb = document.getElementById('mp-sat-fb'); fb.href = satLink(place[4]);
+    fb.textContent = ti() ? `${place[1]} ብGoogle Maps ክፈቱ` : `Open ${place[0]} in Google Maps`;
+  }
   const old = layers[lv], nu = layers[n];
   if (n !== lv){
     // zoom into the chosen place (or out of it) while the next map fades in

@@ -965,3 +965,7 @@ html[lang="ti"] .mp-chips button{font-family:var(--ethiopic)}
 .mp-chips button[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
 .mp-chips button:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
 .mp-sec{border-top:1px solid var(--line)}
+/* map journey: the shown map always lies on top; a link waits behind the satellite map */
+.mp-layer.is-on{z-index:2}.mp-layer.is-off{z-index:1}
+.mp-sat iframe{position:relative;z-index:1}
+.mp-sat-fb{position:absolute;inset:auto 0 50% 0;z-index:0;text-align:center;font-weight:700;color:var(--navy)}
