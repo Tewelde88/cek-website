@@ -846,3 +846,60 @@ html[lang="ti"] .og-card h3{font-family:var(--ethiopic);font-weight:400}
   .og-node{max-width:none}
 }
 @media (prefers-reduced-motion:reduce){.og-card.is-new > *{animation:none}.og-node{transition:none}}
+
+/* ============================================================
+   EPARCHY PAGE — "Belonging to the Eparchy": a path through life
+   ============================================================ */
+.bn-sec{border-top:1px solid var(--line)}
+.th-s{--th:#a3221b}.th-f{--th:#16315e}.th-c{--th:#c1883a}
+.bn-threads{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.bn-threads button{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 16px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font:inherit;font-weight:700;cursor:pointer}
+html[lang="ti"] .bn-threads button{font-family:var(--ethiopic);font-weight:400}
+.bn-threads button i{width:22px;height:4px;border-radius:2px;background:var(--th)}
+.bn-threads button:hover{border-color:var(--gold)}
+.bn-threads button[aria-pressed="true"]{border-color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy)}
+.bn-threads button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.bn-way{position:relative}
+.bn-way .w{position:absolute;left:4%;right:4%;height:3px;border-radius:2px;transition:opacity .3s}
+.w-s{top:24px;background:#a3221b}.w-f{top:30px;background:#16315e}.w-c{top:36px;background:#c1883a}
+.bn[data-t="s"] .w:not(.w-s),.bn[data-t="f"] .w:not(.w-f),.bn[data-t="c"] .w:not(.w-c){opacity:.15}
+.bn-path{position:relative;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+.bn-stop{display:flex;flex-direction:column;align-items:center;gap:8px;transition:opacity .3s}
+.bn-stop.is-dim{opacity:.32}
+.bn-dot{display:flex;flex-direction:column;align-items:center;gap:8px;padding:0;border:0;background:none;color:var(--ink);font:inherit;cursor:pointer}
+.bn-dot b{display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:var(--parch);box-shadow:0 0 0 2px var(--gold),0 4px 10px rgba(60,40,10,.15);font-family:var(--ethiopic);font-weight:400;font-size:1.45rem;color:var(--red);transition:transform .25s,background-color .25s,color .25s}
+.bn-dot span{font-weight:700;font-size:.95rem;text-align:center;line-height:1.2}
+html[lang="ti"] .bn-dot span{font-family:var(--ethiopic);font-weight:400}
+.bn-dot:hover b{transform:translateY(-3px)}
+.bn-dot[aria-pressed="true"] b{background:var(--red);color:#fff;box-shadow:0 0 0 2px var(--red),0 0 0 6px rgba(163,34,27,.15)}
+.bn-dot[aria-pressed="true"] span{color:var(--red)}
+.bn-dot:focus-visible{outline:none}
+.bn-dot:focus-visible b{outline:3px solid var(--navy);outline-offset:3px}
+.bn-pips{display:flex;gap:3px}
+.bn-pips i{width:14px;height:4px;border-radius:2px;background:var(--th)}
+.bn-card{max-width:760px;margin:26px auto 0;padding:22px 26px;border-radius:10px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--red);box-shadow:0 12px 28px rgba(31,27,24,.08)}
+.bn-head{display:flex;align-items:baseline;gap:12px}
+.bn-n{font-family:var(--ethiopic);font-weight:400;font-size:1.6rem;color:var(--red)}
+.bn-head small{font-style:italic;color:var(--muted)}
+html[lang="ti"] .bn-head small{font-family:var(--ethiopic);font-style:normal}
+.bn-card h3{margin:2px 0 6px;font-family:var(--serif);font-size:1.4rem;color:var(--navy)}
+html[lang="ti"] .bn-card h3{font-family:var(--ethiopic);font-weight:400}
+.bn-card > p{color:var(--muted);max-width:62ch}
+.bn-tags{display:flex;flex-wrap:wrap;gap:6px 14px;margin:12px 0 8px}
+.bn-tags span{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;font-weight:700;color:var(--ink)}
+html[lang="ti"] .bn-tags span{font-family:var(--ethiopic);font-weight:400}
+.bn-tags i{width:18px;height:4px;border-radius:2px;background:var(--th)}
+.bn-card .more{font-weight:700}
+.bn-card.is-new > *{animation:bn-in .3s ease-out both}
+@keyframes bn-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+@media (max-width:760px){
+  .bn-way .w{left:28px;right:auto;top:10px;bottom:10px;width:3px;height:auto}
+  .w-s{margin-left:-6px}.w-f{margin-left:0}.w-c{margin-left:6px}
+  .bn-path{grid-template-columns:1fr;gap:14px}
+  .bn-stop{flex-direction:row;align-items:center;gap:12px}
+  .bn-dot{flex-direction:row;gap:14px}
+  .bn-dot b{width:56px;height:56px;flex:none}
+  .bn-dot span{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){.bn-card.is-new > *{animation:none}.bn-dot b,.bn-stop,.bn-way .w{transition:none}}

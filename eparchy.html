@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="css/liturgy.css?v=202610061710">
 <link rel="stylesheet" href="css/news.css?v=202610061710">
 <link rel="stylesheet" href="css/resources.css?v=202610061710">
-<link rel="stylesheet" href="css/eparchy.css?v=202610070030">
+<link rel="stylesheet" href="css/eparchy.css?v=202610070100">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -324,6 +324,58 @@
     </div>
   </section>
 
+  <!-- ===== BELONGING TO THE EPARCHY: a path through life, with three threads — sacraments, formation, community (js/belong.js) ===== -->
+  <section class="chap bn-sec" id="belonging" aria-labelledby="bn-title">
+    <div class="wrap">
+      <header class="chap-head">
+        <div><h2 id="bn-title" data-i18n="bn.title">Belonging to the Eparchy</h2>
+        <p data-i18n="bn.lead">From the first day of life to the last, the Eparchy walks with you.</p></div>
+      </header>
+      <div class="bn" id="bn">
+        <div class="bn-threads" role="group" aria-label="Threads">
+          <button type="button" data-t="" aria-pressed="true" data-i18n="fq.all">All</button>
+          <button type="button" data-t="s" aria-pressed="false"><i class="th-s" aria-hidden="true"></i><span data-i18n="bn.s">Sacramental life</span></button>
+          <button type="button" data-t="f" aria-pressed="false"><i class="th-f" aria-hidden="true"></i><span data-i18n="nav.formation">Formation</span></button>
+          <button type="button" data-t="c" aria-pressed="false"><i class="th-c" aria-hidden="true"></i><span data-i18n="bn.c">Community support</span></button>
+        </div>
+        <div class="bn-way">
+          <span class="w w-s" aria-hidden="true"></span><span class="w w-f" aria-hidden="true"></span><span class="w w-c" aria-hidden="true"></span>
+        <ol class="bn-path" role="list">
+          <li class="bn-stop" data-th="s c">
+            <button type="button" class="bn-dot" aria-pressed="true" aria-controls="bn-card"><b lang="ti">፩</b><span data-i18n="bn.birth">Birth</span></button>
+            <div class="bn-more" hidden><h3 data-i18n="bn.birth.t">Welcomed at the font</h3><p data-i18n="bn.birth.p">Baptism welcomes the child into God’s family, with the blessing of the whole parish.</p><a class="more" href="sacraments.html" data-i18n="read">Read more</a></div>
+          </li>
+          <li class="bn-stop" data-th="f s">
+            <button type="button" class="bn-dot" aria-pressed="false" aria-controls="bn-card"><b lang="ti">፪</b><span data-i18n="bn.child">Childhood</span></button>
+            <div class="bn-more" hidden><h3 data-i18n="bn.child.t">Learning the faith</h3><p data-i18n="bn.child.p">Weekly catechism in every parish and preparation for First Communion.</p><a class="more" href="formation.html" data-i18n="read">Read more</a></div>
+          </li>
+          <li class="bn-stop" data-th="f c">
+            <button type="button" class="bn-dot" aria-pressed="false" aria-controls="bn-card"><b lang="ti">፫</b><span data-i18n="bn.youth">Youth</span></button>
+            <div class="bn-more" hidden><h3 data-i18n="bn.youth.t">Growing together</h3><p data-i18n="bn.youth.p">Youth groups, retreats and Bible study, choirs and schools of Ge’ez and chant.</p><a class="more" href="formation.html" data-i18n="read">Read more</a></div>
+          </li>
+          <li class="bn-stop" data-th="s f">
+            <button type="button" class="bn-dot" aria-pressed="false" aria-controls="bn-card"><b lang="ti">፬</b><span data-i18n="bn.call">Calling</span></button>
+            <div class="bn-more" hidden><h3 data-i18n="bn.call.t">Answering God’s call</h3><p data-i18n="bn.call.p">Preparation for marriage, or discerning a call to the priesthood or religious life.</p><a class="more" href="vocation.html" data-i18n="read">Read more</a></div>
+          </li>
+          <li class="bn-stop" data-th="s c">
+            <button type="button" class="bn-dot" aria-pressed="false" aria-controls="bn-card"><b lang="ti">፭</b><span data-i18n="bn.sunday">Every Sunday</span></button>
+            <div class="bn-more" hidden><h3 data-i18n="bn.sunday.t">A family that prays</h3><p data-i18n="bn.sunday.p">The Sunday Liturgy, confession, the feasts and small Christian communities.</p><a class="more" href="liturgy.html" data-i18n="read">Read more</a></div>
+          </li>
+          <li class="bn-stop" data-th="s c">
+            <button type="button" class="bn-dot" aria-pressed="false" aria-controls="bn-card"><b lang="ti">፮</b><span data-i18n="bn.need">In need</span></button>
+            <div class="bn-more" hidden><h3 data-i18n="bn.need.t">Never alone</h3><p data-i18n="bn.need.p">Anointing of the sick, visits to the elderly, and help for families in hardship through CESK.</p><a class="more" href="cesk.html" data-i18n="read">Read more</a></div>
+          </li>
+          <li class="bn-stop" data-th="c s">
+            <button type="button" class="bn-dot" aria-pressed="false" aria-controls="bn-card"><b lang="ti">፯</b><span data-i18n="bn.memory">Remembrance</span></button>
+            <div class="bn-more" hidden><h3 data-i18n="bn.memory.t">Remembered in prayer</h3><p data-i18n="bn.memory.p">The Church remembers the departed in prayer and in the Liturgy.</p><a class="more" href="blessed-memory.html" data-i18n="read">Read more</a></div>
+          </li>
+        </ol>
+        </div>
+        <div class="bn-card" id="bn-card" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== ROW 4 · Seminary: two cards, each with its own page ===== -->
   <section class="chap" id="seminary" aria-labelledby="sem-title">
     <div class="wrap">
@@ -391,6 +443,6 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json PARISHES_DATA=data/parishes.json" data-scripts="js/main.js js/eparchy-book.js js/shepherd.js js/story.js js/order.js"></script>
+<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json PARISHES_DATA=data/parishes.json" data-scripts="js/main.js js/eparchy-book.js js/shepherd.js js/story.js js/order.js js/belong.js"></script>
 </body>
 </html>
