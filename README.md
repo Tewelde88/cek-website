@@ -9,7 +9,7 @@ Bilingual (English ⇄ Tigrinya), works on phones, tablets and computers. Plain 
 ## Pages
 | Page | File | Content edited on the Admin page |
 |---|---|---|
-| Home | `index.html` | latest 3 news posts, sermon card |
+| Home (shepherds, ribbon links, news, “Pastoral life” book, building project, calendar) | `index.html` | latest news posts; the Pastoral life book counts parishes/communities and shows the building % |
 | Eparchy — overview with counters and tiles | `eparchy.html` | (counts come from the lists below) |
 | Eparchy › Bishop (profile, interactive timeline, biography) | `bishop.html` | — |
 | Eparchy › Priests (search, role filter, sort, grid/list, profile window) | `priests.html` | priests |

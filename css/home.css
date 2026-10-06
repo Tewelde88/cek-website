@@ -123,3 +123,71 @@ html[lang="ti"] .build-row h2{font-family:var(--ethiopic)}
 .sl-pause .i-play path{fill:#fff}
 .hero-harag{height:30px}
 .ms .harag{height:26px;margin:-6px 0 24px}
+
+/* ---------- PASTORAL LIFE: an open book (left page = contents, right page = the chosen initiative) ---------- */
+.folio{position:relative;display:grid;grid-template-columns:minmax(230px,310px) minmax(0,1fr);border-radius:6px;background:#fff;box-shadow:0 1px 0 #e6dcc5,0 18px 40px rgba(60,40,10,.10)}
+.fol-index{padding:clamp(22px,3vw,34px) 0 clamp(22px,3vw,34px) clamp(18px,2.4vw,28px);background:var(--parch);border-radius:6px 0 0 6px;box-shadow:inset -16px 0 18px -16px rgba(60,40,10,.28)}
+.fol-index .harag{height:20px;margin:0 clamp(18px,2.4vw,28px) 18px 0}
+.fol-tabs{display:flex;flex-direction:column;gap:4px}
+.fol-tabs button{position:relative;display:grid;grid-template-columns:30px 1fr;gap:14px;align-items:center;width:100%;min-height:58px;padding:10px 18px 10px 14px;border:0;border-left:3px solid transparent;border-radius:999px 0 0 999px;background:none;color:var(--ink);font:inherit;font-size:1.06rem;text-align:left;cursor:pointer;transition:background-color .2s,color .2s}
+.fol-tabs svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.fol-tn{display:flex;flex-direction:column;line-height:1.2}
+html[lang="ti"] .fol-tn{font-family:var(--ethiopic)}
+.fol-tn .ge{font-size:.86rem;color:var(--muted)}
+.fol-tabs button:hover{background:rgba(255,255,255,.55);color:var(--red)}
+.fol-tabs button[aria-selected="true"]{background:#fff;color:var(--red);font-weight:700;border-left-color:var(--gold);box-shadow:-6px 4px 14px -8px rgba(60,40,10,.25)}
+.fol-tabs button:focus-visible{outline:3px solid var(--navy);outline-offset:-3px}
+
+.fol-page{position:relative;min-height:400px;padding:clamp(26px,4vw,52px) clamp(22px,4.5vw,60px);perspective:1400px;touch-action:pan-y}
+.fol-panel{display:flex;flex-direction:column;align-items:flex-start;gap:14px;transform-origin:left center}
+.fol-panel[hidden]{display:none}
+.fol-panel:focus-visible{outline:3px solid var(--navy);outline-offset:8px;border-radius:4px}
+.fol-ic{width:64px;height:64px;fill:none;stroke:var(--gold);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.fol-panel h3{font-family:var(--serif);font-size:clamp(1.6rem,1.2rem + 1.4vw,2.2rem);line-height:1.15;color:var(--red)}
+html[lang="ti"] .fol-panel h3{font-family:var(--ethiopic);font-weight:400}
+.fol-d{max-width:54ch;font-size:1.12rem;line-height:1.65;color:var(--ink)}
+.fol-d::first-letter{float:left;margin:4px 10px 0 0;font-family:var(--serif);font-size:3.3em;line-height:.8;color:var(--red)}
+html[lang="ti"] .fol-d::first-letter{float:none;margin:0;font:inherit;color:inherit}
+.fol-live{width:100%;max-width:560px;padding-top:14px;border-top:1px dotted #cbbd9f;color:var(--muted);font-size:1rem}
+.fol-live:empty{display:none}
+.fol-live strong{color:var(--ink)}
+.fol-date{display:inline-flex;align-items:baseline;gap:6px;margin-right:8px;padding:2px 10px;border-radius:999px;background:var(--parch);font-family:var(--ethiopic);color:var(--ink)}
+.fol-date b{font-weight:400;font-size:1.25rem;color:var(--red)}
+.fol-bar{height:8px;margin-top:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.fol-bar span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--red),var(--gold))}
+.fol-tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.fol-tags li{padding:6px 14px;border:1px solid var(--gold-soft);border-radius:999px;background:#fdf8ee;font-size:.95rem}
+.fol-steps{list-style:none;margin:0;padding:0;width:100%;max-width:620px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.fol-steps li{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:8px;font-size:.95rem;line-height:1.3}
+.fol-steps li:not(:last-child)::after{content:"";position:absolute;top:17px;left:44px;right:4px;height:1px;background:var(--gold-soft)}
+.fol-steps b{display:grid;place-items:center;width:36px;height:36px;border:1.5px solid var(--red);border-radius:50%;font-family:var(--ethiopic);font-weight:400;font-size:1.1rem;color:var(--red);background:#fff}
+.fol-panel .btn{margin-top:8px}
+.fol-no{position:absolute;right:clamp(16px,2.4vw,28px);bottom:14px;font-family:var(--ethiopic);font-size:1.15rem;color:var(--gold)}
+
+/* turning the page: the new page swings in from the spine, its symbol draws itself */
+.fol-panel.is-turn{animation:fol-turn .5s cubic-bezier(.2,.7,.2,1) both}
+.fol-panel.is-turn .fol-ic path,.fol-panel.is-turn .fol-ic circle{stroke-dasharray:1;animation:rib-draw 1.1s cubic-bezier(.4,0,.2,1) both}
+.fol-panel.is-turn .fol-ic :nth-child(2){animation-delay:.12s}
+.fol-panel.is-turn .fol-ic :nth-child(3){animation-delay:.24s}
+.fol-panel.is-turn .fol-ic :nth-child(4){animation-delay:.36s}
+@keyframes fol-turn{from{opacity:0;transform:rotateY(-14deg) translateX(22px)}to{opacity:1;transform:none}}
+
+@media (max-width:760px){
+  .folio{grid-template-columns:minmax(0,1fr)}
+  .fol-index,.fol-page{min-width:0}
+  .fol-index{padding:14px 0 0;border-radius:6px 6px 0 0;box-shadow:inset 0 -14px 16px -14px rgba(60,40,10,.25)}
+  .fol-index .harag{margin:0 14px 10px}
+  .fol-tabs{flex-direction:row;overflow-x:auto;gap:2px;padding:0 10px;scrollbar-width:none}
+  .fol-tabs::-webkit-scrollbar{display:none}
+  .fol-tabs button{flex:none;width:auto;grid-template-columns:22px auto;gap:8px;min-height:48px;padding:8px 14px;border-left:0;border-bottom:3px solid transparent;border-radius:12px 12px 0 0;font-size:.95rem}
+  .fol-tabs svg{width:22px;height:22px}
+  .fol-tabs button[aria-selected="true"]{border-bottom-color:var(--gold);box-shadow:none}
+  .fol-tn .ge{display:none}
+  .fol-page{min-height:0;padding:24px 20px 44px}
+  .fol-ic{width:52px;height:52px}
+  .fol-steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:16px}
+  .fol-steps li::after{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .fol-panel.is-turn,.fol-panel.is-turn .fol-ic *{animation:none !important}
+}
