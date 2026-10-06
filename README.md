@@ -72,7 +72,7 @@ Site map (the menu follows it):
 - **Eparchy** › Bishop, Priests, Seminary (› Major Seminary, Minor Seminary), Religious Orders, Blessed Memory (`blessed-memory.html`)
 - **Deaneries** › Keren, Habinmentel, Hagaz · Parishes, Chapels, Sanctuaries
 - **CESK** › Emergency Relief, Health Care, Education Support, Water & Agriculture, Women & Youth, Elderly & Disabled (`cesk-*.html`, to be completed)
-- **Pastoral** › Liturgy, Formation, Vocation, Christian Communities, Projects (› St. Michael’s Building Project)
+- **Pastoral** › Liturgy (› Sacraments and Sacramentals, Chanting, Icons and Architecture, Ge’ez Language — linked from “More about the liturgy” on the Liturgy page), Formation, Vocation, Christian Communities, Projects (› St. Michael’s Building Project)
 - **Resources** › Liturgical Calendar, Sermons, Library, News Archive
 
 A page under another one is indented in its menu list (`<li class="sub-in">`). Every lower-level page shows
