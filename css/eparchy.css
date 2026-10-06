@@ -1011,3 +1011,108 @@ html[lang="ti"] .dr-text b{font-family:var(--ethiopic);font-weight:400}
   .dr-door{grid-template-columns:120px minmax(0,1fr);gap:16px;padding:14px}
 }
 @media (prefers-reduced-motion:reduce){.dr-leaf{transition:none}.dr-door{transition:none}}
+
+/* ============================================================
+   PRIESTS PAGE — a priest's day · always learning · who stands
+   with our priests · pray for our priests (js/priests-more.js)
+   ============================================================ */
+/* ---- A priest's day ---- */
+.pd{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(260px,1fr);gap:clamp(18px,3vw,36px);align-items:center}
+.pd-sky{position:relative;aspect-ratio:400/210;border-radius:200px 200px 10px 10px;overflow:hidden;background:linear-gradient(180deg,var(--sky1,#f7d7b0),var(--sky2,#f3ebda));box-shadow:inset 0 0 0 1px #e2d3b3;transition:background .8s}
+.pd-sky[data-t="0"]{--sky1:#f5cfa6;--sky2:#f6ead6}
+.pd-sky[data-t="1"]{--sky1:#d9e7ef;--sky2:#f5eedf}
+.pd-sky[data-t="2"]{--sky1:#c7def0;--sky2:#f2efe6}
+.pd-sky[data-t="3"]{--sky1:#d3e2ec;--sky2:#f3ebda}
+.pd-sky[data-t="4"]{--sky1:#efd5a2;--sky2:#f5ead4}
+.pd-sky[data-t="5"]{--sky1:#e2a47e;--sky2:#efd6b6}
+.pd-sky[data-t="6"]{--sky1:#0e2244;--sky2:#2d5191}
+.pd-arc{position:absolute;inset:0;width:100%;height:100%}
+.pd-arc path{fill:none;stroke:rgba(122,83,32,.45);stroke-width:1.5;stroke-dasharray:4 5}
+.pd-arc line{stroke:rgba(122,83,32,.35);stroke-width:1.5}
+.pd-sky[data-t="6"] .pd-arc path,.pd-sky[data-t="6"] .pd-arc line{stroke:rgba(234,211,174,.35)}
+.pd-sun{position:absolute;left:5%;top:95%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:radial-gradient(circle at 40% 38%,#fff3c4,#e9b44c 55%,#c1883a);box-shadow:0 0 0 8px rgba(233,180,76,.18),0 0 30px rgba(233,180,76,.55);transition:left .9s cubic-bezier(.4,0,.2,1),top .9s cubic-bezier(.4,0,.2,1),background .8s,box-shadow .8s}
+.pd-sky[data-t="6"] .pd-sun{background:radial-gradient(circle at 60% 40%,#fbf6e8,#d9d2c0);box-shadow:inset -10px -4px 0 rgba(14,34,68,.45),0 0 24px rgba(251,246,232,.35)}
+.pd-hours{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.pd-hours button{display:flex;flex-direction:column;align-items:center;gap:2px;width:100%;min-height:58px;padding:8px 4px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font:inherit;font-size:.82rem;line-height:1.2;text-align:center;cursor:pointer}
+html[lang="ti"] .pd-hours button{font-family:var(--ethiopic)}
+.pd-hours b{font-family:var(--serif);font-size:1rem;color:var(--navy)}
+.pd-hours button:hover{border-color:var(--gold)}
+.pd-hours button[aria-pressed="true"]{border-color:var(--red);box-shadow:0 0 0 2px rgba(163,34,27,.2)}
+.pd-hours button[aria-pressed="true"] b{color:var(--red)}
+.pd-hours button:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+.pd-card{padding:22px;border-radius:10px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--gold)}
+.pd-time{font-size:1.25rem;font-family:var(--serif);color:var(--navy)}
+html[lang="ti"] .pd-time{font-family:var(--ethiopic)}
+.pd-time b{color:var(--red)}
+.pd-text{margin:8px 0 12px;color:var(--ink);line-height:1.65}
+.pd-tags{display:flex;flex-wrap:wrap;gap:6px}
+.pd-tag{padding:3px 10px;border-radius:999px;font-size:.8rem;font-weight:700}
+html[lang="ti"] .pd-tag{font-family:var(--ethiopic);font-weight:400}
+.pd-l{background:#f6e3e1;color:#7e1912}.pd-s{background:#e7ecf5;color:#16315e}.pd-c{background:#f5ead6;color:#7a5320}
+.pd-note{margin-top:12px;font-size:.88rem;font-style:italic;color:var(--muted)}
+html[lang="ti"] .pd-note{font-family:var(--ethiopic);font-style:normal}
+
+/* ---- Always learning ---- */
+.af{max-width:880px}
+.af-scale{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:18px;border-bottom:2px solid var(--line)}
+.af-scale::after{content:"";position:absolute;bottom:-2px;left:calc(var(--af,0) * 25%);width:25%;height:3px;background:var(--red);transition:left .4s cubic-bezier(.3,.7,.2,1)}
+.af-scale button{display:flex;flex-direction:column;align-items:center;gap:8px;min-height:64px;padding:10px 4px 12px;border:0;background:none;color:var(--muted);font:inherit;font-weight:700;cursor:pointer}
+html[lang="ti"] .af-scale button{font-family:var(--ethiopic);font-weight:400}
+.af-scale i{display:block;width:calc(10px + var(--w,0px));height:10px;border-radius:999px;background:currentColor;opacity:.55}
+.af-scale button:nth-child(1) i{--w:0px}.af-scale button:nth-child(2) i{--w:22px}.af-scale button:nth-child(3) i{--w:54px}
+.af-scale button:nth-child(4) i{width:34px;background:radial-gradient(circle,currentColor 4px,transparent 5px) 0 50%/12px 10px repeat-x}
+.af-scale button[aria-selected="true"]{color:var(--red)}
+.af-scale button:focus-visible{outline:3px solid var(--navy);outline-offset:-3px}
+.af-panel{display:grid;grid-template-columns:72px 1fr;gap:20px;align-items:center;padding:22px;border-radius:10px;background:#fff;border:1px solid var(--line)}
+.af-panel svg{width:64px;height:64px;fill:none;stroke:var(--gold);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.af-panel h3{font-family:var(--serif);font-size:1.35rem;color:var(--navy)}
+html[lang="ti"] .af-panel h3{font-family:var(--ethiopic);font-weight:400}
+.af-panel p{margin-top:4px;color:var(--muted);max-width:60ch}
+
+/* ---- Who stands with our priests: the arch on four pillars ---- */
+.sp{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(240px,1fr);gap:clamp(18px,3vw,40px);align-items:center}
+.sp-arch{max-width:560px;width:100%;justify-self:center}
+.sp-top{display:grid;place-items:end center;height:110px;padding-bottom:16px;border-radius:280px 280px 0 0;background:linear-gradient(180deg,#e9d4ac,#d8bd8c);box-shadow:inset 0 -6px 0 rgba(122,83,32,.25)}
+.sp-top span{padding:4px 16px;border-radius:999px;background:var(--navy);color:#fff;font-weight:700;font-size:.95rem}
+html[lang="ti"] .sp-top span{font-family:var(--ethiopic);font-weight:400}
+.sp-pillars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:0 10px}
+.sp-pillars button{position:relative;display:flex;align-items:flex-end;justify-content:center;min-height:170px;padding:12px 6px;border:0;border-radius:0 0 4px 4px;background:linear-gradient(90deg,#e7d9bd,#f6eedd 45%,#dccaa6);box-shadow:inset 0 10px 0 -4px #cdb68a;color:var(--ink);font:inherit;font-weight:700;font-size:.88rem;line-height:1.25;text-align:center;cursor:pointer;transition:background .25s,color .25s,transform .25s}
+html[lang="ti"] .sp-pillars button{font-family:var(--ethiopic);font-weight:400}
+.sp-pillars button:hover{transform:translateY(-2px)}
+.sp-pillars button[aria-pressed="true"]{background:linear-gradient(90deg,#8e1a14,#b5352b 45%,#7e1912);box-shadow:inset 0 10px 0 -4px #5e110c;color:#fff}
+.sp-pillars button:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+.sp-base{height:16px;margin:0 -6px;border-radius:3px;background:linear-gradient(180deg,#cdb68a,#a98d5c)}
+.sp-card{padding:22px;border-radius:10px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--red)}
+.sp-card h3{font-family:var(--serif);font-size:1.35rem;color:var(--navy)}
+html[lang="ti"] .sp-card h3{font-family:var(--ethiopic);font-weight:400}
+.sp-card p{margin-top:6px;color:var(--muted);line-height:1.65}
+
+/* ---- Pray for our priests: the candle and the prayer ---- */
+.pc{display:grid;grid-template-columns:220px minmax(0,720px);justify-content:center;gap:clamp(20px,4vw,52px);align-items:center}
+.pc-candle-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.pc-candle{display:flex;flex-direction:column;align-items:center;gap:0;padding:12px;border:0;background:none;font:inherit;cursor:pointer}
+.pc-flame{width:22px;height:34px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle at 50% 70%,#fff6c9,#f0b545 55%,#d9542b);opacity:0;transform:scale(.4) translateY(10px);transform-origin:50% 100%;transition:opacity .4s,transform .4s;filter:drop-shadow(0 0 10px rgba(240,181,69,.8))}
+.pc-wax{width:30px;height:110px;margin-top:2px;border-radius:4px 4px 2px 2px;background:linear-gradient(90deg,#efe6d2,#fffaf0 45%,#e3d6ba);box-shadow:0 0 0 1px #d8c9a8;position:relative}
+.pc-wax::before{content:"";position:absolute;top:-6px;left:50%;width:2px;height:8px;margin-left:-1px;background:#3a2c1c}
+.pc-label{margin-top:12px;max-width:180px;font-weight:700;color:var(--navy);text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:4px}
+html[lang="ti"] .pc-label{font-family:var(--ethiopic);font-weight:400}
+.pc-candle[aria-pressed="true"] .pc-flame{opacity:1;transform:none;animation:pc-flicker 2.4s ease-in-out infinite}
+.pc-candle:focus-visible{outline:3px solid var(--navy);outline-offset:3px;border-radius:8px}
+@keyframes pc-flicker{0%,100%{transform:scale(1) rotate(-1deg)}50%{transform:scale(.94,1.06) rotate(1.5deg)}}
+.pc-thanks{color:var(--red);font-style:italic}
+html[lang="ti"] .pc-thanks{font-family:var(--ethiopic);font-style:normal}
+.pc-prayer figcaption{margin-top:14px}
+.pc-prayer figcaption p{color:var(--muted)}
+.pc-btns{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;margin-top:12px}
+
+@media (max-width:900px){
+  .pd,.sp,.pc{grid-template-columns:1fr}
+  .pd-hours{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .sp-pillars button{min-height:130px;font-size:.8rem}
+  .pc-candle-wrap{order:2}
+}
+@media (max-width:480px){.af-scale button{font-size:.82rem}.af-panel{grid-template-columns:48px 1fr;padding:16px}.af-panel svg{width:44px;height:44px}}
+@media (prefers-reduced-motion:reduce){.pd-sun,.pd-sky,.af-scale::after,.pc-flame,.sp-pillars button{transition:none}.pc-candle[aria-pressed="true"] .pc-flame{animation:none}}
+.pd-card.is-new > *,.af-panel.is-new > *,.sp-card.is-new > *{animation:pm-in .3s ease-out both}
+@keyframes pm-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.pd-card.is-new > *,.af-panel.is-new > *,.sp-card.is-new > *{animation:none}}

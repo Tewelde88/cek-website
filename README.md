@@ -12,7 +12,7 @@ Bilingual (English ⇄ Tigrinya), works on phones, tablets and computers. Plain 
 | Home (shepherds, ribbon links, news, “Pastoral life” book, “The Eparchy in numbers”, CESK invitation (the mesob of six areas), the liturgical year as a scroll, Questions + Newsletter) | `index.html` | latest news posts; the Pastoral life book and “The Eparchy in numbers” count parishes, chapels, sanctuaries, priests and religious orders by themselves |
 | Eparchy — contents, “The shepherd of the Eparchy” (current bishop, motto, his three tasks), “Our story” (foundation, growth, commitment — Admin page → Eparchy), bishops, “How the Eparchy is organised” (levels of service with live counts), priests, “Belonging to the Eparchy” (a path through life), seminary, orders, “Where we are” (map zoom: Africa → Eritrea → Eparchy → satellite / Google Earth; images in images/maps/), history, “Meet them more closely” (two doors: Bishop’s page, Priests directory), priests, seminary, orders, history | `eparchy.html` | (counts come from the lists below) |
 | Eparchy › Bishop (profile, interactive timeline, biography) | `bishop.html` | — |
-| Eparchy › Priests (search, role filter, sort, grid/list, profile window) | `priests.html` | priests |
+| Eparchy › Priests (counters, anniversaries, directory with search/filters/profiles, “A priest’s day”, “Always learning”, “Who stands with our priests”, prayer with candle) | `priests.html` | priests |
 | Eparchy › Seminary (step-by-step path, vocations) | `seminary.html` | — |
 | Eparchy › Deaneries (cards open to show parishes) | `deaneries.html` | deaneries |
 | Eparchy › Religious Orders (men/women filter, details window) | `religious.html` | religious orders |
