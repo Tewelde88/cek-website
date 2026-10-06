@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css?v=202610061800">
-<link rel="stylesheet" href="css/home.css?v=202610061730">
+<link rel="stylesheet" href="css/home.css?v=202610061900">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -301,6 +301,38 @@
     </div>
   </section>
 
+  <!-- ================= THE EPARCHY IN NUMBERS: counters + a field of lights, one light per parish, chapel and sanctuary (js/stats.js) ================= -->
+  <section class="hm-sec hm-tight" aria-labelledby="st-title">
+    <div class="wrap">
+      <div class="hm-head"><h2 id="st-title" data-i18n="hm.st">The Eparchy in numbers</h2><span class="ge only-en" lang="ti">ኤጳርቅና ብቍጽሪ</span><a href="deaneries.html" data-i18n="hm.st.all">See the deaneries</a></div>
+      <div class="st" id="st">
+        <div class="harag" aria-hidden="true"></div>
+        <div class="st-filter" role="group" aria-labelledby="st-title">
+          <button type="button" data-d="" aria-pressed="true" data-i18n="st.all">Whole Eparchy</button>
+          <button type="button" data-d="keren" aria-pressed="false" data-i18n="dn.keren">Keren</button>
+          <button type="button" data-d="habinmentel" aria-pressed="false" data-i18n="dn.habinmentel">Habinmentel</button>
+          <button type="button" data-d="hagaz" aria-pressed="false" data-i18n="dn.hagaz">Hagaz</button>
+        </div>
+        <dl class="st-nums">
+          <div data-k="par"><dt data-i18n="pa.nav.parishes">Parishes</dt><dd><span class="st-n">0</span><span class="st-ge" lang="ti" aria-hidden="true"></span></dd></div>
+          <div data-k="cha"><dt data-i18n="pa.nav.chapels">Chapels</dt><dd><span class="st-n">0</span><span class="st-ge" lang="ti" aria-hidden="true"></span></dd></div>
+          <div data-k="san"><dt data-i18n="pa.nav.sanctuaries">Sanctuaries</dt><dd><span class="st-n">0</span><span class="st-ge" lang="ti" aria-hidden="true"></span></dd></div>
+          <div data-k="pri"><dt data-i18n="ep.nav.priests">Priests</dt><dd><span class="st-n">0</span><span class="st-ge" lang="ti" aria-hidden="true"></span></dd></div>
+          <div data-k="ord"><dt data-i18n="ep.nav.religious">Religious Orders</dt><dd><span class="st-n">0</span><span class="st-ge" lang="ti" aria-hidden="true"></span><small class="st-wide" hidden></small></dd></div>
+        </dl>
+        <div class="st-field" id="st-field"></div>
+        <div class="st-foot">
+          <p class="st-cap" id="st-cap" aria-live="polite" data-i18n="st.cap">Each light is a parish, chapel or sanctuary. Point to one to see its name.</p>
+          <ul class="st-legend" role="list">
+            <li><i class="lg-par" aria-hidden="true"></i><span data-i18n="st.par">Parish</span></li>
+            <li><i class="lg-cha" aria-hidden="true"></i><span data-i18n="st.cha">Chapel</span></li>
+            <li><i class="lg-san" aria-hidden="true"></i><span data-i18n="st.san">Sanctuary</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= ST. MICHAEL'S BUILDING PROJECT (data/building.json — edit on the Admin page) ================= -->
   <section class="hm-sec hm-tight" aria-labelledby="bp-title">
     <div class="wrap">
@@ -361,7 +393,7 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="SERMONS=data/sermons.json#sermons NEWS=data/news.json#posts BUILDING=data/building.json PARISHES_DATA=data/parishes.json PROJECTS=data/projects.json#projects" data-scripts="js/main.js js/news.js js/building.js js/folio.js"></script>
+<script src="js/boot.js" data-json="SERMONS=data/sermons.json#sermons NEWS=data/news.json#posts BUILDING=data/building.json PARISHES_DATA=data/parishes.json PROJECTS=data/projects.json#projects EPARCHY=data/eparchy.json" data-scripts="js/main.js js/news.js js/building.js js/folio.js js/stats.js"></script>
 <script src="https://www.vaticannews.va/widget.js" async></script>
 </body>
 </html>

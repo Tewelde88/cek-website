@@ -75,7 +75,7 @@ Admin page → **Eparchy: Priests, Deaneries, Religious** → open the list you 
 
 Admin page → **Parishes, Chapels, Communities, Sanctuaries** → add or edit entries (Mass times, priest, phone, Google Maps link) → Save.
 
-The **Pastoral life** book on the Home page counts the parishes, chapels and small communities by itself, so the numbers there update when you add them here.
+The **Pastoral life** book on the Home page counts the parishes, chapels and small communities by itself, so the numbers there update when you add them here. **The Eparchy in numbers** on the Home page does the same for parishes, chapels, sanctuaries, priests and religious orders, and groups each place under its deanery once you choose the **Deanery** for it.
 
 ## 7. Contact details
 
