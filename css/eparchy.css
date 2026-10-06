@@ -903,3 +903,65 @@ html[lang="ti"] .bn-tags span{font-family:var(--ethiopic);font-weight:400}
   .bn-dot span{text-align:left}
 }
 @media (prefers-reduced-motion:reduce){.bn-card.is-new > *{animation:none}.bn-dot b,.bn-stop,.bn-way .w{transition:none}}
+
+/* ============================================================
+   EPARCHY PAGE — "Where we are": the zoom journey of maps
+   ============================================================ */
+.mp-steps{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.mp-steps button{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 8px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font:inherit;font-weight:700;cursor:pointer}
+html[lang="ti"] .mp-steps button{font-family:var(--ethiopic);font-weight:400}
+.mp-steps b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--parch);font-family:var(--ethiopic);font-weight:400;color:var(--red)}
+.mp-steps button:hover{border-color:var(--gold)}
+.mp-steps button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.mp-steps button[aria-pressed="true"] b{background:var(--red);color:#fff}
+.mp-steps button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.mp-body{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:clamp(16px,2.5vw,28px);align-items:start}
+.mp-stage{position:relative;aspect-ratio:1024/765;overflow:hidden;border-radius:8px;background:#efe4cc;box-shadow:0 0 0 1px #d9c9a4,0 18px 36px rgba(60,40,10,.18)}
+.mp-layer{position:absolute;inset:0;margin:0;opacity:0;visibility:hidden;transform:scale(.9);transition:opacity .6s ease,transform .7s cubic-bezier(.4,0,.2,1),visibility 0s .7s}
+.mp-layer img{display:block;width:100%;height:100%;object-fit:cover}
+.mp-layer.is-on{opacity:1;visibility:visible;transform:none;transition:opacity .6s ease .1s,transform .7s cubic-bezier(.4,0,.2,1),visibility 0s}
+.mp-layer.is-off{visibility:visible;opacity:0;transform:scale(2.4)}
+.mp-stage.is-out .mp-layer.is-off{transform:scale(.7)}
+.mp-stage.is-out .mp-layer.is-on{animation:mp-back .7s cubic-bezier(.4,0,.2,1)}
+@keyframes mp-back{from{transform:scale(2.4)}to{transform:none}}
+.mp-sat iframe{width:100%;height:100%;border:0}
+.mp-pin{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;padding:0;border:0;border-radius:50%;background:rgba(163,34,27,.9);box-shadow:0 0 0 2px #fff,0 2px 6px rgba(0,0,0,.4);cursor:pointer;z-index:2}
+.mp-pin::after{content:"";position:absolute;inset:-14px;border-radius:50%}
+.mp-pin.is-door{background:var(--navy)}
+/* only the markers that lead to the next map pulse, to show where to go */
+.mp-pin.is-door::before{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid rgba(22,49,94,.7);animation:mp-ring 2.2s ease-out infinite}
+@keyframes mp-ring{from{transform:scale(.6);opacity:1}to{transform:scale(1.5);opacity:0}}
+.mp-tip{position:absolute;left:50%;bottom:calc(100% + 10px);transform:translateX(-50%) translateY(4px);padding:4px 10px;border-radius:6px;background:var(--ink);color:#fff;font-size:.85rem;font-weight:700;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+html[lang="ti"] .mp-tip{font-family:var(--ethiopic);font-weight:400}
+.mp-pin:hover .mp-tip,.mp-pin:focus-visible .mp-tip{opacity:1;transform:translateX(-50%)}
+.mp-pin:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.mp-card{padding:20px 20px 18px;border-radius:10px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--red)}
+.mp-k{font-style:italic;color:var(--red)}
+html[lang="ti"] .mp-k{font-family:var(--ethiopic);font-style:normal}
+.mp-card h3{margin:2px 0 6px;font-family:var(--serif);font-size:1.5rem;color:var(--navy)}
+html[lang="ti"] .mp-card h3{font-family:var(--ethiopic);font-weight:400}
+.mp-d{color:var(--muted)}
+.mp-place{display:flex;flex-direction:column;margin-top:12px;padding:10px 12px;border-radius:8px;background:var(--parch)}
+.mp-place strong{font-size:1.1rem}
+html[lang="ti"] .mp-place strong{font-family:var(--ethiopic);font-weight:400}
+.mp-place span{font-size:.9rem;color:var(--muted)}
+.mp-acts{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:16px}
+.mp-earth{display:inline-flex;align-items:center;gap:8px}
+.mp-earth svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8}
+.mp-back{padding:6px 0;border:0;background:none;color:var(--navy);font:inherit;font-weight:700;cursor:pointer}
+.mp-note{margin-top:10px;font-size:.88rem;font-style:italic;color:var(--muted)}
+html[lang="ti"] .mp-note{font-family:var(--ethiopic);font-style:normal}
+
+@media (max-width:900px){
+  .mp-body{grid-template-columns:1fr}
+  .mp-pin{width:14px;height:14px;margin:-7px 0 0 -7px}
+  .mp-acts{flex-direction:row;flex-wrap:wrap;align-items:center}
+}
+@media (prefers-reduced-motion:reduce){.mp-layer,.mp-layer.is-on{transition:none}.mp-pin::before{animation:none}.mp-stage.is-out .mp-layer.is-on{animation:none}}
+.mp-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.mp-chips button{min-height:36px;padding:0 12px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font:inherit;font-size:.88rem;cursor:pointer}
+html[lang="ti"] .mp-chips button{font-family:var(--ethiopic)}
+.mp-chips button:hover{border-color:var(--gold)}
+.mp-chips button[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.mp-chips button:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+.mp-sec{border-top:1px solid var(--line)}

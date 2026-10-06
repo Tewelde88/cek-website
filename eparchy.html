@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="css/liturgy.css?v=202610061710">
 <link rel="stylesheet" href="css/news.css?v=202610061710">
 <link rel="stylesheet" href="css/resources.css?v=202610061710">
-<link rel="stylesheet" href="css/eparchy.css?v=202610070100">
+<link rel="stylesheet" href="css/eparchy.css?v=202610070200">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -131,6 +131,7 @@
         <li><a href="#priests" data-i18n="ep.nav.priests">Priests</a></li>
         <li><a href="#seminary" data-i18n="ep.nav.seminary">Seminary</a></li>
         <li><a href="#religious" data-i18n="ep.nav.religious">Religious Orders</a></li>
+        <li><a href="#map" data-i18n="mp.bar">Map</a></li>
         <li><a href="#history" data-i18n="epb.history">History</a></li>
       </ul>
     </div>
@@ -400,6 +401,34 @@
     </div>
   </section>
 
+  <!-- ===== WHERE WE ARE: zoom from Africa to Eritrea to the Eparchy, then a live satellite map and Google Earth (js/mapzoom.js; images/maps/) ===== -->
+  <section class="chap mp-sec" id="map" aria-labelledby="mp-title">
+    <div class="wrap">
+      <header class="chap-head">
+        <div><h2 id="mp-title" data-i18n="mp.title">Where we are</h2>
+        <p data-i18n="mp.lead">From Africa to the hills of Keren: come closer step by step, then explore the Eparchy from space.</p></div>
+      </header>
+      <div class="mp" id="mp">
+        <ol class="mp-steps" role="list">
+          <li><button type="button" data-go="0" aria-pressed="true"><b lang="ti">፩</b><span data-i18n="mp.africa">Africa</span></button></li>
+          <li><button type="button" data-go="1" aria-pressed="false"><b lang="ti">፪</b><span data-i18n="mp.eritrea">Eritrea</span></button></li>
+          <li><button type="button" data-go="2" aria-pressed="false"><b lang="ti">፫</b><span data-i18n="mp.eparchy">Eparchy of Keren</span></button></li>
+          <li><button type="button" data-go="3" aria-pressed="false"><b lang="ti">፬</b><span data-i18n="mp.space">From space</span></button></li>
+        </ol>
+        <div class="mp-body">
+          <div class="mp-stage" id="mp-stage">
+            <figure class="mp-layer is-on" data-l="0"><img src="images/maps/africa.jpg" alt="Illustrated map of Africa with Eritrea highlighted on the Red Sea" width="1024" height="765"></figure>
+            <figure class="mp-layer" data-l="1"><img src="images/maps/eritrea.jpg" alt="Illustrated map of Eritrea showing the Anseba region, Keren and Asmara" width="1024" height="765" loading="lazy"></figure>
+            <figure class="mp-layer" data-l="2"><img src="images/maps/eparchy-keren.jpg" alt="Illustrated map of the Eparchy of Keren in the Anseba region with its subzones" width="1024" height="765" loading="lazy"></figure>
+            <figure class="mp-layer mp-sat" data-l="3"><iframe id="mp-sat" title="Satellite map of Keren, Eritrea" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></figure>
+          </div>
+          <aside class="mp-card" id="mp-card" aria-live="polite"></aside>
+        </div>
+        <p class="mp-note"><span data-i18n="mp.note">Illustrated maps, not to scale.</span> <span data-i18n="mp.hint">Tap a marked place to come closer.</span></p>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== ROW 6 · History (Admin page → Eparchy → History) ===== -->
   <section class="chap" id="history" aria-labelledby="hist-title">
     <div class="wrap">
@@ -443,6 +472,6 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json PARISHES_DATA=data/parishes.json" data-scripts="js/main.js js/eparchy-book.js js/shepherd.js js/story.js js/order.js js/belong.js"></script>
+<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json PARISHES_DATA=data/parishes.json" data-scripts="js/main.js js/eparchy-book.js js/shepherd.js js/story.js js/order.js js/belong.js js/mapzoom.js"></script>
 </body>
 </html>
