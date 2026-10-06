@@ -14,8 +14,8 @@ const ti = () => document.documentElement.lang === 'ti';
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; };
 const still = window.matchMedia('(prefers-reduced-motion: reduce)');
 // a place is searched by name, or given as '@lat,lon' (the Anseba region: 16°00′N 38°00′E)
-const earth = q => q.startsWith('@') ?  : 'https://earth.google.com/web/search/' + encodeURIComponent(q);
-const satSrc = q => q.startsWith('@') ?  : 'https://maps.google.com/maps?q=' + encodeURIComponent(q) + '&t=k&z=12&output=embed';
+const earth = q => q.startsWith('@') ? 'https://earth.google.com/web/' + q + ',900a,320000d,35y,0h,0t,0r' : 'https://earth.google.com/web/search/' + encodeURIComponent(q);
+const satSrc = q => q.startsWith('@') ? 'https://maps.google.com/maps?q=' + q.slice(1) + '&t=k&z=9&output=embed' : 'https://maps.google.com/maps?q=' + encodeURIComponent(q) + '&t=k&z=12&output=embed';
 
 // [x %, y %, English, Tigrinya, note EN, note TI, search for Google Earth, level it opens]
 const LEVELS = [
