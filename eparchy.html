@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="css/liturgy.css?v=202610061710">
 <link rel="stylesheet" href="css/news.css?v=202610061710">
 <link rel="stylesheet" href="css/resources.css?v=202610061710">
-<link rel="stylesheet" href="css/eparchy.css?v=202610070230">
+<link rel="stylesheet" href="css/eparchy.css?v=202610070300">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -445,6 +445,42 @@
     </div>
   </section>
 
+  <!-- ===== MEET THEM MORE CLOSELY: two arched double doors — the Bishop's page and the Priests directory (js/doors.js) ===== -->
+  <section class="chap chap-alt dr-sec" id="meet" aria-labelledby="dr-title">
+    <div class="wrap">
+      <header class="chap-head dr-head">
+        <div><h2 id="dr-title" data-i18n="dr.title">Meet them more closely</h2>
+        <p data-i18n="dr.lead">The bishop’s life year by year, and every priest of the Eparchy with his parish and story.</p></div>
+      </header>
+      <div class="dr" id="dr">
+        <a class="dr-door" href="bishop.html">
+          <span class="dr-arch">
+            <span class="dr-in dr-in-bishop" id="dr-bishop"></span>
+            <span class="dr-leaf dr-l" aria-hidden="true"></span><span class="dr-leaf dr-r" aria-hidden="true"></span>
+          </span>
+          <span class="dr-text">
+            <b data-i18n="dr.b.t">The Bishop’s page</b>
+            <span data-i18n="dr.b.p">His life year by year, his motto and the bishops of Keren.</span>
+            <span class="dr-n" id="dr-bn"></span>
+            <span class="dr-go" data-i18n="dr.b.go">Open the Bishop’s page</span>
+          </span>
+        </a>
+        <a class="dr-door" href="priests.html">
+          <span class="dr-arch">
+            <span class="dr-in dr-in-priests" id="dr-priests"></span>
+            <span class="dr-leaf dr-l" aria-hidden="true"></span><span class="dr-leaf dr-r" aria-hidden="true"></span>
+          </span>
+          <span class="dr-text">
+            <b data-i18n="dr.p.t">The Priests directory</b>
+            <span data-i18n="dr.p.p">Search by name or parish, see the years of ordination and the anniversaries.</span>
+            <span class="dr-n" id="dr-pn"></span>
+            <span class="dr-go" data-i18n="dr.p.go">Open the directory</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== Photo viewer (opens from any gallery photo) ===== -->
   <dialog class="lb" id="lb" aria-label="Photo viewer">
     <button type="button" class="lb-x" data-lb-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
@@ -472,6 +508,6 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json PARISHES_DATA=data/parishes.json" data-scripts="js/main.js js/eparchy-book.js js/shepherd.js js/story.js js/order.js js/belong.js js/mapzoom.js"></script>
+<script src="js/boot.js" data-json="EPARCHY=data/eparchy.json PARISHES_DATA=data/parishes.json" data-scripts="js/main.js js/eparchy-book.js js/shepherd.js js/story.js js/order.js js/belong.js js/mapzoom.js js/doors.js"></script>
 </body>
 </html>

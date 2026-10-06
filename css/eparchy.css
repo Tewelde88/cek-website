@@ -969,3 +969,45 @@ html[lang="ti"] .mp-chips button{font-family:var(--ethiopic)}
 .mp-layer.is-on{z-index:2}.mp-layer.is-off{z-index:1}
 .mp-sat iframe{position:relative;z-index:1}
 .mp-sat-fb{position:absolute;inset:auto 0 50% 0;z-index:0;text-align:center;font-weight:700;color:var(--navy)}
+
+/* ============================================================
+   EPARCHY PAGE — "Meet them more closely": two arched double doors
+   ============================================================ */
+.dr-head{justify-content:center;text-align:center}
+.dr-head p{margin-inline:auto}
+.dr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,4vw,56px);max-width:960px;margin:0 auto}
+.dr-door{display:grid;grid-template-columns:minmax(150px,210px) minmax(0,1fr);gap:22px;align-items:center;padding:18px;border-radius:14px;background:#fff;border:1px solid var(--line);color:var(--ink);text-decoration:none;box-shadow:0 10px 26px rgba(31,27,24,.07);transition:box-shadow .3s,transform .3s}
+.dr-door:hover,.dr-door:focus-visible{text-decoration:none;transform:translateY(-3px);box-shadow:0 18px 36px rgba(31,27,24,.12)}
+.dr-door:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.dr-arch{position:relative;display:block;aspect-ratio:3/4;border-radius:999px 999px 8px 8px;overflow:hidden;perspective:700px;box-shadow:0 0 0 4px #fff,0 0 0 5px var(--gold)}
+.dr-in{position:absolute;inset:0;display:grid;place-items:center;background:center top/cover no-repeat #e9dcc0}
+.dr-ini{font-family:var(--serif);font-size:2.6rem;color:var(--navy)}
+.dr-in-priests{grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:3px;padding:3px;background:var(--parch)}
+.dr-tile{display:grid;place-items:center;border-radius:4px;background:center/cover no-repeat linear-gradient(160deg,#2d5191,#16315e);color:rgba(255,255,255,.9);font-family:var(--serif);font-size:.95rem}
+.dr-tile:nth-child(3n+2){background-color:#7e1912;background-image:linear-gradient(160deg,#c23a30,#7e1912)}
+.dr-tile:nth-child(4n){background-image:linear-gradient(160deg,#c1883a,#7a5320)}
+.dr-leaf{position:absolute;top:0;bottom:0;width:50%;background:linear-gradient(90deg,rgba(0,0,0,.12),rgba(255,255,255,.06) 40%,rgba(0,0,0,.1)),#16315e;transition:transform .8s cubic-bezier(.3,.7,.2,1)}
+.dr-leaf::before{content:"";position:absolute;inset:14% 16% 10%;border:1.5px solid rgba(193,136,58,.65);border-radius:999px 999px 4px 4px}
+.dr-leaf::after{content:"";position:absolute;top:56%;width:6px;height:16px;border-radius:3px;background:var(--gold)}
+.dr-l{left:0;transform-origin:left center;border-right:1px solid rgba(0,0,0,.35)}
+.dr-l::after{right:8px}
+.dr-r{right:0;transform-origin:right center}
+.dr-r::after{left:8px}
+.dr-door:hover .dr-l,.dr-door:focus-visible .dr-l,.dr-door.is-open .dr-l{transform:rotateY(-105deg)}
+.dr-door:hover .dr-r,.dr-door:focus-visible .dr-r,.dr-door.is-open .dr-r{transform:rotateY(105deg)}
+.dr-text{display:flex;flex-direction:column;gap:6px}
+.dr-text b{font-family:var(--serif);font-size:1.35rem;line-height:1.2;color:var(--navy)}
+html[lang="ti"] .dr-text b{font-family:var(--ethiopic);font-weight:400}
+.dr-text > span{color:var(--muted)}
+.dr-n{font-size:.92rem}
+.dr-n b{font-family:var(--serif);font-size:1.4rem;color:var(--red)}
+.dr-n i{font-style:normal;font-family:var(--ethiopic);color:var(--gold);margin-left:4px}
+.dr-go{margin-top:6px;font-weight:700;color:var(--red) !important;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:4px}
+
+@media (max-width:860px){
+  .dr{grid-template-columns:1fr}
+}
+@media (max-width:480px){
+  .dr-door{grid-template-columns:120px minmax(0,1fr);gap:16px;padding:14px}
+}
+@media (prefers-reduced-motion:reduce){.dr-leaf{transition:none}.dr-door{transition:none}}
