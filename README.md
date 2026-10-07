@@ -37,7 +37,7 @@ The six cover photos rotate behind the Ge’ez verse: `images/hero/` (keren, ker
 
 ## Page headers
 
-Inner pages have a plain dark header. The Resources page alone has a manuscript page (`images/parchment.jpg`) behind its title, under a dark veil (`.res-page .page-head` in `css/style.css`); to give another page the same header, add the class `res-page` to its `<main>`. The original image is kept on this computer only, in `image-originals/`.
+Inner pages have a plain dark header. The Resources page and its sub-pages (Sermons, Library, News Archive) have a manuscript page (`images/parchment.jpg`) behind its title, under a dark veil (`.res-page .page-head` in `css/style.css`); to give another page the same header, add the class `res-page` to its `<main>`. The original image is kept on this computer only, in `image-originals/`.
 
 ## Where things are
 ```
