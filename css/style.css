@@ -534,3 +534,7 @@ html[lang="ti"] .page-head .crumbs{font-family:var(--ethiopic)}
 /* ---------- Menu: a page that sits under the one above it (e.g. Seminary › Major Seminary) ---------- */
 .mainnav .sub .sub-in a{position:relative;padding-left:38px;font-weight:500;font-size:.95em}
 .mainnav .sub .sub-in a::before{content:"";position:absolute;left:24px;top:50%;width:8px;height:1px;background:var(--gold)}
+
+/* Liturgical Calendar page: room between the header and the first cards */
+.cal-page .cal-compact{margin-top:clamp(28px,4vw,48px)}
+.cal-page .cal-back{padding-block:8px clamp(40px,6vw,64px)}

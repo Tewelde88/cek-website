@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=202610071230">
+<link rel="stylesheet" href="css/style.css?v=202610071300">
 <link rel="stylesheet" href="css/calendar.css?v=202610061710">
 <link rel="stylesheet" href="css/liturgy.css?v=202610061710">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
@@ -100,7 +100,7 @@
         </ul></li>
       <li class="has-sub"><a href="resources.html" data-i18n="nav.resources">Resources</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-resources" aria-label="Resources: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         <ul class="sub" id="sub-resources">
-          <li><a href="liturgy.html#calendar" data-i18n="cal.title">Liturgical Calendar</a></li>
+          <li><a href="calendar.html" data-i18n="cal.title">Liturgical Calendar</a></li>
           <li><a href="sermons.html" data-i18n="q.sermons">Sermons</a></li>
           <li><a href="library.html" data-i18n="lb.title">Library</a></li>
           <li><a href="news-archive.html" data-i18n="nav.archive">News Archive</a></li>
@@ -247,103 +247,9 @@
     </article>
   </div>
   <div class="wrap cal-toggle-row">
-    <button type="button" class="cal-toggle" id="cal-toggle" aria-expanded="false" aria-controls="cal-full">
-      <span class="when-closed" data-i18n="cal.more">Show full calendar</span>
-      <span class="when-open" data-i18n="cal.less">Show less</span>
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-    </button>
+    <a class="btn btn-red" href="calendar.html" data-i18n="cal.open">Open the full liturgical calendar</a>
   </div>
 
-  <!-- ===== Full calendar: converter, month view, whole year (hidden until opened) ===== -->
-  <div class="cal-full" id="cal-full" hidden>
-  <section class="wrap cal-top">
-    <article class="card conv-card">
-      <p class="eyebrow eyebrow-red" data-i18n="cal.conv">Date Converter</p>
-      <div class="conv-row">
-        <label class="conv-label" for="conv-gr" data-i18n="cal.conv.gr">Gregorian → Ethiopian</label>
-        <input type="date" id="conv-gr">
-        <output class="conv-out" id="conv-gr-out" for="conv-gr"></output>
-      </div>
-      <div class="conv-row">
-        <span class="conv-label" data-i18n="cal.conv.et">Ethiopian → Gregorian</span>
-        <div class="conv-et">
-          <input type="number" id="conv-et-d" min="1" max="30" aria-label="Day">
-          <select id="conv-et-m" aria-label="Month"></select>
-          <input type="number" id="conv-et-y" min="1" aria-label="Year">
-        </div>
-        <output class="conv-out" id="conv-et-out"></output>
-      </div>
-    </article>
-  </section>
-
-  <!-- ================= MONTH VIEW ================= -->
-  <section class="wrap cal-main">
-    <article class="card month-card">
-      <div class="month-bar">
-        <button type="button" class="icon-btn" id="cal-prev" aria-label="Previous month"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-        <div class="month-title">
-          <h2 id="cal-title"></h2>
-          <p id="cal-sub"></p>
-        </div>
-        <button type="button" class="icon-btn" id="cal-next" aria-label="Next month"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
-      </div>
-      <div class="month-tools">
-        <button type="button" class="chip" id="cal-today" data-i18n="cal.gotoday">Go to today</button>
-        <ul class="legend">
-          <li><span class="sw sw-major"></span><span data-i18n="cal.lg.major">Major feast</span></li>
-          <li><span class="sw sw-feast"></span><span data-i18n="cal.lg.feast">Feast</span></li>
-          <li><span class="sw sw-fast"></span><span data-i18n="cal.lg.fast">Fast day</span></li>
-        </ul>
-      </div>
-      <div class="cal-head" id="cal-head"></div>
-      <div class="cal-grid" id="cal-grid"></div>
-    </article>
-
-    <aside class="cal-side">
-      <article class="card day-card" aria-live="polite">
-        <p class="eyebrow eyebrow-red" data-i18n="cal.selected">Selected day</p>
-        <p class="day-et" id="day-et"></p>
-        <p class="day-gr" id="day-gr"></p>
-        <ul class="feast-lines" id="day-feasts"></ul>
-      </article>
-      <article class="card">
-        <p class="eyebrow eyebrow-red" data-i18n="cal.thismonth">Feasts this month</p>
-        <ul class="month-list" id="month-list"></ul>
-      </article>
-    </aside>
-  </section>
-
-  <!-- ================= WHOLE YEAR ================= -->
-  <section class="wrap cal-year">
-    <article class="card year-card">
-      <div class="year-bar">
-        <div>
-          <p class="eyebrow eyebrow-red" data-i18n="cal.yearlist">Feasts &amp; fasts of the year</p>
-          <h2 id="year-title"></h2>
-        </div>
-        <div class="year-tools">
-          <button type="button" class="icon-btn" id="year-prev" aria-label="Previous year"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-          <button type="button" class="icon-btn" id="year-next" aria-label="Next year"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
-          <button type="button" class="chip" id="cal-print" data-i18n="cal.print">Print</button>
-        </div>
-      </div>
-      <div class="table-wrap">
-        <table class="year-table">
-          <thead><tr><th data-i18n="cal.col.feast">Feast</th><th data-i18n="cal.col.et">Ethiopian date</th><th data-i18n="cal.col.gr">Gregorian date</th><th data-i18n="cal.col.wd">Day</th></tr></thead>
-          <tbody id="year-body"></tbody>
-        </table>
-      </div>
-      <h3 class="fast-title" data-i18n="cal.fasts">Fasting seasons</h3>
-      <div class="table-wrap">
-        <table class="year-table">
-          <thead><tr><th data-i18n="cal.col.fast">Fast</th><th data-i18n="cal.col.et">Ethiopian date</th><th data-i18n="cal.col.gr">Gregorian date</th><th data-i18n="cal.col.len">Length</th></tr></thead>
-          <tbody id="fast-body"></tbody>
-        </table>
-      </div>
-      <p class="cal-note" data-i18n="cal.note">Easter (Fasika) and the feasts that depend on it are calculated with the Alexandrian computus used by the Ethiopian and Eritrean Churches. Local observances may differ — please follow the announcements of your parish.</p>
-    </article>
-  </section>
-  </div><!-- /cal-full -->
   </section>
 
   <!-- ================= 5. RESOURCES ================= -->

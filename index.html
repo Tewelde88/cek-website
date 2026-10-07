@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=202610071230">
+<link rel="stylesheet" href="css/style.css?v=202610071300">
 <link rel="stylesheet" href="css/home.css?v=202610062200">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
@@ -100,7 +100,7 @@
         </ul></li>
       <li class="has-sub"><a href="resources.html" data-i18n="nav.resources">Resources</a><button type="button" class="sub-tgl" aria-expanded="false" aria-controls="sub-resources" aria-label="Resources: more pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
         <ul class="sub" id="sub-resources">
-          <li><a href="liturgy.html#calendar" data-i18n="cal.title">Liturgical Calendar</a></li>
+          <li><a href="calendar.html" data-i18n="cal.title">Liturgical Calendar</a></li>
           <li><a href="sermons.html" data-i18n="q.sermons">Sermons</a></li>
           <li><a href="library.html" data-i18n="lb.title">Library</a></li>
           <li><a href="news-archive.html" data-i18n="nav.archive">News Archive</a></li>
@@ -199,7 +199,7 @@
         <ul role="list">
           <li><a class="rib rib-red" href="sermons.html"><svg viewBox="0 0 48 48" aria-hidden="true"><path pathLength="1" d="M13 15c3.7-2 7.3-2 11 0c3.7-2 7.3-2 11 0v5c-3.7-2-7.3-2-11 0c-3.7-2-7.3-2-11 0z"/><path pathLength="1" d="M11 24l13 6 13-6"/><path pathLength="1" d="M24 30v12"/><path pathLength="1" d="M16 42h16"/></svg><span data-i18n="q.sermons">Sermons</span></a></li>
           <li><a class="rib rib-navy" href="library.html"><svg viewBox="0 0 48 48" aria-hidden="true"><path pathLength="1" d="M24 13c-5-3-11-3.6-17-2v25c6-1.6 12-1 17 2c5-3 11-3.6 17-2V11c-6-1.6-12-1-17 2z"/><path pathLength="1" d="M24 13v25"/><path pathLength="1" d="M11 18c3.3-.6 6.5-.3 9 1M28 19c2.5-1.3 5.7-1.6 9-1"/></svg><span data-i18n="lb.title">Library</span></a></li>
-          <li><a class="rib rib-ochre" href="liturgy.html#calendar"><svg viewBox="0 0 48 48" aria-hidden="true"><path pathLength="1" d="M9 12h30v28H9z"/><path pathLength="1" d="M9 20h30"/><path pathLength="1" d="M17 7v9M31 7v9"/><path pathLength="1" d="M16 27h4M22 27h4M28 27h4M16 33h4M22 33h4"/></svg><span data-i18n="rib.cal">Calendar</span></a></li>
+          <li><a class="rib rib-ochre" href="calendar.html"><svg viewBox="0 0 48 48" aria-hidden="true"><path pathLength="1" d="M9 12h30v28H9z"/><path pathLength="1" d="M9 20h30"/><path pathLength="1" d="M17 7v9M31 7v9"/><path pathLength="1" d="M16 27h4M22 27h4M28 27h4M16 33h4M22 33h4"/></svg><span data-i18n="rib.cal">Calendar</span></a></li>
           <li><a class="rib rib-red" href="parishes.html#parishes"><svg viewBox="0 0 48 48" aria-hidden="true"><path pathLength="1" d="M13 42V22l11-9 11 9v20"/><path pathLength="1" d="M20 42v-9a4 4 0 0 1 8 0v9"/><path pathLength="1" d="M24 13V5"/><path pathLength="1" d="M7 42h34"/></svg><span data-i18n="pa.nav.parishes">Parishes</span></a></li>
           <li><a class="rib rib-navy" href="contact.html"><svg viewBox="0 0 48 48" aria-hidden="true"><path pathLength="1" d="M7 13h34v24H7z"/><path pathLength="1" d="M7 14l17 13 17-13"/><path pathLength="1" d="M7 36l12-11M41 36L29 25"/></svg><span data-i18n="nav.contact">Contact Us</span></a></li>
         </ul>
@@ -373,7 +373,7 @@
   <!-- ================= CALENDAR: the liturgical year as a scroll — feasts, fasts and today (js/yearscroll.js; dates from js/calendar.js) ================= -->
   <section class="hm-sec" aria-labelledby="yr-title">
     <div class="wrap">
-      <div class="hm-head"><h2 id="yr-title" data-i18n="cal.title">Liturgical Calendar</h2><span class="ge only-en" lang="ti">ዓውደ-ኣዋርሕ</span><a href="liturgy.html#calendar" data-i18n="hm.cal.link">Open the liturgical calendar</a></div>
+      <div class="hm-head"><h2 id="yr-title" data-i18n="cal.title">Liturgical Calendar</h2><span class="ge only-en" lang="ti">ዓውደ-ኣዋርሕ</span><a href="calendar.html" data-i18n="hm.cal.link">Open the liturgical calendar</a></div>
       <div class="ms yr" id="ycal">
         <div class="harag" aria-hidden="true"></div>
         <div class="yr-top">

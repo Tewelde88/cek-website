@@ -42,7 +42,7 @@
       "q_ti": "በዓላትን ኣጽዋማትን መዓስ እዮም?",
       "a": "The liturgical calendar follows the Ge’ez (Ethiopian) calendar. The Liturgy page shows every feast and fast with its Gregorian date.",
       "a_ti": "ሊጡርጊያዊ ዓውደ-ኣዋርሕ ዓውደ-ኣዋርሕ ግእዝ ይኽተል። ኣብ ገጽ ሊጡርጊያ ኩሎም በዓላትን ኣጽዋማትን ምስ ዕለት ግሪጎርያን ይርኣዩ።",
-      "link": "liturgy.html#calendar",
+      "link": "calendar.html",
       "sample": true
     },
     {

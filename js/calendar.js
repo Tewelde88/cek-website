@@ -192,7 +192,8 @@ window.LiturgicalCalendar = { etToJdn, jdnToEt, grToJdn, jdnToGr, easterJdn, yea
 
 /* ---------- 4. Page ---------- */
 const $ = id => document.getElementById(id);
-if (!$('cal-grid')) return;                     // pages without the full calendar only use the data above
+if (!$('today-et')) return;                    // pages without a calendar only use the data above
+const FULL = !!$('cal-grid');                  // calendar.html: the whole calendar; liturgy.html: today + next feasts
 const now = new Date();
 const todayJ = grToJdn(now.getFullYear(), now.getMonth() + 1, now.getDate());
 const todayEt = jdnToEt(todayJ);
@@ -313,6 +314,7 @@ if (toggle) toggle.addEventListener('click', () => {
 });
 // Clicking an upcoming feast opens the full calendar on that day
 function openFullAt(j){
+  if (!FULL){ location.href = 'calendar.html#d=' + j; return; }   // the Liturgy page opens the calendar page on that day
   const et = jdnToEt(j);
   state.y = et.y; state.m = et.m; state.sel = j;
   renderMonth(); renderDay(); renderYear(); setFull(true);
@@ -384,8 +386,9 @@ function go(dm){
   if (state.y === todayEt.y && state.m === todayEt.m) state.sel = todayJ;
   renderMonth(); renderDay(); if (yearChanged) renderYear();
 }
-function renderAll(){ fillConverter(); renderToday(); renderUpcoming(); renderMonth(); renderDay(); renderYear(); convertGr(); convertEt(); }
+function renderAll(){ renderToday(); renderUpcoming(); if (FULL){ fillConverter(); renderMonth(); renderDay(); renderYear(); convertGr(); convertEt(); } }
 
+if (FULL){
 $('cal-prev').addEventListener('click', () => go(-1));
 $('cal-next').addEventListener('click', () => go(1));
 $('cal-today').addEventListener('click', () => {
@@ -409,8 +412,12 @@ document.addEventListener('keydown', e => {
 // Converter defaults: today
 $('conv-gr').value = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
 $('conv-et-d').value = todayEt.d; $('conv-et-y').value = todayEt.y;
+}
 
 document.addEventListener('langchange', renderAll);
 renderAll();
+// calendar.html#d=<day> (from a feast on the Liturgy page): open the month of that day
+const hd = FULL && /^#d=(\d+)$/.exec(location.hash);
+if (hd) openFullAt(+hd[1]);
 
 })();

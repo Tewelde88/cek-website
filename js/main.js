@@ -351,7 +351,7 @@ document.querySelectorAll('[data-open]').forEach(link => {
   const nav = document.querySelector('.mainnav');
   if (!nav || document.querySelector('.today-line')) return;
   const bar = document.createElement('div'); bar.className = 'today-line';
-  bar.innerHTML = '<div class="wrap"><span class="today-ge" lang="ti"></span><span class="today-en"></span><a href="liturgy.html#calendar"></a></div>';
+  bar.innerHTML = '<div class="wrap"><span class="today-ge" lang="ti"></span><span class="today-en"></span><a href="calendar.html"></a></div>';
   nav.after(bar);
   function render(){
     const ti = document.documentElement.lang === 'ti', et = jdnToEt(todayJ), wd = (todayJ + 1) % 7;
