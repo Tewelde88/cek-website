@@ -35,6 +35,10 @@ Bilingual (English ⇄ Tigrinya), works on phones, tablets and computers. Plain 
 
 The six cover photos rotate behind the Ge’ez verse: `images/hero/` (keren, keren-2, dereque, habinmentel, eden, eden-2 — 1600 px wide, about 150 KB each). The full-size originals are kept on this computer only, in `image-originals/`. To add a photo: make a 1600 px wide copy in `images/hero/` and add one `<div class="slide">` line in `index.html`.
 
+## Page headers
+
+Every inner page has a manuscript page (`images/parchment.jpg`) behind its title, under a dark veil so the white text stays readable (`.page-head` in `css/style.css`). The original image is kept on this computer only, in `image-originals/`.
+
 ## Where things are
 ```
 admin/            Admin page (Sveltia CMS) — config.yml defines all the forms
