@@ -45,3 +45,6 @@ mockup-bn*
 mockup-mp*
 mockup-dr*
 mockup-pr2*
+
+# Full-size originals of photos (web copies are in images/)
+image-originals/

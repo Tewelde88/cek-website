@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="css/home.css?v=202610062200">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
+<link rel="preload" href="images/hero/keren.jpg" as="image">
 </head>
 <body>
 
@@ -111,11 +112,14 @@
 
 <!-- ================= HERO: the Ge'ez verse, with the cover photos rotating behind it ================= -->
 <section class="hero hero-ms" id="slider" aria-roledescription="carousel" aria-label="Feed my sheep">
-  <!-- Cover photos (optional) rotate behind the verse every 6 seconds: images/hero-1.jpg, hero-2.jpg, hero-3.jpg (wide landscape, ~1920×900).
-       To add more: copy one <div class="slide"> line and change the file name. -->
-  <div class="slide on"><div class="img" style="background-image:url('images/hero-1.jpg'),radial-gradient(120% 90% at 85% 10%,#3a2f25 0%,transparent 60%),linear-gradient(160deg,#2b241e,#141110)"></div></div>
-  <div class="slide"><div class="img" style="background-image:url('images/hero-2.jpg'),radial-gradient(120% 90% at 80% 20%,#2f3442 0%,transparent 60%),linear-gradient(160deg,#22252d,#121316)"></div></div>
-  <div class="slide"><div class="img" style="background-image:url('images/hero-3.jpg'),radial-gradient(120% 90% at 85% 10%,#3b2a22 0%,transparent 60%),linear-gradient(160deg,#2a1f1a,#130f0d)"></div></div>
+  <!-- Cover photos rotate behind the verse every 6 seconds (images/hero/, 1600 px wide).
+       To add one: put the photo in images/hero/ and copy one <div class="slide"> line with its file name. -->
+  <div class="slide on"><div class="img" style="background-image:url('images/hero/keren.jpg'),linear-gradient(160deg,#2b241e,#141110)"></div></div>
+  <div class="slide"><div class="img" style="background-image:url('images/hero/keren-2.jpg'),linear-gradient(160deg,#2b241e,#141110)"></div></div>
+  <div class="slide"><div class="img" style="background-image:url('images/hero/dereque.jpg'),linear-gradient(160deg,#2b241e,#141110)"></div></div>
+  <div class="slide"><div class="img" style="background-image:url('images/hero/habinmentel.jpg'),linear-gradient(160deg,#2b241e,#141110)"></div></div>
+  <div class="slide"><div class="img" style="background-image:url('images/hero/eden.jpg'),linear-gradient(160deg,#2b241e,#141110)"></div></div>
+  <div class="slide"><div class="img" style="background-image:url('images/hero/eden-2.jpg'),linear-gradient(160deg,#2b241e,#141110)"></div></div>
   <div class="hero-shade"></div>
 
   <div class="wrap hero-inner">

@@ -31,6 +31,10 @@ Bilingual (English ⇄ Tigrinya), works on phones, tablets and computers. Plain 
 | Vocation | `vocation.html` | priesthood, religious life, first steps, prayer for vocations |
 | Major / Minor Seminary | `major-seminary.html`, `minor-seminary.html` | pages to be completed |
 
+## Cover photos (Home page)
+
+The six cover photos rotate behind the Ge’ez verse: `images/hero/` (keren, keren-2, dereque, habinmentel, eden, eden-2 — 1600 px wide, about 150 KB each). The full-size originals are kept on this computer only, in `image-originals/`. To add a photo: make a 1600 px wide copy in `images/hero/` and add one `<div class="slide">` line in `index.html`.
+
 ## Where things are
 ```
 admin/            Admin page (Sveltia CMS) — config.yml defines all the forms
