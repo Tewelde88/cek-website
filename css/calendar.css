@@ -146,3 +146,27 @@ html[lang="ti"] .day .feast-name{font-family:var(--ethiopic)}
 .day.is-fast{background:#ece5d6}
 .cal-head .wd.is-sun{color:var(--ink);font-weight:700}
 @media (max-width:640px){ .day .et-d{font-size:1.1rem} }
+
+/* Sundays: the name of the Sunday under its date (Yared hymn name in red, otherwise the season) */
+.day .sun-name{margin-top:auto;font-size:.68rem;line-height:1.2;color:var(--red-dark);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.day .sun-name:not(.is-named){font-style:italic;color:#8a5a5a}
+.day .sun-name.is-named{font-weight:700}
+html[lang="ti"] .day .sun-name{font-family:var(--ethiopic);font-style:normal}
+.feast-lines .is-sunday,#day-feasts .is-sunday{color:var(--red-dark);font-weight:600}
+
+/* Sundays in rubric red: the Sunday column (first, as in the Ge'ez week) is tinted, its numbers red */
+.cal-head .wd.is-sun{color:var(--red);font-weight:700}
+.day.is-sun:not(.is-fast){background:#fbeeec;border-color:#efcfca}
+.day.is-sun.is-fast{background:linear-gradient(180deg,#fbeeec,var(--navy-soft))}
+.day.is-sun .gr-d{color:#9a5b55}
+/* the readings of a Sunday (Admin page → Lectionary) in the "Selected day" card */
+.day-readings{margin-top:14px;padding-top:12px;border-top:1px dotted #cbbd9f}
+.rd-theme{font-style:italic;color:var(--ink);margin-bottom:8px}
+html[lang="ti"] .rd-theme{font-family:var(--ethiopic);font-style:normal}
+.rd-list{margin:0;display:grid;gap:6px}
+.rd-list div{display:grid;grid-template-columns:120px 1fr;gap:8px;font-size:.92rem}
+.rd-list dt{color:var(--red-dark);font-weight:700}
+html[lang="ti"] .rd-list dt{font-family:var(--ethiopic);font-weight:400}
+.rd-list dd{margin:0;color:var(--ink)}
+.rd-sample{margin-top:8px;display:inline-block;padding:2px 8px;border:1px dashed var(--gold);border-radius:4px;font-size:.75rem;color:#7a5320}
+#cal-grid .day.is-sun .et-d{color:var(--red)}     /* Sunday numbers in red, like red-letter days */

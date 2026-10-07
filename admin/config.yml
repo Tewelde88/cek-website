@@ -548,3 +548,43 @@ collections:
           - { name: form_action, label: "Form address (ends with /formResponse)", widget: string, required: false }
           - { name: email_entry, label: "Email field code (entry.…)", widget: string, required: false }
           - { name: lang_entry, label: "Language field code (entry.…)", widget: string, required: false }
+
+  # ------------------------------------------------------------
+  #  LECTIONARY — Sunday hymn names (መዝሙር ዘያሬድ) and readings (calendar page)
+  # ------------------------------------------------------------
+  - name: lectionary
+    label: "Lectionary (Sundays)"
+    icon: menu_book
+    description: "Give a Sunday its Yared hymn name, a short theme and its readings. Choose a named Sunday, or a season and the number of the Sunday in it."
+    files:
+      - name: lectionary
+        label: "Sundays and readings"
+        file: data/lectionary.json
+        fields:
+          - name: sundays
+            label: "Sundays"
+            label_singular: "Sunday"
+            widget: list
+            required: false
+            summary: "{{fields.name}} {{fields.sunday}} {{fields.season}} {{fields.n}}"
+            fields:
+              - { name: sunday, label: "Named Sunday (leave empty to choose a season below)", widget: select, required: false,
+                  options: [ { label: "ዘወረደ — Zewerede", value: zewerede }, { label: "ቅድስት — Qidist", value: qidist }, { label: "ምኵራብ — Mekurab", value: mekurab },
+                             { label: "መጻጕዕ — Metsagu", value: metsagu }, { label: "ደብረ ዘይት — Debre Zeit", value: debrezeit }, { label: "ገብር ኄር — Gebr Her", value: gebrher },
+                             { label: "ኒቆዲሞስ — Niqodimos", value: niqodimos }, { label: "ሆሳዕና — Hosanna", value: hosanna }, { label: "ፋሲካ — Easter", value: fasika },
+                             { label: "ዳግም ትንሣኤ — Second Easter", value: dagim }, { label: "ጰራቅሊጦስ — Pentecost", value: pentecost } ] }
+              - { name: season, label: "…or the season (ዘመን)", widget: select, required: false,
+                  options: [ { label: "ዘመነ ዮሐንስ", value: yohannes }, { label: "ዘመነ መስቀል", value: meskel }, { label: "ዘመነ ጽጌ", value: tsige }, { label: "ዘመነ ስብከት", value: sibket },
+                             { label: "ዘመነ ልደት", value: lidet }, { label: "ዘመነ ጥምቀት", value: timket }, { label: "ዘመነ ጾም", value: tsom }, { label: "ዘመነ ትንሣኤ", value: tinsae },
+                             { label: "ዘመነ ሓዋርያት", value: hawaryat }, { label: "ዘመነ ክረምት", value: kremt } ] }
+              - { name: n, label: "…and which Sunday of that season (1, 2, 3 …)", widget: number, value_type: int, min: 1, max: 20, required: false }
+              - { name: name, label: "Hymn name (English or transliteration)", widget: string, required: false }
+              - { name: name_ti, label: "Hymn name — መዝሙር ዘያሬድ (Ge’ez)", widget: string, required: false }
+              - { name: theme, label: "Theme (English)", widget: string, required: false }
+              - { name: theme_ti, label: "Theme (Tigrinya)", widget: string, required: false }
+              - { name: paul, label: "Pauline epistle (e.g. Rom 13:11–14)", widget: string, required: false }
+              - { name: catholic, label: "Catholic epistle", widget: string, required: false }
+              - { name: acts, label: "Acts of the Apostles", widget: string, required: false }
+              - { name: psalm, label: "Psalm verse — ምስባክ", widget: string, required: false }
+              - { name: gospel, label: "Gospel", widget: string, required: false }
+              - { name: sample, label: "Example entry (to be checked)", widget: boolean, default: false, required: false }

@@ -122,6 +122,17 @@ The two seminaries have their own pages (`major-seminary.html`, `minor-seminary.
 
 Until step 2 is done, the box tells visitors that sign-up is not open yet.
 
+## 13. Calendar: Sunday names and readings (Lectionary)
+
+Every Sunday in the calendar already has a name: the Sundays of Lent and Easter carry their Yared hymn names (ዘወረደ, ቅድስት … ሆሳዕና, ፋሲካ, ዳግም ትንሣኤ, ጰራቅሊጦስ), calculated each year from Easter; every other Sunday is called by its season (ዘመነ ጽጌ, ዘመነ ክረምት …).
+
+To give a Sunday its hymn name (መዝሙር ዘያሬድ) and its readings: Admin page → **Lectionary (Sundays)** → add a Sunday.
+1. Choose a **named Sunday** (e.g. ዘወረደ) — *or* leave it empty and choose the **season** and **which Sunday** of it (1, 2, 3 …).
+2. Write the **hymn name** (Ge’ez), a short **theme**, and the readings: Pauline epistle, Catholic epistle, Acts, Psalm verse (ምስባክ), Gospel.
+3. Save. The name replaces the season name in the calendar, and the readings appear when the Sunday is chosen.
+
+The dates where each season begins and ends are set in `js/calendar.js` (function `seasonOf`) and are still to be checked by the Eparchy.
+
 ## Other ways to upload content
 
 | Way | When to use it |

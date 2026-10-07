@@ -121,6 +121,47 @@ function yearData(y){
   fasts.sort((a, b) => a.from - b.from);
   return (cache[y] = { days, fasts, easter: E });
 }
+/* ---------- 2b. Sundays: the Yared hymn name, or else the season (ዘመን) ----------
+   Sundays named after St Yared's hymns, counted from Easter (days before/after).
+   Other Sundays are called by their season. The season boundaries below follow the
+   usual Ge'ez reckoning and are TO BE CHECKED by the Eparchy — edit the dates here. */
+const SUNDAY_NAMES = { '-56': 'zewerede', '-49': 'qidist', '-42': 'mekurab', '-35': 'metsagu', '-28': 'debrezeit',
+  '-21': 'gebrher', '-14': 'niqodimos', '-7': 'hosanna', '0': 'fasika', '7': 'dagim', '49': 'pentecost' };
+function seasonOf(j){
+  const et = jdnToEt(j), y = et.y, E = yearData(y).easter;
+  const lidet = etToJdn(y, 4, (y % 4 === 0) ? 28 : 29);
+  if (j >= E - 56 && j < E) return 'tsom';                                  // Great Lent (from Zewerede Sunday)
+  if (j >= E && j <= E + 49) return 'tinsae';                               // the fifty days of Easter
+  const at = (m, d) => etToJdn(y, m, d);
+  if (j < at(1, 17)) return 'yohannes';                                     // 1 – 16 Meskerem
+  if (j < at(1, 26)) return 'meskel';                                       // 17 – 25 Meskerem
+  if (j < at(3, 6))  return 'tsige';                                        // 26 Meskerem – 5 Hidar
+  if (j < lidet)     return 'sibket';                                       // 6 Hidar – Christmas Eve
+  if (j < at(5, 11)) return 'lidet';                                        // Christmas – 10 Tir
+  if (j < E - 56)    return 'timket';                                       // 11 Tir – before Lent
+  if (j < at(10, 26)) return 'hawaryat';                                    // after Pentecost – 25 Sene
+  return 'kremt';                                                           // 26 Sene – Pagume
+}
+function sundayOf(j){
+  if (weekday(j) !== 0) return null;
+  const k = SUNDAY_NAMES[String(j - yearData(jdnToEt(j).y).easter)];
+  const season = seasonOf(j);
+  let n = 1; while (seasonOf(j - 7 * n) === season && n < 30) n++;          // the n-th Sunday of its season
+  const out = k ? { key: k, season, n, name: N().sundays[k], named: true } : { key: '', season, n, name: N().times[season], named: false };
+  // the Admin page (data/lectionary.json) can give the Sunday its hymn name, theme and readings
+  const e = lectionaryFor(out);
+  if (e){
+    out.entry = e;
+    const nm = (isTi() && e.name_ti) ? e.name_ti : e.name;
+    if (nm){ out.name = nm; out.named = true; }
+  }
+  return out;
+}
+const isTi = () => document.documentElement.lang === 'ti';
+let LECTIONARY = [];
+function lectionaryFor(s){
+  return LECTIONARY.find(e => e && ((e.sunday && e.sunday === s.key) || (!e.sunday && e.season === s.season && +e.n === s.n))) || null;
+}
 function infoFor(j){
   const et = jdnToEt(j);
   return yearData(et.y).days[j] || { feasts: [] };
@@ -156,7 +197,14 @@ const NAMES = {
       advent: 'Fast of the Prophets (Advent)', nineveh: 'Fast of Nineveh', lent: 'Great Lent',
       apostles: 'Fast of the Apostles', filseta: 'Fast of the Assumption'
     },
-    seasons: { easter: 'Fifty Days of Easter' }
+    seasons: { easter: 'Fifty Days of Easter' },
+    readings: { paul: 'Pauline epistle', catholic: 'Catholic epistle', acts: 'Acts of the Apostles', psalm: 'Psalm (Misbak)', gospel: 'Gospel' },
+    sunday: 'Sunday', nextSunday: n => n === 0 ? 'Today is Sunday' : n === 1 ? 'Tomorrow, Sunday' : `Next Sunday, in ${n} days`, hymn: 'Sunday of',
+    sundays: { zewerede: 'Zewerede', qidist: 'Qidist', mekurab: 'Mekurab', metsagu: 'Metsagu', debrezeit: 'Debre Zeit', gebrher: 'Gebr Her',
+      niqodimos: 'Niqodimos', hosanna: 'Hosanna', fasika: 'Fasika — Easter', dagim: 'Dagim Tinsae — Second Easter', pentecost: 'Pentecost' },
+    times: { yohannes: 'Season of St John', meskel: 'Season of the Cross', tsige: 'Season of Flowers (Tsige)', sibket: 'Season of Advent (Sibket)',
+      lidet: 'Season of Christmas', timket: 'Season of Epiphany', tsom: 'Great Lent', tinsae: 'Season of the Resurrection',
+      hawaryat: 'Season of the Apostles', kremt: 'Rainy Season (Kremt)' }
   },
   ti: {
     months: ['መስከረም','ጥቅምቲ','ሕዳር','ታሕሳስ','ጥሪ','ለካቲት','መጋቢት','ሚያዝያ','ግንቦት','ሰነ','ሓምለ','ነሓሰ','ጳጉሜን'],
@@ -179,7 +227,13 @@ const NAMES = {
       pentecost: 'ጰራቅሊጦስ', apostles: 'ጾመ ሓዋርያት ይጅምር'
     },
     fasts: { advent: 'ጾመ ነቢያት', nineveh: 'ጾመ ነነዌ', lent: 'ዓቢይ ጾም', apostles: 'ጾመ ሓዋርያት', filseta: 'ጾመ ፍልሰታ' },
-    seasons: { easter: 'ሓምሳ መዓልቲ ትንሣኤ' }
+    seasons: { easter: 'ሓምሳ መዓልቲ ትንሣኤ' },
+    readings: { paul: 'ጳውሎስ', catholic: 'ሓዋርያት', acts: 'ግብረ ሓዋርያት', psalm: 'ምስባክ', gospel: 'ወንጌል' },
+    sunday: 'ሰንበት', nextSunday: n => n === 0 ? 'ሎሚ ሰንበት' : n === 1 ? 'ጽባሕ ሰንበት' : `ዝመጽእ ሰንበት፡ ድሕሪ ${n} መዓልቲ`, hymn: 'ሰንበት',
+    sundays: { zewerede: 'ዘወረደ', qidist: 'ቅድስት', mekurab: 'ምኵራብ', metsagu: 'መጻጕዕ', debrezeit: 'ደብረ ዘይት', gebrher: 'ገብር ኄር',
+      niqodimos: 'ኒቆዲሞስ', hosanna: 'ሆሳዕና', fasika: 'ፋሲካ — ትንሣኤ', dagim: 'ዳግም ትንሣኤ', pentecost: 'ጰራቅሊጦስ' },
+    times: { yohannes: 'ዘመነ ዮሐንስ', meskel: 'ዘመነ መስቀል', tsige: 'ዘመነ ጽጌ', sibket: 'ዘመነ ስብከት', lidet: 'ዘመነ ልደት',
+      timket: 'ዘመነ ጥምቀት', tsom: 'ዘመነ ጾም', tinsae: 'ዘመነ ትንሣኤ', hawaryat: 'ዘመነ ሓዋርያት', kremt: 'ዘመነ ክረምት' }
   }
 };
 const N = () => NAMES[document.documentElement.lang === 'ti' ? 'ti' : 'en'];
@@ -205,8 +259,10 @@ function el(tag, cls, text){
   if (text !== undefined) e.textContent = text;
   return e;
 }
-function feastLines(info){
+function feastLines(info, j){
   const out = info.feasts.map(f => ({ text: N().feasts[f.key], cls: 'rank-' + f.rank }));
+  const sun = j !== undefined && sundayOf(j);
+  if (sun && !info.feasts.some(f => N().feasts[f.key].startsWith(sun.name.split(' — ')[0]))) out.unshift({ text: (sun.named ? N().hymn + ' ' : N().sunday + ' · ') + sun.name, cls: 'is-sunday' });
   if (info.fast) out.push({ text: N().fasts[info.fast], cls: 'is-fastline' });
   if (info.season) out.push({ text: N().seasons[info.season], cls: 'is-season' });
   return out;
@@ -218,9 +274,12 @@ function renderToday(){
   $('today-wd').textContent = N().wd[weekday(todayJ)];
   $('today-gr').textContent = `${N().gr}: ${fmtGr(g)}`;
   const box = $('today-feast'); box.replaceChildren();
-  const lines = feastLines(infoFor(todayJ));
+  const lines = feastLines(infoFor(todayJ), todayJ);
   if (!lines.length) box.appendChild(el('li', 'muted', N().noFeast));
   lines.forEach(l => box.appendChild(el('li', l.cls, l.text)));
+  // the coming Sunday and its name
+  const toSun = (7 - weekday(todayJ)) % 7, s = sundayOf(todayJ + toSun);
+  if (toSun) box.appendChild(el('li', 'is-sunday', `${N().nextSunday(toSun)}: ${s.name}`));
 }
 
 function renderMonth(){
@@ -231,13 +290,13 @@ function renderMonth(){
   $('cal-sub').textContent = `${fmtGr(g1, false)} ${g1.y !== g2.y ? g1.y + ' ' : ''}${N().range} ${fmtGr(g2, false)} ${g2.y}`;
 
   const head = $('cal-head'); head.replaceChildren();
-  [1,2,3,4,5,6,0].forEach(w => {               // week starts on Monday (ሰኑይ)
+  [0,1,2,3,4,5,6].forEach(w => {               // week starts on Sunday (ሰንበት), as in the Ge'ez week: ሰኑይ is the second day
     const c = el('div', 'wd' + (w === 0 ? ' is-sun' : ''), N().wdShort[w]);
     c.title = N().wd[w]; head.appendChild(c);
   });
 
   const grid = $('cal-grid'); grid.replaceChildren();
-  const lead = (weekday(first) + 6) % 7;
+  const lead = weekday(first);
   for (let i = 0; i < lead; i++) grid.appendChild(el('div', 'day is-blank'));
   for (let d = 1; d <= n; d++){
     const j = first + d - 1, info = infoFor(j), g = jdnToGr(j);
@@ -253,7 +312,9 @@ function renderMonth(){
     const dn = el('span', 'et-d', window.GeezCal ? window.GeezCal.geez(d) : d); dn.title = String(d);
     b.appendChild(dn);
     b.appendChild(el('span', 'gr-d', fmtGr(g, false)));
+    const sun = sundayOf(j);
     if (top) b.appendChild(el('span', 'feast-name', shortName(top.key)));
+    else if (sun) b.appendChild(el('span', 'sun-name' + (sun.named ? ' is-named' : ''), sun.named ? sun.name.split(' — ')[0] : sun.name));
     b.setAttribute('aria-label', `${N().wd[weekday(j)]}, ${fmtEt({ y, m, d })} — ${fmtGr(g)}` +
       (info.feasts.length ? ' — ' + info.feasts.map(f => N().feasts[f.key]).join(', ') : ''));
     b.addEventListener('click', () => { state.sel = j; renderMonth(); renderDay(); });
@@ -344,9 +405,23 @@ function renderDay(){
   $('day-et').textContent = fmtEt(et);
   $('day-gr').textContent = `${N().wd[weekday(j)]} · ${fmtGr(g)}`;
   const ul = $('day-feasts'); ul.replaceChildren();
-  const lines = feastLines(infoFor(j));
+  const lines = feastLines(infoFor(j), j);
   if (!lines.length) ul.appendChild(el('li', 'muted', '—'));
   lines.forEach(l => ul.appendChild(el('li', l.cls, l.text)));
+  // a Sunday with readings from the lectionary (Admin page)
+  const box = $('day-readings'); if (!box) return;
+  box.replaceChildren(); box.hidden = true;
+  const sun = sundayOf(j), e = sun && sun.entry; if (!e) return;
+  const tr = f => (isTi() && e[f + '_ti']) ? e[f + '_ti'] : (e[f] || '');
+  if (tr('theme')) box.appendChild(el('p', 'rd-theme', tr('theme')));
+  const dl = el('dl', 'rd-list');
+  [['paul', N().readings.paul], ['catholic', N().readings.catholic], ['acts', N().readings.acts], ['psalm', N().readings.psalm], ['gospel', N().readings.gospel]].forEach(([k, label]) => {
+    if (!e[k]) return;
+    const d = el('div'); d.append(el('dt', '', label), el('dd', '', e[k])); dl.appendChild(d);
+  });
+  if (dl.children.length) box.appendChild(dl);
+  if (e.sample) box.appendChild(el('p', 'rd-sample', isTi() ? 'ኣብነት — ክረጋገጽ ኣለዎ' : 'Example — to be checked'));
+  box.hidden = !box.children.length;
 }
 
 function renderYear(){
@@ -434,6 +509,10 @@ $('conv-et-d').value = todayEt.d; $('conv-et-y').value = todayEt.y;
 
 document.addEventListener('langchange', renderAll);
 renderAll();
+// the Sunday names and readings entered on the Admin page
+fetch('data/lectionary.json?v=' + Math.floor(Date.now() / 60000)).then(r => r.ok ? r.json() : null).then(d => {
+  if (d && Array.isArray(d.sundays) && d.sundays.length){ LECTIONARY = d.sundays; renderAll(); }
+}).catch(() => {});
 // calendar.html#d=<day> (from a feast on the Liturgy page): open the month of that day
 const hd = FULL && /^#d=(\d+)$/.exec(location.hash);
 if (hd) openFullAt(+hd[1]);
