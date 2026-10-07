@@ -170,3 +170,5 @@ html[lang="ti"] .rd-list dt{font-family:var(--ethiopic);font-weight:400}
 .rd-list dd{margin:0;color:var(--ink)}
 .rd-sample{margin-top:8px;display:inline-block;padding:2px 8px;border:1px dashed var(--gold);border-radius:4px;font-size:.75rem;color:#7a5320}
 #cal-grid .day.is-sun .et-d{color:var(--red)}     /* Sunday numbers in red, like red-letter days */
+.year-card .year-clamp + .show-more{margin-top:10px}
+@media print{.year-clamp{max-height:none !important;overflow:visible !important;-webkit-mask-image:none !important;mask-image:none !important}.year-card .show-more{display:none !important}}

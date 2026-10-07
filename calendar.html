@@ -12,8 +12,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css?v=202610071410">
-<link rel="stylesheet" href="css/calendar.css?v=202610071545">
+<link rel="stylesheet" href="css/calendar.css?v=202610071600">
 <link rel="stylesheet" href="css/liturgy.css?v=202610071400">
+<link rel="stylesheet" href="css/pages.css?v=202610061710">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -238,6 +239,7 @@
           <button type="button" class="chip" id="cal-print" data-i18n="cal.print">Print</button>
         </div>
       </div>
+      <div class="clamp-box year-clamp" id="year-clamp" data-clamp="160">
       <div class="table-wrap">
         <table class="year-table">
           <thead><tr><th data-i18n="cal.col.feast">Feast</th><th data-i18n="cal.col.et">Ethiopian date</th><th data-i18n="cal.col.gr">Gregorian date</th><th data-i18n="cal.col.wd">Day</th></tr></thead>
@@ -252,6 +254,8 @@
         </table>
       </div>
       <p class="cal-note" data-i18n="cal.note">Easter (Fasika) and the feasts that depend on it are calculated with the Alexandrian computus used by the Ethiopian and Eritrean Churches. Local observances may differ — please follow the announcements of your parish.</p>
+      </div>
+      <button type="button" class="show-more" hidden aria-expanded="false"><span class="when-closed" data-i18n="cal.ymore">See more</span><span class="when-open" data-i18n="cal.yless">See less</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
     </article>
   </section>
   </div><!-- /cal-full -->

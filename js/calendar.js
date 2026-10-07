@@ -448,7 +448,20 @@ function renderYear(){
     tr.appendChild(el('td', 'yt-wd', `${f.to - f.from + 1} ${N().dayOf}`));
     fb.appendChild(tr);
   });
+  fitYear();
 }
+// "Feasts & fasts of the year": cut so the whole card is about as tall as the Today card; "See more" opens it
+function fitYear(){
+  const box = $('year-clamp'), today = document.querySelector('.today-card'), card = box && box.closest('.year-card');
+  if (!box || !today || !card) return;
+  if (!window.refreshClamps || box.classList.contains('is-open')) return;
+  box.dataset.clamp = 160; window.refreshClamps();
+  if (!box.classList.contains('is-clamped')) return;                       // short table: nothing to cut
+  // measure once, then cut the table by exactly the difference with the Today card
+  const diff = card.offsetHeight - today.offsetHeight;
+  box.dataset.clamp = Math.max(60, 160 - diff); window.refreshClamps();
+}
+window.addEventListener('resize', () => { clearTimeout(fitYear.t); fitYear.t = setTimeout(fitYear, 160); });
 
 /* ---------- 5. Date converter ---------- */
 function fillConverter(){
