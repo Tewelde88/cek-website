@@ -537,4 +537,5 @@ html[lang="ti"] .page-head .crumbs{font-family:var(--ethiopic)}
 
 /* Liturgical Calendar page: room between the header and the first cards */
 .cal-page .cal-compact{margin-top:clamp(28px,4vw,48px)}
+.cal-page .cal-top{margin-top:0}            /* no pull-up under the cards (it was meant for the old page header) */
 .cal-page .cal-back{padding-block:8px clamp(40px,6vw,64px)}

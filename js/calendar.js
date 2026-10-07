@@ -137,7 +137,7 @@ const NAMES = {
     era: 'E.C.', gr: 'Gregorian', et: 'Ethiopian',
     today: 'Today', fastDay: 'Fast day', none: 'No feasts this month.', noFeast: 'No major feast today.',
     invalid: 'Please enter a valid date.', range: '–', dayOf: 'days',
-    soon: { today: 'Today', tomorrow: 'Tomorrow', inDays: n => `in ${n} days` },
+    soon: { today: 'Today', tomorrow: 'Tomorrow', inDays: n => `in ${n} days` }, more: n => `See more (${n})`, less: 'See less',
     feasts: {
       newyear: 'New Year · St John the Baptist', demera: 'Demera — Eve of the Holy Cross',
       meskel: 'Meskel — Finding of the Holy Cross', qusquam: 'Qusquam — Holy Family in Egypt',
@@ -167,7 +167,7 @@ const NAMES = {
     era: 'ዓ.ም.', gr: 'ግሪጎርያን', et: 'ግእዝ',
     today: 'ሎሚ', fastDay: 'መዓልቲ ጾም', none: 'ኣብዚ ወርሒ በዓል የለን።', noFeast: 'ሎሚ ዓቢ በዓል የለን።',
     invalid: 'በጃኹም ቅኑዕ ዕለት ኣእትዉ።', range: '–', dayOf: 'መዓልቲ',
-    soon: { today: 'ሎሚ', tomorrow: 'ጽባሕ', inDays: n => `ድሕሪ ${n} መዓልቲ` },
+    soon: { today: 'ሎሚ', tomorrow: 'ጽባሕ', inDays: n => `ድሕሪ ${n} መዓልቲ` }, more: n => `ተወሳኺ ርኣዩ (${n})`, less: 'ኣሕጽሩ',
     feasts: {
       newyear: 'ርእሰ ዓመት · ቅዱስ ዮሓንስ', demera: 'ደመራ', meskel: 'መስቀል — ርክበ መስቀል',
       qusquam: 'ደብረ ቍስቋም', michael: 'ቅዱስ ሚካኤል', tsion: 'ሕዳር ጽዮን', baata: 'በኣታ ማርያም',
@@ -278,6 +278,8 @@ function renderMonth(){
 
 // Compact view: the next feasts from today (with a countdown)
 const UPCOMING_COUNT = 5;
+const UPCOMING_SHOWN = 2;                        // the rest open with "See more", so the card is as tall as Today
+let upOpen = false;
 function renderUpcoming(){
   const ul = $('upcoming'); if (!ul) return;
   ul.replaceChildren();
@@ -295,9 +297,25 @@ function renderUpcoming(){
       btn.appendChild(body); btn.appendChild(when);
       btn.addEventListener('click', () => openFullAt(j));
       li.appendChild(btn);
+      if (found >= UPCOMING_SHOWN && !upOpen) li.hidden = true;
       ul.appendChild(li); found++;
     });
   }
+  // "See more" / "See less" under the list
+  const card = ul.closest('.upcoming-card'), box = ul.closest('.cal-compact');
+  let more = card && card.querySelector('.up-more');
+  if (card && !more){
+    more = el('button', 'show-more up-more'); more.type = 'button';
+    more.addEventListener('click', () => { upOpen = !upOpen; renderUpcoming(); });
+    card.appendChild(more);
+  }
+  if (more){
+    const extra = found - UPCOMING_SHOWN;
+    more.hidden = extra <= 0;
+    more.setAttribute('aria-expanded', String(upOpen));
+    more.textContent = upOpen ? N().less : N().more(extra);
+  }
+  if (box) box.classList.toggle('is-open', upOpen);
 }
 
 // "Show full calendar" / "Show less"

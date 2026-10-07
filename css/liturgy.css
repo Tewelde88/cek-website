@@ -161,3 +161,9 @@ html[lang="ti"] .ci-key{font-family:var(--ethiopic)}
 }
 @media (max-width:420px){.ci-list{display:none}}
 @media (prefers-reduced-motion:reduce){.ci-base{transition:none}}
+
+/* Today and Upcoming feasts side by side, the same height; the rest of the feasts open with "See more" */
+.cal-compact:not(.is-open){align-items:stretch}
+.upcoming-card{display:flex;flex-direction:column}
+.upcoming-card .up-more{margin:12px auto 0}
+.upcoming-card .up-more[hidden]{display:none}
