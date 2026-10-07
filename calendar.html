@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css?v=202610071300">
 <link rel="stylesheet" href="css/calendar.css?v=202610061710">
-<link rel="stylesheet" href="css/liturgy.css?v=202610061710">
+<link rel="stylesheet" href="css/liturgy.css?v=202610071330">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -117,6 +117,36 @@
       <p class="eyebrow eyebrow-light" data-i18n="cal.eyebrow">Ge’ez Rite · Ethiopian Calendar</p>
       <h1 data-i18n="cal.title">Liturgical Calendar</h1>
       <p class="page-lead" data-i18n="cal.lead">Feasts and fasts of the Catholic Eparchy of Keren according to the Ethiopian (Ge’ez) liturgical calendar, with the matching Gregorian dates.</p>
+    </div>
+  </section>
+
+  <!-- ===== A YEAR LIVED WITH CHRIST: what the calendar is for, and the thirteen months as a wheel (js/calintro.js) ===== -->
+  <section class="lit-section ci-sec" id="intro" aria-labelledby="ci-title">
+    <div class="wrap ci">
+      <div class="ci-text">
+        <p class="ci-kicker" data-i18n="ci.kicker">Why a liturgical calendar?</p>
+        <h2 id="ci-title" data-i18n="ci.title">A year lived with Christ</h2>
+        <p class="ci-lead" data-i18n="ci.lead">Through the year the Church walks with Christ — from his birth to his Passion and Resurrection — together with Mary and the saints. Our calendar follows the Ge’ez reckoning: it tells the faithful when to feast, when to fast and how to pray, so that every season becomes a way to God.</p>
+        <ul class="ci-ways" role="list">
+          <li><b class="cw-p" data-i18n="ci.w2">Prepare</b><span data-i18n="ci.w2.p">The fasts — of the Prophets, of Nineveh, Great Lent, of the Apostles and of Filseta — times of prayer and conversion.</span></li>
+          <li><b class="cw-r" data-i18n="ci.w3">Remember</b><span data-i18n="ci.w3.p">The angels and saints, month after month — Saint Michael on the 12th, Saint Gabriel on the 19th.</span></li>
+          <li><b class="cw-f" data-i18n="ci.w1">Celebrate</b><span data-i18n="ci.w1.p">The great feasts of the Lord and of Mary — Meskel, Lidet, Timket, Fasika.</span></li>
+        </ul>
+        <dl class="ci-facts">
+          <div><dt data-i18n="ci.f1">months</dt><dd>13 <i lang="ti">፲፫</i></dd></div>
+          <div><dt data-i18n="ci.f2">days in each month, and 5 or 6 in Pagume</dt><dd>30 <i lang="ti">፴</i></dd></div>
+          <div><dt data-i18n="ci.f3">New Year: 1 Meskerem, 11 September</dt><dd lang="ti">፩</dd></div>
+        </dl>
+      </div>
+      <figure class="ci-wheel-wrap">
+        <svg class="ci-wheel" id="ci-wheel" viewBox="-120 -120 240 240" role="group" aria-label="The thirteen months"></svg>
+        <figcaption class="ci-centre" id="ci-centre" aria-live="polite"></figcaption>
+        <ul class="ci-key" role="list">
+          <li><i class="k-dot" aria-hidden="true"></i><span data-i18n="ci.k1">Major feast</span></li>
+          <li><i class="k-fast" aria-hidden="true"></i><span data-i18n="ci.k2">Month with a fast</span></li>
+          <li><i class="k-now" aria-hidden="true"></i><span data-i18n="ci.k3">Today</span></li>
+        </ul>
+      </figure>
     </div>
   </section>
 
@@ -249,5 +279,6 @@
 <script src="js/translations.js"></script>
 <script src="js/main.js"></script>
 <script src="js/calendar.js"></script>
+<script src="js/calintro.js"></script>
 </body>
 </html>

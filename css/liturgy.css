@@ -98,3 +98,66 @@ html[lang="ti"] .lit-card h3{font-family:var(--ethiopic-serif)}
 .cal-full .cal-top{grid-template-columns:minmax(0,1fr)}
 @media (min-width:760px){ .cal-full .conv-card{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;align-items:start} .cal-full .conv-card > .eyebrow{grid-column:1/-1} }
 @media print{ body.print-cal .cal-compact,body.print-cal .cal-toggle-row{display:none !important} .cal-full[hidden]{display:block !important} }
+
+/* ---------- Calendar page: "A year lived with Christ" (the thirteen months as a wheel) ---------- */
+.ci{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,1fr);gap:clamp(24px,4.5vw,64px);align-items:center}
+.ci-kicker{font-style:italic;color:var(--red)}
+html[lang="ti"] .ci-kicker{font-family:var(--ethiopic);font-style:normal}
+.ci-text h2{margin:2px 0 12px;font-family:var(--serif);font-size:clamp(1.8rem,1.3rem + 2vw,2.7rem);line-height:1.12;color:var(--navy)}
+html[lang="ti"] .ci-text h2{font-family:var(--ethiopic);font-weight:400}
+.ci-lead{max-width:58ch;font-size:1.08rem;line-height:1.75;color:var(--ink)}
+.ci-ways{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
+.ci-ways li{display:grid;grid-template-columns:118px minmax(0,1fr);gap:14px;align-items:baseline}
+.ci-ways b{padding-left:12px;border-left:4px solid var(--c);font-family:var(--serif);font-size:1.08rem;color:var(--c)}
+html[lang="ti"] .ci-ways b{font-family:var(--ethiopic);font-weight:400}
+.ci-ways span{color:var(--muted)}
+.cw-f{--c:var(--red)}.cw-p{--c:#5a4a85}.cw-r{--c:#9a6a22}
+.ci-facts{display:flex;flex-wrap:wrap;gap:12px 30px;margin:24px 0 0;padding-top:16px;border-top:1px dotted #cbbd9f}
+.ci-facts div{display:flex;flex-direction:column-reverse;max-width:200px}
+.ci-facts dd{margin:0;display:flex;align-items:baseline;gap:8px;font-family:var(--serif);font-weight:700;font-size:1.9rem;line-height:1;color:var(--navy)}
+.ci-facts dd[lang],.ci-facts dd i{font-family:var(--ethiopic);font-weight:400;font-style:normal;color:var(--red)}
+.ci-facts dd i{font-size:1.2rem}
+.ci-facts dt{margin-top:4px;font-size:.88rem;color:var(--muted)}
+
+.ci-wheel-wrap{position:relative;margin:0;width:100%;max-width:470px;justify-self:center}
+.ci-wheel{display:block;width:100%;height:auto;overflow:visible}
+.ci-seg{cursor:pointer;outline:none}
+.ci-base{fill:#f3ebda;stroke:#d9c9a4;stroke-width:1;transition:fill .25s}
+.ci-seg.has-fast .ci-base{fill:#ece5f3}
+.ci-seg:hover .ci-base{fill:#ead3ae}
+.ci-seg.is-now .ci-base{fill:#f6dcd6}
+.ci-seg.is-sel .ci-base{fill:var(--navy);stroke:var(--navy)}
+.ci-seg:focus-visible .ci-base{stroke:var(--red);stroke-width:2.5}
+.ci-name{font-family:var(--ethiopic);font-size:10.5px;fill:var(--ink);text-anchor:middle;dominant-baseline:middle;pointer-events:none}
+.ci-name.is-small{font-size:8.5px}
+.ci-seg.is-sel .ci-name{fill:#fff}
+.ci-dot{fill:var(--red);pointer-events:none}
+.ci-seg.is-sel .ci-dot{fill:#f0c46a}
+.ci-hub{fill:#fff;stroke:var(--gold);stroke-width:1.5}
+.ci-today{fill:var(--red);stroke:#fff;stroke-width:2}
+.ci-centre{position:absolute;left:50%;top:50%;width:46%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px}
+.ci-m{font-family:var(--ethiopic);font-weight:400;font-size:clamp(1.5rem,1.1rem + 1.4vw,2.1rem);line-height:1.1;color:var(--red)}
+.ci-en{font-family:var(--serif);font-size:.95rem;color:var(--navy)}
+.ci-gr{font-size:.78rem;color:var(--muted)}
+.ci-list{list-style:none;margin:6px 0 0;padding:0;font-size:.74rem;line-height:1.35;color:var(--ink)}
+html[lang="ti"] .ci-list{font-family:var(--ethiopic)}
+.ci-list i{font-style:normal;font-family:var(--ethiopic);color:var(--red)}
+.ci-list .is-fast{color:#5a4a85;font-style:italic}
+.ci-go{margin-top:6px;font-size:.8rem;font-weight:700}
+html[lang="ti"] .ci-go{font-family:var(--ethiopic);font-weight:400}
+
+/* the key under the wheel */
+.ci-key{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;font-size:.85rem;color:var(--muted)}
+html[lang="ti"] .ci-key{font-family:var(--ethiopic)}
+.ci-key li{display:inline-flex;align-items:center;gap:7px}
+.ci-key i{display:inline-block;flex:none}
+.k-dot{width:8px;height:8px;border-radius:50%;background:var(--red)}
+.k-fast{width:16px;height:11px;border-radius:3px;background:#ece5f3;box-shadow:inset 0 0 0 1px #d9c9a4}
+.k-now{width:11px;height:11px;border-radius:50%;background:var(--red);box-shadow:0 0 0 2px #fff,0 0 0 3px #d9c9a4}
+
+@media (max-width:900px){
+  .ci{grid-template-columns:1fr}
+  .ci-ways li{grid-template-columns:1fr;gap:2px}
+}
+@media (max-width:420px){.ci-list{display:none}}
+@media (prefers-reduced-motion:reduce){.ci-base{transition:none}}

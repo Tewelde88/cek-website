@@ -419,5 +419,7 @@ renderAll();
 // calendar.html#d=<day> (from a feast on the Liturgy page): open the month of that day
 const hd = FULL && /^#d=(\d+)$/.exec(location.hash);
 if (hd) openFullAt(+hd[1]);
+// "See this month" on the wheel at the top of the page
+if (FULL) window.addEventListener('hashchange', () => { const h = /^#d=(\d+)$/.exec(location.hash); if (h) openFullAt(+h[1]); });
 
 })();
