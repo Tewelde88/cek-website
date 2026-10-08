@@ -156,8 +156,3 @@ html[lang="ti"] .post-summary{font-style:normal}
 .post-rule{border:0;border-top:1px solid var(--line);margin:0 0 26px}
 .post-text p{line-height:1.85;margin:0 0 1.4em}
 .post-text p:last-child{margin-bottom:0}
-/* the latest post at the top of the News page, then "More news" */
-.news-lead{padding-bottom:8px}
-.news-lead .share{margin-bottom:0}
-.news-others{font-family:var(--serif);font-weight:600;color:var(--navy);font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem);margin:44px 0 18px;padding-top:28px;border-top:3px double var(--line)}
-html[lang="ti"] .news-others{font-family:var(--ethiopic-serif)}

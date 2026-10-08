@@ -26,12 +26,12 @@ const T = () => isTi() ? {
   cats: { news: 'ዜና', article: 'ጽሑፍ', event: 'ፍጻመታት' }, all: 'ኩሉ', read: 'ተወሳኺ ኣንብቡ', back: 'ኩሉ ዜናታት',
   gallery: 'ጋለሪ ስእልታት', photos: n => `${n} ስእልታት`, share: 'ኣካፍሉ', copy: 'ሊንክ ቅዳሕ', copied: 'ሊንክ ተቐዲሑ',
   none: 'ዝተረኽበ ጽሑፍ የለን።', more: 'ተወሳኺ ኣርእዩ', prev: 'ዝሓለፈ', next: 'ዝቕጽል', example: 'ኣብነት',
-  latest: 'ሓድሽ', others: 'ካልኦት ዜናታት', noPhotos: 'ገና ስእልታት የለዉን።', viewPost: 'ጽሑፍ ርኣዩ', close: 'ዕጸው'
+  latest: 'ሓድሽ', noPhotos: 'ገና ስእልታት የለዉን።', viewPost: 'ጽሑፍ ርኣዩ', close: 'ዕጸው'
 } : {
   cats: { news: 'News', article: 'Article', event: 'Events' }, all: 'All', read: 'Read More', back: 'All news',
   gallery: 'Photo gallery', photos: n => n === 1 ? '1 photo' : `${n} photos`, share: 'Share', copy: 'Copy link', copied: 'Link copied',
   none: 'No posts found.', more: 'Load more', prev: 'Previous', next: 'Next', example: 'Example',
-  latest: 'Latest', others: 'More news', noPhotos: 'No photos yet.', viewPost: 'View post', close: 'Close'
+  latest: 'Latest', noPhotos: 'No photos yet.', viewPost: 'View post', close: 'Close'
 };
 const FALLBACK = { news: 'linear-gradient(135deg,#9db4d3,#e8dcc4)', article: 'linear-gradient(135deg,#7f8e6a,#c8b088)', event: 'linear-gradient(135deg,#6e8a5c,#d5b98a)' };
 const fmtDate = s => { const [y, m, d] = s.split('-').map(Number); return `${d} ${MONTHS[m - 1]} ${y}`; };
@@ -225,14 +225,8 @@ function renderList(){
   feat.replaceChildren(); grid.replaceChildren();
   document.getElementById('news-empty').hidden = list.length > 0;
   if (!list.length){ document.getElementById('news-more').hidden = true; return; }
-  // the latest post is shown in full, as when it is opened; the others follow as cards, newest first
-  if (state.q.trim()) feat.appendChild(card(list[0], true));
-  else {
-    const lead = el('article', 'post-page news-lead');
-    article(lead, list[0], 'h2', true);
-    feat.appendChild(lead);
-    if (list.length > 1) feat.appendChild(el('h2', 'news-others', T().others));
-  }
+  // the latest post as a large card, the others follow, newest first
+  feat.appendChild(card(list[0], true));
   list.slice(1, state.shown).forEach(p => grid.appendChild(card(p)));
   document.getElementById('news-more').hidden = list.length <= state.shown;
 }

@@ -18,7 +18,7 @@ Bilingual (English ⇄ Tigrinya), works on phones, tablets and computers. Plain 
 | Eparchy › Religious Orders (men/women filter, details window) | `religious.html` | religious orders |
 | Parishes & Chapels | `parishes.html` | parishes, chapels, communities, sanctuaries |
 | Liturgy (+ Ge'ez liturgical calendar) | `liturgy.html` | — (calendar is calculated) |
-| News (the latest post shown in full — cover, title, summary, a line, the text — then “More news” as cards; photo gallery) | `news.html` | news posts, photos, videos |
+| News (latest post as a large card, the others follow; a post reads cover, title, summary, a line, the text; photo gallery) | `news.html` | news posts, photos, videos |
 | Sermons (Archive) | `sermons.html` | sermons: audio, video, PDF |
 | Library | `library.html` | books and documents (PDF or link) |
 | CESK — Caritas | `cesk.html` | — |
