@@ -11,8 +11,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=202610081900">
-<link rel="stylesheet" href="css/home.css?v=202610082200">
+<link rel="stylesheet" href="css/style.css?v=202610082300">
+<link rel="stylesheet" href="css/home.css?v=202610082300">
 <link rel="stylesheet" href="css/header.css?v=202610081800">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
@@ -430,9 +430,9 @@
     </div>
   </section>
 
-  <!-- ================= QUESTIONS + NEWSLETTER: margin notes (data/faq.json) and a sealed letter (sign-ups go to a Google Form — js/faq.js, js/newsletter.js) ================= -->
-  <section class="hm-sec" aria-label="Questions and newsletter">
-    <div class="wrap fn-row">
+  <!-- ================= QUESTIONS: margin notes (data/faq.json — js/faq.js); the newsletter sign-up is in the footer ================= -->
+  <section class="hm-sec" aria-label="Questions">
+    <div class="wrap fn-row is-single">
 
       <!-- left: frequently asked questions -->
       <div class="fq" id="fq">
@@ -453,31 +453,39 @@
         <p class="fq-more"><span data-i18n="fq.more">Still have a question?</span> <a href="contact.html" data-i18n="fq.ask">Write to us</a></p>
       </div>
 
-      <!-- right: the newsletter as a sealed letter -->
-      <form class="nl" id="nl" novalidate>
-        <div class="nl-env" aria-hidden="true"><span class="nl-paper"></span><span class="nl-flap"></span></div>
-        <div class="nl-in">
-          <h2 data-i18n="nl.title">Letters from the Eparchy</h2>
-          <p class="nl-lead" data-i18n="nl.lead">News, feasts and announcements, sent to your email about once a month.</p>
-          <label class="nl-field"><span data-i18n="nl.email">Your email</span>
-            <input type="email" name="email" id="nl-email" required autocomplete="email" inputmode="email" placeholder="name@example.com">
-          </label>
-          <fieldset class="nl-lang">
-            <legend data-i18n="nl.lang">Letters in</legend>
-            <label><input type="radio" name="lang" value="English" checked> English</label>
-            <label><input type="radio" name="lang" value="Tigrinya"> <span lang="ti">ትግርኛ</span></label>
-          </fieldset>
-          <p class="nl-err" id="nl-err" role="alert" hidden></p>
-          <button type="submit" class="nl-seal"><span class="nl-wax" aria-hidden="true">ከ</span><span data-i18n="nl.go">Seal and subscribe</span></button>
-          <p class="nl-note" data-i18n="nl.note">Your email is used only for letters from the Eparchy. To stop them, reply “stop”.</p>
-        </div>
-        <div class="nl-done" id="nl-done" hidden tabindex="-1">
-          <span class="nl-wax nl-wax-lg" aria-hidden="true">ከ</span>
-          <h2 data-i18n="nl.thanks">Thank you!</h2>
-          <p data-i18n="nl.thanks.p">Your email is on our list. The next letter from the Eparchy will come to your email.</p>
-        </div>
-      </form>
+    </div>
+  </section>
 
+  <!-- ================= HOW YOU CAN HELP: CESK and St. Michael's (progress from data/building.json — js/help.js) ================= -->
+  <section class="hm-sec hp-sec" aria-labelledby="hp-title">
+    <div class="wrap">
+      <div class="hm-head"><h2 id="hp-title" data-i18n="hp.title">How you can help</h2><span class="ge only-en" lang="ti">ብኸመይ ክትሕግዙ</span></div>
+      <div class="hp-row">
+        <article class="hp-card">
+          <p class="hp-eye"><b>CESK</b> <i data-i18n="ck.eyebrow">Caritas · Social Service Office</i></p>
+          <h3 data-i18n="ck.about.eyebrow">Charity in Action</h3>
+          <p class="hp-text" data-i18n="hp.ck.p">Serving the poor and the vulnerable through relief, health, education and development, for every person without distinction.</p>
+          <ul class="hp-chips">
+            <li><a class="c1" href="cesk-relief.html" data-i18n="ck.w1.t">Emergency Relief</a></li>
+            <li><a class="c2" href="cesk-health.html" data-i18n="ck.w2.t">Health Care</a></li>
+            <li><a class="c3" href="cesk-education.html" data-i18n="ck.w3.t">Education Support</a></li>
+            <li><a class="c4" href="cesk-water.html" data-i18n="ck.w4.t">Water &amp; Agriculture</a></li>
+            <li><a class="c5" href="cesk-women-youth.html" data-i18n="ck.w5.t">Women &amp; Youth</a></li>
+            <li><a class="c6" href="cesk-elderly.html" data-i18n="ck.w6.t">Elderly &amp; Disabled</a></li>
+          </ul>
+          <div class="hp-btns"><a class="btn btn-red" href="cesk.html" data-i18n="hp.ck.go">Discover CESK</a><a class="btn btn-line" href="cesk.html#involved" data-i18n="hp.ck.inv">Get involved</a></div>
+        </article>
+        <article class="hp-card" id="hp-build">
+          <p class="hp-eye"><b data-i18n="build.eyebrow">Building project</b> <i data-hp="place">Keren, Eritrea</i></p>
+          <h3 data-hp="name">St. Michael’s</h3>
+          <p class="hp-text" data-hp="summary">Together we build a home for prayer, education and community.</p>
+          <div class="hp-prog">
+            <p class="hp-prog-top"><b id="hp-pct">80% built</b><span data-hp="stage"></span></p>
+            <div class="hp-bar" role="progressbar" aria-labelledby="hp-pct" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"><span style="width:80%"></span></div>
+          </div>
+          <div class="hp-btns"><a class="btn btn-red" href="building.html#help" data-i18n="hp.bd.go">Sponsor a stone</a><a class="btn btn-line" href="building.html#progress" data-i18n="hp.bd.see">See the progress</a></div>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -485,15 +493,48 @@
 
 <!-- ================= FOOTER ================= -->
 <footer class="site-footer" id="contact">
-  <div class="wrap foot">
-    <p class="foot-name"><span data-i18n="foot.name">Catholic Eparchy of Keren</span> <span class="sep">|</span> <span data-i18n="foot.country">Eritrea</span></p>
-    <nav class="social" aria-label="Social media">
-      <!-- Put your real page links in href -->
-      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4a22 22 0 0 0-2.5-.1c-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8z"/></svg></a>
-      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg></a>
-      <a href="#" aria-label="Radio / Podcast"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm-1 1h2l1 8h-4zM6.3 16.7a8 8 0 0 1 0-11.4l1.4 1.4a6 6 0 0 0 0 8.6zm11.4 0-1.4-1.4a6 6 0 0 0 0-8.6l1.4-1.4a8 8 0 0 1 0 11.4z"/></svg></a>
+  <div class="harag foot-harag" aria-hidden="true"></div>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <img src="images/logo.png" alt="" width="64" height="64" loading="lazy">
+      <p class="foot-name" data-i18n="foot.name">Catholic Eparchy of Keren</p>
+      <p class="foot-motto" lang="ti">እምነት ፣ ኣገልግሎት ፣ ሕብረት</p>
+    </div>
+    <div class="foot-col">
+      <h2 data-i18n="foot.visit">Visit and write</h2>
+      <!-- address, phone, email and office hours come from data/contact.json (Admin page → Contact) — js/main.js -->
+      <ul class="foot-list" id="foot-contact">
+        <li data-c="address">Keren, Eritrea</li>
+        <li><a href="contact.html" data-i18n="foot.allc">All offices and addresses</a></li>
+      </ul>
+    </div>
+    <nav class="foot-col" aria-labelledby="foot-find">
+      <h2 id="foot-find" data-i18n="foot.find">Find</h2>
+      <ul class="foot-list">
+        <li><a href="parishes.html" data-i18n="nav.parishes">Parishes and chapels</a></li>
+        <li><a href="calendar.html" data-i18n="cal.title">Liturgical calendar</a></li>
+        <li><a href="sermons.html" data-i18n="foot.sermons">Sermons</a></li>
+        <li><a href="library.html" data-i18n="foot.library">Library</a></li>
+        <li><a href="news-archive.html" data-i18n="nav.archive">News Archive</a></li>
+      </ul>
     </nav>
-    <p class="foot-ti" lang="ti">ካቶሊካዊ ኤጳርቅና ከረን <span class="sep">|</span> እምነት ፣ ኣገልግሎት ፣ ሕብረት</p>
+    <div class="foot-col foot-nl">
+      <h2 data-i18n="nl.title">Letters from the Eparchy</h2>
+      <p data-i18n="foot.nl">Your email, about once a month</p>
+      <!-- sign-ups go to the Google Form set on the Admin page → Newsletter (data/newsletter.json) — js/main.js -->
+      <form class="foot-form" id="foot-nl" novalidate>
+        <label class="sr-only" for="foot-email" data-i18n="nl.email">Your email</label>
+        <input type="email" id="foot-email" name="email" placeholder="name@example.com" autocomplete="email" inputmode="email" required>
+        <button type="submit" data-i18n="foot.sub">Subscribe</button>
+      </form>
+      <p class="foot-msg" id="foot-msg" role="status" hidden></p>
+        <nav class="social" aria-label="Social media">
+          <!-- Put your real page links in href -->
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4a22 22 0 0 0-2.5-.1c-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg></a>
+          <a href="#" aria-label="Radio / Podcast"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm-1 1h2l1 8h-4zM6.3 16.7a8 8 0 0 1 0-11.4l1.4 1.4a6 6 0 0 0 0 8.6zm11.4 0-1.4-1.4a6 6 0 0 0 0-8.6l1.4-1.4a8 8 0 0 1 0 11.4z"/></svg></a>
+        </nav>
+    </div>
   </div>
   <div class="wrap foot-bottom">
     <span>© <span id="yr"></span> <span data-i18n="footer.rights">Catholic Eparchy of Keren. All rights reserved.</span></span>
@@ -501,7 +542,7 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="SERMONS=data/sermons.json#sermons NEWS=data/news.json#posts BUILDING=data/building.json PARISHES_DATA=data/parishes.json PROJECTS=data/projects.json#projects EPARCHY=data/eparchy.json FAQ=data/faq.json#faqs NOTICES=data/announcements.json#items NEWSLETTER=data/newsletter.json" data-scripts="js/main.js js/news.js js/notices.js js/folio.js js/stats.js js/cta.js js/calendar.js js/yearscroll.js js/faq.js js/newsletter.js"></script>
+<script src="js/boot.js" data-json="SERMONS=data/sermons.json#sermons NEWS=data/news.json#posts BUILDING=data/building.json PARISHES_DATA=data/parishes.json PROJECTS=data/projects.json#projects EPARCHY=data/eparchy.json FAQ=data/faq.json#faqs NOTICES=data/announcements.json#items" data-scripts="js/main.js js/news.js js/notices.js js/folio.js js/stats.js js/cta.js js/calendar.js js/yearscroll.js js/faq.js js/help.js"></script>
 <script src="https://www.vaticannews.va/widget.js" async></script>
 </body>
 </html>

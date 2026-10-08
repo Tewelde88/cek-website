@@ -458,3 +458,55 @@ document.querySelectorAll('[data-open]').forEach(link => {
     window.addEventListener('scroll', stuck, { passive: true }); window.addEventListener('resize', stuck); stuck();
   }
 })();
+
+/* ---------- Footer: contact lines (data/contact.json) and the newsletter sign-up (data/newsletter.json) ---------- */
+(function(){
+  const list = document.getElementById('foot-contact'), form = document.getElementById('foot-nl');
+  if (!list && !form) return;
+  const ti = () => document.documentElement.lang === 'ti';
+  const tr = (o, f) => (ti() && o[f + '_ti']) ? o[f + '_ti'] : (o[f] || '');
+  const getJSON = f => fetch(f + '?v=' + Math.floor(Date.now() / 60000)).then(r => r.ok ? r.json() : {}).catch(() => ({}));
+  // Visit and write
+  let C = null;
+  function contact(){
+    if (!list || !C) return;
+    list.querySelectorAll('[data-c]').forEach(li => li.remove());
+    const last = list.lastElementChild, add = (k, text, href) => {
+      if (!text) return;
+      const li = document.createElement('li'); li.dataset.c = k;
+      if (href){ const a = document.createElement('a'); a.href = href; a.textContent = text; li.appendChild(a); } else li.textContent = text;
+      list.insertBefore(li, last);
+    };
+    add('address', tr(C, 'address') || (ti() ? 'ከረን፣ ኤርትራ' : 'Keren, Eritrea'));
+    if (C.phone) add('phone', C.phone, 'tel:' + C.phone.replace(/[^\d+]/g, ''));
+    if (C.email) add('email', C.email, 'mailto:' + C.email);
+    if (tr(C, 'hours')) add('hours', (ti() ? 'ሰዓታት ስራሕ፦ ' : 'Office hours: ') + tr(C, 'hours'));
+  }
+  if (list) getJSON('data/contact.json').then(d => { C = d || {}; contact(); });
+  document.addEventListener('langchange', contact);
+  // Letters from the Eparchy
+  if (!form) return;
+  const email = document.getElementById('foot-email'), msg = document.getElementById('foot-msg');
+  const entry = v => { v = String(v || '').trim(); return v && !v.startsWith('entry.') ? 'entry.' + v : v; };
+  const say = (t, bad) => { msg.textContent = t; msg.hidden = !t; msg.classList.toggle('is-bad', !!bad); email.setAttribute('aria-invalid', bad ? 'true' : 'false'); };
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const v = email.value.trim();
+    if (!v || !email.checkValidity()){ say(ti() ? 'በጃኹም ቅኑዕ ኢመይል ጽሓፉ፡ ንኣብነት name@example.com' : 'Please write a valid email, for example name@example.com', true); email.focus(); return; }
+    const btn = form.querySelector('button'); btn.disabled = true;
+    getJSON('data/newsletter.json').then(NL => {
+      const action = String(NL.form_action || '').trim();
+      if (!/^https:\/\/docs\.google\.com\/forms\/.+\/formResponse$/.test(action) || !entry(NL.email_entry)){
+        btn.disabled = false;
+        say(ti() ? 'ምዝገባ ገና ኣይተኸፍተን። በጃኹም ብገጽ ርኸቡና ጽሓፉልና።' : 'Sign-up is not open yet. Please write to us on the Contact page.', true); return;
+      }
+      const fd = new FormData(); fd.append(entry(NL.email_entry), v);
+      if (NL.lang_entry) fd.append(entry(NL.lang_entry), ti() ? 'Tigrinya' : 'English');
+      return fetch(action, { method: 'POST', mode: 'no-cors', body: fd }).then(() => {     // Google Forms gives no readable answer; a sent request is enough
+        form.hidden = true;
+        say(ti() ? 'የቐንየልና! ኢመይልኩም ኣብ ዝርዝርና ኣሎ።' : 'Thank you! Your email is on our list.');
+      }, () => { btn.disabled = false; say(ti() ? 'ኣይተላእከን። ኢንተርነትኩም ርኣዩ እሞ እንደገና ፈትኑ።' : 'It could not be sent. Check your internet connection and try again.', true); });
+    });
+  });
+  email.addEventListener('input', () => { if (!msg.hidden && msg.classList.contains('is-bad')) say(''); });
+})();

@@ -544,3 +544,32 @@ html[lang="ti"] .page-head .crumbs{font-family:var(--ethiopic)}
 .lang-tag{display:inline-block;margin-left:6px;padding:1px 8px;border:1px solid var(--gold-soft);border-radius:999px;background:#fdf8ee;color:#7a5320;font-size:.75rem;font-weight:700;line-height:1.5;vertical-align:middle;white-space:nowrap}
 .lang-tag[lang="ti"]{font-family:var(--ethiopic);font-weight:400}
 .hm-list .lang-tag,.ar-t .lang-tag,.r-text .lang-tag{margin:4px 0 0;align-self:flex-start}
+
+/* ---------- Footer: harag band, four columns (name · visit and write · find · letters), © line ---------- */
+.site-footer{font-size:.95rem}
+.foot-harag{height:22px}
+.foot-grid{display:grid;grid-template-columns:1.15fr 1fr 1fr 1.25fr;gap:clamp(24px,3vw,44px);padding-block:clamp(34px,4vw,52px) clamp(28px,3.4vw,44px)}
+.foot-brand img{width:64px;height:64px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.25)}
+.foot-brand .foot-name{margin-top:14px;font-family:var(--serif);font-weight:700;font-size:1.18rem;color:#fff;line-height:1.25}
+html[lang="ti"] .foot-brand .foot-name{font-family:var(--ethiopic)}
+.foot-motto{margin-top:6px;font-family:var(--ethiopic);color:#fff;letter-spacing:.04em}
+.foot-col h2{margin-bottom:12px;font-family:var(--sans);font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--harag-gold,#d9a24e)}
+html[lang="ti"] .foot-col h2{font-family:var(--ethiopic);font-size:.95rem;letter-spacing:.02em;text-transform:none}
+.foot-list{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.foot-list a{color:#fff}
+.foot-list a:hover{color:var(--harag-gold,#d9a24e);text-decoration:underline;text-underline-offset:3px}
+#foot-contact li[data-c]{color:#fff}
+#foot-contact li:last-child a{color:#c9d5ea;font-size:.88rem}
+.foot-nl > p:not(.foot-msg){color:#fff;margin-bottom:12px}
+.foot-form{display:flex;gap:8px}
+.foot-form input{flex:1;min-width:0;height:44px;padding:0 12px;border:0;border-radius:6px;background:#fff;color:var(--ink);font:inherit}
+.foot-form input:focus-visible{outline:2px solid var(--harag-gold,#d9a24e);outline-offset:2px}
+.foot-form button{height:44px;padding:0 16px;border:0;border-radius:6px;background:var(--gold);color:#1f1b18;font:inherit;font-weight:700;cursor:pointer}
+.foot-form button:hover{background:#d39a48}
+.foot-form button:disabled{opacity:.6;cursor:wait}
+.foot-msg{margin-top:8px;color:#fff;font-size:.88rem}
+.foot-msg.is-bad{color:#ffd2cc}
+.foot-nl .social{margin-top:14px;margin-left:-8px}
+.foot-bottom{text-align:center}
+@media (max-width:980px){ .foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:560px){ .foot-grid{grid-template-columns:1fr;gap:28px} }

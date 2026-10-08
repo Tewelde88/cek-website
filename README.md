@@ -9,7 +9,7 @@ Bilingual (English ⇄ Tigrinya), works on phones, tablets and computers. Plain 
 ## Pages
 | Page | File | Content edited on the Admin page |
 |---|---|---|
-| Home (ribbon links; shepherds and news (magazine grid) with the Announcements notice board beside them; “Pastoral life” book, “The Eparchy in numbers”, CESK invitation (the mesob of six areas), the liturgical year as a scroll, Questions + Newsletter) | `index.html` | latest news posts; announcements (Admin page → Announcements, `data/announcements.json`, `js/notices.js`); the Pastoral life book and “The Eparchy in numbers” count parishes, chapels, sanctuaries, priests and religious orders by themselves |
+| Home (ribbon links; shepherds and news (magazine grid) with the Announcements notice board beside them; “Pastoral life” book, “The Eparchy in numbers”, CESK invitation (the mesob of six areas), the liturgical year as a scroll, Questions, “How you can help” (CESK + St. Michael’s progress, `js/help.js`)) | `index.html` | latest news posts; announcements (Admin page → Announcements, `data/announcements.json`, `js/notices.js`); the Pastoral life book and “The Eparchy in numbers” count parishes, chapels, sanctuaries, priests and religious orders by themselves |
 | Eparchy — contents, “The shepherd of the Eparchy” (current bishop, motto, his three tasks), “Our story” (foundation, growth, commitment — Admin page → Eparchy), bishops, “How the Eparchy is organised” (levels of service with live counts), priests, “Belonging to the Eparchy” (a path through life), seminary, orders, “Where we are” (map zoom: Africa → Eritrea → Eparchy → satellite / Google Earth; images in images/maps/), history, “Meet them more closely” (two doors: Bishop’s page, Priests directory), priests, seminary, orders, history | `eparchy.html` | (counts come from the lists below) |
 | Eparchy › Bishop (profile, interactive timeline, biography) | `bishop.html` | — |
 | Eparchy › Priests (counters, anniversaries, directory with search/filters/profiles, “A priest’s day”, “Always learning”, “Who stands with our priests”, prayer with candle) | `priests.html` | priests |
@@ -87,3 +87,7 @@ Site map (the menu follows it):
 
 A page under another one is indented in its menu list (`<li class="sub-in">`). Every lower-level page shows
 a breadcrumb at the top (`<p class="crumbs">`, e.g. “Pastoral › Projects › St. Michael’s Building Project”).
+
+## Footer
+
+Every page ends with the same footer (`<footer class="site-footer">`): the harag band; emblem, name and motto; **Visit and write** — address, phone, email and office hours from Admin page → Contact (`data/contact.json`; a line appears only when it is filled in); **Find** — Parishes and chapels, Liturgical calendar, Sermons, Library, News Archive; **Letters from the Eparchy** — the newsletter sign-up (Admin page → Newsletter) and the social icons (put the real page links in their `href`). The contact lines and the sign-up are run by `js/main.js`. When you change the footer, change it on every page the same way.
