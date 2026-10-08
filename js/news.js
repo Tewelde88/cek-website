@@ -26,12 +26,12 @@ const T = () => isTi() ? {
   cats: { news: 'ዜና', article: 'ጽሑፍ', event: 'ፍጻመታት' }, all: 'ኩሉ', read: 'ተወሳኺ ኣንብቡ', back: 'ኩሉ ዜናታት',
   gallery: 'ጋለሪ ስእልታት', photos: n => `${n} ስእልታት`, share: 'ኣካፍሉ', copy: 'ሊንክ ቅዳሕ', copied: 'ሊንክ ተቐዲሑ',
   none: 'ዝተረኽበ ጽሑፍ የለን።', more: 'ተወሳኺ ኣርእዩ', prev: 'ዝሓለፈ', next: 'ዝቕጽል', example: 'ኣብነት',
-  latest: 'ሓድሽ', noPhotos: 'ገና ስእልታት የለዉን።', viewPost: 'ጽሑፍ ርኣዩ', close: 'ዕጸው'
+  latest: 'ሓድሽ', others: 'ካልኦት ዜናታት', noPhotos: 'ገና ስእልታት የለዉን።', viewPost: 'ጽሑፍ ርኣዩ', close: 'ዕጸው'
 } : {
   cats: { news: 'News', article: 'Article', event: 'Events' }, all: 'All', read: 'Read More', back: 'All news',
   gallery: 'Photo gallery', photos: n => n === 1 ? '1 photo' : `${n} photos`, share: 'Share', copy: 'Copy link', copied: 'Link copied',
   none: 'No posts found.', more: 'Load more', prev: 'Previous', next: 'Next', example: 'Example',
-  latest: 'Latest', noPhotos: 'No photos yet.', viewPost: 'View post', close: 'Close'
+  latest: 'Latest', others: 'More news', noPhotos: 'No photos yet.', viewPost: 'View post', close: 'Close'
 };
 const FALLBACK = { news: 'linear-gradient(135deg,#9db4d3,#e8dcc4)', article: 'linear-gradient(135deg,#7f8e6a,#c8b088)', event: 'linear-gradient(135deg,#6e8a5c,#d5b98a)' };
 const fmtDate = s => { const [y, m, d] = s.split('-').map(Number); return `${d} ${MONTHS[m - 1]} ${y}`; };
@@ -52,8 +52,8 @@ function media(p, cls){
   if ((p.videos || []).length) m.appendChild(el('span', 'post-play', '▶'));
   return m;
 }
-// Post text: paragraphs separated by an empty line
-const paragraphs = v => Array.isArray(v) ? v : String(v || '').split(/\n\s*\n/).map(s => s.trim()).filter(Boolean);
+// Post text: every new line starts a new paragraph (an empty line between them also works)
+const paragraphs = v => Array.isArray(v) ? v : String(v || '').split(/\n+/).map(s => s.trim()).filter(Boolean);
 
 /* ---------- Videos: YouTube / Facebook / Vimeo links, or an uploaded video file ---------- */
 function videoEmbed(v){
@@ -225,7 +225,14 @@ function renderList(){
   feat.replaceChildren(); grid.replaceChildren();
   document.getElementById('news-empty').hidden = list.length > 0;
   if (!list.length){ document.getElementById('news-more').hidden = true; return; }
-  feat.appendChild(card(list[0], true));
+  // the latest post is shown in full, as when it is opened; the others follow as cards, newest first
+  if (state.q.trim()) feat.appendChild(card(list[0], true));
+  else {
+    const lead = el('article', 'post-page news-lead');
+    article(lead, list[0], 'h2', true);
+    feat.appendChild(lead);
+    if (list.length > 1) feat.appendChild(el('h2', 'news-others', T().others));
+  }
   list.slice(1, state.shown).forEach(p => grid.appendChild(card(p)));
   document.getElementById('news-more').hidden = list.length <= state.shown;
 }
@@ -253,33 +260,50 @@ function share(p){
   bar.appendChild(cp);
   return bar;
 }
-function renderPost(id){
-  const all = posts(), i = all.findIndex(p => p.id === id), box = document.getElementById('post');
-  box.replaceChildren();
-  if (i < 0){ location.hash = ''; return; }
-  const p = all[i];
-  const back = el('a', 'back-link', '← ' + T().back); back.href = '#latest'; box.appendChild(back);
+// The post itself, in this order: cover photo, title, short summary, a single line, the full text
+// (then videos, photos and the share buttons). Used for an opened post and for the latest post on the list.
+function article(box, p, hTag, link){
+  const cover = coverOf(p);
+  if (cover){
+    const fig = el('figure', 'post-cover');
+    const img = el('img'); img.src = cover; img.alt = '';
+    if (link){ const a = el('a'); a.href = postUrl(p); a.tabIndex = -1; a.setAttribute('aria-hidden', 'true'); a.appendChild(img); fig.appendChild(a); }
+    else fig.appendChild(img);
+    box.appendChild(fig);
+  }
   const meta = el('p', 'post-meta');
   meta.appendChild(el('span', 'tag', T().cats[p.category] || p.category));
   const t = el('time', '', fmtDate(p.date)); t.dateTime = p.date; meta.appendChild(t);
   if (p.sample) meta.appendChild(el('span', 'sample-tag', T().example));
   const lt = langTag(p); if (lt) meta.appendChild(lt);
   box.appendChild(meta);
-  box.appendChild(el('h1', 'post-title', tr(p, 'title')));
-  if (p.cover){
-    const fig = el('figure', 'post-cover');
-    const img = el('img'); img.src = p.cover; img.alt = ''; fig.appendChild(img);
-    box.appendChild(fig);
+  const h = el(hTag, 'post-title');
+  if (link){ const a = el('a', '', tr(p, 'title')); a.href = postUrl(p); h.appendChild(a); } else h.textContent = tr(p, 'title');
+  box.appendChild(h);
+  const sum = tr(p, 'excerpt').trim();
+  let pars = paragraphs(tr(p, 'body'));
+  if (sum && pars.length && pars[0] === sum) pars = pars.slice(1);          // the summary is not repeated as the first paragraph
+  if (sum) box.appendChild(el('p', 'post-summary', sum));
+  if (sum && pars.length) box.appendChild(el('hr', 'post-rule'));
+  if (pars.length){
+    const body = el('div', 'post-text');
+    pars.forEach(par => body.appendChild(el('p', '', par)));
+    box.appendChild(body);
   }
-  const body = el('div', 'post-text');
-  paragraphs(tr(p, 'body') || tr(p, 'excerpt')).forEach(par => body.appendChild(el('p', '', par)));
-  box.appendChild(body);
   (p.videos || []).map(videoEmbed).filter(Boolean).forEach(v => box.appendChild(v));
   if (p.gallery && p.gallery.length){
     box.appendChild(el('h2', 'post-gal-title', `${T().gallery} · ${T().photos(p.gallery.length)}`));
     box.appendChild(thumbs(p.gallery, 'post-gallery'));
   }
   box.appendChild(share(p));
+}
+function renderPost(id){
+  const all = posts(), i = all.findIndex(p => p.id === id), box = document.getElementById('post');
+  box.replaceChildren();
+  if (i < 0){ location.hash = ''; return; }
+  const p = all[i];
+  const back = el('a', 'back-link', '← ' + T().back); back.href = '#latest'; box.appendChild(back);
+  article(box, p, 'h1');
   const nav = el('nav', 'post-nav');
   if (all[i + 1]){ const a = el('a', 'pn-prev'); a.href = postUrl(all[i + 1]); a.appendChild(el('small', '', '← ' + T().prev)); a.appendChild(el('span', '', tr(all[i + 1], 'title'))); nav.appendChild(a); }
   if (all[i - 1]){ const a = el('a', 'pn-next'); a.href = postUrl(all[i - 1]); a.appendChild(el('small', '', T().next + ' →')); a.appendChild(el('span', '', tr(all[i - 1], 'title'))); nav.appendChild(a); }

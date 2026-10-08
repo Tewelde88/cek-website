@@ -143,3 +143,21 @@ html[lang="ti"] .ar-t strong{font-family:var(--ethiopic);font-weight:400}
   .ar-cat{grid-column:2;justify-self:start}
 }
 @media (prefers-reduced-motion:reduce){.ar-vol{transition:none}}
+
+/* ---------- A post: cover, title, summary, a single line, the full text ---------- */
+.post-page .post-cover{margin:0 0 18px}
+.post-page .post-cover a{display:block}
+.post-page .post-meta{margin-bottom:8px}
+.post-page .post-title{margin-bottom:14px}
+.post-page .post-title a{color:inherit}
+.post-page .post-title a:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.post-summary{font-size:1.18rem;line-height:1.65;color:#4a5160;font-style:italic;margin:0 0 22px}
+html[lang="ti"] .post-summary{font-style:normal}
+.post-rule{border:0;border-top:1px solid var(--line);margin:0 0 26px}
+.post-text p{line-height:1.85;margin:0 0 1.4em}
+.post-text p:last-child{margin-bottom:0}
+/* the latest post at the top of the News page, then "More news" */
+.news-lead{padding-bottom:8px}
+.news-lead .share{margin-bottom:0}
+.news-others{font-family:var(--serif);font-weight:600;color:var(--navy);font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem);margin:44px 0 18px;padding-top:28px;border-top:3px double var(--line)}
+html[lang="ti"] .news-others{font-family:var(--ethiopic-serif)}
