@@ -380,82 +380,6 @@
     </div>
   </section>
 
-  <!-- ================= CALENDAR: the liturgical year as a scroll — feasts, fasts and today (js/yearscroll.js; dates from js/calendar.js) ================= -->
-  <section class="hm-sec" aria-labelledby="yr-title">
-    <div class="wrap">
-      <div class="hm-head"><h2 id="yr-title" data-i18n="cal.title">Liturgical Calendar</h2><span class="ge only-en" lang="ti">ዓውደ-ኣዋርሕ</span><a href="calendar.html" data-i18n="hm.cal.link">Open the liturgical calendar</a></div>
-      <div class="ms yr" id="ycal">
-        <div class="harag" aria-hidden="true"></div>
-        <div class="yr-top">
-          <div class="yr-today" id="yr-today"></div>
-          <div class="yr-next" id="yr-next"></div>
-        </div>
-        <div class="yr-bar">
-          <p class="yr-hint" data-i18n="hm.cal.hint">Slide along the year. Choose a feast to read about it.</p>
-          <div class="yr-nav">
-            <button type="button" data-go="-1" aria-label="Earlier"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
-            <button type="button" data-go="0" data-i18n="hm.cal.today">Today</button>
-            <button type="button" data-go="1" aria-label="Later"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
-          </div>
-        </div>
-        <div class="yr-scroll" id="yr-scroll" tabindex="0" aria-label="The liturgical year">
-          <div class="yr-track" id="yr-track"></div>
-        </div>
-        <div class="yr-foot">
-          <div class="yr-card" id="yr-card" aria-live="polite"></div>
-          <ul class="yr-legend" role="list">
-            <li><i class="lg-major" aria-hidden="true"></i><span data-i18n="hm.cal.major">Major feast</span></li>
-            <li><i class="lg-feast" aria-hidden="true"></i><span data-i18n="hm.cal.feast">Feast</span></li>
-            <li><i class="lg-fast" aria-hidden="true"></i><span data-i18n="hm.cal.fast">Fast</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ================= VATICAN NEWS WIDGET =================
-       Official widget from https://www.vaticannews.va/widget/embed.html
-       js/main.js puts a <vaticannews-widget> inside #vn-widget in the page's language (en / ti). -->
-  <section class="vn" id="vatican-news">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow eyebrow-red" data-i18n="vn.eyebrow">From the Holy See</p>
-          <h2 class="section-title" data-i18n="vn.title">Vatican News</h2>
-        </div>
-        <a class="more" href="https://www.vaticannews.va/" target="_blank" rel="noopener"><span data-i18n="vn.link">Visit Vatican News</span> <span class="arrow" aria-hidden="true">→</span></a>
-      </div>
-      <div class="vn-box" id="vn-widget"></div>
-    </div>
-  </section>
-
-  <!-- ================= QUESTIONS: margin notes (data/faq.json — js/faq.js); the newsletter sign-up is in the footer ================= -->
-  <section class="hm-sec" aria-label="Questions">
-    <div class="wrap fn-row is-single">
-
-      <!-- left: frequently asked questions -->
-      <div class="fq" id="fq">
-        <div class="hm-head"><h2 id="fq-title" data-i18n="fq.title">Questions</h2><span class="ge only-en" lang="ti">ሕቶታት</span></div>
-        <div class="fq-tools">
-          <div class="fq-topics" role="group" aria-labelledby="fq-title">
-            <button type="button" data-t="" aria-pressed="true" data-i18n="fq.all">All</button>
-            <button type="button" data-t="eparchy" aria-pressed="false" data-i18n="nav.eparchy">Eparchy</button>
-            <button type="button" data-t="liturgy" aria-pressed="false" data-i18n="nav.liturgy">Liturgy</button>
-            <button type="button" data-t="parish" aria-pressed="false" data-i18n="fq.parish">Parish life</button>
-          </div>
-          <label class="fq-search"><span class="sr-only" data-i18n="fq.search">Search the questions</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-            <input type="search" id="fq-q" placeholder="Search the questions…" data-i18n-placeholder="fq.search" autocomplete="off">
-          </label>
-        </div>
-        <div class="fq-list" id="fq-list"></div>
-        <p class="fq-more"><span data-i18n="fq.more">Still have a question?</span> <a href="contact.html" data-i18n="fq.ask">Write to us</a></p>
-      </div>
-
-    </div>
-  </section>
-
   <!-- ================= HOW YOU CAN HELP: CESK and St. Michael's (progress from data/building.json — js/help.js) ================= -->
   <section class="hm-sec hp-sec" aria-labelledby="hp-title">
     <div class="wrap">
@@ -486,6 +410,22 @@
           <div class="hp-btns"><a class="btn btn-red" href="building.html#help" data-i18n="hp.bd.go">Sponsor a stone</a><a class="btn btn-line" href="building.html#progress" data-i18n="hp.bd.see">See the progress</a></div>
         </article>
       </div>
+    </div>
+  </section>
+
+  <!-- ================= VATICAN NEWS WIDGET =================
+       Official widget from https://www.vaticannews.va/widget/embed.html
+       js/main.js puts a <vaticannews-widget> inside #vn-widget in the page's language (en / ti). -->
+  <section class="vn" id="vatican-news">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow eyebrow-red" data-i18n="vn.eyebrow">From the Holy See</p>
+          <h2 class="section-title" data-i18n="vn.title">Vatican News</h2>
+        </div>
+        <a class="more" href="https://www.vaticannews.va/" target="_blank" rel="noopener"><span data-i18n="vn.link">Visit Vatican News</span> <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+      <div class="vn-box" id="vn-widget"></div>
     </div>
   </section>
 
@@ -542,7 +482,7 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="SERMONS=data/sermons.json#sermons NEWS=data/news.json#posts BUILDING=data/building.json PARISHES_DATA=data/parishes.json PROJECTS=data/projects.json#projects EPARCHY=data/eparchy.json FAQ=data/faq.json#faqs NOTICES=data/announcements.json#items" data-scripts="js/main.js js/news.js js/notices.js js/folio.js js/stats.js js/cta.js js/calendar.js js/yearscroll.js js/faq.js js/help.js"></script>
+<script src="js/boot.js" data-json="SERMONS=data/sermons.json#sermons NEWS=data/news.json#posts BUILDING=data/building.json PARISHES_DATA=data/parishes.json PROJECTS=data/projects.json#projects EPARCHY=data/eparchy.json NOTICES=data/announcements.json#items" data-scripts="js/main.js js/news.js js/notices.js js/folio.js js/stats.js js/cta.js js/calendar.js js/help.js"></script>
 <script src="https://www.vaticannews.va/widget.js" async></script>
 </body>
 </html>
