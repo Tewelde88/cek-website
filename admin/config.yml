@@ -508,6 +508,37 @@ collections:
               - { name: link, label: "Link for “See the project” (optional)", widget: string, required: false }
 
   # ------------------------------------------------------------
+  #  ANNOUNCEMENTS — the notice board on the Home page
+  # ------------------------------------------------------------
+  - name: announcements
+    label: "Announcements"
+    icon: campaign
+    description: "Short announcements and latest updates for the notice board on the Home page. Pinned ones stay at the top; with a “Hide after” date an entry disappears by itself."
+    files:
+      - name: announcements
+        label: "Notice board"
+        file: data/announcements.json
+        fields:
+          - name: items
+            label: "Announcements"
+            label_singular: "announcement"
+            widget: list
+            required: false
+            summary: "{{fields.date}} · {{fields.title}} {{fields.title_ti}}"
+            fields:
+              - { name: kind, label: "Kind", widget: select, default: announcement,
+                  options: [ { label: "Announcement — ማስታወቂያ", value: announcement }, { label: "Update — ሓድሽ ሓበሬታ", value: update }, { label: "Event — ፍጻመ", value: event }, { label: "Urgent — ህጹጽ (red)", value: urgent } ] }
+              - { name: pinned, label: "Keep at the top (pinned)", widget: boolean, default: false, required: false }
+              - { name: date, label: "Date (the day of the event, or the day you post it)", widget: datetime, format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+              - { name: until, label: "Hide after (optional)", widget: datetime, format: "YYYY-MM-DD", time_format: false, picker_utc: true, required: false, hint: "The day after this date the announcement leaves the board by itself" }
+              - { name: title, label: "Title (English) — leave empty for a Tigrinya-only announcement", widget: string, required: false }
+              - { name: title_ti, label: "Title (Tigrinya) — ኣርእስቲ ብትግርኛ", widget: string, required: false }
+              - { name: text, label: "Short text (English)", widget: text, required: false, hint: "One to three sentences" }
+              - { name: text_ti, label: "Short text (Tigrinya)", widget: text, required: false }
+              - { name: link, label: "Link (optional) — a page like calendar.html, or a full web address", widget: string, required: false }
+              - { name: sample, label: "Example entry (shows an EXAMPLE tag)", widget: boolean, default: false, required: false }
+
+  # ------------------------------------------------------------
   #  QUESTIONS (FAQ) — Home page, "Questions"
   # ------------------------------------------------------------
   - name: faq

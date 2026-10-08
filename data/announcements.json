@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "kind": "announcement",
+      "pinned": true,
+      "date": "2026-10-08",
+      "until": "",
+      "title": "Welcome to the notice board",
+      "title_ti": "ናብ ሰሌዳ ማስታወቂያ እንቋዕ ብደሓን መጻእኩም",
+      "text": "Short announcements and updates from the Eparchy appear here. Add, pin or remove them on the Admin page → Announcements.",
+      "text_ti": "ሓጸርቲ ማስታወቂያታትን ሓደሽቲ ሓበሬታታትን ካብ ኤጳርቅና ኣብዚ ይቐርቡ። ኣብ ገጽ ምምሕዳር (Admin) → Announcements ወስኹ፡ ኣብ ላዕሊ ኣቐምጡ ወይ ኣልግሱ።",
+      "link": "",
+      "sample": true
+    },
+    {
+      "kind": "update",
+      "pinned": false,
+      "date": "2026-10-08",
+      "until": "",
+      "title": "The liturgical calendar is now on the website",
+      "title_ti": "ሊጡርጊያዊ ዓውደ-ኣዋርሕ ሕጂ ኣብ መርበብ ሓበሬታ ኣሎ",
+      "text": "Today’s feast, the coming feasts and fasts, the Sundays of the year and a date converter.",
+      "text_ti": "በዓል ናይ ሎሚ፡ ዝመጽኡ በዓላትን ኣጽዋማትን፡ ሰናብቲ ናይ ዓመትን መቐየሪ ዕለትን።",
+      "link": "calendar.html",
+      "sample": false
+    },
+    {
+      "kind": "event",
+      "pinned": false,
+      "date": "2026-11-01",
+      "until": "2026-11-01",
+      "title": "Example: an event",
+      "title_ti": "ኣብነት፦ ፍጻመ",
+      "text": "Give the day of the event as its date: the leaf shows it in Ge’ez and in the Gregorian calendar. With a “Hide after” date it leaves the board by itself.",
+      "text_ti": "መዓልቲ ናይቲ ፍጻመ ከም ዕለት ሃቡ፦ እታ ቅጽላ ብግእዝን ብጎርጎርዮሳዊ ዓውደ-ኣዋርሕን ተርእዮ። ዕለት “Hide after” እንተሃብኩምዎ ባዕሉ ካብ ሰሌዳ ይወጽእ።",
+      "link": "",
+      "sample": true
+    },
+    {
+      "kind": "urgent",
+      "pinned": false,
+      "date": "2026-10-06",
+      "until": "2026-12-31",
+      "title": "Example: an urgent notice",
+      "title_ti": "ኣብነት፦ ህጹጽ ምልክታ",
+      "text": "Urgent notices are marked in red, for a change of time, a closed office or a call for prayer.",
+      "text_ti": "ህጹጻት ምልክታታት ብቀይሕ ይፍለጡ፦ ንለውጢ ሰዓት፡ ንዕጹው ቤት ጽሕፈት ወይ ንጻውዒት ጸሎት።",
+      "link": "",
+      "sample": true
+    },
+    {
+      "kind": "announcement",
+      "pinned": false,
+      "date": "2026-10-01",
+      "until": "",
+      "title": "Example: an announcement",
+      "title_ti": "ኣብነት፦ ማስታወቂያ",
+      "text": "For office hours, collections, appointments and other short news without photos. News with photos goes under News & Articles.",
+      "text_ti": "ንሰዓታት ቤት ጽሕፈት፡ ንእከባታት፡ ንሹመታትን ካልኦት ሓጸርቲ ዜናታት ብዘይ ስእልን። ስእሊ ዘለዎ ዜና ኣብ News & Articles ይኣቱ።",
+      "link": "",
+      "sample": true
+    }
+  ]
+}

@@ -110,47 +110,63 @@ function card(p, big){
   return a;
 }
 
-/* ---------- Home page: latest 3 posts ---------- */
-// Date as "፲፪ ግንቦት ፳፻፲፰" (Ge'ez, red) + "12 May 2026"
-function dateLine(s){
-  const span = el('span', 'hm-date');
-  const G = window.GeezCal;
-  if (G){
-    const [y, m, d] = s.split('-').map(Number), e = G.jdnToEt(G.grToJdn(y, m, d));
-    const ge = el('span', 'ge', `${G.geez(e.d)} ${G.MONTHS_TI[e.m - 1]} ${G.geez(e.y)}`);
-    ge.lang = 'ti';                                   // read as Tigrinya by screen readers
-    span.appendChild(ge);
-  }
-  span.appendChild(document.createTextNode(fmtDate(s)));
-  return span;
+/* ---------- Home page: the latest 6 posts as a magazine grid ---------- */
+// Date: Ge'ez in Tigrinya ("፳፰ መስከረም ፳፻፲፱"), else "08/10/2026"
+function shortDate(s){
+  const [y, m, d] = s.split('-').map(Number), G = window.GeezCal;
+  if (isTi() && G){ const e = G.jdnToEt(G.grToJdn(y, m, d)); return `${G.geez(e.d)} ${G.MONTHS_TI[e.m - 1]} ${G.geez(e.y)}`; }
+  return `${String(d).padStart(2, '0')}/${String(m).padStart(2, '0')}/${y}`;
+}
+// Small line icons: the kind of post (video if it has one)
+const ICONS = {
+  news: '<path d="M4 5h7v6H4zM14 6h6M14 10h6M4 15h16M4 19h16"/>',
+  article: '<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/>',
+  event: '<rect x="4" y="5" width="16" height="15" rx="1"/><path d="M4 10h16M9 3v4M15 3v4"/>',
+  video: '<rect x="3" y="6" width="13" height="12" rx="1"/><path d="M16 10l5-3v10l-5-3z"/>'
+};
+const SHARE = {
+  facebook: ['Facebook', u => 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(u), '<path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.6 1.6-1.6h1.7V3.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V13h2.8v8z"/>'],
+  x: ['X', (u, t) => 'https://x.com/intent/post?url=' + encodeURIComponent(u) + '&text=' + encodeURIComponent(t), '<path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L1.9 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z"/>'],
+  whatsapp: ['WhatsApp', (u, t) => 'https://wa.me/?text=' + encodeURIComponent(t + ' ' + u), '<path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none"/><path d="M9 8.5c0 3.5 2.6 6.5 6.5 6.5l1-1.5-2-1-1 1c-1-.4-2.6-2-3-3l1-1-1-2z"/>']
+};
+function svg(paths, cls){
+  const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  s.setAttribute('viewBox', '0 0 24 24'); s.setAttribute('aria-hidden', 'true'); if (cls) s.setAttribute('class', cls);
+  s.innerHTML = paths; return s;
+}
+function magCard(p, lead){
+  const box = el('article', 'mg-card' + (lead ? ' mg-lead' : ''));
+  const img = el('a', 'mg-img'); img.href = postUrl(p); img.tabIndex = -1; img.setAttribute('aria-hidden', 'true');
+  const bg = FALLBACK[p.category] || FALLBACK.news;
+  img.style.backgroundImage = coverOf(p) ? `url('${coverOf(p)}'), ${bg}` : bg;
+  if ((p.videos || []).length) img.appendChild(el('span', 'post-play', '▶'));
+  box.appendChild(img);
+  const body = el('div', 'mg-body');
+  const meta = el('div', 'mg-meta');
+  const kind = (p.videos || []).length ? 'video' : (ICONS[p.category] ? p.category : 'news');
+  const ic = svg(ICONS[kind], 'mg-kind'); ic.setAttribute('aria-hidden', 'false'); ic.setAttribute('role', 'img');
+  ic.setAttribute('aria-label', kind === 'video' ? 'Video' : (T().cats[p.category] || T().cats.news));
+  meta.appendChild(ic);
+  const t = el('time', '', shortDate(p.date)); t.dateTime = p.date; if (isTi()) t.lang = 'ti'; meta.appendChild(t);
+  const sh = el('span', 'mg-share'), url = new URL(postUrl(p), location.href).href;
+  Object.values(SHARE).forEach(([name, href, path]) => {
+    const a = el('a'); a.href = href(url, tr(p, 'title')); a.target = '_blank'; a.rel = 'noopener';
+    a.setAttribute('aria-label', T().share + ': ' + name); a.appendChild(svg(path)); sh.appendChild(a);
+  });
+  meta.appendChild(sh);
+  body.appendChild(meta);
+  const h = el(lead ? 'h3' : 'h4', 'mg-title'); const a = el('a', '', tr(p, 'title')); a.href = postUrl(p); h.appendChild(a);
+  body.appendChild(h);
+  const lt = langTag(p); if (lt) body.appendChild(lt);
+  box.appendChild(body);
+  return box;
 }
 function renderHome(){
   const box = document.getElementById('home-news'); if (!box) return;
   const list = posts();
   box.replaceChildren();
-  if (!list.length) return;
-  // Lead story: picture, title, date, summary
-  const L0 = list[0], lead = el('a', 'hm-lead'); lead.href = postUrl(L0);
-  const img = el('div', 'hm-lead-img');
-  const bg = FALLBACK[L0.category] || FALLBACK.news;
-  img.style.backgroundImage = coverOf(L0) ? `url('${coverOf(L0)}'), ${bg}` : bg;
-  if ((L0.videos || []).length) img.appendChild(el('span', 'post-play', '▶'));
-  lead.appendChild(img);
-  lead.appendChild(el('h3', '', tr(L0, 'title')));
-  lead.appendChild(dateLine(L0.date));
-  const lt0 = langTag(L0); if (lt0) lead.appendChild(lt0);
-  lead.appendChild(el('p', '', tr(L0, 'excerpt')));
-  box.appendChild(lead);
-  // The next stories as a simple dated list
-  const ul = el('ul', 'hm-list');
-  list.slice(1, 5).forEach(p => {
-    const li = el('li'), a = el('a'); a.href = postUrl(p);
-    a.appendChild(dateLine(p.date));
-    a.appendChild(el('strong', '', tr(p, 'title')));
-    const lt = langTag(p); if (lt) a.appendChild(lt);
-    li.appendChild(a); ul.appendChild(li);
-  });
-  box.appendChild(ul);
+  box.className = 'hm-mag';
+  list.slice(0, 6).forEach((p, i) => box.appendChild(magCard(p, i === 0)));
 }
 
 /* ---------- Lightbox ---------- */

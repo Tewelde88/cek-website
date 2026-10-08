@@ -135,6 +135,18 @@ To give a Sunday its hymn name (መዝሙር ዘያሬድ) and its readings: Adm
 
 The dates where each season begins and ends are set in `js/calendar.js` (function `seasonOf`) and are still to be checked by the Eparchy.
 
+## 14. Home page: Announcements (the notice board)
+
+Admin page → **Announcements**. The notice board stands to the right of “Our shepherds” and “From our Eparchy” (on phones, under the shepherds). Use it for short news without photos: office hours, collections, appointments, events, urgent changes.
+
+- **Kind:** Announcement, Update, Event or Urgent (red).
+- **Keep at the top (pinned):** pinned entries come first, with a red edge and a pin.
+- **Date:** the day of the event, or the day you post it. It is shown as a small calendar leaf, in Ge’ez and in the Gregorian calendar.
+- **Hide after (optional):** the day after this date the entry leaves the board by itself — useful for events and urgent notices.
+- **Link (optional):** the title becomes a link, e.g. `calendar.html` or a full web address.
+
+Four entries are shown; the button **All announcements** opens the rest. The first entries are examples: delete them, or untick **Example entry** when you rewrite one.
+
 ## Other ways to upload content
 
 | Way | When to use it |

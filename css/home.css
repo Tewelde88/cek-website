@@ -485,3 +485,106 @@ html[lang="ti"] .nl-seal{font-family:var(--ethiopic);font-weight:400}
 .rib-hang + .hm-sec{padding-top:14px}
 .home-ms .vn{padding-block:clamp(24px,3vw,36px)}
 .hm-sec.hm-tight{padding-top:0}
+
+/* ---------- News: a magazine grid — the lead story with two beside it, then a row of three ---------- */
+.hm-mag{display:grid;gap:20px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.mg-card{display:flex;flex-direction:column;background:var(--card);box-shadow:0 1px 3px rgba(31,27,24,.12),0 6px 18px rgba(31,27,24,.06)}
+.mg-img{display:block;position:relative;aspect-ratio:16/9;background:center/cover no-repeat #d9cfc0;border-bottom:4px solid var(--red)}
+.mg-body{display:flex;flex-direction:column;gap:8px;padding:12px 16px 16px;flex:1}
+.mg-meta{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.9rem}
+.mg-kind{width:22px;height:22px;flex:none;fill:none;stroke:var(--gold);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mg-meta time[lang="ti"]{font-family:var(--ethiopic);color:var(--red)}
+.mg-share{display:flex;gap:4px;margin-left:auto}
+.mg-share a{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;color:#b9b2a8}
+.mg-share a:hover{color:var(--navy);background:rgba(22,49,94,.08)}
+.mg-share svg{width:15px;height:15px;fill:currentColor;stroke:currentColor;stroke-width:0}
+.mg-share a[aria-label$="WhatsApp"] svg{fill:none;stroke-width:1.8}
+.mg-share a[aria-label$="WhatsApp"] svg path + path{fill:currentColor;stroke:none}
+.mg-title{font-family:var(--sans);font-weight:700;font-size:1.12rem;line-height:1.3;color:var(--ink)}
+.mg-title a{color:inherit}
+.mg-title a:hover{color:var(--red);text-decoration:none}
+html[lang="ti"] .mg-title{font-family:var(--ethiopic)}
+.mg-body .lang-tag{margin:0;align-self:flex-start}
+/* the lead story: the photo fills, a red panel below with a large white title */
+.mg-lead{grid-column:1 / 3;grid-row:1 / 3}
+.mg-lead .mg-img{flex:1;aspect-ratio:auto;min-height:260px;border-bottom:0}
+.mg-lead .mg-body{flex:none;background:var(--red);padding:16px clamp(16px,2.4vw,26px) 22px}
+.mg-lead .mg-meta{color:#fff}
+.mg-lead .mg-kind{stroke:var(--harag-gold,#d9a24e)}
+.mg-lead .mg-meta time[lang="ti"]{color:var(--harag-gold,#d9a24e)}
+.mg-lead .mg-share a{color:rgba(255,255,255,.8)}
+.mg-lead .mg-share a:hover{color:#fff;background:rgba(255,255,255,.14)}
+.mg-lead .mg-title{font-family:var(--serif);font-weight:600;font-size:clamp(1.6rem,1.1rem + 1.8vw,2.6rem);line-height:1.12;color:#fff}
+html[lang="ti"] .mg-lead .mg-title{font-family:var(--ethiopic-serif,var(--ethiopic))}
+.mg-lead .mg-title a:hover{color:#fff;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
+.mg-lead .lang-tag{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.4);color:#fff}
+@container (max-width:700px){
+  .hm-mag{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mg-lead{grid-column:1 / -1;grid-row:auto}
+  .mg-lead .mg-img{aspect-ratio:16/9;min-height:0}
+  .hm-mag > :nth-child(6){display:none}
+}
+@container (max-width:520px){
+  .hm-mag{grid-template-columns:minmax(0,1fr);gap:16px}
+}
+
+/* ---------- Our shepherds + From our Eparchy, with the notice board beside them ---------- */
+.duo{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:clamp(28px,3vw,40px);align-items:start}
+.duo-block + .duo-block{margin-top:clamp(36px,4vw,52px);padding-top:clamp(28px,3vw,40px);border-top:1px solid var(--line)}
+.duo-block#news{container-type:inline-size}
+.duo .shepherds{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.duo .arch{width:clamp(110px,11vw,150px)}
+.duo .shep{gap:16px}
+.duo .shep-name{font-size:1.3rem}
+
+/* the notice board: a parchment leaf with the harag band on top; each entry has a calendar leaf */
+.nb{position:sticky;top:84px;background:#fbf6ec;border:1px solid var(--gold-soft);border-radius:6px;box-shadow:inset 0 0 0 4px #fbf6ec,inset 0 0 0 5px rgba(193,136,58,.35),0 6px 20px rgba(31,27,24,.06);padding:0 0 14px;overflow:hidden}
+.nb-harag{height:18px}
+.nb-head{padding:16px 20px 12px;border-bottom:1px solid var(--gold-soft)}
+.nb-head h2{display:inline;font-family:var(--serif);font-size:1.55rem;line-height:1.15;color:var(--ink)}
+html[lang="ti"] .nb-head h2{font-family:var(--ethiopic)}
+.nb-head .ge{margin-left:10px;color:var(--red);font-size:1.1rem}
+.nb-sub{margin-top:2px;color:var(--muted);font-style:italic;font-size:.95rem}
+html[lang="ti"] .nb-sub{font-style:normal}
+.nb-list{list-style:none;margin:0;padding:6px 14px 0}
+.nb-item{display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;padding:14px 6px;border-bottom:1px dotted rgba(193,136,58,.55)}
+.nb-item:last-child{border-bottom:0}
+.nb-item.is-pinned{margin:8px 0 4px;padding:14px 12px;background:#fff;border:1px solid var(--gold-soft);border-left:4px solid var(--red);border-radius:4px;box-shadow:0 2px 8px rgba(31,27,24,.06)}
+.nb-leaf{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;align-self:start;padding:0 0 4px;background:#fff;border:1px solid var(--line);border-top:5px solid var(--red);border-radius:3px;text-align:center;line-height:1.1;box-shadow:0 1px 2px rgba(31,27,24,.08)}
+.nb-leaf.is-blank{visibility:hidden}
+.nb-d{font-family:var(--ethiopic);color:var(--red);font-size:1.35rem;padding-top:4px}
+.nb-m{font-family:var(--ethiopic);font-size:.72rem;color:var(--ink)}
+.nb-g{margin-top:3px;padding-top:2px;border-top:1px solid var(--line);width:80%;font-size:.68rem;color:var(--muted)}
+.nb-kind{display:flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;letter-spacing:.02em;color:#8a6a1f}
+.nb-ic{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.nb-pin{width:15px;height:15px;margin-left:auto;fill:var(--red);stroke:none;transform:rotate(30deg)}
+.nb-update .nb-kind{color:var(--navy)}
+.nb-event .nb-kind{color:#4f6b3e}
+.nb-urgent .nb-kind{color:var(--red)}
+.nb-urgent .nb-leaf{border-top-color:var(--red);background:#fdf0ee}
+.nb-update .nb-leaf{border-top-color:var(--navy)}
+.nb-event .nb-leaf{border-top-color:#6e8a5c}
+.nb-announcement .nb-leaf{border-top-color:var(--gold)}
+.nb-title{margin-top:3px;font-family:var(--sans);font-size:1.04rem;line-height:1.3;font-weight:700;color:var(--ink)}
+html[lang="ti"] .nb-title,html[lang="ti"] .nb-text{font-family:var(--ethiopic)}
+.nb-title a{color:inherit;text-decoration:underline;text-decoration-color:var(--gold-soft);text-underline-offset:3px}
+.nb-title a:hover{color:var(--red);text-decoration-color:currentColor}
+.nb-text{margin-top:4px;font-size:.92rem;line-height:1.5;color:#4a433d}
+.nb-body .sample-tag{margin-top:6px}
+.nb-none{padding:18px 20px 6px;color:var(--muted);font-style:italic}
+.nb-more{display:block;margin:10px auto 0;padding:8px 18px;border:1px solid var(--navy);border-radius:999px;background:#fff;color:var(--navy);font:inherit;font-weight:700;font-size:.88rem;cursor:pointer}
+.nb-more:hover{background:var(--navy);color:#fff}
+.nb-more:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* narrower screens: one column — the shepherds, then the notice board, then the news */
+@media (max-width:1000px){
+  .duo{display:flex;flex-direction:column;align-items:stretch;gap:0}
+  .duo-block{width:100%}
+  .duo-main{display:contents}
+  .nb{position:static;order:1;margin-top:clamp(32px,5vw,44px);width:100%}
+  .duo-block#news{order:2}
+  .duo-block + .duo-block{border-top:0;padding-top:0}
+}
+@media (max-width:640px){
+  .duo .shepherds{grid-template-columns:1fr}
+}

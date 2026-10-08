@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css?v=202610081900">
-<link rel="stylesheet" href="css/home.css?v=202610081830">
+<link rel="stylesheet" href="css/home.css?v=202610082200">
 <link rel="stylesheet" href="css/header.css?v=202610081800">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
@@ -165,9 +165,11 @@
   </section>
 
 
-  <!-- ================= OUR SHEPHERDS ================= -->
-  <section class="hm-sec">
-    <div class="wrap">
+  <!-- ================= OUR SHEPHERDS + FROM OUR EPARCHY, with the notice board (announcements) beside them ================= -->
+  <section class="hm-sec hm-duo">
+    <div class="wrap duo">
+    <div class="duo-main">
+    <div class="duo-block">
       <div class="hm-head"><h2 data-i18n="hm.shepherds">Our shepherds</h2><span class="ge only-en" lang="ti">ጓሶትና</span></div>
       <div class="shepherds">
         <a class="shep" href="#pope-bio" data-open="pope-bio">
@@ -179,6 +181,15 @@
           <span class="shep-text"><span class="role" data-i18n="hm.bishop.role">Our bishop, since 2003</span><span class="shep-name" data-i18n="bishop.name">Most Rev. Kidane Yebio</span><span class="ge only-en" lang="ti">ብፁዕ ኣቡነ ኪዳነ የብዮ</span><span class="shep-more" data-i18n="ep.hl.timeline">His life, year by year</span></span>
         </a>
       </div>
+    </div>
+    <!-- From our Eparchy: the latest news as a magazine grid (data/news.json — post on the Admin page) -->
+    <div class="duo-block" id="news">
+      <div class="hm-head"><h2 data-i18n="news.title">From our Eparchy</h2><span class="ge only-en" lang="ti">ካብ ኤጳርቅናና</span><a href="news.html" data-i18n="news.all">All news</a></div>
+      <div class="hm-news" id="home-news"></div>
+    </div>
+    </div>
+    <!-- The notice board: announcements and latest updates (data/announcements.json — Admin page → Announcements; js/notices.js) -->
+    <aside class="nb" id="notices" aria-labelledby="nb-title"></aside>
     </div>
   <!-- ===== Pope Leo XIV biography (opens as a pop-up from the card above) ===== -->
   <dialog class="bio" id="pope-bio" aria-labelledby="pope-bio-title" lang="en">
@@ -212,14 +223,6 @@
       <p class="bio-source">Source: Adapted exclusively from Vatican News biography.</p>
     </article>
   </dialog>
-  </section>
-
-  <!-- ================= NEWS: lead story + list (from data/news.json — post on the Admin page) ================= -->
-  <section class="hm-sec hm-white" id="news">
-    <div class="wrap">
-      <div class="hm-head"><h2 data-i18n="news.title">From our Eparchy</h2><span class="ge only-en" lang="ti">ካብ ኤጳርቅናና</span><a href="news.html" data-i18n="news.all">All news</a></div>
-      <div class="hm-news" id="home-news"></div>
-    </div>
   </section>
 
   <!-- ================= PASTORAL LIFE: an open book — choose a page on the left (js/folio.js) ================= -->
@@ -498,7 +501,7 @@
 </footer>
 
 <script src="js/translations.js"></script>
-<script src="js/boot.js" data-json="SERMONS=data/sermons.json#sermons NEWS=data/news.json#posts BUILDING=data/building.json PARISHES_DATA=data/parishes.json PROJECTS=data/projects.json#projects EPARCHY=data/eparchy.json FAQ=data/faq.json#faqs NEWSLETTER=data/newsletter.json" data-scripts="js/main.js js/news.js js/folio.js js/stats.js js/cta.js js/calendar.js js/yearscroll.js js/faq.js js/newsletter.js"></script>
+<script src="js/boot.js" data-json="SERMONS=data/sermons.json#sermons NEWS=data/news.json#posts BUILDING=data/building.json PARISHES_DATA=data/parishes.json PROJECTS=data/projects.json#projects EPARCHY=data/eparchy.json FAQ=data/faq.json#faqs NOTICES=data/announcements.json#items NEWSLETTER=data/newsletter.json" data-scripts="js/main.js js/news.js js/notices.js js/folio.js js/stats.js js/cta.js js/calendar.js js/yearscroll.js js/faq.js js/newsletter.js"></script>
 <script src="https://www.vaticannews.va/widget.js" async></script>
 </body>
 </html>
