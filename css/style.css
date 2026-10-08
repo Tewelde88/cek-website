@@ -539,3 +539,8 @@ html[lang="ti"] .page-head .crumbs{font-family:var(--ethiopic)}
 .cal-page .cal-compact{margin-top:clamp(28px,4vw,48px)}
 .cal-page .cal-top{margin-top:0}            /* no pull-up under the cards (it was meant for the old page header) */
 .cal-page .cal-back{padding-block:8px clamp(40px,6vw,64px)}
+
+/* language tag on a post that is in one language only */
+.lang-tag{display:inline-block;margin-left:6px;padding:1px 8px;border:1px solid var(--gold-soft);border-radius:999px;background:#fdf8ee;color:#7a5320;font-size:.75rem;font-weight:700;line-height:1.5;vertical-align:middle;white-space:nowrap}
+.lang-tag[lang="ti"]{font-family:var(--ethiopic);font-weight:400}
+.hm-list .lang-tag,.ar-t .lang-tag,.r-text .lang-tag{margin:4px 0 0;align-self:flex-start}

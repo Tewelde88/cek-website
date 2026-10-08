@@ -55,6 +55,8 @@ The post appears on the **News** page, in the **Gallery** (its photos) and — i
 
 ---
 
+**A post in one language only.** Choose **Language of this post**: *English and Tigrinya*, *English only* or *Tigrinya only*. For a Tigrinya-only post leave the English fields empty (and the other way round). The post still appears in both versions of the website, in its own language, with a small tag (“In Tigrinya · ትግርኛ” or “English”) so readers know before opening it. The same choice exists for sermons.
+
 ## 3. Add a sermon
 
 Admin page → **Sermons** → **Add sermon**: title (English/Tigrinya), year, date, preacher, then any of:

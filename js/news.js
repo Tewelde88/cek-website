@@ -9,7 +9,18 @@ if (typeof NEWS === 'undefined') return;
 
 /* ---------- helpers ---------- */
 const isTi = () => document.documentElement.lang === 'ti';
-const tr = (o, f) => (isTi() && o[f + '_ti'] && (!Array.isArray(o[f + '_ti']) || o[f + '_ti'].length)) ? o[f + '_ti'] : (o[f] || '');
+const tr = (o, f) => (isTi() && o[f + '_ti'] && (!Array.isArray(o[f + '_ti']) || o[f + '_ti'].length)) ? o[f + '_ti'] : (o[f] || o[f + '_ti'] || '');   // a one-language post shows its own text
+// A post can be in one language only (Admin page → Language); without the choice it is guessed from the titles
+const langOf = o => o.lang || ((o.title || o.t) && !(o.title_ti || o.ti) ? 'en' : (!(o.title || o.t) && (o.title_ti || o.ti) ? 'ti' : 'both'));
+// a small tag when the post is not in the reader's language
+function langTag(o){
+  const l = langOf(o); if (l === 'both' || l === (isTi() ? 'ti' : 'en')) return null;
+  const s = document.createElement('span'); s.className = 'lang-tag';
+  s.textContent = l === 'ti' ? (isTi() ? 'ትግርኛ' : 'In Tigrinya · ትግርኛ') : (isTi() ? 'ብእንግሊዝኛ · English' : 'English');
+  if (l === 'ti') s.lang = 'ti';
+  return s;
+}
+
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const T = () => isTi() ? {
   cats: { news: 'ዜና', article: 'ጽሑፍ', event: 'ፍጻመታት' }, all: 'ኩሉ', read: 'ተወሳኺ ኣንብቡ', back: 'ኩሉ ዜናታት',
@@ -89,6 +100,7 @@ function card(p, big){
   const t = el('time', '', fmtDate(p.date)); t.dateTime = p.date; meta.appendChild(t);
   if (p.gallery && p.gallery.length) meta.appendChild(el('span', 'post-photos', '▣ ' + T().photos(p.gallery.length)));
   if (p.sample) meta.appendChild(el('span', 'sample-tag', T().example));
+  const lt = langTag(p); if (lt) meta.appendChild(lt);
   body.appendChild(meta);
   const h = el(big ? 'h2' : 'h3'); const hl = el('a', '', tr(p, 'title')); hl.href = postUrl(p); h.appendChild(hl);
   body.appendChild(h);
@@ -126,6 +138,7 @@ function renderHome(){
   lead.appendChild(img);
   lead.appendChild(el('h3', '', tr(L0, 'title')));
   lead.appendChild(dateLine(L0.date));
+  const lt0 = langTag(L0); if (lt0) lead.appendChild(lt0);
   lead.appendChild(el('p', '', tr(L0, 'excerpt')));
   box.appendChild(lead);
   // The next stories as a simple dated list
@@ -134,6 +147,7 @@ function renderHome(){
     const li = el('li'), a = el('a'); a.href = postUrl(p);
     a.appendChild(dateLine(p.date));
     a.appendChild(el('strong', '', tr(p, 'title')));
+    const lt = langTag(p); if (lt) a.appendChild(lt);
     li.appendChild(a); ul.appendChild(li);
   });
   box.appendChild(ul);
@@ -249,6 +263,7 @@ function renderPost(id){
   meta.appendChild(el('span', 'tag', T().cats[p.category] || p.category));
   const t = el('time', '', fmtDate(p.date)); t.dateTime = p.date; meta.appendChild(t);
   if (p.sample) meta.appendChild(el('span', 'sample-tag', T().example));
+  const lt = langTag(p); if (lt) meta.appendChild(lt);
   box.appendChild(meta);
   box.appendChild(el('h1', 'post-title', tr(p, 'title')));
   if (p.cover){

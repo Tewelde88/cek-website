@@ -58,16 +58,17 @@ collections:
             widget: list
             add_to_top: true
             collapsed: true
-            summary: "{{fields.date}} · {{fields.title}}"
+            summary: "{{fields.date}} · {{fields.title}} {{fields.title_ti}}"
             fields:
-              - { name: title, label: "Title (English)", widget: string }
+              - { name: lang, label: "Language of this post", widget: select, default: both, required: false, options: [ { label: "English and Tigrinya", value: both }, { label: "English only", value: en }, { label: "Tigrinya only — ብትግርኛ ጥራይ", value: ti } ] }
+              - { name: title, label: "Title (English) — leave empty for a Tigrinya-only post", widget: string, required: false }
               - { name: title_ti, label: "Title (Tigrinya) — ኣርእስቲ ብትግርኛ", widget: string, required: false }
               - { name: id, label: "Link name", widget: string, pattern: ['^[a-z0-9-]+$', "Use small letters, numbers and dashes only, e.g. easter-2026"],
                   hint: "Short unique name used in the post’s web address, e.g. easter-2026" }
               - { name: date, label: "Date", widget: datetime, format: "YYYY-MM-DD", time_format: false, picker_utc: true }
               - { name: category, label: "Category", widget: select, default: news,
                   options: [ { label: "News", value: news }, { label: "Article", value: article }, { label: "Event", value: event } ] }
-              - { name: excerpt, label: "Short summary (English)", widget: text, hint: "1–2 sentences shown on the news cards" }
+              - { name: excerpt, label: "Short summary (English)", widget: text, required: false, hint: "1–2 sentences shown on the news cards" }
               - { name: excerpt_ti, label: "Short summary (Tigrinya)", widget: text, required: false }
               - { name: body, label: "Full text (English)", widget: text, required: false, hint: "Leave an empty line between paragraphs" }
               - { name: body_ti, label: "Full text (Tigrinya)", widget: text, required: false, hint: "Leave an empty line between paragraphs" }
@@ -116,9 +117,10 @@ collections:
             widget: list
             add_to_top: true
             collapsed: true
-            summary: "{{fields.y}} · {{fields.t}}"
+            summary: "{{fields.y}} · {{fields.t}} {{fields.ti}}"
             fields:
-              - { name: t, label: "Title (English)", widget: string }
+              - { name: lang, label: "Language of this sermon", widget: select, default: both, required: false, options: [ { label: "English and Tigrinya", value: both }, { label: "English only", value: en }, { label: "Tigrinya only — ብትግርኛ ጥራይ", value: ti } ] }
+              - { name: t, label: "Title (English) — leave empty for a Tigrinya-only sermon", widget: string, required: false }
               - { name: ti, label: "Title (Tigrinya)", widget: string, required: false }
               - { name: y, label: "Year", widget: number, value_type: int }
               - { name: date, label: "Date", widget: datetime, format: "YYYY-MM-DD", time_format: false, picker_utc: true, required: false }

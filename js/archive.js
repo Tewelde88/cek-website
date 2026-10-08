@@ -9,13 +9,25 @@
 if (typeof NEWS === 'undefined' || !Array.isArray(NEWS)) return;
 
 const ti = () => document.documentElement.lang === 'ti';
-const tr = (o, f) => (ti() && o[f + '_ti']) ? o[f + '_ti'] : (o[f] || '');
+const tr = (o, f) => (ti() && o[f + '_ti']) ? o[f + '_ti'] : (o[f] || o[f + '_ti'] || '');
+const isTi = ti;
+// A post can be in one language only (Admin page → Language); without the choice it is guessed from the titles
+const langOf = o => o.lang || ((o.title || o.t) && !(o.title_ti || o.ti) ? 'en' : (!(o.title || o.t) && (o.title_ti || o.ti) ? 'ti' : 'both'));
+// a small tag when the post is not in the reader's language
+function langTag(o){
+  const l = langOf(o); if (l === 'both' || l === (isTi() ? 'ti' : 'en')) return null;
+  const s = document.createElement('span'); s.className = 'lang-tag';
+  s.textContent = l === 'ti' ? (isTi() ? 'ትግርኛ' : 'In Tigrinya · ትግርኛ') : (isTi() ? 'ብእንግሊዝኛ · English' : 'English');
+  if (l === 'ti') s.lang = 'ti';
+  return s;
+}
+
 const G = () => window.GeezCal;
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const CATS = () => ti() ? { news: 'ዜና', article: 'ጽሑፍ', event: 'ፍጻመታት' } : { news: 'News', article: 'Article', event: 'Events' };
 const n = k => ti() ? `${k} ጽሑፋት` : `${k} ${k === 1 ? 'post' : 'posts'}`;
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; };
-const posts = NEWS.filter(p => p && p.date && p.title).slice().sort((a, b) => b.date.localeCompare(a.date));
+const posts = NEWS.filter(p => p && p.date && (p.title || p.title_ti)).slice().sort((a, b) => b.date.localeCompare(a.date));
 const years = [...new Set(posts.map(p => +p.date.slice(0, 4)))].sort((a, b) => a - b);
 const archivePage = !!document.getElementById('ar-list');
 const COLORS = ['#16315e', '#a3221b', '#8a5a1e', '#2f5d4a', '#5a3d6e'];
@@ -65,6 +77,7 @@ function list(){
         if (G()){ const e = G().jdnToEt(G().grToJdn(yy, mm, dd)); const s = el('small', '', `${G().geez(e.d)} ${G().MONTHS_TI[e.m - 1]}`); s.lang = 'ti'; d.appendChild(s); }
         const t = el('span', 'ar-t'); t.appendChild(el('strong', '', tr(p, 'title')));
         if (tr(p, 'excerpt')) t.appendChild(el('span', '', tr(p, 'excerpt')));
+        const lt = langTag(p); if (lt) t.appendChild(lt);
         a.append(d, t, el('span', 'ar-cat ar-cat-' + (p.category || 'news'), CATS()[p.category] || CATS().news));
         li.appendChild(a); ul.appendChild(li);
       });

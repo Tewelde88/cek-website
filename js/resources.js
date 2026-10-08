@@ -5,7 +5,19 @@
 (function(){
 'use strict';
 const isTi = () => document.documentElement.lang === 'ti';
-const tr = (o, f, alt) => (isTi() && (o[f + '_ti'] || (alt && o[alt]))) ? (o[f + '_ti'] || o[alt]) : (o[f] || '');
+const tr = (o, f, alt) => (isTi() && (o[f + '_ti'] || (alt && o[alt]))) ? (o[f + '_ti'] || o[alt]) : (o[f] || o[f + '_ti'] || (alt && o[alt]) || '');
+const sTitle = s => (isTi() && s.ti) ? s.ti : (s.t || s.ti || '');      // a sermon may have a title in one language only
+// A post can be in one language only (Admin page → Language); without the choice it is guessed from the titles
+const langOf = o => o.lang || ((o.title || o.t) && !(o.title_ti || o.ti) ? 'en' : (!(o.title || o.t) && (o.title_ti || o.ti) ? 'ti' : 'both'));
+// a small tag when the post is not in the reader's language
+function langTag(o){
+  const l = langOf(o); if (l === 'both' || l === (isTi() ? 'ti' : 'en')) return null;
+  const s = document.createElement('span'); s.className = 'lang-tag';
+  s.textContent = l === 'ti' ? (isTi() ? 'ትግርኛ' : 'In Tigrinya · ትግርኛ') : (isTi() ? 'ብእንግሊዝኛ · English' : 'English');
+  if (l === 'ti') s.lang = 'ti';
+  return s;
+}
+
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const fmtDate = s => { const [y, m, d] = s.split('-').map(Number); return `${d} ${MONTHS[m - 1]} ${y}`; };
 function el(tag, cls, text){
@@ -61,7 +73,7 @@ function renderSermonsPage(){
   feat.replaceChildren();
   if (top){
     feat.appendChild(el('p', 'eyebrow eyebrow-light', S().latest));
-    feat.appendChild(el('h2', '', (isTi() && top.ti) ? top.ti : top.t));
+    feat.appendChild(el('h2', '', sTitle(top)));
     feat.appendChild(el('p', 'sf-meta', sermonMeta(top)));
     feat.appendChild(sermonActions(top, feat));
   }
@@ -84,7 +96,8 @@ function renderSermonsPage(){
     if (s.y !== lastY){ list.appendChild(el('li', 'r-year', String(s.y))); lastY = s.y; }
     const li = el('li', 'r-row');
     const txt = el('div', 'r-text');
-    txt.appendChild(el('strong', '', (isTi() && s.ti) ? s.ti : s.t));
+    txt.appendChild(el('strong', '', sTitle(s)));
+    const lt = langTag(s); if (lt) txt.appendChild(lt);
     txt.appendChild(el('span', '', sermonMeta(s)));
     li.appendChild(txt);
     li.appendChild(sermonActions(s, li));

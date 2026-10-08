@@ -3,7 +3,7 @@ const list = document.getElementById('sermon-list');
 const empty = document.getElementById('empty');
 const q = document.getElementById('q');
 const isTi = () => document.documentElement.lang === 'ti';
-const titleOf = s => (isTi() && s.ti) ? s.ti : s.t;
+const titleOf = s => (isTi() && s.ti) ? s.ti : (s.t || s.ti || '');
 
 function render(filter=""){
   if (!list) return;                       // page without a sermon list
@@ -11,7 +11,7 @@ function render(filter=""){
   list.innerHTML = "";
   let lastYear = null, count = 0;
   // Search matches the English title, the Tigrinya title or the year
-  SERMONS.filter(s => s.t.toLowerCase().includes(f) || (s.ti||"").includes(f) || String(s.y).includes(f))
+  SERMONS.filter(s => (s.t||'').toLowerCase().includes(f) || (s.ti||"").includes(f) || String(s.y).includes(f))
     .forEach(s => {
       if (s.y !== lastYear){
         const h = document.createElement('li'); h.className='yr'; h.textContent=s.y;
