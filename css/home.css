@@ -477,3 +477,11 @@ html[lang="ti"] .nl-seal{font-family:var(--ethiopic);font-weight:400}
 /* the ribbons hang straight from the harag band under the cover photos */
 .rib-hang{padding:0 0 clamp(36px,6vw,64px)}
 .rib-hang .ribbons{max-width:860px}
+
+/* a tighter Home page: less space between the sections, so the page is not too long */
+.hm-sec{padding-block:clamp(28px,3.6vw,48px)}
+.hm-head{margin-bottom:20px}
+.rib-hang{padding-bottom:8px}
+.rib-hang + .hm-sec{padding-top:14px}
+.home-ms .vn{padding-block:clamp(24px,3vw,36px)}
+.hm-sec.hm-tight{padding-top:0}
