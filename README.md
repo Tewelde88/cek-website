@@ -70,7 +70,8 @@ Ethiopian (Ge'ez rite) calendar with Gregorian dates. Easter (Fasika) uses the A
 
 ## Main menu
 
-Home · News · Eparchy ▾ · Deaneries ▾ · CESK · Pastoral ▾ · Resources ▾ · Contact us.
+Home · News · Eparchy ▾ · Deaneries ▾ · CESK ▾ · Pastoral ▾ · Resources ▾ · Contact Us · **Support** (red button → CESK › Get Involved).
+The date bar is at the very top of every page. On the Home page the emblem and name (Ge’ez in harag gold, English in red) lie over the cover photos, between two harag bands, and the menu bar lies over the bottom of the cover and sticks to the top as a navy bar when you scroll (`.sitehead`, `.menubar` in css/style.css). Inner pages have one navy row: emblem and name, menu, search, language.
 The menu (`<ul id="site-nav">`) is written into every page; when you change it, change every page
 the same way (only the `class="active"` / `aria-current` marks differ). Christian communities
 are shown on the Pastoral page; parishes can be filtered by deanery (fill in “Deanery” for each parish

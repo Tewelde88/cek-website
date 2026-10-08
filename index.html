@@ -11,8 +11,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=202610071410">
+<link rel="stylesheet" href="css/style.css?v=202610081700">
 <link rel="stylesheet" href="css/home.css?v=202610062200">
+<link rel="stylesheet" href="css/header.css?v=202610081720">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 <link rel="preload" href="images/hero/keren.jpg" as="image">
@@ -21,39 +22,71 @@
 
 <a class="skip-link" href="#content" data-i18n="skip">Skip to content</a>
 
-<!-- ================= TOP BAR: logo, name, language, search ================= -->
-<header class="topbar">
-  <div class="wrap topbar-inner">
-    <a class="brand" href="#">
+
+
+<!-- ================= HERO: the Ge'ez verse, with the cover photos rotating behind it ================= -->
+<section class="hero hero-ms" id="slider" aria-roledescription="carousel" aria-label="Feed my sheep">
+  <!-- emblem and name over the top of the cover; search and language -->
+  <div class="harag hero-harag-top" aria-hidden="true"></div>
+  <header class="sitehead is-over" id="sitehead">
+    <div class="wrap sh-inner">
+      <a class="brand" href="#">
       <!-- Eparchy emblem (images/logo.png, 256×256 with transparent corners) -->
       <img class="crest" src="images/logo.png" alt="" width="192" height="192">
       <span class="brand-text">
         <span class="brand-ti" lang="ti">ካቶሊካዊ ኤጳርቅና ከረን</span>
         <strong class="brand-en">Catholic Eparchy of Keren</strong>
-        <span class="brand-motto" data-i18n="motto">Faith • Service • Communion</span>
       </span>
     </a>
-
-    <div class="topbar-tools">
-      <div class="lang-switch" role="group" aria-label="Language / ቋንቋ">
-        <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
-        <span aria-hidden="true">|</span>
-        <button type="button" data-lang="ti" aria-pressed="false" lang="ti">ትግርኛ</button>
-      </div>
+    <div class="sh-tools">
+      <button type="button" class="sh-search" aria-expanded="false" aria-controls="site-search" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
       <form class="site-search" role="search" id="site-search">
         <input type="search" id="site-q" placeholder="Search…" data-i18n-placeholder="search.placeholder" aria-label="Search sermons">
         <button type="submit" aria-label="Search">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
         </button>
       </form>
+      <div class="lang-switch" role="group" aria-label="Language / ቋንቋ">
+        <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+        <span aria-hidden="true">|</span>
+        <button type="button" data-lang="ti" aria-pressed="false" lang="ti">ትግርኛ</button>
+      </div>
     </div>
-  </div>
-</header>
+    </div>
+  </header>
+  <!-- Cover photos rotate behind the verse every 6 seconds (images/hero/, 1600 px wide).
+       To add one: put the photo in images/hero/ and copy one <div class="slide"> line with its file name. -->
+  <div class="slide on"><div class="img" style="background-image:url('images/hero/keren.jpg'),linear-gradient(160deg,#2b241e,#141110)"></div></div>
+  <div class="slide"><div class="img" style="background-image:url('images/hero/keren-2.jpg'),linear-gradient(160deg,#2b241e,#141110)"></div></div>
+  <div class="slide"><div class="img" style="background-image:url('images/hero/dereque.jpg'),linear-gradient(160deg,#2b241e,#141110)"></div></div>
+  <div class="slide"><div class="img" style="background-image:url('images/hero/habinmentel.jpg'),linear-gradient(160deg,#2b241e,#141110)"></div></div>
+  <div class="slide"><div class="img" style="background-image:url('images/hero/eden.jpg'),linear-gradient(160deg,#2b241e,#141110)"></div></div>
+  <div class="slide"><div class="img" style="background-image:url('images/hero/eden-2.jpg'),linear-gradient(160deg,#2b241e,#141110)"></div></div>
+  <div class="hero-shade"></div>
 
-<!-- ================= MAIN MENU ================= -->
-<nav class="mainnav" aria-label="Main">
-  <div class="wrap mainnav-inner">
-    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+  <div class="wrap hero-inner">
+    <h1 class="verse" id="verse" lang="ti">ረዐይኬ አባግዕየ</h1>
+    <p class="verse-sub" data-i18n="hero.sub">“Feed my sheep.” — “Lord, you know everything. You know that I love you.”</p>
+    <p class="verse-ref"><span data-i18n="hero.ref">John 21:17</span> <span class="ge only-en" lang="ti">ዮሓ ፳፩፡፲፯</span></p>
+    <p class="hero-text" data-i18n="hero.text">Christ entrusted the Church with the care of His flock. In the same spirit, the Catholic Eparchy of Keren seeks to serve the People of God through faith, pastoral care, proclamation of the Gospel, and communion.</p>
+    <a class="btn btn-gold" href="calendar.html" data-i18n="cal.title">Liturgical Calendar</a>
+  </div>
+
+  <div class="hero-controls">
+    <button class="sl-btn sl-prev" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <div class="dots" role="group" aria-label="Choose photo"></div>
+    <button class="sl-btn sl-next" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+    <button type="button" class="sl-btn sl-pause" aria-label="Pause slideshow" aria-pressed="false"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></button>
+  </div>
+  <div class="harag hero-harag" aria-hidden="true"></div>
+</section>
+
+<!-- ================= MENU BAR (Home): over the bottom of the cover; it stays at the top as a navy bar when you scroll ================= -->
+<div class="menubar" id="menubar">
+  <div class="wrap mb-inner">
+    <a class="mb-home" href="#" aria-label="Catholic Eparchy of Keren — Home"><img src="images/logo.png" alt="" width="40" height="40"></a>
+    <nav class="mainnav" aria-label="Main">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
       <span class="bars" aria-hidden="true"></span>
       <span data-i18n="nav.menu">Menu</span>
     </button>
@@ -106,38 +139,11 @@
           <li><a href="news-archive.html" data-i18n="nav.archive">News Archive</a></li>
         </ul></li>
       <li><a href="contact.html" data-i18n="nav.contact">Contact Us</a></li>
+      <li><a href="cesk.html#involved" class="nav-support" data-i18n="nav.support">Support</a></li>
     </ul>
+    </nav>
   </div>
-</nav>
-
-<!-- ================= HERO: the Ge'ez verse, with the cover photos rotating behind it ================= -->
-<section class="hero hero-ms" id="slider" aria-roledescription="carousel" aria-label="Feed my sheep">
-  <!-- Cover photos rotate behind the verse every 6 seconds (images/hero/, 1600 px wide).
-       To add one: put the photo in images/hero/ and copy one <div class="slide"> line with its file name. -->
-  <div class="slide on"><div class="img" style="background-image:url('images/hero/keren.jpg'),linear-gradient(160deg,#2b241e,#141110)"></div></div>
-  <div class="slide"><div class="img" style="background-image:url('images/hero/keren-2.jpg'),linear-gradient(160deg,#2b241e,#141110)"></div></div>
-  <div class="slide"><div class="img" style="background-image:url('images/hero/dereque.jpg'),linear-gradient(160deg,#2b241e,#141110)"></div></div>
-  <div class="slide"><div class="img" style="background-image:url('images/hero/habinmentel.jpg'),linear-gradient(160deg,#2b241e,#141110)"></div></div>
-  <div class="slide"><div class="img" style="background-image:url('images/hero/eden.jpg'),linear-gradient(160deg,#2b241e,#141110)"></div></div>
-  <div class="slide"><div class="img" style="background-image:url('images/hero/eden-2.jpg'),linear-gradient(160deg,#2b241e,#141110)"></div></div>
-  <div class="hero-shade"></div>
-
-  <div class="wrap hero-inner">
-    <h1 class="verse" id="verse" lang="ti">ረዐይኬ አባግዕየ</h1>
-    <p class="verse-sub" data-i18n="hero.sub">“Feed my sheep.” — “Lord, you know everything. You know that I love you.”</p>
-    <p class="verse-ref"><span data-i18n="hero.ref">John 21:17</span> <span class="ge only-en" lang="ti">ዮሓ ፳፩፡፲፯</span></p>
-    <p class="hero-text" data-i18n="hero.text">Christ entrusted the Church with the care of His flock. In the same spirit, the Catholic Eparchy of Keren seeks to serve the People of God through faith, pastoral care, proclamation of the Gospel, and communion.</p>
-    <a class="btn btn-red" href="eparchy.html" data-i18n="hm.cta">Meet the Eparchy</a>
-  </div>
-
-  <div class="hero-controls">
-    <button class="sl-btn sl-prev" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-    <div class="dots" role="group" aria-label="Choose photo"></div>
-    <button class="sl-btn sl-next" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
-    <button type="button" class="sl-btn sl-pause" aria-label="Pause slideshow" aria-pressed="false"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></button>
-  </div>
-  <div class="harag hero-harag" aria-hidden="true"></div>
-</section>
+</div>
 
 <main id="content" class="home-ms">
 

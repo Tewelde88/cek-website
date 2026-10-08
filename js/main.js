@@ -210,7 +210,7 @@ document.querySelectorAll('.progress').forEach(p=>{
     if (e.key==='Escape' && menu.classList.contains('open')){ setOpen(false); tgl.focus(); }
   });
   document.addEventListener('click', e => {
-    if (menu.classList.contains('open') && !e.target.closest('.mainnav')) setOpen(false);
+    if (menu.classList.contains('open') && !e.target.closest('.mainnav, .sitehead, .menubar')) setOpen(false);
   });
   wide.addEventListener('change', () => setOpen(false));
 })();
@@ -348,11 +348,13 @@ document.querySelectorAll('[data-open]').forEach(link => {
   window.GeezCal = { geez, etToJdn, jdnToEt, grToJdn, jdnToDate, upcoming, todayJ, MONTHS_TI, MONTHS_EN, WD_TI };
 
   // ---- "Today in the Church" line, under the main menu on every page ----
-  const nav = document.querySelector('.mainnav');
+  const nav = document.getElementById('menubar') || document.getElementById('sitehead') || document.querySelector('.mainnav');
   if (!nav || document.querySelector('.today-line')) return;
   const bar = document.createElement('div'); bar.className = 'today-line';
   bar.innerHTML = '<div class="wrap"><span class="today-ge" lang="ti"></span><span class="today-en"></span><a href="calendar.html"></a></div>';
-  nav.after(bar);
+  const skip = document.querySelector('.skip-link');
+  if (skip) skip.after(bar); else document.body.prepend(bar);
+  bar.classList.add('is-top');
   function render(){
     const ti = document.documentElement.lang === 'ti', et = jdnToEt(todayJ), wd = (todayJ + 1) % 7;
     const ge = bar.querySelector('.today-ge'); ge.replaceChildren();
@@ -435,3 +437,24 @@ document.querySelectorAll('[data-open]').forEach(link => {
 
 /* ---------- Eparchy tabs: on phones, slide the current tab into view ---------- */
 (function(){ const a = document.querySelector('.ep-tabs a.active'); if (!a) return; const ul = a.closest('ul'); if (ul && ul.scrollWidth > ul.clientWidth) ul.scrollLeft = a.parentElement.offsetLeft - 16; })();
+
+/* ---------- Site header: search opens from the magnifier; on the Home page the menu bar turns navy at the top ---------- */
+(function(){
+  const head = document.getElementById('sitehead'); if (!head) return;
+  const btn = head.querySelector('.sh-search'), form = document.getElementById('site-search');
+  const close = () => { form.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); };
+  if (btn && form){
+    btn.addEventListener('click', () => {
+      const open = !form.classList.contains('is-open');
+      form.classList.toggle('is-open', open); btn.setAttribute('aria-expanded', String(open));
+      if (open) form.querySelector('input').focus();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && form.classList.contains('is-open')){ close(); btn.focus(); } });
+    document.addEventListener('click', e => { if (form.classList.contains('is-open') && !e.target.closest('.sh-tools')) close(); });
+  }
+  const bar = document.getElementById('menubar');
+  if (bar){
+    const stuck = () => bar.classList.toggle('is-stuck', bar.getBoundingClientRect().top <= 0.5 && window.scrollY > 10);
+    window.addEventListener('scroll', stuck, { passive: true }); window.addEventListener('resize', stuck); stuck();
+  }
+})();

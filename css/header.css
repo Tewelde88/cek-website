@@ -1,0 +1,136 @@
+/* Site header (all pages) — loaded last, after the page styles */
+/* ============================================================
+   SITE HEADER — emblem + name in harag gold · menu · search + language
+   ============================================================ */
+:root{--harag-gold:#d9a24e}             /* the ochre of the harag band (#c1883a), a little brighter to read on photos */
+.sitehead{position:sticky;top:0;z-index:60;background:var(--navy);box-shadow:0 4px 14px rgba(15,36,71,.25)}
+.sh-inner{display:flex;align-items:center;gap:clamp(12px,2vw,28px);min-height:84px}
+.sitehead .brand{flex:none;gap:14px}
+.sitehead .crest{width:64px;height:64px;box-shadow:0 0 0 2px rgba(217,162,78,.9),0 4px 14px rgba(0,0,0,.3)}
+.sitehead .brand-ti{color:var(--harag-gold);font-size:clamp(1.15rem,1rem + .55vw,1.5rem);text-shadow:0 1px 10px rgba(0,0,0,.45)}
+.sitehead .brand-en{color:var(--harag-gold) !important;font-size:clamp(.95rem,.85rem + .4vw,1.18rem) !important;font-weight:600;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+.mainnav{position:static;background:none;box-shadow:none}
+.sitehead .mainnav{flex:1;min-width:0}
+#site-nav{flex-wrap:nowrap;align-items:center;gap:0}
+.sitehead #site-nav{justify-content:flex-end}
+.mainnav a{padding:12px 9px;font-size:1.08rem;text-shadow:0 1px 6px rgba(0,0,0,.35)}
+.mainnav a::after{left:9px;right:9px;bottom:4px}
+.menubar .mainnav a{font-size:1.12rem;font-weight:600}
+.menubar #site-nav{gap:clamp(2px,.8vw,14px)}
+.mainnav .sub a{text-shadow:none;font-size:.95rem}
+.sub-tgl{width:24px;margin-right:4px}
+.sub-tgl svg{width:15px;height:15px}
+@media (min-width:1180px){
+  #site-nav > li:first-child{display:none}                                   /* Home is the emblem */
+  #site-nav > li:last-child{margin-left:auto}
+  #site-nav > li:last-child > a{margin-left:10px;padding:10px 20px;border-radius:999px;background:var(--red);font-weight:700;text-shadow:none;box-shadow:0 4px 14px rgba(163,34,27,.4)}
+  #site-nav > li:last-child > a::after{display:none}
+  #site-nav > li:last-child > a:hover{background:var(--red-dark);color:#fff}
+}
+.sh-tools{position:relative;flex:none;display:flex;align-items:center;gap:4px;margin-left:auto}
+.sh-search{display:grid;place-items:center;width:42px;height:42px;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;cursor:pointer}
+.sh-search:hover,.sh-search[aria-expanded="true"]{background:rgba(255,255,255,.26)}
+.sh-search svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.sitehead .site-search{position:absolute;top:calc(100% + 12px);right:0;width:min(320px,80vw);display:none;z-index:5}
+.sitehead .site-search.is-open{display:block}
+.sitehead .site-search input{height:46px;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.sitehead .lang-switch{gap:2px}
+.sitehead .lang-switch button{padding:4px 5px;color:rgba(255,255,255,.82)}
+.sitehead .lang-switch button:hover{color:#fff}
+.sitehead .lang-switch button[aria-pressed="true"]{color:#fff;text-decoration-color:var(--harag-gold)}
+.sitehead .lang-switch > span[aria-hidden]{color:rgba(255,255,255,.45)}
+:is(.sitehead,.menubar) :focus-visible{outline-color:#fff}
+
+/* ---------- Home: emblem and name larger, over the top of the cover ---------- */
+.sitehead.is-over{position:absolute;left:0;right:0;background:linear-gradient(180deg,rgba(12,10,9,.6),rgba(12,10,9,0));box-shadow:none}
+.sitehead.is-over .sh-inner{min-height:120px;align-items:flex-start;padding-top:20px}
+.sitehead.is-over .crest{width:96px;height:96px}
+.sitehead.is-over .brand{gap:18px;align-items:center}
+.sitehead.is-over .brand-ti{font-size:clamp(1.45rem,1.1rem + 1.3vw,2.25rem)}
+.sitehead.is-over .brand-en{font-size:clamp(1.05rem,.85rem + .8vw,1.6rem) !important;margin-top:4px}
+.hero-ms{min-height:100vh;min-height:100svh;display:flex;align-items:flex-end}
+.hero-ms .hero-inner{padding-top:170px;padding-bottom:calc(var(--mb-h) + 64px)}
+.hero-ms h1.verse{font-size:clamp(3rem,1.4rem + 6.5vw,7rem)}
+.hero-ms .hero-controls{bottom:calc(var(--mb-h) + 44px)}
+.hero-ms .hero-harag{display:none}
+
+/* ---------- Home: the menu bar over the bottom of the cover, then a navy bar at the top ---------- */
+:root{--mb-h:64px}
+.menubar{position:sticky;top:0;z-index:55;margin-top:calc(-1 * var(--mb-h));background:linear-gradient(180deg,rgba(12,10,9,0),rgba(12,10,9,.55));transition:background-color .3s,box-shadow .3s}
+.menubar::after{content:"";position:absolute;left:0;right:0;top:100%;height:14px;background:url("../images/harag.svg") repeat-x left center/auto 100%}
+.mb-inner{display:flex;align-items:center;gap:10px;min-height:var(--mb-h)}
+.mb-home{display:none;flex:none}
+.mb-home img{width:40px;height:40px;border-radius:50%;box-shadow:0 0 0 2px var(--harag-gold)}
+.menubar .mainnav{flex:1;min-width:0}
+.menubar #site-nav{justify-content:flex-start}
+.menubar.is-stuck{background:var(--navy);box-shadow:0 4px 14px rgba(15,36,71,.3)}
+.menubar.is-stuck .mb-home{display:block}
+.today-line.is-under-hero{margin-top:14px;background:var(--parch);border-bottom:1px solid #e2d3b3}
+
+/* ---------- tablets and phones: the menu opens from ☰ ---------- */
+@media (max-width:1179px){
+  .mainnav .nav-toggle{display:inline-flex;margin:0}
+  .sitehead .mainnav{flex:0 0 auto;order:3}
+  #site-nav{position:absolute;top:100%;left:0;right:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:2px;
+    padding:8px var(--gutter) 16px;background:var(--navy-dark);box-shadow:0 16px 30px rgba(0,0,0,.25);max-height:0;overflow:hidden;visibility:hidden;padding-block:0;transition:max-height .35s ease,visibility .35s,padding .35s}
+  #site-nav.open{max-height:calc(100vh - 84px);max-height:calc(100dvh - 84px);overflow-y:auto;visibility:visible;padding-block:8px 16px}
+  .mainnav a{padding:14px 12px;font-size:1rem}
+  .mainnav .has-sub{flex-wrap:wrap}
+  .mainnav .has-sub > a{flex:1}
+  .mainnav .sub{position:static;flex-basis:100%;min-width:0;padding:0 0 6px 14px;background:none;border:0;box-shadow:none;opacity:1;visibility:visible;transform:none;display:none}
+  .mainnav .sub::before{display:none}
+  .mainnav .sub a{color:#dfe7f5;font-weight:500}
+  .mainnav .has-sub.is-open > .sub{display:block}
+  .sh-inner{gap:10px}
+}
+@media (max-width:640px){
+  .sh-inner{min-height:68px}
+  .sitehead .crest{width:46px;height:46px}
+  .sitehead .brand{gap:9px}
+  .sitehead .brand-ti{font-size:.98rem}
+  .sitehead .brand-en{font-size:.76rem !important;margin-top:0}
+  .sitehead.is-over .sh-inner{min-height:90px;padding-top:14px}
+  .sitehead.is-over .crest{width:58px;height:58px}
+  .sitehead.is-over .brand-ti{font-size:1.12rem}
+  .sitehead.is-over .brand-en{font-size:.84rem !important}
+  .sh-search{width:38px;height:38px}
+  .hero-ms .hero-inner{padding-top:130px;padding-bottom:calc(var(--mb-h) + 96px)}
+  .hero-ms .hero-controls{bottom:calc(var(--mb-h) + 26px);right:50%;transform:translateX(50%)}
+}
+@media (max-width:400px){ .sitehead .lang-switch button{min-width:34px;padding:4px 2px;font-size:.8rem} .sitehead .lang-switch > span[aria-hidden]{display:none} }
+
+/* ---------- version 3 ---------- */
+:root{--hg-h:32px;--name-red:#ef5f50}                     /* the harag band height; the red of the English name, bright enough on photos */
+.sitehead .brand-ti{color:var(--harag-gold)}
+.sitehead .brand-en{color:var(--name-red) !important}
+/* Contact Us is an ordinary item again; Support is the red button at the end */
+@media (min-width:1180px){
+  #site-nav > li:last-child > a.nav-support{margin-left:12px}
+}
+/* the harag band, bigger, above and under the cover */
+.hero-harag-top{position:absolute;top:0;left:0;right:0;height:var(--hg-h);z-index:62}
+.sitehead.is-over{top:var(--hg-h)}
+.hero-ms .hero-inner{padding-top:calc(170px + var(--hg-h))}
+.menubar::after{height:var(--hg-h)}
+.menubar.is-stuck::after{height:14px}
+.menubar + *{margin-top:var(--hg-h)}
+/* the date bar at the very top of the page */
+.today-line.is-top{position:relative;z-index:70}
+/* the golden button on the cover */
+.btn-gold{background:linear-gradient(180deg,#e2b061,#c1883a);color:#1f1b18;font-weight:700;box-shadow:0 6px 18px rgba(193,136,58,.4)}
+.btn-gold:hover{background:linear-gradient(180deg,#ebbd70,#ca9244);color:#1f1b18;transform:translateY(-1px)}
+/* the cover fills the screen under the date bar, so the menu bar is visible at the bottom */
+.hero-ms{min-height:calc(100vh - 48px);min-height:calc(100svh - 48px)}
+/* inner pages: a little smaller, so emblem, name, seven menu items and the tools fit in one row */
+.sitehead:not(.is-over) .crest{width:56px;height:56px}
+.sitehead:not(.is-over) .brand{gap:10px}
+.sitehead:not(.is-over) .brand-ti{font-size:1.12rem}
+.sitehead:not(.is-over) .brand-en{font-size:.88rem !important}
+.sitehead:not(.is-over) .mainnav a{font-size:.96rem;padding:12px 6px}
+.sitehead:not(.is-over) .mainnav a::after{left:6px;right:6px}
+.sitehead:not(.is-over) #site-nav > li:last-child > a.nav-support{margin-left:8px;padding:9px 16px}
+@media (min-width:1180px) and (max-width:1340px){
+  .sitehead:not(.is-over) .brand-en{display:none}
+  .sitehead:not(.is-over) .mainnav a{font-size:.92rem;padding:12px 5px}
+}
+@media (max-width:640px){ :root{--hg-h:22px} .hero-ms .hero-inner{padding-top:calc(126px + var(--hg-h))} }

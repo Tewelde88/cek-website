@@ -11,12 +11,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=202610071410">
+<link rel="stylesheet" href="css/style.css?v=202610081700">
 <link rel="stylesheet" href="css/calendar.css?v=202610071600">
 <link rel="stylesheet" href="css/liturgy.css?v=202610071400">
 <link rel="stylesheet" href="css/news.css?v=202610061710">
 <link rel="stylesheet" href="css/resources.css?v=202610061710">
 <link rel="stylesheet" href="css/eparchy.css?v=202610070300">
+<link rel="stylesheet" href="css/header.css?v=202610081720">
 <!-- Apply the saved language before the page draws, so it doesn't flash English first -->
 <script>try{if(localStorage.getItem('lang')==='ti')document.documentElement.lang='ti'}catch(e){}</script>
 </head>
@@ -24,39 +25,19 @@
 
 <a class="skip-link" href="#content" data-i18n="skip">Skip to content</a>
 
-<!-- ================= TOP BAR: logo, name, language, search ================= -->
-<header class="topbar">
-  <div class="wrap topbar-inner">
+<!-- ================= SITE HEADER: emblem and name, menu, search and language — one navy row ================= -->
+<header class="sitehead" id="sitehead">
+  <div class="wrap sh-inner">
     <a class="brand" href="index.html">
       <!-- Eparchy emblem (images/logo.png, 256×256 with transparent corners) -->
       <img class="crest" src="images/logo.png" alt="" width="192" height="192">
       <span class="brand-text">
         <span class="brand-ti" lang="ti">ካቶሊካዊ ኤጳርቅና ከረን</span>
         <strong class="brand-en">Catholic Eparchy of Keren</strong>
-        <span class="brand-motto" data-i18n="motto">Faith • Service • Communion</span>
       </span>
     </a>
-
-    <div class="topbar-tools">
-      <div class="lang-switch" role="group" aria-label="Language / ቋንቋ">
-        <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
-        <span aria-hidden="true">|</span>
-        <button type="button" data-lang="ti" aria-pressed="false" lang="ti">ትግርኛ</button>
-      </div>
-      <form class="site-search" role="search" id="site-search">
-        <input type="search" id="site-q" placeholder="Search…" data-i18n-placeholder="search.placeholder" aria-label="Search sermons">
-        <button type="submit" aria-label="Search">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-        </button>
-      </form>
-    </div>
-  </div>
-</header>
-
-<!-- ================= MAIN MENU ================= -->
-<nav class="mainnav" aria-label="Main">
-  <div class="wrap mainnav-inner">
-    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+    <nav class="mainnav" aria-label="Main">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
       <span class="bars" aria-hidden="true"></span>
       <span data-i18n="nav.menu">Menu</span>
     </button>
@@ -109,9 +90,25 @@
           <li><a href="news-archive.html" data-i18n="nav.archive">News Archive</a></li>
         </ul></li>
       <li><a href="contact.html" data-i18n="nav.contact">Contact Us</a></li>
+      <li><a href="cesk.html#involved" class="nav-support" data-i18n="nav.support">Support</a></li>
     </ul>
+    </nav>
+    <div class="sh-tools">
+      <button type="button" class="sh-search" aria-expanded="false" aria-controls="site-search" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
+      <form class="site-search" role="search" id="site-search">
+        <input type="search" id="site-q" placeholder="Search…" data-i18n-placeholder="search.placeholder" aria-label="Search sermons">
+        <button type="submit" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        </button>
+      </form>
+      <div class="lang-switch" role="group" aria-label="Language / ቋንቋ">
+        <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+        <span aria-hidden="true">|</span>
+        <button type="button" data-lang="ti" aria-pressed="false" lang="ti">ትግርኛ</button>
+      </div>
+    </div>
   </div>
-</nav>
+</header>
 
 <main id="content" class="lit-page ep-page ep-book">
 
