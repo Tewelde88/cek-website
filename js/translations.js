@@ -321,6 +321,7 @@ const TRANSLATIONS = {
     "ci.f3":         "ርእሰ ዓመት፡ 1 መስከረም፡ 11 ሰፕቴምበር",
     "cal.ymore":     "ተወሳኺ ርኣዩ",
     "cal.yless":     "ኣሕጽሩ",
+    "nav.support":   "ደግፉ",
     "epb.contents":  "ትሕዝቶ",
     "epb.history":   "ታሪኽ",
     "epb.sem.n":     "ንኡስን ዓብይን ሰሚናር",
