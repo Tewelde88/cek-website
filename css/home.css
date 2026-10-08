@@ -473,3 +473,7 @@ html[lang="ti"] .nl-seal{font-family:var(--ethiopic);font-weight:400}
 }
 @media (prefers-reduced-motion:reduce){.nl-flap,.nl-paper,.fq-item summary::before,.fq-item summary svg{transition:none}.fq-item[open] .fq-a,.nl.is-sealed .nl-wax-lg{animation:none}}
 .fn-row.is-single{grid-template-columns:minmax(0,560px);justify-content:center}
+
+/* the ribbons hang straight from the harag band under the cover photos */
+.rib-hang{padding:0 0 clamp(36px,6vw,64px)}
+.rib-hang .ribbons{max-width:860px}

@@ -111,9 +111,10 @@
 .hero-harag-top{position:absolute;top:0;left:0;right:0;height:var(--hg-h);z-index:62}
 .sitehead.is-over{top:var(--hg-h)}
 .hero-ms .hero-inner{padding-top:calc(170px + var(--hg-h))}
-.menubar::after{height:var(--hg-h)}
-.menubar.is-stuck::after{height:14px}
-.menubar + *{margin-top:var(--hg-h)}
+.menubar::after{display:none}
+.menubar.is-stuck::after{display:block;height:14px}
+/* the harag band under the cover: its own strip, the ribbons hang from it */
+.hero-harag-bottom{position:relative;z-index:3;height:var(--hg-h);box-shadow:0 3px 6px rgba(31,27,24,.2)}
 /* the date bar at the very top of the page */
 .today-line.is-top{position:relative;z-index:70}
 /* the golden button on the cover */
