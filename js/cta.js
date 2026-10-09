@@ -97,11 +97,15 @@ segs.forEach((s, i) => {
 /* ---------- the one motion: the basket weaves itself in when it comes into view ---------- */
 if ('IntersectionObserver' in window && !still.matches){
   box.classList.add('is-wait');
-  const io = new IntersectionObserver(es => {
-    if (!es.some(e => e.isIntersecting)) return;
-    io.disconnect(); box.classList.remove('is-wait'); box.classList.add('is-woven');
-  }, { threshold: .35 });
-  io.observe(box);
+  const weave = () => { io.disconnect(); window.removeEventListener('scroll', check); box.classList.remove('is-wait'); box.classList.add('is-woven'); };
+  // the basket itself (not the whole tall box) only needs to begin to show
+  const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) weave(); }, { threshold: .1 });
+  const basket = box.querySelector('.ckc-mesob') || box;
+  io.observe(basket);
+  // a safety: if the observer does not answer, weave as soon as the basket is on the screen
+  const check = () => { const r = basket.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0) weave(); };
+  window.addEventListener('scroll', check, { passive: true });
+  setTimeout(check, 1500);
 }
 
 // language switch: the list text changes, so refresh the labels and the open description

@@ -35,7 +35,7 @@
   function loadScript(src){
     return new Promise((ok, fail) => {
       const s = document.createElement('script');
-      s.src = src; s.async = false; s.onload = ok; s.onerror = fail;
+      s.src = src + bust; s.async = false; s.onload = ok; s.onerror = fail;   // fresh scripts after each update, like the data
       document.body.appendChild(s);
     });
   }
