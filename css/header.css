@@ -156,8 +156,8 @@
   .hero-ms h1.verse{font-size:clamp(2.6rem,1.2rem + 3.6vw,4.4rem)}
   .hero-ms .hero-text{font-size:.98rem}
 }
-/* the English name on the cover: the red of the Support button, on a small parchment label so it reads on the photos */
-.sitehead.is-over .brand-en{align-self:flex-start;width:fit-content;color:var(--red) !important;text-shadow:none;background:rgba(251,246,236,.94);padding:1px 10px 2px;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+/* the English name on the cover: in the colour of the parchment */
+.sitehead.is-over .brand-en{color:var(--parch) !important;text-shadow:0 1px 10px rgba(0,0,0,.5)}
 /* footer: "Subscribe" in the red of the Support button */
 .foot-form button{background:var(--red);color:#fff;box-shadow:0 4px 14px rgba(163,34,27,.4)}
 .foot-form button:hover{background:var(--red-dark);color:#fff}

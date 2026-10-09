@@ -619,3 +619,56 @@ html[lang="ti"] .hp-card h3{font-family:var(--ethiopic)}
 
 /* bigger icons on the ribbons */
 .rib svg{width:clamp(38px,5vw,54px);height:clamp(38px,5vw,54px);stroke-width:2}
+
+/* ---------- The Eparchy in numbers — light: parchment, navy, rubric red and gold, like the rest of the site ---------- */
+.st{background:#fbf6ec;color:var(--ink);border:1px solid var(--gold-soft);box-shadow:inset 0 0 0 5px #fbf6ec,inset 0 0 0 6px rgba(193,136,58,.35),0 10px 28px rgba(31,27,24,.07)}
+.st-filter button{border-color:rgba(22,49,94,.3);color:var(--navy);background:#fff}
+.st-filter button:hover{border-color:var(--navy)}
+.st-filter button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.st-filter button:focus-visible,.st-cl:focus-visible,.st-type:focus-visible,.st-legend button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.st-nums{border-color:rgba(193,136,58,.35)}
+.st-nums > div{flex-direction:column;justify-content:flex-start;border-left-color:rgba(193,136,58,.35);padding:16px 14px 14px;border-radius:6px;transition:background-color .2s,box-shadow .2s,opacity .3s}
+.st-nums > div:first-child{padding-left:14px}
+.st-nums dd{order:1}
+.st-nums dt{order:2;color:var(--muted)}
+.st-n{color:var(--navy)}
+.st-ge{color:var(--red)}
+.st-wide{color:var(--muted)}
+.st-nums > div:hover{background:#fff;box-shadow:0 4px 14px rgba(31,27,24,.08)}
+/* the kind buttons (Parishes, Chapels, Sanctuaries) with a coloured mark */
+.st-type{display:inline-flex;align-items:center;gap:8px;padding:0;border:0;background:none;font:inherit;font-size:1rem;font-weight:700;color:var(--ink);cursor:pointer}
+html[lang="ti"] .st-type{font-family:var(--ethiopic);font-weight:400}
+.st-type::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--kc);box-shadow:0 0 0 3px #fbf6ec,0 0 0 4px var(--kc);transition:transform .2s}
+.st-nums [data-k="par"]{--kc:var(--red)} .st-nums [data-k="cha"]{--kc:#2d5191} .st-nums [data-k="san"]{--kc:var(--gold)}
+.st-nums [data-k="san"] .st-type::before{border-radius:0;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);box-shadow:none;width:15px;height:15px}
+.st-type[aria-pressed="true"]::before{transform:scale(1.35)}
+.st-nums > div.is-kind:has(.st-type[aria-pressed="true"]){background:#fff;box-shadow:inset 0 -3px 0 var(--kc),0 4px 14px rgba(31,27,24,.08)}
+.st-go{order:3;margin-top:4px;font-size:.85rem;font-weight:700;color:var(--navy);text-decoration:underline;text-decoration-color:var(--gold-soft);text-underline-offset:3px}
+.st-go:hover{color:var(--red);text-decoration-color:currentColor}
+/* the field of lights on parchment */
+.st-cl:hover{border-color:var(--gold-soft);background:#fff}
+.st-cl[aria-pressed="true"]{border-color:var(--gold);background:#fff}
+.st-ring{stroke:rgba(193,136,58,.5)}
+.st-cl b{color:var(--ink)}
+.st-cl small{color:var(--muted)}
+.st-cl.is-all b{color:var(--red)}
+.lt{transition:transform .2s,opacity .3s}
+.lt-par{fill:var(--red);filter:none}
+.lt-cha{fill:#2d5191;filter:none}
+.lt-san{fill:var(--gold);stroke:#8a5a1c;stroke-width:.4;filter:none}
+.st[data-type] .lt{opacity:.12}
+.st[data-type="par"] .lt-par,.st[data-type="cha"] .lt-cha,.st[data-type="san"] .lt-san{opacity:1}
+.st-foot{border-top-color:rgba(193,136,58,.35)}
+.st-cap{color:var(--muted)}
+.st-cap strong{color:var(--red)}
+.st-cap-go{color:var(--navy);font-weight:700}
+/* the legend: the same buttons */
+.st-legend{color:var(--muted)}
+.st-legend button{display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:0 12px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font:inherit;font-size:.88rem;cursor:pointer}
+.st-legend button:hover{border-color:var(--navy)}
+.st-legend button[aria-pressed="true"]{border-color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy);font-weight:700}
+.lg-par{background:var(--red)}.lg-cha{background:#2d5191}.lg-san{background:var(--gold)}
+@media (max-width:760px){
+  .st-nums > div{border-top-color:rgba(193,136,58,.35)}
+  .st-nums > div:nth-child(even){border-left-color:rgba(193,136,58,.35)}
+}

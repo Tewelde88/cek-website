@@ -47,6 +47,44 @@ function count(k, d){
 
 /* ---------- counters (Arabic and Ge'ez numerals) ---------- */
 const rows = [...box.querySelectorAll('.st-nums > div')];
+/* ---------- the counters and the legend are buttons: one kind lights alone in the field; each counter links to its list ---------- */
+let typ = '', pinned = null;
+const LINKS = { par: 'parishes.html#parishes', cha: 'parishes.html#chapels', san: 'parishes.html#sanctuaries', pri: 'priests.html', ord: 'religious.html' };
+const goText = () => isTi() ? 'ዝርዝር ርኣዩ' : 'See the list';
+function showType(k){ if (k) box.dataset.type = k; else delete box.dataset.type; }
+function setType(k){
+  typ = k; showType(k);
+  box.querySelectorAll('[data-t]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.t === k)));
+}
+function decorate(){
+  rows.forEach(row => {
+    const k = row.dataset.k, dt = row.querySelector('dt');
+    if (TYPE[k] && !dt.querySelector('button')){
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'st-type'; b.dataset.t = k;
+      b.setAttribute('aria-pressed', 'false');
+      if (dt.dataset.i18n){ b.dataset.i18n = dt.dataset.i18n; dt.removeAttribute('data-i18n'); }   // the language switch rewrites the button, not the dt
+      while (dt.firstChild) b.appendChild(dt.firstChild);
+      dt.appendChild(b);
+      b.addEventListener('click', () => setType(typ === k ? '' : k));
+      row.addEventListener('mouseenter', () => { if (!typ) showType(k); });
+      row.addEventListener('mouseleave', () => showType(typ));
+      row.classList.add('is-kind');
+    }
+    let a = row.querySelector('.st-go');
+    if (!a){ a = document.createElement('a'); a.className = 'st-go'; a.href = LINKS[k]; row.appendChild(a); }
+    a.textContent = goText();
+  });
+  box.querySelectorAll('.st-legend li').forEach(li => {
+    const k = (li.querySelector('i').className.match(/lg-(\w+)/) || [])[1];
+    if (!k || li.querySelector('button')) return;
+    const b = document.createElement('button'); b.type = 'button'; b.dataset.t = k; b.setAttribute('aria-pressed', 'false');
+    while (li.firstChild) b.appendChild(li.firstChild);
+    li.appendChild(b);
+    b.addEventListener('click', () => setType(typ === k ? '' : k));
+  });
+}
+decorate();
+
 function paint(row, n){
   row.querySelector('.st-n').textContent = n.toLocaleString('en');
   row.querySelector('.st-ge').textContent = n > 0 && G() ? G().geez(n) : '';
@@ -99,8 +137,8 @@ function build(){
       lt.setAttribute('class', 'lt lt-' + it.t);
       lt.style.animationDelay = (i * 25) + 'ms';
       lt.addEventListener('mouseenter', () => say(it));
-      lt.addEventListener('mouseleave', () => say(null));
-      lt.addEventListener('click', e => { e.stopPropagation(); say(it); });
+      lt.addEventListener('mouseleave', () => say(pinned));
+      lt.addEventListener('click', e => { e.stopPropagation(); pinned = it; say(it); });
       svg.appendChild(lt);
     });
     const name = document.createElement('b');
@@ -120,6 +158,11 @@ function say(it){
   const where = DEANS[it.d] ? ` — ${DEANS[it.d][ti ? 1 : 0]}` : '';
   const s = document.createElement('strong'); s.textContent = tr(it.o, 'name') || T[ti ? 1 : 0];
   cap.replaceChildren(s, ` · ${T[ti ? 1 : 0]}${where}`);
+  if (it === pinned){
+    const a = document.createElement('a'); a.href = LINKS[it.t]; a.className = 'st-cap-go';
+    a.textContent = ti ? 'ኣብ ዝርዝር ርኣዩ' : 'See it in the list';
+    cap.append(' · ', a);
+  }
 }
 
 function mark(){
@@ -143,5 +186,5 @@ if ('IntersectionObserver' in window && !still.matches){
   io.observe(box);
 } else setCounts(false);
 
-document.addEventListener('langchange', () => { build(); setCounts(false); say(null); });
+document.addEventListener('langchange', () => { decorate(); build(); setCounts(false); pinned = null; say(null); });
 })();
