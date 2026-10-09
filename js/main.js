@@ -355,6 +355,10 @@ document.querySelectorAll('[data-open]').forEach(link => {
   const skip = document.querySelector('.skip-link');
   if (skip) skip.after(bar); else document.body.prepend(bar);
   bar.classList.add('is-top');
+  // the cover (Home) is as tall as the screen less this date bar, so the harag band under it shows at first glance
+  const topH = () => document.documentElement.style.setProperty('--tl-h', bar.offsetHeight + 'px');
+  topH(); window.addEventListener('resize', topH);
+  if ('ResizeObserver' in window) new ResizeObserver(topH).observe(bar);       // its text and fonts arrive a moment later
   function render(){
     const ti = document.documentElement.lang === 'ti', et = jdnToEt(todayJ), wd = (todayJ + 1) % 7;
     const ge = bar.querySelector('.today-ge'); ge.replaceChildren();
